@@ -1,0 +1,273 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:meat_food",
+            "data": 5
+        },
+        "title": {
+            "translate": "advancements.mist.gourmet"
+        },
+        "description": {
+            "translate": "advancements.mist.gourmet.desc"
+        },
+        "frame": "challenge"
+    },
+    "parent": "mist:story/first_breath",
+    "rewards": {
+        "experience": 50
+    },
+    "criteria": {
+        "_0": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_food",
+                    "data": 0
+                }
+            }
+        },
+        "_1": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_food",
+                    "data": 1
+                }
+            }
+        },
+        "_2": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_food",
+                    "data": 2
+                }
+            }
+        },
+        "_3": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_food",
+                    "data": 3
+                }
+            }
+        },
+        "_4": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_food",
+                    "data": 4
+                }
+            }
+        },
+        "_5": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_food",
+                    "data": 5
+                }
+            }
+        },
+        "_6": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_food",
+                    "data": 6
+                }
+            }
+        },
+        "_7": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_food",
+                    "data": 7
+                }
+            }
+        },
+        "_8": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_food",
+                    "data": 8
+                }
+            }
+        },
+        "_9": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_food",
+                    "data": 9
+                }
+            }
+        },
+        "_10": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_food",
+                    "data": 10
+                }
+            }
+        },
+        "_11": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_food",
+                    "data": 11
+                }
+            }
+        },
+        "_12": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_food",
+                    "data": 12
+                }
+            }
+        },
+        "_13": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_food",
+                    "data": 13
+                }
+            }
+        },
+        "_0_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_cook",
+                    "data": 0
+                }
+            }
+        },
+        "_1_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_cook",
+                    "data": 1
+                }
+            }
+        },
+        "_2_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_cook",
+                    "data": 2
+                }
+            }
+        },
+        "_3_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_cook",
+                    "data": 3
+                }
+            }
+        },
+        "_4_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_cook",
+                    "data": 4
+                }
+            }
+        },
+        "_5_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_cook",
+                    "data": 5
+                }
+            }
+        },
+        "_6_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_cook",
+                    "data": 6
+                }
+            }
+        },
+        "_7_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_cook",
+                    "data": 7
+                }
+            }
+        },
+        "_8_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_cook",
+                    "data": 8
+                }
+            }
+        },
+        "_9_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_cook",
+                    "data": 9
+                }
+            }
+        },
+        "_10_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_cook",
+                    "data": 10
+                }
+            }
+        },
+        "_11_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_cook",
+                    "data": 11
+                }
+            }
+        },
+        "_12_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_cook",
+                    "data": 12
+                }
+            }
+        },
+        "_13_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:meat_cook",
+                    "data": 13
+                }
+            }
+        }
+    }
+}

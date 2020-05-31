@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "mist:blocks/acacia_planks",
+        "side": "mist:blocks/acacia_planks_rot"
+    }
+}

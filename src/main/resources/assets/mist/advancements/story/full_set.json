@@ -1,0 +1,33 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:portal_base",
+            "data": 2
+        },
+        "title": {
+            "translate": "advancements.mist.full_set"
+        },
+        "description": {
+            "translate": "advancements.mist.full_set.desc"
+        },
+        "frame": "goal"
+    },
+    "parent": "mist:story/start",
+    "criteria": {
+        "full_set": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:portal_base",
+                        "data": 2
+                    },
+                    {
+                        "item": "mist:portal_base",
+                        "data": 3
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "XX",
+        "XX"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:clay_ball",
+            "data": 0
+        }
+    },
+    "result": {
+        "item": "mist:clay",
+        "data": 0
+    }
+}

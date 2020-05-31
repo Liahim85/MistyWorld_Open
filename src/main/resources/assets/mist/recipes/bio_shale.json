@@ -1,0 +1,13 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "mist:bio_shale_block",
+            "data": 0
+        }
+    ],
+    "result": {
+        "item": "mist:bio_shale",
+        "count": 9
+    }
+}

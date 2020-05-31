@@ -1,0 +1,471 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:mushrooms_food",
+            "data": 16
+        },
+        "title": {
+            "translate": "advancements.mist.mushroomer"
+        },
+        "description": {
+            "translate": "advancements.mist.mushroomer.desc"
+        },
+        "frame": "challenge"
+    },
+    "parent": "mist:story/first_breath",
+    "rewards": {
+        "experience": 100
+    },
+    "criteria": {
+        "0_0": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 0
+                }
+            }
+        },
+        "0_1": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 1
+                }
+            }
+        },
+        "0_2": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 2
+                }
+            }
+        },
+        "0_3": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 3
+                }
+            }
+        },
+        "0_4": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 4
+                }
+            }
+        },
+        "0_5": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 5
+                }
+            }
+        },
+        "0_6": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 6
+                }
+            }
+        },
+        "0_7": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 7
+                }
+            }
+        },
+        "0_8": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 8
+                }
+            }
+        },
+        "0_9": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 9
+                }
+            }
+        },
+        "0_10": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 10
+                }
+            }
+        },
+        "0_11": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 11
+                }
+            }
+        },
+        "0_12": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 12
+                }
+            }
+        },
+        "1_0": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 16
+                }
+            }
+        },
+        "1_1": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 17
+                }
+            }
+        },
+        "1_2": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 18
+                }
+            }
+        },
+        "1_3": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 19
+                }
+            }
+        },
+        "1_4": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 20
+                }
+            }
+        },
+        "1_5": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 21
+                }
+            }
+        },
+        "1_6": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 22
+                }
+            }
+        },
+        "1_7": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 23
+                }
+            }
+        },
+        "1_8": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 24
+                }
+            }
+        },
+        "1_9": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 25
+                }
+            }
+        },
+        "1_10": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 26
+                }
+            }
+        },
+        "1_11": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_food",
+                    "data": 27
+                }
+            }
+        },
+        "0_0_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 0
+                }
+            }
+        },
+        "0_1_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 1
+                }
+            }
+        },
+        "0_2_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 2
+                }
+            }
+        },
+        "0_3_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 3
+                }
+            }
+        },
+        "0_4_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 4
+                }
+            }
+        },
+        "0_5_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 5
+                }
+            }
+        },
+        "0_6_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 6
+                }
+            }
+        },
+        "0_7_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 7
+                }
+            }
+        },
+        "0_8_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 8
+                }
+            }
+        },
+        "0_9_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 9
+                }
+            }
+        },
+        "0_10_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 10
+                }
+            }
+        },
+        "0_11_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 11
+                }
+            }
+        },
+        "0_12_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 12
+                }
+            }
+        },
+        "1_0_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 16
+                }
+            }
+        },
+        "1_1_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 17
+                }
+            }
+        },
+        "1_2_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 18
+                }
+            }
+        },
+        "1_3_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 19
+                }
+            }
+        },
+        "1_4_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 20
+                }
+            }
+        },
+        "1_5_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 21
+                }
+            }
+        },
+        "1_6_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 22
+                }
+            }
+        },
+        "1_7_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 23
+                }
+            }
+        },
+        "1_8_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 24
+                }
+            }
+        },
+        "1_9_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 25
+                }
+            }
+        },
+        "1_10_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 26
+                }
+            }
+        },
+        "1_11_c": {
+            "trigger": "consume_item",
+            "conditions": {
+                "item": {
+                    "item": "mist:mushrooms_cook",
+                    "data": 27
+                }
+            }
+        }
+    }
+}

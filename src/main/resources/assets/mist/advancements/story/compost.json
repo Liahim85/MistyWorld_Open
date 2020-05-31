@@ -1,0 +1,20 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:compost"
+        },
+        "title": {
+            "translate": "advancements.mist.compost"
+        },
+        "description": {
+            "translate": "advancements.mist.compost.desc"
+        }
+    },
+    "parent": "mist:story/first_breath",
+    "criteria": {
+        "compost": {
+            "trigger": "mist:compost",
+            "conditions": {}
+        }
+    }
+}

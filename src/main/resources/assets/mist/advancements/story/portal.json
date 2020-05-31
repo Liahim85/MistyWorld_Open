@@ -1,0 +1,22 @@
+{
+    "display": {
+        "icon": {
+            "item": "minecraft:gold_block"
+        },
+        "title": {
+            "translate": "advancements.mist.portal"
+        },
+        "description": {
+            "translate": "advancements.mist.portal.desc"
+        }
+    },
+    "parent": "mist:story/full_set",
+    "criteria": {
+        "portal": {
+            "trigger": "mist:open_portal",
+            "conditions": {
+                "portal": "dimension"
+            }
+        }
+    }
+}

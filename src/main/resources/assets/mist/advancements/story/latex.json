@@ -1,0 +1,22 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:latex"
+        },
+        "title": {
+            "translate": "advancements.mist.latex"
+        },
+        "description": {
+            "translate": "advancements.mist.latex.desc"
+        }
+    },
+    "parent": "mist:story/rubber_tree",
+    "criteria": {
+        "latex": {
+            "trigger": "mist:latex",
+            "conditions": {
+                "item": "mist:latex"
+            }
+        }
+    }
+}

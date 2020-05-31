@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "wet=true":  { "model": "mist:acid_dirt_2_wet" },
+        "wet=false": { "model": "mist:acid_dirt_2_dry" }
+    }
+}

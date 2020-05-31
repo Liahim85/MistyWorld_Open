@@ -1,0 +1,28 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:achiev_item",
+            "data": 2
+        },
+        "title": {
+            "translate": "advancements.mist.right_choice"
+        },
+        "description": {
+            "translate": "advancements.mist.right_choice.desc"
+        },
+        "frame": "challenge"
+    },
+    "parent": "mist:story/first_breath",
+    "rewards": {
+        "experience": 20
+    },
+    "criteria": {
+        "right_choice": {
+            "trigger": "mist:open_portal",
+            "conditions": {
+                "dimension": "misty_world",
+                "portal": "in_void"
+            }
+        }
+    }
+}

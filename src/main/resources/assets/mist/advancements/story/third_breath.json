@@ -1,0 +1,29 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:achiev_item",
+            "data": 4
+        },
+        "title": {
+            "translate": "advancements.mist.third_breath"
+        },
+        "description": {
+            "translate": "advancements.mist.third_breath.desc"
+        }
+    },
+    "parent": "mist:story/mask_full",
+    "criteria": {
+        "third_breath": {
+            "trigger": "mist:fog_damage",
+            "conditions": {
+                "location": {
+                    "dimension": "misty_world"
+                },
+                "damage": {
+                    "type": "by_fog",
+                    "mask": true
+                }
+            }
+        }
+    }
+}

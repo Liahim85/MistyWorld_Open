@@ -1,0 +1,19 @@
+{
+    "textures": {
+        "particle": "mist:blocks/mulch",
+        "mulch": "mist:blocks/mulch"
+    },
+    "elements": [
+        {   "from": [ 0, 15, 0 ],
+            "to": [ 16, 16, 16 ],
+            "shade": false,
+            "faces": {
+                "north": { "uv": [ 0, 0, 16,  1 ], "texture": "#mulch" },
+                "south": { "uv": [ 0, 0, 16,  1 ], "texture": "#mulch" },
+                "west":  { "uv": [ 0, 0, 16,  1 ], "texture": "#mulch" },
+                "east":  { "uv": [ 0, 0, 16,  1 ], "texture": "#mulch" },
+                "up":    { "uv": [ 0, 0, 16, 16 ], "texture": "#mulch", "cullface": "up" }
+            }
+        }
+    ]
+}

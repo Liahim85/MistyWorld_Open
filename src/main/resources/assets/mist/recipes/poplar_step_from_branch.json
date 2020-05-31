@@ -1,0 +1,19 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "group": "wood_step",
+    "ingredients": [
+        [
+            {
+                "item": "mist:poplar_branch",
+                "data": 6
+            },
+            {
+                "item": "mist:poplar_branch",
+                "data": 9
+            }
+        ]
+    ],
+    "result": {
+        "item": "mist:poplar_step"
+    }
+}

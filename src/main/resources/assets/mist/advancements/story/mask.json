@@ -1,0 +1,48 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:respirator_single"
+        },
+        "title": {
+            "translate": "advancements.mist.mask"
+        },
+        "description": {
+            "translate": "advancements.mist.mask.desc"
+        }
+    },
+    "parent": "mist:story/niobium",
+    "criteria": {
+        "mask": {
+            "trigger": "mist:item_crafted",
+            "conditions": {
+                "item": "mist:respirator_single"
+            }
+        },
+        "mask_open": {
+            "trigger": "mist:item_crafted",
+            "conditions": {
+                "item": "mist:respirator_single_open"
+            }
+        },
+        "mask_rubber": {
+            "trigger": "mist:item_crafted",
+            "conditions": {
+                "item": "mist:respirator_rubber_open"
+            }
+        },
+        "mask_rubber_open": {
+            "trigger": "mist:item_crafted",
+            "conditions": {
+                "item": "mist:respirator_rubber_open"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "mask",
+            "mask_open",
+            "mask_rubber",
+            "mask_rubber_open"
+        ]
+    ]
+}

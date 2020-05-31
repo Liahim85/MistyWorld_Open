@@ -1,0 +1,6 @@
+{
+    "parent": "block/tinted_cross",
+    "textures": {
+        "cross": "mist:blocks/desert_cotton_down_1"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "cube_all",
+        "textures": { "all": "mist:blocks/salt_ore" }
+    },
+    "variants": {
+        "normal": [{}]
+    }
+}

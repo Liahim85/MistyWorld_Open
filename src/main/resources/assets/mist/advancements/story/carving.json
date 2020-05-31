@@ -1,0 +1,21 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:oak_block",
+            "data": 4
+        },
+        "title": {
+            "translate": "advancements.mist.carving"
+        },
+        "description": {
+            "translate": "advancements.mist.carving.desc"
+        }
+    },
+    "parent": "mist:story/first_breath",
+    "criteria": {
+        "carving": {
+            "trigger": "mist:carving",
+            "conditions": {}
+        }
+    }
+}

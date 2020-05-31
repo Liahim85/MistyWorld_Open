@@ -1,0 +1,33 @@
+{
+    "parent": "mist:recipes/root",
+    "rewards": {
+        "recipes": [
+            "mist:spruce_step_from_planks"
+        ]
+    },
+    "criteria": {
+        "has_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:spruce_block",
+                        "data": 13
+                    }
+                ]
+            }
+        },
+        "has_the_recipes": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:spruce_step_from_planks"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_item",
+            "has_the_recipes"
+        ]
+    ]
+}

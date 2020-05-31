@@ -1,0 +1,25 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:achiev_item",
+            "data": 7
+        },
+        "title": {
+            "translate": "advancements.mist.pollution"
+        },
+        "description": {
+            "translate": "advancements.mist.pollution.desc"
+        }
+    },
+    "parent": "mist:story/rain",
+    "criteria": {
+        "pollution": {
+            "trigger": "mist:fog_effect",
+            "conditions": {
+                "pollution": {
+                    "min": 1000
+                }
+            }
+        }
+    }
+}

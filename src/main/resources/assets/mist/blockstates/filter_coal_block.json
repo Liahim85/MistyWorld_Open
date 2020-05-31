@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "pollute=0": { "model": "mist:filter_coal_block_0" },
+        "pollute=1": { "model": "mist:filter_coal_block_0" },
+        "pollute=2": { "model": "mist:filter_coal_block_0" },
+        "pollute=3": { "model": "mist:filter_coal_block_0" },
+        "pollute=4": { "model": "mist:filter_coal_block_1" },
+        "pollute=5": { "model": "mist:filter_coal_block_1" },
+        "pollute=6": { "model": "mist:filter_coal_block_1" },
+        "pollute=7": { "model": "mist:filter_coal_block_1" },
+        "pollute=8": { "model": "mist:filter_coal_block_2" },
+        "pollute=9": { "model": "mist:filter_coal_block_2" },
+        "pollute=10": { "model": "mist:filter_coal_block_2" },
+        "pollute=11": { "model": "mist:filter_coal_block_2" },
+        "pollute=12": { "model": "mist:filter_coal_block_3" },
+        "pollute=13": { "model": "mist:filter_coal_block_3" },
+        "pollute=14": { "model": "mist:filter_coal_block_3" },
+        "pollute=15": { "model": "mist:filter_coal_block_3" }
+    }
+}

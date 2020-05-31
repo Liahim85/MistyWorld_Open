@@ -1,0 +1,20 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:mulch"
+        },
+        "title": {
+            "translate": "advancements.mist.mulch"
+        },
+        "description": {
+            "translate": "advancements.mist.mulch.desc"
+        }
+    },
+    "parent": "mist:story/carving",
+    "criteria": {
+        "mulch": {
+            "trigger": "mist:mulch_placed",
+            "conditions": {}
+        }
+    }
+}

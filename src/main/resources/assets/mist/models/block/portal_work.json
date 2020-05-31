@@ -1,0 +1,17 @@
+{
+    "textures": {
+        "particle": "mist:blocks/portal_work",
+        "side": "mist:blocks/portal_work"
+    },
+    "elements": [
+        {   "from": [ 0, 5, 0 ],
+            "to":   [ 16, 16, 16 ],
+            "faces": {
+                "north": { "uv": [ 0, 0, 16, 11 ], "texture": "#side", "cullface": "north" },
+                "south": { "uv": [ 0, 0, 16, 11 ], "texture": "#side", "cullface": "south" },
+                "west":  { "uv": [ 0, 0, 16, 11 ], "texture": "#side", "cullface": "west" },
+                "east":  { "uv": [ 0, 0, 16, 11 ], "texture": "#side", "cullface": "east" }
+            }
+        }
+    ]
+}

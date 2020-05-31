@@ -1,0 +1,13 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "mist:sulfur_block",
+            "data": 0
+        }
+    ],
+    "result": {
+        "item": "mist:sulfur",
+        "count": 9
+    }
+}

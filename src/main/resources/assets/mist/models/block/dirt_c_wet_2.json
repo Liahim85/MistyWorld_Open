@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "mist:blocks/dirt_c_w_2"
+    }
+}

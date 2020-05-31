@@ -1,0 +1,64 @@
+{
+    "variants": {
+        "soil=f,wet=true": [ 
+            { "model": "mist:mycelium_f_wet" },
+            { "model": "mist:mycelium_f_wet", "y": 90 },
+            { "model": "mist:mycelium_f_wet", "y": 180 },
+            { "model": "mist:mycelium_f_wet", "y": 270 }
+        ],
+        "soil=f,wet=false": [ 
+            { "model": "mist:mycelium_f_dry" },
+            { "model": "mist:mycelium_f_dry", "y": 90 },
+            { "model": "mist:mycelium_f_dry", "y": 180 },
+            { "model": "mist:mycelium_f_dry", "y": 270 }
+        ],
+        "soil=c,wet=true": [ 
+            { "model": "mist:mycelium_c_wet" },
+            { "model": "mist:mycelium_c_wet", "y": 90 },
+            { "model": "mist:mycelium_c_wet", "y": 180 },
+            { "model": "mist:mycelium_c_wet", "y": 270 }
+        ],
+        "soil=c,wet=false": [ 
+            { "model": "mist:mycelium_c_dry" },
+            { "model": "mist:mycelium_c_dry", "y": 90 },
+            { "model": "mist:mycelium_c_dry", "y": 180 },
+            { "model": "mist:mycelium_c_dry", "y": 270 }
+        ],
+        "soil=s,wet=true": [ 
+            { "model": "mist:mycelium_s_wet" },
+            { "model": "mist:mycelium_s_wet", "y": 90 },
+            { "model": "mist:mycelium_s_wet", "y": 180 },
+            { "model": "mist:mycelium_s_wet", "y": 270 }
+        ],
+        "soil=s,wet=false": [ 
+            { "model": "mist:mycelium_s_dry" },
+            { "model": "mist:mycelium_s_dry", "y": 90 },
+            { "model": "mist:mycelium_s_dry", "y": 180 },
+            { "model": "mist:mycelium_s_dry", "y": 270 }
+        ],
+        "soil=r,wet=true": [ 
+            { "model": "mist:mycelium_r_wet" },
+            { "model": "mist:mycelium_r_wet", "y": 90 },
+            { "model": "mist:mycelium_r_wet", "y": 180 },
+            { "model": "mist:mycelium_r_wet", "y": 270 }
+        ],
+        "soil=r,wet=false": [ 
+            { "model": "mist:mycelium_r_dry" },
+            { "model": "mist:mycelium_r_dry", "y": 90 },
+            { "model": "mist:mycelium_r_dry", "y": 180 },
+            { "model": "mist:mycelium_r_dry", "y": 270 }
+        ],
+        "soil=t,wet=true": [ 
+            { "model": "mist:mycelium_t_wet" },
+            { "model": "mist:mycelium_t_wet", "y": 90 },
+            { "model": "mist:mycelium_t_wet", "y": 180 },
+            { "model": "mist:mycelium_t_wet", "y": 270 }
+        ],
+        "soil=t,wet=false": [ 
+            { "model": "mist:mycelium_t_dry" },
+            { "model": "mist:mycelium_t_dry", "y": 90 },
+            { "model": "mist:mycelium_t_dry", "y": 180 },
+            { "model": "mist:mycelium_t_dry", "y": 270 }
+        ]
+    }
+}

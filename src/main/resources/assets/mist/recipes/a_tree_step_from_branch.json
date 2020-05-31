@@ -1,0 +1,19 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "group": "wood_step",
+    "ingredients": [
+        [
+            {
+                "item": "mist:a_tree_branch",
+                "data": 6
+            },
+            {
+                "item": "mist:a_tree_branch",
+                "data": 9
+            }
+        ]
+    ],
+    "result": {
+        "item": "mist:a_tree_step"
+    }
+}

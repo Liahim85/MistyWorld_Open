@@ -1,0 +1,88 @@
+{
+    "parent": "mist:recipes/root",
+    "rewards": {
+        "recipes": [
+            "mist:latex_pot_from_iron",
+            "mist:latex_pot_from_niobium"
+        ]
+    },
+    "criteria": {
+        "has_item_1": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:r_tree_branch",
+                        "data": 0
+                    }
+                ]
+            }
+        },
+        "has_item_2": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:r_tree_branch",
+                        "data": 6
+                    }
+                ]
+            }
+        },
+        "has_item_3": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:r_tree_block",
+                        "data": 0
+                    }
+                ]
+            }
+        },
+        "has_item_4": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:r_tree_block",
+                        "data": 7
+                    }
+                ]
+            }
+        },
+        "has_item_5": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:latex_pot"
+                    }
+                ]
+            }
+        },
+        "has_the_recipes_1": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:latex_pot_from_iron"
+            }
+        },
+        "has_the_recipes_2": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:latex_pot_from_niobium"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_item_1",
+            "has_item_2",
+            "has_item_3",
+            "has_item_4",
+            "has_item_5",
+            "has_the_recipes_1",
+            "has_the_recipes_2"
+        ]
+    ]
+}

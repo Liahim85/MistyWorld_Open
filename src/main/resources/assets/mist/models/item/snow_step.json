@@ -1,0 +1,8 @@
+{
+    "parent": "mist:block/step",
+    "textures": {
+        "bottom": "mist:blocks/snow_planks",
+        "top": "mist:blocks/snow_planks",
+        "side": "mist:blocks/snow_planks"
+    }
+}

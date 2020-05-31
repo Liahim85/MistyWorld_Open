@@ -1,0 +1,49 @@
+{
+    "parent": "mist:recipes/root",
+    "rewards": {
+        "recipes": [
+            "mist:pine_slab",
+            "mist:pine_stairs",
+            "mist:pine_planks_from_step"
+        ]
+    },
+    "criteria": {
+        "has_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:pine_step",
+                        "data": 0
+                    }
+                ]
+            }
+        },
+        "has_the_recipes_1": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:pine_slab"
+            }
+        },
+        "has_the_recipes_2": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:pine_stairs"
+            }
+        },
+        "has_the_recipes_3": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:pine_planks_from_step"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_item",
+            "has_the_recipes_1",
+            "has_the_recipes_2",
+            "has_the_recipes_3"
+        ]
+    ]
+}

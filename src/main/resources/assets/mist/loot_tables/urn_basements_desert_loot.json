@@ -1,0 +1,71 @@
+{
+   "pools": [
+      {
+         "name": "basement_desert",
+         "rolls": {
+            "min": 0,
+            "max": 2
+         },
+         "entries": [
+            {
+               "type": "item",
+               "name": "mist:desert_cotton_seed",
+               "weight": 10,
+               "functions": [
+                  {
+                     "function": "set_count",
+                     "count": {
+                        "min": 1,
+                        "max": 2
+                     }
+                  },
+                  {
+                     "function": "set_data",
+                     "data": {
+                        "min": 0,
+                        "max": 1
+                     }
+                  }
+               ]
+            },
+            {
+               "type": "item",
+               "name": "mist:tree_seed",
+               "weight": 10,
+               "functions": [
+                  {
+                     "function": "set_count",
+                     "count": {
+                        "min": 1,
+                        "max": 2
+                     }
+                  },
+                  {
+                     "function": "mist:set_array_data",
+                     "data": [0, 2]
+                  }
+               ]
+            },
+            {
+               "type": "item",
+               "name": "mist:swim_bladder",
+               "weight": 5
+            },
+            {
+                "type": "empty",
+                "weight": 50
+            }
+         ]
+      },
+      {
+         "name": "basement_main",
+         "rolls": 1,
+         "entries": [
+            {
+                "type": "loot_table",
+                "name": "mist:urn_basements"
+            }
+         ]
+      }
+   ]
+}

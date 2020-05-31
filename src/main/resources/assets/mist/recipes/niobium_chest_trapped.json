@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "XXX",
+        "XRX",
+        "XXX"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:niobium_ingot"
+        },
+        "R": {
+            "type": "forge:ore_dict",
+            "ore": "dustRedstone"
+        }
+    },
+    "result": {
+        "item": "mist:niobium_chest_trapped",
+        "data": 0
+    }
+}

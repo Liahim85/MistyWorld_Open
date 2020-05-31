@@ -1,0 +1,317 @@
+{
+   "pools": [
+      {
+         "name": "urn_riches_0",
+         "rolls": {
+            "min": 1,
+            "max": 2
+         },
+         "bonus_rolls": {
+            "min": 0,
+            "max": 4
+         },
+         "entries": [
+            {
+               "type": "item",
+               "name": "minecraft:iron_nugget",
+               "weight": 15,
+               "functions": [
+                  {
+                     "function": "set_count",
+                     "count": {
+                        "min": 1,
+                        "max": 5
+                     }
+                  }
+               ]
+            },
+            {
+               "type": "item",
+               "name": "mist:niobium_nugget",
+               "weight": 10,
+               "functions": [
+                  {
+                     "function": "set_count",
+                     "count": {
+                        "min": 1,
+                        "max": 5
+                     }
+                  }
+               ]
+            },
+            {
+               "type": "item",
+               "name": "minecraft:gold_nugget",
+               "weight": 10,
+               "functions": [
+                  {
+                     "function": "set_count",
+                     "count": {
+                        "min": 1,
+                        "max": 5
+                     }
+                  }
+               ]
+            },
+            {
+               "type": "item",
+               "name": "minecraft:iron_ingot",
+               "weight": 10,
+               "functions": [
+                  {
+                     "function": "set_count",
+                     "count": {
+                        "min": 1,
+                        "max": 2
+                     }
+                  }
+               ]
+            },
+            {
+               "type": "item",
+               "name": "mist:niobium_ingot",
+               "weight": 5,
+               "functions": [
+                  {
+                     "function": "set_count",
+                     "count": {
+                        "min": 1,
+                        "max": 2
+                     }
+                  }
+               ]
+            },
+            {
+               "type": "item",
+               "name": "minecraft:gold_ingot",
+               "weight": 5,
+               "functions": [
+                  {
+                     "function": "set_count",
+                     "count": {
+                        "min": 1,
+                        "max": 2
+                     }
+                  }
+               ]
+            },
+            {
+               "type": "item",
+               "name": "minecraft:dye",
+               "weight": 15,
+               "functions": [
+                  {
+                     "function": "set_count",
+                     "count": {
+                        "min": 1,
+                        "max": 4
+                     }
+                  },
+                  {
+                     "function": "set_data",
+                     "data": 4
+                  }
+               ]
+            },
+            {
+               "type": "item",
+               "name": "mist:saltpeter",
+               "weight": 10,
+               "functions": [
+                  {
+                     "function": "set_count",
+                     "count": {
+                        "min": 1,
+                        "max": 4
+                     }
+                  }
+               ]
+            },
+            {
+               "type": "item",
+               "name": "mist:sulfur",
+               "weight": 10,
+               "functions": [
+                  {
+                     "function": "set_count",
+                     "count": {
+                        "min": 1,
+                        "max": 4
+                     }
+                  }
+               ]
+            },
+            {
+               "type": "item",
+               "name": "minecraft:leather",
+               "weight": 10,
+               "functions": [
+                  {
+                     "function": "set_count",
+                     "count": {
+                        "min": 1,
+                        "max": 2
+                     }
+                  }
+               ]
+            },
+            {
+               "type": "item",
+               "name": "minecraft:arrow",
+               "weight": 10,
+               "functions": [
+                  {
+                     "function": "set_count",
+                     "count": {
+                        "min": 1,
+                        "max": 5
+                     }
+                  }
+               ]
+            },
+            {
+               "type": "item",
+               "name": "mist:wing",
+               "weight": 5,
+               "functions": [
+                  {
+                     "function": "set_count",
+                     "count": {
+                        "min": 1,
+                        "max": 5
+                     }
+                  }
+               ]
+            },
+            {
+                "type": "empty",
+                "weight": 20
+            }
+         ]
+      },
+      {
+         "name": "urn_riches_1",
+         "rolls": 1,
+         "entries": [
+            {
+               "type": "item",
+               "name": "minecraft:bowl",
+               "weight": 10
+            },
+            {
+               "type": "item",
+               "name": "minecraft:glass_bottle",
+               "weight": 10,
+               "functions": [
+                  {
+                     "function": "set_count",
+                     "count": {
+                        "min": 1,
+                        "max": 2
+                     }
+                  }
+               ]
+            },
+            {
+               "type": "item",
+               "name": "minecraft:shears",
+               "weight": 5,
+               "functions": [
+                  {
+                     "function": "set_damage",
+                     "damage": {
+                        "min": 0.1,
+                        "max": 1.0
+                     }
+                  }
+               ]
+            },
+            {
+               "type": "item",
+               "name": "minecraft:saddle",
+               "weight": 5
+            },
+            {
+               "type": "item",
+               "name": "mist:hygrometer",
+               "weight": 2
+            },
+            {
+               "type": "item",
+               "name": "mist:flint_and_stone",
+               "weight": 2,
+               "functions": [
+                  {
+                     "function": "set_damage",
+                     "damage": {
+                        "min": 0.1,
+                        "max": 1.0
+                     }
+                  }
+               ]
+            },
+            {
+               "type": "item",
+               "name": "minecraft:flint_and_steel",
+               "weight": 2,
+               "functions": [
+                  {
+                     "function": "set_damage",
+                     "damage": {
+                        "min": 0.1,
+                        "max": 1.0
+                     }
+                  }
+               ]
+            },
+            {
+               "type": "item",
+               "name": "minecraft:compass",
+               "weight": 2
+            },
+            {
+               "type": "item",
+               "name": "minecraft:clock",
+               "weight": 2
+            },
+            {
+               "type": "item",
+               "name": "minecraft:name_tag",
+               "weight": 10
+            },
+            {
+               "type": "item",
+               "name": "mist:filter_coal",
+               "weight": 3,
+               "functions": [
+                  {
+                     "function": "set_damage",
+                     "damage": {
+                        "min": 0.2,
+                        "max": 1.0
+                     }
+                  }
+               ]
+            },
+            {
+               "type": "item",
+               "name": "mist:respirator_single",
+               "weight": 2,
+               "functions": [
+                  {
+                     "function": "set_damage",
+                     "damage": {
+                        "min": 0.1,
+                        "max": 1.0
+                     }
+                  }
+               ]
+            },
+            {
+                "type": "empty",
+                "weight": 50
+            }
+         ]
+      }
+   ]
+}

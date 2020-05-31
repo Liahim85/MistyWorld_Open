@@ -1,0 +1,116 @@
+{
+   "pools": [
+        {
+            "name": "tallow_1",
+            "conditions": [
+                {
+                    "condition": "mist:skill_cutting",
+                    "value": 1
+                }
+            ],
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "mist:tallow",
+                    "weight": 1
+                },
+                {
+                    "type": "empty",
+                    "weight": 3
+                }
+            ]
+        },
+        {
+            "name": "tallow_2",
+            "conditions": [
+                {
+                    "condition": "mist:skill_cutting",
+                    "value": 2
+                }
+            ],
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "mist:tallow",
+                    "weight": 2,
+                    "functions": [
+                        {
+                            "function": "looting_enchant",
+                            "count": {
+                                "min": 0,
+                                "max": 1
+                            },
+                            "limit": 2
+                        }
+                    ]
+                },
+                {
+                    "type": "empty",
+                    "weight": 1
+                }
+            ]
+        },
+        {
+            "name": "tallow_3",
+            "conditions": [
+                {
+                    "condition": "mist:skill_cutting",
+                    "value": 3
+                }
+            ],
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "mist:tallow",
+                    "functions": [
+                        {
+                            "function": "looting_enchant",
+                            "count": {
+                                "min": 0,
+                                "max": 1
+                            },
+                            "limit": 2
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "tallow_4",
+            "conditions": [
+                {
+                    "condition": "mist:skill_cutting",
+                    "value": 4,
+                    "equal": false
+                }
+            ],
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "mist:tallow",
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 2
+                            }
+                        },
+                        {
+                            "function": "looting_enchant",
+                            "count": {
+                                "min": 0,
+                                "max": 1
+                            },
+                            "limit": 3
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "XXX",
+        "X X",
+        "XXX"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:rocks"
+        }
+    },
+    "result": {
+        "item": "mist:furnace",
+        "data": 0
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "isnew=true,isup=false": { "model": "mist:portal_base_new_down" },
+        "isnew=true,isup=true": { "model": "mist:portal_base_new_up" },
+        "isnew=false,isup=false": { "model": "mist:portal_base_old_down" },
+        "isnew=false,isup=true": { "model": "mist:portal_base_old_up" }
+    }
+}

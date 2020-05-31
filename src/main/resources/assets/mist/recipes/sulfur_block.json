@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "XXX",
+        "XXX",
+        "XXX"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:sulfur"
+        }
+    },
+    "result": {
+        "item": "mist:sulfur_block",
+        "data": 0
+    }
+}

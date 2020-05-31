@@ -1,0 +1,153 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:painting",
+            "data": 3
+        },
+        "title": {
+            "translate": "advancements.mist.art_critic"
+        },
+        "description": {
+            "translate": "advancements.mist.art_critic.desc"
+        },
+        "frame": "challenge"
+    },
+    "parent": "mist:story/first_breath",
+    "rewards": {
+        "experience": 250
+    },
+    "criteria": {
+        "_0": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items":[
+                    {
+                        "item": "mist:painting",
+                        "data": 0
+                    }
+                ]
+            }
+        },
+        "_1": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:painting",
+                        "data": 1
+                    }
+                ]
+            }
+        },
+        "_2": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:painting",
+                        "data": 2
+                    }
+                ]
+            }
+        },
+        "_3": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:painting",
+                        "data": 3
+                    }
+                ]
+            }
+        },
+        "_4": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:painting",
+                        "data": 4
+                    }
+                ]
+            }
+        },
+        "_5": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:painting",
+                        "data": 5
+                    }
+                ]
+            }
+        },
+        "_6": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:painting",
+                        "data": 6
+                    }
+                ]
+            }
+        },
+        "_7": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:painting",
+                        "data": 7
+                    }
+                ]
+            }
+        },
+        "_8": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:painting",
+                        "data": 8
+                    }
+                ]
+            }
+        },
+        "_9": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:painting",
+                        "data": 9
+                    }
+                ]
+            }
+        },
+        "_10": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:painting",
+                        "data": 10
+                    }
+                ]
+            }
+        },
+        "_11": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:painting",
+                        "data": 11
+                    }
+                ]
+            }
+        }
+    }
+}

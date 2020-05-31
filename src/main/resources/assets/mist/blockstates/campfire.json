@@ -1,0 +1,156 @@
+{
+    "multipart": [
+        {   "when":  { "stage": "0", "facing": "north" },
+            "apply": { "model": "mist:campfire_0" }
+        },
+        {   "when":  { "stage": "0", "facing": "east" },
+            "apply": { "model": "mist:campfire_0", "y": 90 }
+        },
+        {   "when":  { "stage": "0", "facing": "south" },
+            "apply": { "model": "mist:campfire_0", "y": 180 }
+        },
+        {   "when":  { "stage": "0", "facing": "west" },
+            "apply": { "model": "mist:campfire_0", "y": 270 }
+        },
+        {   "when":  { "stage": "1", "facing": "north" },
+            "apply": { "model": "mist:campfire_1" }
+        },
+        {   "when":  { "stage": "1", "facing": "east" },
+            "apply": { "model": "mist:campfire_1", "y": 90 }
+        },
+        {   "when":  { "stage": "1", "facing": "south" },
+            "apply": { "model": "mist:campfire_1", "y": 180 }
+        },
+        {   "when":  { "stage": "1", "facing": "west" },
+            "apply": { "model": "mist:campfire_1", "y": 270 }
+        },
+        {   "when":  { "stage": "2", "facing": "north" },
+            "apply": { "model": "mist:campfire_2" }
+        },
+        {   "when":  { "stage": "2", "facing": "east" },
+            "apply": { "model": "mist:campfire_2", "y": 90 }
+        },
+        {   "when":  { "stage": "2", "facing": "south" },
+            "apply": { "model": "mist:campfire_2", "y": 180 }
+        },
+        {   "when":  { "stage": "2", "facing": "west" },
+            "apply": { "model": "mist:campfire_2", "y": 270 }
+        },
+        {   "when":  { "stage": "3", "facing": "north" },
+            "apply": { "model": "mist:campfire_3" }
+        },
+        {   "when":  { "stage": "3", "facing": "east" },
+            "apply": { "model": "mist:campfire_3", "y": 90 }
+        },
+        {   "when":  { "stage": "3", "facing": "south" },
+            "apply": { "model": "mist:campfire_3", "y": 180 }
+        },
+        {   "when":  { "stage": "3", "facing": "west" },
+            "apply": { "model": "mist:campfire_3", "y": 270 }
+        },
+        {   "when":  { "stage": "4", "facing": "north" },
+            "apply": { "model": "mist:campfire_4" }
+        },
+        {   "when":  { "stage": "4", "facing": "east" },
+            "apply": { "model": "mist:campfire_4", "y": 90 }
+        },
+        {   "when":  { "stage": "4", "facing": "south" },
+            "apply": { "model": "mist:campfire_4", "y": 180 }
+        },
+        {   "when":  { "stage": "4", "facing": "west" },
+            "apply": { "model": "mist:campfire_4", "y": 270 }
+        },
+        {   "when":  { "stage": "5", "facing": "north" },
+            "apply": { "model": "mist:campfire_5" }
+        },
+        {   "when":  { "stage": "5", "facing": "east" },
+            "apply": { "model": "mist:campfire_5", "y": 90 }
+        },
+        {   "when":  { "stage": "5", "facing": "south" },
+            "apply": { "model": "mist:campfire_5", "y": 180 }
+        },
+        {   "when":  { "stage": "5", "facing": "west" },
+            "apply": { "model": "mist:campfire_5", "y": 270 }
+        },
+        {   "when":  { "stage": "6", "facing": "north" },
+            "apply": { "model": "mist:campfire_6" }
+        },
+        {   "when":  { "stage": "6", "facing": "east" },
+            "apply": { "model": "mist:campfire_6", "y": 90 }
+        },
+        {   "when":  { "stage": "6", "facing": "south" },
+            "apply": { "model": "mist:campfire_6", "y": 180 }
+        },
+        {   "when":  { "stage": "6", "facing": "west" },
+            "apply": { "model": "mist:campfire_6", "y": 270 }
+        },
+        {   "when":  { "stage": "7", "facing": "north" },
+            "apply": { "model": "mist:campfire_7" }
+        },
+        {   "when":  { "stage": "7", "facing": "east" },
+            "apply": { "model": "mist:campfire_7", "y": 90 }
+        },
+        {   "when":  { "stage": "7", "facing": "south" },
+            "apply": { "model": "mist:campfire_7", "y": 180 }
+        },
+        {   "when":  { "stage": "7", "facing": "west" },
+            "apply": { "model": "mist:campfire_7", "y": 270 }
+        },
+        {   "when":  { "stage": "8", "facing": "north" },
+            "apply": { "model": "mist:campfire_8" }
+        },
+        {   "when":  { "stage": "8", "facing": "east" },
+            "apply": { "model": "mist:campfire_8", "y": 90 }
+        },
+        {   "when":  { "stage": "8", "facing": "south" },
+            "apply": { "model": "mist:campfire_8", "y": 180 }
+        },
+        {   "when":  { "stage": "8", "facing": "west" },
+            "apply": { "model": "mist:campfire_8", "y": 270 }
+        },
+        {   "when":  { "stage": "9", "facing": "north" },
+            "apply": { "model": "mist:campfire_9" }
+        },
+        {   "when":  { "stage": "9", "facing": "east" },
+            "apply": { "model": "mist:campfire_9", "y": 90 }
+        },
+        {   "when":  { "stage": "9", "facing": "south" },
+            "apply": { "model": "mist:campfire_9", "y": 180 }
+        },
+        {   "when":  { "stage": "9", "facing": "west" },
+            "apply": { "model": "mist:campfire_9", "y": 270 }
+        },
+        {   "when":  { "stage": "10", "facing": "north" },
+            "apply": { "model": "mist:campfire_10" }
+        },
+        {   "when":  { "stage": "10", "facing": "east" },
+            "apply": { "model": "mist:campfire_10", "y": 90 }
+        },
+        {   "when":  { "stage": "10", "facing": "south" },
+            "apply": { "model": "mist:campfire_10", "y": 180 }
+        },
+        {   "when":  { "stage": "10", "facing": "west" },
+            "apply": { "model": "mist:campfire_10", "y": 270 }
+        },
+        {   "when":  { "stage": "7|8|9|10", "tool": "pot", "facing": "north|south" },
+            "apply": [
+                { "model": "mist:campfire_pot" }
+            ]
+        },
+        {   "when":  { "stage": "7|8|9|10", "tool": "pot", "facing": "east|west" },
+            "apply": [
+                { "model": "mist:campfire_pot", "y": 90 }
+            ]
+        },
+        {   "when":  { "stage": "7|8|9|10", "tool": "grill", "facing": "north|south" },
+            "apply": [
+                { "model": "mist:campfire_grill" }
+            ]
+        },
+        {   "when":  { "stage": "7|8|9|10", "tool": "grill", "facing": "east|west" },
+            "apply": [
+                { "model": "mist:campfire_grill", "y": 90 }
+            ]
+        }
+    ]
+}

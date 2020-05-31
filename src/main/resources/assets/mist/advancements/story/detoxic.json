@@ -1,0 +1,24 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:nightberry"
+        },
+        "title": {
+            "translate": "advancements.mist.detoxic"
+        },
+        "description": {
+            "translate": "advancements.mist.detoxic.desc"
+        }
+    },
+    "parent": "mist:story/toxic",
+    "criteria": {
+        "detoxic": {
+            "trigger": "mist:consume_toxic",
+            "conditions": {
+                "value": {
+                    "max": -1
+                }
+            }
+        }
+    }
+}

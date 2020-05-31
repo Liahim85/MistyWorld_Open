@@ -1,0 +1,49 @@
+{
+    "parent": "mist:recipes/root",
+    "rewards": {
+        "recipes": [
+            "mist:acacia_slab",
+            "mist:acacia_stairs",
+            "mist:acacia_planks_from_step"
+        ]
+    },
+    "criteria": {
+        "has_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:acacia_step",
+                        "data": 0
+                    }
+                ]
+            }
+        },
+        "has_the_recipes_1": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:acacia_slab"
+            }
+        },
+        "has_the_recipes_2": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:acacia_stairs"
+            }
+        },
+        "has_the_recipes_3": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:acacia_planks_from_step"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_item",
+            "has_the_recipes_1",
+            "has_the_recipes_2",
+            "has_the_recipes_3"
+        ]
+    ]
+}

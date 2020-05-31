@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "wood_planks",
+    "pattern": [
+        "X",
+        "X"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:t_tree_slab"
+        }
+    },
+    "result": {
+        "item": "mist:t_tree_block",
+        "data": 13
+    }
+}

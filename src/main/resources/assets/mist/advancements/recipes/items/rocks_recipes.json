@@ -1,0 +1,64 @@
+{
+    "parent": "mist:recipes/root",
+    "rewards": {
+        "recipes": [
+            "mist:stone_pickaxe",
+            "mist:stone_shovel",
+            "mist:stone_axe",
+            "mist:stone_hoe",
+            "mist:stone_sword"
+        ]
+    },
+    "criteria": {
+        "has_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:rocks"
+                    }
+                ]
+            }
+        },
+        "has_the_recipes_1": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:stone_pickaxe"
+            }
+        },
+        "has_the_recipes_2": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:stone_shovel"
+            }
+        },
+        "has_the_recipes_3": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:stone_axe"
+            }
+        },
+        "has_the_recipes_4": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:stone_hoe"
+            }
+        },
+        "has_the_recipes_5": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:stone_sword"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_item",
+            "has_the_recipes_1",
+            "has_the_recipes_2",
+            "has_the_recipes_3",
+            "has_the_recipes_4",
+            "has_the_recipes_5"
+        ]
+    ]
+}

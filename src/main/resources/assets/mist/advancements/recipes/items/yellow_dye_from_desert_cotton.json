@@ -1,0 +1,33 @@
+{
+    "parent": "mist:recipes/root",
+    "rewards": {
+        "recipes": [
+            "mist:yellow_dye_from_desert_cotton"
+        ]
+    },
+    "criteria": {
+        "has_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:desert_cotton_seed",
+                        "data": 0
+                    }
+                ]
+            }
+        },
+        "has_the_recipes": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:yellow_dye_from_desert_cotton"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_item",
+            "has_the_recipes"
+        ]
+    ]
+}

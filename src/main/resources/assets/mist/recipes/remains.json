@@ -1,0 +1,13 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "mist:remains_block",
+            "data": 7
+        }
+    ],
+    "result": {
+        "item": "mist:remains",
+        "count": 8
+    }
+}

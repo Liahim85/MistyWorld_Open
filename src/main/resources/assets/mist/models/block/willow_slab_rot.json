@@ -1,0 +1,8 @@
+{
+    "parent": "block/half_slab",
+    "textures": {
+        "bottom": "mist:blocks/willow_planks_rot",
+        "top": "mist:blocks/willow_planks_rot",
+        "side": "mist:blocks/willow_planks"
+    }
+}

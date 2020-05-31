@@ -1,0 +1,7 @@
+{
+    "parent": "mist:block/log_8_pos",
+    "textures": {
+        "end": "mist:blocks/willow_top_2",
+        "side": "mist:blocks/willow_trunk_m"
+    }
+}

@@ -1,0 +1,68 @@
+{
+   "pools": [
+        {
+            "name": "leather_1",
+            "conditions": [
+                {
+                    "condition": "mist:skill_cutting",
+                    "value": 1
+                }
+            ],
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:leather",
+                    "weight": 1
+                },
+                {
+                    "type": "empty",
+                    "weight": 2
+                }
+            ]
+        },
+        {
+            "name": "leather_2",
+            "conditions": [
+                {
+                    "condition": "mist:skill_cutting",
+                    "value": 2
+                }
+            ],
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:leather"
+                }
+            ]
+        },
+        {
+            "name": "leather_3",
+            "conditions": [
+                {
+                    "condition": "mist:skill_cutting",
+                    "value": 3,
+                    "equal": false
+                }
+            ],
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:leather",
+                    "functions": [
+                        {
+                            "function": "looting_enchant",
+                            "count": {
+                                "min": 0,
+                                "max": 1
+                            },
+                            "limit": 2
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

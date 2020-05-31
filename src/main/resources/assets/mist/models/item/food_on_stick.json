@@ -1,0 +1,14 @@
+{
+    "parent": "item/handheld_rod",
+    "textures": {
+        "layer0": "items/fishing_rod_uncast"
+    },
+    "overrides": [
+        { "predicate": { "mist:food": 0 }, "model": "mist:item/food_on_stick" },
+        { "predicate": { "mist:food": 1 }, "model": "mist:item/food_on_stick_marsh" },
+        { "predicate": { "mist:food": 2 }, "model": "mist:item/food_on_stick_pink" },
+        { "predicate": { "mist:food": 3 }, "model": "mist:item/food_on_stick_sand" },
+        { "predicate": { "mist:food": 4 }, "model": "mist:item/food_on_stick_cup" },
+        { "predicate": { "mist:food": 5 }, "model": "mist:item/food_on_stick_tan" }
+    ]
+}

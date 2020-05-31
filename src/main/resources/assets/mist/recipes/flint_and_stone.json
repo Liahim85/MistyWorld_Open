@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "mist:rocks"
+        },
+        {
+            "item": "minecraft:flint"
+        }
+    ],
+    "result": {
+        "item": "mist:flint_and_stone"
+    }
+}

@@ -1,0 +1,13 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "group": "wood_step",
+    "ingredients": [
+        {
+            "item": "mist:t_tree_slab"
+        }
+    ],
+    "result": {
+        "item": "mist:t_tree_step",
+        "count": 2
+    }
+}

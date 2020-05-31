@@ -1,0 +1,19 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "group": "soap",
+    "ingredients": [
+        {
+            "item": "mist:ash"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "tallow"
+        },
+        {
+            "item": "#SALT"
+        }
+    ],
+    "result": {
+        "item": "mist:soap"
+    }
+}

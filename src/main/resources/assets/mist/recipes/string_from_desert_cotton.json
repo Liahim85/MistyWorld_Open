@@ -1,0 +1,13 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "group": "string",
+    "ingredients": [
+        {
+            "item": "mist:tree_seed",
+            "data": 6
+        }
+    ],
+    "result": {
+        "item": "minecraft:string"
+    }
+}

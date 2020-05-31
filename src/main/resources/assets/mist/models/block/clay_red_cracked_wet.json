@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_bottom_top",
+    "textures": {
+        "bottom": "mist:blocks/clay_red_w",
+        "top": "mist:blocks/clay_red_cracked_w_top",
+        "side": "mist:blocks/clay_red_cracked_w_side"
+    }
+}

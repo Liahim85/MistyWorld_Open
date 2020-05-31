@@ -1,0 +1,13 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "mist:mulch_block",
+            "data": 0
+        }
+    ],
+    "result": {
+        "item": "mist:mulch",
+        "count": 9
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "mist:leaves_column",
+        "textures": {
+            "stalk": "mist:blocks/spruce_top_0",
+            "side":  "mist:blocks/spruce_leaves",
+            "end":   "mist:blocks/spruce_leaves_top",
+            "fruit": "mist:blocks/spruce_leaves_f"
+        }
+    },
+    "variants": {
+        "fast": {
+            "true": {
+                "textures": { "side": "mist:blocks/spruce_leaves_fast", "end": "mist:blocks/spruce_leaves_top_fast" }
+            },
+            "false": {}
+        },
+        "age": {
+            "empty": {},
+            "potential": {},
+            "bloomy": {},
+            "fruit": { "submodel": "mist:leaves_f" }
+        },
+        "dir": {
+            "down":  {},
+            "up":    { "submodel": "mist:leaves_j" },
+            "north": { "submodel": "mist:leaves_j", "x": 90 },
+            "east":  { "submodel": "mist:leaves_j", "x": 90, "y": 90 },
+            "south": { "submodel": "mist:leaves_j", "x": -90 },
+            "west":  { "submodel": "mist:leaves_j", "x": 90, "y": 270 }
+        }
+    }
+}

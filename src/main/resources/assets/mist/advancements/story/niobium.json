@@ -1,0 +1,22 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:niobium_ingot"
+        },
+        "title": {
+            "translate": "advancements.mist.niobium"
+        },
+        "description": {
+            "translate": "advancements.mist.niobium.desc"
+        }
+    },
+    "parent": "mist:story/night_walk",
+    "criteria": {
+        "niobium": {
+            "trigger": "mist:item_smelted",
+            "conditions": {
+                "item": "mist:niobium_ingot"
+            }
+        }
+    }
+}

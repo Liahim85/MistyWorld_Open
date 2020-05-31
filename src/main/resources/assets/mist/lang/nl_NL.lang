@@ -1,0 +1,775 @@
+﻿##############################
+# Misty World: De Mistlanden
+#
+# Dutch - THE NETHERLANDS (NL) (nl_NL) localization
+# Translation by RedGalaxySW (RGSW)
+#
+# If you need declinations in a dry/wet tooltip, you can add the suffix "_n" to the item name, where "n" is the declination option number. As an example, see the Russian translation (ru_RU).
+
+# Tab
+itemGroup.mist.tab=Mistlanden
+
+#Blocks
+### Ground
+tile.mist.stone.name=Vaagsteen
+tile.mist.stone_porous.name=Poreus Vaagsteen
+tile.mist.stone_basic.name=Hard Vaagsteen
+tile.mist.cobblestone.name=Keistenen
+tile.mist.cobblestone_moss.name=Mossige Keistenen
+tile.mist.gravel.name=Grind
+tile.mist.sand.name=Zand
+tile.mist.red_sand.name=Rood Zand
+tile.mist.acid_sand.name=Zuur Zand
+tile.mist.clay_gray_block.name=Grijze Klei
+tile.mist.clay_gray_nature.name=Ongerepte Grijze Klei
+tile.mist.clay_gray_cracked.name=Gebarsten Grijze Klei
+tile.mist.clay_red_block.name=Rode Klei
+tile.mist.clay_red_nature.name=Ongerepte Rode Klei
+tile.mist.clay_red_cracked.name=Gebarsten Rode Klei
+tile.mist.floating_mat.name=Zwevend Kleed
+tile.mist.peat.name=Turf
+tile.mist.filter_coal_ore.name=Filter Steenkoolerts
+tile.mist.filter_coal_block.name=Filter Steenkoolblok
+tile.mist.bio_shale_ore.name=Bacteriële Schalie
+tile.mist.bio_shale_block.name=Bacteriële Schalieblok
+tile.mist.iron_ore.name=IJzererts
+tile.mist.gold_ore.name=Gouderts
+tile.mist.niobium_ore.name=Niobiumerts
+tile.mist.niobium_block.name=Niobiumblok
+tile.mist.lapis_ore.name=Lapis Lazulierts
+tile.mist.sulfur_ore.name=Zwavelerts
+tile.mist.sulfur_block.name=Zwavelblok
+tile.mist.saltpeter_ore.name=Saltpetererts
+tile.mist.saltpeter_block.name=Saltpeterblok
+tile.mist.salt_ore.name=Zouterts
+tile.mist.tallow_block.name=Talgblok
+tile.mist.soap_block.name=Zeepblok
+tile.mist.latex_block.name=Latexblok
+tile.mist.rubber_block.name=Rubberblok
+
+### Dirt
+tile.mist.humus_dirt.name=Humus
+tile.mist.humus_grass.name=Overgroeide Humus
+tile.mist.sapropel_block.name=Sapropel
+tile.mist.sapropel_nature.name=Ongerepte Sapropel
+tile.mist.dirt_f.name=Bosaarde
+tile.mist.dirt_s.name=Zandaarde
+tile.mist.dirt_c.name=Kleiaarde
+tile.mist.dirt_r.name=Steenaarde
+tile.mist.dirt_t.name=Tropische Aarde
+tile.mist.acid_dirt_0.name=Verzuurde Bodem
+tile.mist.acid_dirt_1.name=Verzuurde Bodem
+tile.mist.acid_dirt_2.name=Verzuurde Bodem
+tile.mist.grass_f.name=Bosgras
+tile.mist.grass_s.name=Prairiegras
+tile.mist.grass_c.name=Moerasgras
+tile.mist.grass_r.name=Taigagras
+tile.mist.grass_t.name=Tropisch gras
+tile.mist.acid_grass_0.name=Kleedkorstmos
+tile.mist.acid_grass_1.name=Kleedkorstmos
+tile.mist.acid_grass_2.name=Kleedkorstmos
+tile.mist.mulch_block.name=Mulch
+tile.mist.remains_block.name=Overblijfselen
+
+##### Tooltip --------------------------
+tile.mist.block_wet.tooltip=Nat
+tile.mist.block_dry.tooltip=Droog
+tile.mist.soil_porosity_1.tooltip=Niet poreus
+tile.mist.soil_porosity_2.tooltip=Beetje poreus
+tile.mist.soil_porosity_3.tooltip=Heel poreus
+tile.mist.soil_hum.tooltip=Humusinhoud
+
+### Portal
+tile.mist.portal_new_down.name=Portaalsteen Onderkant
+tile.mist.portal_new_up.name=Portaalsteen Bovenkant
+tile.mist.portal_old_down.name=Mossig steen
+tile.mist.portal_old_down.tooltip=Aan de bovenkant is wat goud zichtbaar
+tile.mist.portal_old_up.name=Weersteen
+tile.mist.portal_old_up.tooltip=Aan de onderkant is wat goud zichtbaar
+
+### Trees
+tile.mist.acacia_leaves.name=Parapluboomblaadjes
+tile.mist.acacia_trunk.name=Parapluboomstam
+tile.mist.aspen_leaves.name=Trilboomblaadjes
+tile.mist.aspen_trunk.name=Trilboomstam
+tile.mist.a_tree_leaves.name=Araucariablaadjes
+tile.mist.a_tree_trunk.name=Araucariastam
+tile.mist.birch_leaves.name=Bosbedriegerblaadjes
+tile.mist.birch_trunk.name=Bosbedriegerstam
+tile.mist.oak_leaves.name=Misteikenblaadjes
+tile.mist.oak_trunk.name=Misteikenstam
+tile.mist.pine_leaves.name=Vage Pijnboomnaalden
+tile.mist.pine_trunk.name=Vage Pijnboomstam
+tile.mist.poplar_leaves.name=Moeraspopulierblaadjes
+tile.mist.poplar_trunk.name=Moeraspopulierstam
+tile.mist.snow_leaves.name=IJsboomblaadjes
+tile.mist.snow_trunk.name=IJsboomstam
+tile.mist.spruce_leaves.name=Stekelboomnaalden
+tile.mist.spruce_trunk.name=Stekelboomstam
+tile.mist.s_tree_leaves.name=Steenboomblaadjes
+tile.mist.s_tree_trunk.name=Steenboomstam
+tile.mist.t_tree_leaves.name=Tropische Boomblaadjes
+tile.mist.t_tree_trunk.name=Tropische Boomstam
+tile.mist.willow_leaves.name=Huilende Boomblaadjes
+tile.mist.willow_trunk.name=Huilende Boomstam
+tile.mist.r_tree_leaves.name=Rubberboom Blaadjes
+tile.mist.r_tree_trunk.name=Rubber Boomstam
+tile.mist.live_tree.tooltip=Rechts klik met een bijl om de dikte aan te passen
+
+### Sapling
+tile.mist.acacia_sapling.name=Parapluboom Kiemplant
+tile.mist.aspen_sapling.name=Trilboom Kiemplant
+tile.mist.a_tree_sapling.name=Araucaria Kiemplant
+tile.mist.birch_sapling.name=Bosbedrieger Kiemplant
+tile.mist.oak_sapling.name=Misteik Kiemplant
+tile.mist.pine_sapling.name=Vage Pijnboom Kiemplant
+tile.mist.poplar_sapling.name=Moeraspopulier Kiemplant
+tile.mist.snow_sapling.name=IJsboom Kiemplant
+tile.mist.spruce_sapling.name=Stekelboom Kiemplant
+tile.mist.s_tree_sapling.name=Steenboom Kiemplant
+tile.mist.t_tree_sapling.name=Tropische Boom Kiemplant
+tile.mist.willow_sapling.name=Huilende Boom Kiemplant
+tile.mist.r_tree_sapling.name=Rubberboom Kiemplant
+
+###Wood Blocks
+tile.mist.acacia_log.name=Parapluhout
+tile.mist.acacia_log_b.name=Parapluhout
+tile.mist.acacia_log_c.name=Gebeiteld Parapluhout
+tile.mist.acacia_log_d.name=Ontschorst Parapluhout
+tile.mist.acacia_log_n.name=Parapluhoutnode
+tile.mist.acacia_log_nd.name=Ontschort Parapluhoutnode
+tile.mist.acacia_planks.name=Parapluhoutplanken
+
+tile.mist.aspen_log.name=Trilhout
+tile.mist.aspen_log_b.name=Trilhout
+tile.mist.aspen_log_c.name=Gebeiteld Trilhout
+tile.mist.aspen_log_d.name=Ontschorst Trilhout
+tile.mist.aspen_log_n.name=Trilhoutnode
+tile.mist.aspen_log_nd.name=Ontschorste Trilhoutnode
+tile.mist.aspen_planks.name=Trilhouten Planken
+
+tile.mist.a_tree_log.name=Araucariahout
+tile.mist.a_tree_log_b.name=Araucariahout
+tile.mist.a_tree_log_c.name=Gebeiteld Araucariahout
+tile.mist.a_tree_log_d.name=Ontschorst Araucariahout
+tile.mist.a_tree_log_n.name=Araucarianode
+tile.mist.a_tree_log_nd.name=Ontschorst Araucarianode
+tile.mist.a_tree_planks.name=Araucariahouten Planken
+
+tile.mist.birch_log.name=Bosbedriegershout
+tile.mist.birch_log_b.name=Bosbedriegershout
+tile.mist.birch_log_c.name=Gebeiteld Bosbedriegershout
+tile.mist.birch_log_d.name=Ontschorst Bosbedriegershout
+tile.mist.birch_log_n.name=Bosbedriegersnode
+tile.mist.birch_log_nd.name=Ontschorste Bosbedriegersnode
+tile.mist.birch_planks.name=Bosbedriegershouten Planken
+
+tile.mist.oak_log.name=Misteikenhout
+tile.mist.oak_log_b.name=Misteikenhout
+tile.mist.oak_log_c.name=Gebeiteld Misteikenhout
+tile.mist.oak_log_d.name=Ontschorst Misteikenhout
+tile.mist.oak_log_n.name=Misteikenhoutnode
+tile.mist.oak_log_nd.name=Ontschorste Misteikenhoutnode
+tile.mist.oak_planks.name=Misteikenhouten planken
+
+tile.mist.pine_log.name=Vaag Pijnboomhout
+tile.mist.pine_log_b.name=Vaag Pijnboomhout
+tile.mist.pine_log_c.name=Gebeiteld Vaag Pijnboomhout
+tile.mist.pine_log_d.name=Ontschorst Vaag Pijnboomhout
+tile.mist.pine_log_n.name=Vage Pijnboomnode
+tile.mist.pine_log_nd.name=Ontschorste Vage Pijnboomnode
+tile.mist.pine_planks.name=Vage Pijnboomplanken
+
+tile.mist.poplar_log.name=Moeraspopulierhout
+tile.mist.poplar_log_b.name=Moeraspopulierhout
+tile.mist.poplar_log_c.name=Gebeiteld Moeraspopulierhout
+tile.mist.poplar_log_d.name=Ontschorst Moeraspopulierhout
+tile.mist.poplar_log_n.name=Moeraspopuliernode
+tile.mist.poplar_log_nd.name=Ontschorst Moeraspopuliernode
+tile.mist.poplar_planks.name=Moeraspopulieren Planken
+
+tile.mist.snow_log.name=IJshout
+tile.mist.snow_log_b.name=IJshout
+tile.mist.snow_log_c.name=Gebeiteld IJshout
+tile.mist.snow_log_d.name=Ontschorst IJshout
+tile.mist.snow_log_n.name=IJshoutnode
+tile.mist.snow_log_nd.name=Ontschorste IJshoutnode
+tile.mist.snow_planks.name=IJshouten Planken
+
+tile.mist.spruce_log.name=Stekelhout
+tile.mist.spruce_log_b.name=Stekelhout
+tile.mist.spruce_log_c.name=Gebeiteld Stekelhout
+tile.mist.spruce_log_d.name=Ontschorst Stekelhout
+tile.mist.spruce_log_n.name=Stekelhoutnode
+tile.mist.spruce_log_nd.name=Ontschorste Stekelhoutnode
+tile.mist.spruce_planks.name=Stekelhouten Planken
+
+tile.mist.s_tree_log.name=Steenboomhout
+tile.mist.s_tree_log_b.name=Steenboomhout
+tile.mist.s_tree_log_c.name=Gebeiteld Steenboomhout
+tile.mist.s_tree_log_d.name=Ontschorst Steenboomhout
+tile.mist.s_tree_log_n.name=Steenboomnode
+tile.mist.s_tree_log_nd.name=Ontschorste Steenboomnode
+tile.mist.s_tree_planks.name=Steenboomhouten Planken
+
+tile.mist.t_tree_log.name=Tropisch Hout
+tile.mist.t_tree_log_b.name=Tropisch Hout
+tile.mist.t_tree_log_c.name=Gebeiteld Tropisch Hout
+tile.mist.t_tree_log_d.name=Ontschorst Tropisch Hout
+tile.mist.t_tree_log_n.name=Tropisch Hout Node
+tile.mist.t_tree_log_nd.name=Ontschorst Tropisch Hout Node
+tile.mist.t_tree_planks.name=Tropisch Houten Planken
+
+tile.mist.willow_log.name=Huilend Hout
+tile.mist.willow_log_b.name=Huilend Hout
+tile.mist.willow_log_c.name=Gebeiteld Huilend Hout
+tile.mist.willow_log_d.name=Ontschorst Huilend Hout
+tile.mist.willow_log_n.name=Huilend Hout Node
+tile.mist.willow_log_nd.name=Ontschorst Huilend Hout Node
+tile.mist.willow_planks.name=Huilend Houten Planken
+
+tile.mist.r_tree_log.name=Rubberhout
+tile.mist.r_tree_log_b.name=Rubberhout
+tile.mist.r_tree_log_c.name=Gebeiteld Rubberhout
+tile.mist.r_tree_log_d.name=Ontschorst Rubberhout
+tile.mist.r_tree_log_n.name=Rubberhout Node
+tile.mist.r_tree_log_nd.name=Ontschorste Rubberhout Node
+tile.mist.r_tree_planks.name=Rubberhouten Planken
+
+### Step
+tile.mist.cobblestone_step.name=Keistenen Drempel
+tile.mist.cobblestone_moss_step.name=Mossige Keistenen Drempel
+tile.mist.acacia_step.name=Parapluhouten Drempel
+tile.mist.aspen_step.name=Trilboomhouten Drempel
+tile.mist.a_tree_step.name=Araucariahouten Drempel
+tile.mist.birch_step.name=Bosbedriegerhouten Drempel
+tile.mist.oak_step.name=Misteikenhouten Drempel
+tile.mist.pine_step.name=Vage Pijnboomhouten Drempel
+tile.mist.poplar_step.name=Moeraspopulierhouten Drempel
+tile.mist.snow_step.name=IJshouten Drempel
+tile.mist.spruce_step.name=Stekelhouten Drempel
+tile.mist.s_tree_step.name=Steenboomhouten Drempel
+tile.mist.t_tree_step.name=Tropisch Houten Drempel
+tile.mist.willow_step.name=Huilend Houten Drempel
+tile.mist.r_tree_step.name=Rubberhouten Drempel
+
+### Slab
+tile.mist.cobblestone_slab.name=Keistenen Plaat
+tile.mist.cobblestone_moss_slab.name=Mossige Keistenen Plaat
+tile.mist.acacia_slab.name=Parapluhouten Plaat
+tile.mist.aspen_slab.name=Trilboomhouten Plaat
+tile.mist.a_tree_slab.name=Araucariahouten Plaat
+tile.mist.birch_slab.name=Bosbedriegerhouten Plaat
+tile.mist.oak_slab.name=Misteikenhouten Plaat
+tile.mist.pine_slab.name=Vage Pijnboomhouten Plaat
+tile.mist.poplar_slab.name=Moeraspopulierhouten Plaat
+tile.mist.snow_slab.name=IJshouten Plaat
+tile.mist.spruce_slab.name=Stekelhouten Plaat
+tile.mist.s_tree_slab.name=Steenboomhouten Plaat
+tile.mist.t_tree_slab.name=Tropisch Houten Plaat
+tile.mist.willow_slab.name=Huilend Houten Plaat
+tile.mist.r_tree_slab.name=Rubberhouten Plaat
+
+### Stairs
+tile.mist.cobblestone_stairs.name=Keistenen Treden
+tile.mist.cobblestone_moss_stairs.name=Mossige Keistenen Treden
+tile.mist.acacia_stairs.name=Parapluhouten Treden
+tile.mist.aspen_stairs.name=Trilboomhouten Treden
+tile.mist.a_tree_stairs.name=Araucariahouten Treden
+tile.mist.birch_stairs.name=Bosbedriegerhouten Treden
+tile.mist.oak_stairs.name=Misteikenhouten Treden
+tile.mist.pine_stairs.name=Vage Pijnboomhouten Treden
+tile.mist.poplar_stairs.name=Moeraspopulierhouten Treden
+tile.mist.snow_stairs.name=IJshouten Treden
+tile.mist.spruce_stairs.name=Stekelhouten Treden
+tile.mist.s_tree_stairs.name=Sheenboomhouten Treden
+tile.mist.t_tree_stairs.name=Tropisch Houten Treden
+tile.mist.willow_stairs.name=Huilend Houten Treden
+tile.mist.r_tree_stairs.name=Rubberhouten Treden
+
+### Branch
+tile.mist.acacia_branch_4.name=Parapluboomtak
+tile.mist.acacia_branch_4_d.name=Ontschorste Parapluboomtak
+tile.mist.acacia_branch_8.name=Dikke Parapluboomtak
+tile.mist.acacia_branch_8_d.name=Dikke Ontschorste Parapluboomtak
+tile.mist.aspen_branch_4.name=Trilboomtak
+tile.mist.aspen_branch_4_d.name=Ontschorste Trilboomtak
+tile.mist.aspen_branch_8.name=Dikke Trilboomtak
+tile.mist.aspen_branch_8_d.name=Dikke Ontschorste Trilboomtak
+tile.mist.a_tree_branch_4.name=Araucariatak
+tile.mist.a_tree_branch_4_d.name=Onschorste Araucariatak
+tile.mist.a_tree_branch_8.name=Dikke Araucariatak
+tile.mist.a_tree_branch_8_d.name=Dikke Ontschorste Araucariatak
+tile.mist.birch_branch_4.name=Bosbedriegerstak
+tile.mist.birch_branch_4_d.name=Ontschorste Bosbedriegerstak
+tile.mist.birch_branch_8.name=Dikke Bosbedriegerstak
+tile.mist.birch_branch_8_d.name=Dikke Ontschorste Bosbedriegerstak
+tile.mist.oak_branch_4.name=Misteikentak
+tile.mist.oak_branch_4_d.name=Ontschorste Misteikentak
+tile.mist.oak_branch_8.name=Dikke Misteikentak
+tile.mist.oak_branch_8_d.name=Dikke Ontschorste Misteikentak
+tile.mist.pine_branch_4.name=Vage Pijnboomtak
+tile.mist.pine_branch_4_d.name=Ontschorste Vage Pijnboomtak
+tile.mist.pine_branch_8.name=Dikke Vage Pijnboomtak
+tile.mist.pine_branch_8_d.name=Dikke Ontschorste Vage Pijnboomtak
+tile.mist.poplar_branch_4.name=Moeraspopuliertak
+tile.mist.poplar_branch_4_d.name=Ontschorste Moeraspopuliertak
+tile.mist.poplar_branch_8.name=Dikke Moeraspopuliertak
+tile.mist.poplar_branch_8_d.name=Dikke Ontschorste Moeraspopuliertak
+tile.mist.snow_branch_4.name=IJsboomtak
+tile.mist.snow_branch_4_d.name=Ontschorste IJsboomtak
+tile.mist.snow_branch_8.name=Dikke IJsboomtak
+tile.mist.snow_branch_8_d.name=Dikke Ontschorste IJsboomtak
+tile.mist.spruce_branch_4.name=Stekelboomtak
+tile.mist.spruce_branch_4_d.name=Ontschorste Stekelboomtak
+tile.mist.spruce_branch_8.name=Dikke Stekelboomtak
+tile.mist.spruce_branch_8_d.name=Dikke Ontschorste Stekelboomtak
+tile.mist.s_tree_branch_4.name=Steenboomtak
+tile.mist.s_tree_branch_4_d.name=Ontschorste Steenboomtak
+tile.mist.s_tree_branch_8.name=Dikke Steenboomtak
+tile.mist.s_tree_branch_8_d.name=Dikke Ontschorste Steenboomtak
+tile.mist.t_tree_branch_4.name=Tropische Boomtak
+tile.mist.t_tree_branch_4_d.name=Ontschorste Tropische Boomtak
+tile.mist.t_tree_branch_8.name=Dikke Tropische Boomtak
+tile.mist.t_tree_branch_8_d.name=Dikke Ontschorste Tropische Boomtak
+tile.mist.willow_branch_4.name=Huilende Boomtak
+tile.mist.willow_branch_4_d.name=Ontschorste Huilende Boomtak
+tile.mist.willow_branch_8.name=Dikke Huilende Boomtak
+tile.mist.willow_branch_8_d.name=Dikke Ontschorste Huilende Boomtak
+tile.mist.r_tree_branch_4.name=Rubberhouten Boomtak
+tile.mist.r_tree_branch_4_d.name=Ontschorste Rubberhouten Boomtak
+tile.mist.r_tree_branch_8.name=Dikke Rubberhouten Boomtak
+tile.mist.r_tree_branch_8_d.name=Dikke Ontschorste Rubberhouten Boomtak
+
+### Upper Plants
+tile.mist.mushroom_brown.name=Bruine Paddenstoel
+tile.mist.mushroom_black.name=Zwarte Paddenstoel
+tile.mist.mushroom_gray.name=Grijze Paddenstoel
+tile.mist.mushroom_red.name=Rode Paddenstoel
+tile.mist.mushroom_orange.name=Oranje Paddenstoel
+tile.mist.mushroom_coral.name=Koraalzwam
+tile.mist.mushroom_yellow.name=Gele Paddenstoel
+tile.mist.mushroom_blue.name=Blauwe Paddenstoel
+tile.mist.mushroom_purple.name=Paarse Paddenstoel
+tile.mist.mushroom_marsh.name=Moeraszwam
+tile.mist.mushroom_pink.name=Roze Paddenstoel
+tile.mist.mushroom_puff.name=Aardappelboleet
+tile.mist.mushroom_sand.name=Zandzwam
+tile.mist.mushroom_spot.name=Gevlekte Paddenstoel
+tile.mist.mushroom_cup.name=Bekerzwam
+tile.mist.mushroom_azure.name=Azuure Paddenstoel
+tile.mist.mushroom_green.name=Groene Paddenstoel
+tile.mist.mushroom_copper.name=Koperen Paddenstoel
+tile.mist.mushroom_silver.name=Zilveren Paddenstoel
+tile.mist.mushroom_beige.name=Beige Paddenstoel
+tile.mist.mushroom_gold.name=Gouden Paddenstoel
+tile.mist.mushroom_white.name=Witte Paddenstoel
+tile.mist.mushroom_violet.name=Violet Paddenstoel
+tile.mist.mushroom_lilac.name=Lila Paddenstoel
+tile.mist.mushroom_tan.name=Bruinzwam
+tile.mist.mushroom.tooltip=Rechts klik op aarde om Mycelium te maken
+
+tile.mist.mushroom_brown_c.name=Gekookte Bruine Paddenstoel
+tile.mist.mushroom_black_c.name=Gekookte Zwarte Paddenstoel
+tile.mist.mushroom_gray_c.name=Gekookte Grijze Paddenstoel
+tile.mist.mushroom_red_c.name=Gekookte Rode Paddenstoel
+tile.mist.mushroom_orange_c.name=Gekookte Oranje Paddenstoel
+tile.mist.mushroom_coral_c.name=Gekookte Koraalzwam
+tile.mist.mushroom_yellow_c.name=Gekookte Gele Paddenstoel
+tile.mist.mushroom_blue_c.name=Gekookte Blauwe Paddenstoel
+tile.mist.mushroom_purple_c.name=Gekookte Paarse Paddenstoel
+tile.mist.mushroom_marsh_c.name=Gekookte Moeraszwam
+tile.mist.mushroom_pink_c.name=Gekookte Roze Paddenstoel
+tile.mist.mushroom_puff_c.name=Gekookte Aardappelboleet
+tile.mist.mushroom_sand_c.name=Gekookte Zandzwam
+tile.mist.mushroom_spot_c.name=Gekookte Gevlekte Paddenstoel
+tile.mist.mushroom_cup_c.name=Gekookte Bekerzwam
+tile.mist.mushroom_azure_c.name=Gekookte Azuren Paddenstoel
+tile.mist.mushroom_green_c.name=Gekookte Groene Paddenstoel
+tile.mist.mushroom_copper_c.name=Gekookte Koperen Paddenstoel
+tile.mist.mushroom_silver_c.name=Gekookte Zilveren Paddenstoel
+tile.mist.mushroom_beige_c.name=Gekookte Beige Paddenstoel
+tile.mist.mushroom_gold_c.name=Gekookte Gouden Paddenstoel
+tile.mist.mushroom_white_c.name=Gekookte Witte Paddenstoel
+tile.mist.mushroom_violet_c.name=Gekookte Violet Paddenstoel
+tile.mist.mushroom_lilac_c.name=Gekookte Lila Paddenstoel
+tile.mist.mushroom_tan_c.name=Gekookte Bruinzwam
+
+tile.mist.mycelium.name=Mycelium
+
+### Down Plants
+tile.mist.sponge_clear.name=Mistspons
+tile.mist.sponge_wet.name=Vieze Mistspons
+tile.mist.sponge_spoiled.name=Verspilde Mistspons
+
+### Bed
+tile.mist.bed.in_fog=Je kunt niet slapen in de mist
+
+# Items
+item.mist.more_info.tooltip=Druk op shift voor meer info
+### Other
+item.mist.rocks.name=Stenen
+item.mist.clay_ball_gray.name=Grijze Klei
+item.mist.clay_ball_red.name=Rode Klei
+item.mist.humus.name=Humus
+item.mist.sapropel_ball.name=Sapropel
+item.mist.compost.name=Compost
+item.mist.sponge_fibre.name=Viese Mistige Sponsvezel
+item.mist.sponge_fibre_clear.name=Mistige Sponsvezel
+item.mist.sponge_slime.name=Gifextract
+item.mist.sponge_spore.name=Mistig Sponsspoor
+item.mist.filter_coal.name=Filter Steenkool
+item.mist.bio_shale.name=Bacteriële Schalie
+item.mist.sulfur.name=Sulfur
+item.mist.saltpeter.name=Saltpeter
+item.mist.niobium_ingot.name=Niobiumstaaf
+item.mist.niobium_nugget.name=Niobiumklompje
+item.mist.mulch.name=Mulch
+item.mist.remains.name=Overblijfselen
+item.mist.ash.name=As
+item.mist.tallow.name=Talg
+item.mist.soap.name=Zeep
+item.mist.latex.name=Latex
+item.mist.rubber.name=Rubber
+item.mist.wing.name=Vleugel
+item.mist.swim_bladder.name=Woestijnvis Zwemblaas
+
+### Food
+item.mist.meat_mossling.name=Moslingvlees
+item.mist.meat_mossling_c.name=Gebakken Moslingvlees
+item.mist.meat_forest_runner.name=Bosrennervlees
+item.mist.meat_forest_runner_c.name=Gebakken Bosrennervlees
+item.mist.meat_momo.name=Momovlees
+item.mist.meat_momo_c.name=Gebakken Momovlees
+item.mist.meat_barvog.name=Barvogvlees
+item.mist.meat_barvog_c.name=Gekookt Barvogvlees
+item.mist.meat_prickler.name=Prikkelaarrvlees
+item.mist.meat_prickler_c.name=Gekookt Prikkelaarvlees
+item.mist.meat_caravan.name=Caravaanvlees
+item.mist.meat_caravan_c.name=Gekookt Caravaanvlees
+item.mist.meat_wulder.name=Wuldervlees
+item.mist.meat_wulder_c.name=Gekookt Wuldervlees
+item.mist.meat_horb.name=Horbvlees
+item.mist.meat_horb_c.name=Gekookt Horbvlees
+item.mist.meat_sniff.name=Snifvlees
+item.mist.meat_sniff_c.name=Gekookt Snifvlees
+item.mist.meat_sloth.name=Luiaardvlees
+item.mist.meat_sloth_c.name=Gekookt Luiaardvlees
+item.mist.meat_monk.name=Monkvlees
+item.mist.meat_monk_c.name=Gebakken Monkvlees
+item.mist.meat_galaga.name=Galagavlees
+item.mist.meat_galaga_c.name=Gebakken Galagavlees
+item.mist.meat_hulter.name=Hultervlees
+item.mist.meat_hulter_c.name=Gekookt Hultervlees
+item.mist.meat_brachiodon.name=Brachiodonvlees
+item.mist.meat_brachiodon_c.name=Gebakken Brachiodonvlees
+
+item.mist.sponge_meat.name=Mistsponsvlees
+item.mist.nightberry.name=Nightberry
+item.mist.tinder_fungus.name=Tonderfungus
+item.mist.soup.name=Moes
+item.mist.soup_toxic.name=Giftigheid
+item.mist.glass_container.name=Glazen Container
+item.mist.food_salt.tooltip=Met Zout
+item.mist.food_inedible.tooltip=Oneetbaar
+item.mist.food_unknown.tooltip=Eetbaar?
+item.mist.food_edible.tooltip=Eetbaar
+item.mist.food_toxic.tooltip=Giftig
+item.mist.food_antitoxic.tooltip=Antigift
+
+### Plant
+item.mist.desert_cotton_f.name=Woestijnkatoenbloem
+item.mist.desert_cotton_s.name=Woestijnkatoenzaat
+item.mist.acacia_seed.name=Parapluboomzaden
+item.mist.aspen_seed.name=Trilboomkatjes
+item.mist.a_tree_seed.name=Auracacia-appels
+item.mist.birch_seed.name=Bosbedriegerskatjes
+item.mist.oak_seed.name=Misteikels
+item.mist.pine_seed.name=Misige Dennenappels
+item.mist.poplar_seed.name=Moeraspopulierzaden
+item.mist.snow_seed.name=IJsboomzaden
+item.mist.spruce_seed.name=Prikkelboomzaden
+item.mist.s_tree_seed.name=Steenzaadjes
+item.mist.t_tree_seed.name=Tropische Zaden
+item.mist.willow_seed.name=Huilende Zaadjes
+item.mist.r_tree_seed.name=Lamban
+
+### Tools
+item.mist.niobium_axe.name=Niobium Bijl
+item.mist.niobium_hoe.name=Niobium Schoffel
+item.mist.niobium_pickaxe.name=Niobium Houweel
+item.mist.niobium_shovel.name=Niobium Schep
+item.mist.niobium_sword.name=Niobium Zwaard
+
+### Armor
+item.mist.niobium_helmet.name=Niobium Helm
+item.mist.niobium_chestplate.name=Niobium Borstplaat
+item.mist.niobium_leggings.name=Niobium Broek
+item.mist.niobium_boots.name=Niobium Laarzen
+item.mist.rubber_helmet.name=Beschermend Harnasdeel
+item.mist.rubber_chestplate.name=Beschermend Harnasdeel
+item.mist.rubber_leggings.name=Beschermend Harnasdeel
+item.mist.rubber_boots.name=Beschermend Harnasdeel
+item.mist.suit_protection.tooltip=Bescherming
+item.mist.suit_inner.tooltip=Binnenjas
+
+### Gizmos
+item.mist.respirator_single.name=Leren Respirator
+item.mist.respirator_single_open.name=Open Leren Respirator
+item.mist.respirator_rubber.name=Rubberen Respirator
+item.mist.respirator_rubber_open.name=Open Rubberen Respirator
+item.mist.respirator_impermeability.tooltip=Ondoordringbaarheid
+item.mist.respirator_efficiency.tooltip=Efficientie
+item.mist.respirator_close.tooltip=Je mond is bedekt met een respirator
+item.mist.filter.tooltip=Filter
+item.mist.filter_depth.tooltip=Filtratiediepte
+item.mist.filter_damage.tooltip=Verontreinigingslevel
+item.mist.filter_empty.tooltip=Leeg
+item.mist.hygrometer.name=Hygrometer
+item.mist.gas_analyzer.name=Gas Analyzer
+item.mist.centrometer.name=Mysterieuze Schijf
+item.mist.flint_and_stone.name=Vuursteen En Steen
+tile.mist.furnace.name=Oven
+tile.mist.niobium_chest.name=Niobiumkist
+tile.mist.niobium_chest_trapped.name=Niobium Valkist
+tile.mist.latex_pot.name=Latex Pot
+item.mist.food_on_stick.name=op een Stokje
+
+### Urn
+item.mist.urn=Keramiekurn
+item.mist.urn_rare=Ongebruikelijke Urn
+item.mist.urn_raw=Kleiurn
+##### Tooltip -------------------
+item.mist.urn.tooltip.altar=Gevonden op een altaar
+item.mist.urn.tooltip.basement=Gevonden in een oud fundament
+item.mist.urn.tooltip.burial=Gevonden in een grafkist
+item.mist.urn.tooltip.well=Gevonden in een waterput
+item.mist.urn.location.forest=Gemixt bos
+item.mist.urn.location.swamp=Moerassen
+item.mist.urn.location.taiga=Taiga
+item.mist.urn.location.savanna=Savanne
+item.mist.urn.location.desert=Woestijn
+item.mist.urn.location.jungle=Oerwoud
+
+### Maps
+item.mist.map_up.tooltip=Bovenste deel
+item.mist.map_down.tooltip=Onderste deel
+
+### Painting
+item.mist.painting.name=Oud schilderij
+item.mist.painting.tooltip.name=Titel
+item.mist.painting.tooltip.format=Grootte
+item.mist.painting.tooltip.cliff=Klif
+item.mist.painting.tooltip.bushes=Bosjes
+item.mist.painting.tooltip.fog_ocean=Mistige Oceaan
+item.mist.painting.tooltip.morning=Ochtend
+item.mist.painting.tooltip.watering_place=Waterplaats
+item.mist.painting.tooltip.early_spring=Vroege Lente
+item.mist.painting.tooltip.hot_day=Hete Dag Op De Savanne
+item.mist.painting.tooltip.etude=Naamloze Etude
+item.mist.painting.tooltip.oaks=Eiken
+item.mist.painting.tooltip.somewhere=Ergens
+item.mist.painting.tooltip.edge=Op De Rand
+item.mist.painting.tooltip.swamp=Moeras
+
+### Fluids
+fluid.mist.acid=Zuur
+item.mist.acid_bucket.name=Zuuremmer
+
+### Entities
+entity.mist.painting.name=Schilderij
+entity.mist.mossling.name=Mosling
+entity.mist.forest_runner.name=Bosrenner
+entity.mist.momo.name=Momo
+entity.mist.barvog.name=Barvog
+entity.mist.prickler.name=Prikkelaar
+entity.mist.caravan.name=Caravaan
+entity.mist.wulder.name=Wulder
+entity.mist.horb.name=Horb
+entity.mist.sniff.name=Snif
+entity.mist.sloth.name=Luiaard
+entity.mist.monk.name=Monnik
+entity.mist.galaga.name=Galaga
+entity.mist.hulter.name=Hulter
+entity.mist.brachiodon.name=Brachiodon
+
+entity.mist.grave_bug.name=Grafbeestje
+entity.mist.forest_spider.name=Bosspin
+entity.mist.swamp_crab.name=Moeraskrab
+entity.mist.snow_flea.name=Sneeuwvlo
+entity.mist.woodlouse.name=Tropische Houtluis
+entity.mist.cyclops.name=Cycloop
+entity.mist.desert_fish.name=Woestijnvis
+
+# DamageSourse
+death.attack.mist.in_fog=%1$s is gestikt in de mist
+death.attack.mist.dissolution=%1$s is opgelost in zuur
+
+# GUI
+gui.mist.bad_sleep=Je kunt moeilijk slapen
+gui.mist.bad_sleep.line_1=Je maakt je zorgen om je vrienden die naar de Mistlanden zijn vertrokken...
+gui.mist.bad_sleep.line_2=Je maakt je zorgen om je vrienden die in de Bovenwereld zijn gebleven...
+gui.mist.pot=Stukken
+gui.mist.pot_info=Pot
+gui.mist.pot_impurity=Onzuiverheid
+gui.mist.pot_saturation=Punten/Stuk
+gui.mist.skills=Skills
+gui.mist.skills.taming=Taming
+gui.mist.skills.cutting=Meat Cutting
+gui.mist.effects=Effects
+gui.mist.effects.toxic=Bedwelmend
+gui.mist.effects.pollution=Chemische vervuiling
+
+# Keybind
+keybind.mist.mask_inventory=Maskerinventaris
+keybind.mist.skill_inventory=Open vaardigheidmenu
+
+# Advancements
+advancements.mist.misty_world=Mistlanden
+advancements.mist.misty_world.desc=Het verhaal begint!
+advancements.mist.start=Een snelle blik
+advancements.mist.start.desc=Vannacht zag je een rare steen in de handen van een Enderman.
+advancements.mist.full_set=Volle lading
+advancements.mist.full_set.desc=Vermoord een Enderman om de stenen te krijgen.
+advancements.mist.portal=Goudkoorts
+advancements.mist.portal.desc=Maak een portaal naar de Mistlanden
+advancements.mist.first_breath=Eerste adem
+advancements.mist.first_breath.desc=Betreed de Mistlanden
+advancements.mist.right_choice=De goede keuze!
+advancements.mist.right_choice.desc=Open een portaal in de Mistleegte
+advancements.mist.second_breath=Tweede adem
+advancements.mist.second_breath.desc=Betreed de mist
+advancements.mist.night_walk=Nachtwandeling
+advancements.mist.night_walk.desc=Wandel 's nachts langs een klif om niobium te vinden
+advancements.mist.niobium=Zeg hoi tegen Mendeleëv
+advancements.mist.niobium.desc=Gooi niobium in de oven om een niobiumstaaf te maken
+advancements.mist.mask=Diep ademhalen!
+advancements.mist.mask.desc=Maak een respirator.
+advancements.mist.mask_full=Een belangrijk dingetje
+advancements.mist.mask_full.desc=Vergeet de filter niet
+advancements.mist.third_breath=Derde adem
+advancements.mist.third_breath.desc=Voorwaarts en omhoo...eeh...laag
+advancements.mist.pickaxe=Als een mes door boter!
+advancements.mist.pickaxe.desc=Maak een niobium houweel om makkelijk door de stenen te hakken
+advancements.mist.coal=Zeldzamer dan goud
+advancements.mist.coal.desc=Verkrijg filterkool, je hebt het nodig
+advancements.mist.coal_block=Je kunt leven
+advancements.mist.coal_block.desc=Haal de respirator weg uit de mist bij een van de absorptiefactoren, bijvoorbeeld: een filterkoolblok
+advancements.mist.carving=Bijtelen
+advancements.mist.carving.desc=Maak een gebijteld houtblok door met een bijl rechts te klikken
+advancements.mist.mulch=De zon stopt nooit
+advancements.mist.mulch.desc=Muls de landbouwgrond
+advancements.mist.compost=Recycelen
+advancements.mist.compost.desc=Maak een composthoop door rechts te klikken met shift bovenop een bodem, met biomateriaal in je handen
+advancements.mist.fertile=Voedingsrijker
+advancements.mist.fertile.desc=Maak je landbouwgrond voedingsrijker met humus
+advancements.mist.mushroomer=Zwemmen in de zwammen
+advancements.mist.mushroomer.desc=Proef alle paddenstoelen uit de Mistlanden in gekookte en rauwe vorm
+advancements.mist.gourmet=Gourmet
+advancements.mist.gourmet.desc=Probeer alle soorten vlees in de Mistlanden, zowel rauw als gekookt
+advancements.mist.art_critic=Kunstcriticus
+advancements.mist.art_critic.desc=Vind alle oude schilderijen in de Mistlanden
+advancements.mist.collector=Tussen Kunst & Kitsch
+advancements.mist.collector.desc=Vind alle onbekende urns in de Mistlanden
+advancements.mist.burnt_out=Uitgebrandt
+advancements.mist.burnt_out.desc=Krijg houtskool in een oven
+advancements.mist.remains=Ben jij het, Lara?
+advancements.mist.remains.desc=Maak een graf
+advancements.mist.tame_animal=Met elkaar, voor altijd!
+advancements.mist.tame_animal.desc=Tem een dier in de Mistlanden
+advancements.mist.riding=Hikkie Horrendous
+advancements.mist.riding.desc=Berijd een grote jager
+advancements.mist.rain=Eerste aanraking
+advancements.mist.rain.desc=Loop door de zure regen
+advancements.mist.toxic=Het is een mooie dag!
+advancements.mist.toxic.desc=Krijg 10%% bedwelming
+advancements.mist.detoxic=NON GMO
+advancements.mist.detoxic.desc=Eet antigif
+advancements.mist.pollution=PO2Lu3TiO2N
+advancements.mist.pollution.desc=Krijg 10%% chemische vervuiling
+advancements.mist.soap=Zeepmaker
+advancements.mist.soap.desc=Krijg zeep van dierenvet, as en zout
+advancements.mist.clean_up=De Sleutel Naar Goeie Gezondheid
+advancements.mist.clean_up.desc=Was chemische veruiling weg met zeep
+advancements.mist.rubber_tree=Rubber Shrubber
+advancements.mist.rubber_tree.desc=Vind een rubberboom in de tropen
+advancements.mist.latex=Latexliefde
+advancements.mist.latex.desc=Krijg latex van een rubberboom
+advancements.mist.rubber=Elastische body
+advancements.mist.rubber.desc=Krijg rubber van latex en zwavel
+advancements.mist.suit=Tweede aanraking
+advancements.mist.suit.desc=Geniet van alle voordelen van een beschermend pak
+advancements.mist.glass_container=Ruimtevoedsel
+advancements.mist.glass_container.desc=Eet eten uit een glazen container terwijl je een respirator draag
+
+# Config
+config.mist.dimension=Dimensie
+config.mist.dimension.tooltip=Standaard Dimensieinstellingen
+config.mist.dimension.id=Dimensie-ID
+config.mist.dimension.id.tooltip=Welke ID de Mistlanden dimensie krijgt. Verander deze bij conflicten met een andere mod.
+config.mist.dimension.stones=Endermannen laten geen portaalstenen vallen
+config.mist.dimension.stones.tooltip=Voorkomt dat endermannen geen portaalstenenen laten vallen
+config.mist.dimension.trees=Schakel vanilla boomgroei uit
+config.mist.dimension.trees.tooltip=Kiemplanten van buiten de Mistlanden zullen niet groeien in de Mistlanden
+config.mist.dimension.blacklist=Dimensie blacklist
+config.mist.dimension.blacklist.tooltip=Blacklist met dimensies waar je geen portaal naar de Mistlanden kunt bouwen
+config.mist.dimension.breakers=Sloopsnelheid Vaag Steen
+config.mist.dimension.breakers.tooltip=Overschrijft de breeksnelheid van de vaagsteen van een item (Mod ID:Item:Poreus steen snelheid:Boven steen snelheid:Basis steen snelheid). Pas deze parameter niet aan! Dit kan de spelbalans beïnvloeden
+config.mist.dimension.cascad_lag=Schakel cascading world gen log uit
+config.mist.dimension.cascad_lag.tooltip=Schakel het bericht 'cascading worldgen lag' uit. Tijdelijke maatregel totdat ik een oplossing heb voor het probleem
+config.mist.player=Speler
+config.mist.player.tooltip=Spelerinstellingen
+config.mist.player.search=Schakel zoekveld in
+config.mist.player.search.tooltip=Schakel het zoekveld in de creative-gui in
+config.mist.player.cut=Effectreductie
+config.mist.player.cut.tooltip=Met welke percentage de waarden van bedwelming en chemische vervuiling zullen afnemen na de dood van een speler
+config.mist.player.bars=Toon progress bar met effecten
+config.mist.player.bars.tooltip=Toont progress bar met effecten in het standaardscherm
+config.mist.player.effects=Toon effect percentages
+config.mist.player.effects.tooltip=Toon effects percentages op het standaardscherm
+config.mist.player.soap=Zeep om harnassen te wassen
+config.mist.player.soap.tooltip=Schakel het wassen van harnassen met zeep in
+config.mist.player.skill_factor=Vaardighedenfactor
+config.mist.player.skill_factor.tooltip=Vaardighedenfactor in de volgorde: Temmen, Slaan. Hoe lager de waarde, hoe sneller de vaardigheden upgraden
+config.mist.player.mobs_for_skill=Mobs voor vaardigheid
+config.mist.player.mobs_for_skill.tooltip=Een lijst met wezens (geen monsters) waarmee je de vaardigheid §oSnijden§r kunt verhogen (modId:mobNaam:punten of modId:*:punten for alle mobs in een mod). Bijvoorbeeld: mist:mossling:1, mist:monk:2, mist:brachiodon:3
+config.mist.campfire=Kampvuur
+config.mist.campfire.tooltip=Kampvuurinstellingen
+config.mist.campfire.stones=Standaardstenen en -kleuren
+config.mist.campfire.stones.tooltip=De stenen die beschikbaar zijn voor het maken van een kampvuurbasis (Mod ID:Item:Vereist aantal:Metadata:Kleur)
+config.mist.campfire.effects=Toon soepeffecten
+config.mist.campfire.effects.tooltip=Soepeffecten worden weergegeven in de tooltip van de soepen
+config.mist.graphic=Grafisch
+config.mist.graphic.tooltip=Grafische Instellingen
+config.mist.graphic.fog=Geavanceerdere mist renderer
+config.mist.graphic.fog.tooltip=Voegt schaduwen toe aan de mist
+config.mist.time=Tijd
+config.mist.time.tooltip=Tijdsinstellingen
+config.mist.time.day=Aantal dagen in een maand
+config.mist.time.day.tooltip=Stel het aantal dagen in een maand in
+config.mist.time.cotton=Woestijnkatoen Bloei-rate
+config.mist.time.cotton.tooltip=Hoevaak woestijnkatoen bloeit in een jaar
+config.mist.generation=Generator
+config.mist.generation.tooltip=Generatorinstellingen
+config.mist.generation.basement=Aantal oude basements
+config.mist.generation.basement.tooltip=0 - nergens, 1 - elke chunk
+config.mist.generation.well=Aantal waterputten
+config.mist.generation.well.tooltip=0 - nergens, 1 - elke chunk
+config.mist.generation.tomb_forest=Aantal graftombes in gemixt bos
+config.mist.generation.tomb_forest.tooltip=0 - nergens, 1 - elke chunk
+config.mist.generation.tomb_swamp=Aantal graftombes in moeras
+config.mist.generation.tomb_swamp.tooltip=0 - nergens, 1 - elke chunk
+config.mist.generation.tomb_desert=Aantal graftombes in savanne
+config.mist.generation.tomb_desert.tooltip=0 - nergens, 1 - elke chunk
+config.mist.generation.tomb_snow=Aantal graftombes in taiga
+config.mist.generation.tomb_snow.tooltip=0 - nergens, 1 - elke chunk
+config.mist.generation.tomb_jungle=Aantal graftombes in tropen
+config.mist.generation.tomb_jungle.tooltip=0 - nergens, 1 - elke chunk
+config.mist.generation.tomb_cliff=Aantal graftombes in kliffen
+config.mist.generation.tomb_cliff.tooltip=0 - nergens, 1 - elke chunk
+config.mist.generation.altar=Aantal altaren
+config.mist.generation.altar.tooltip=0 - nergens, 1 - elke chunk
+config.mist.generation.rare_urn=Aantal zeldzame urnen
+config.mist.generation.rare_urn.tooltip=0 - nergens, 1 - elke urn
+config.mist.generation.desert_fish=Aantal woestijnvissen
+config.mist.generation.desert_fish.tooltip=0 - nergens, 1 - elk blok

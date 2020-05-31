@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "XXX",
+        "XXX",
+        "XXX"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:bio_shale"
+        }
+    },
+    "result": {
+        "item": "mist:bio_shale_block",
+        "data": 0
+    }
+}

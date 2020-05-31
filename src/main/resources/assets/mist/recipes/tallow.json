@@ -1,0 +1,13 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "mist:tallow_block",
+            "data": 0
+        }
+    ],
+    "result": {
+        "item": "mist:tallow",
+        "count": 4
+    }
+}

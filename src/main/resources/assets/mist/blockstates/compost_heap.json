@@ -1,0 +1,32 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "cube_all",
+        "textures": {
+            "particle": "mist:blocks/compost_heap_0",
+            "side": "mist:blocks/compost_heap_0",
+            "side1": "mist:blocks/compost_heap_1",
+            "side2": "mist:blocks/humus_w",
+            "texture": "mist:blocks/compost_heap_0",
+            "all": "mist:blocks/compost_heap_0"
+        }
+    },
+    "variants": {
+        "stage=0,work=false": { "model": "snow_height2" },
+        "stage=1,work=false": { "model": "snow_height4" },
+        "stage=2,work=false": { "model": "snow_height6" },
+        "stage=3,work=false": { "model": "snow_height8" },
+        "stage=4,work=false": { "model": "snow_height10" },
+        "stage=5,work=false": { "model": "snow_height12" },
+        "stage=6,work=false": { "model": "snow_height14" },
+        "stage=7,work=false": { "model": "cube_all" },
+        "stage=0,work=true":  { "model": "mist:compost_heap_st_0" },
+        "stage=1,work=true":  { "model": "mist:compost_heap_st_0" },        
+        "stage=2,work=true":  { "model": "mist:compost_heap_st_1", "textures": { "particle": "mist:blocks/compost_heap_1" }},
+        "stage=3,work=true":  { "model": "mist:compost_heap_st_1", "textures": { "particle": "mist:blocks/compost_heap_1" }},
+        "stage=4,work=true":  { "model": "mist:compost_heap_st_2", "textures": { "particle": "mist:blocks/compost_heap_1" }},
+        "stage=5,work=true":  { "model": "mist:compost_heap_st_2", "textures": { "particle": "mist:blocks/compost_heap_1" }},
+        "stage=6,work=true":  { "model": "mist:compost_heap_st_3", "textures": { "particle": "mist:blocks/compost_heap_1" }},
+        "stage=7,work=true":  { "model": "mist:compost_heap_st_3", "textures": { "particle": "mist:blocks/compost_heap_1" }}
+    }
+}

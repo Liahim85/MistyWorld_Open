@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "wood_planks",
+    "pattern": [
+        "X",
+        "X"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:poplar_slab"
+        }
+    },
+    "result": {
+        "item": "mist:poplar_block",
+        "data": 13
+    }
+}

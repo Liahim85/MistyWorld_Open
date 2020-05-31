@@ -1,0 +1,14 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "group": "rubber",
+    "ingredients": [
+        {
+            "item": "mist:rubber_block",
+            "data": 0
+        }
+    ],
+    "result": {
+        "item": "mist:rubber",
+        "count": 9
+    }
+}

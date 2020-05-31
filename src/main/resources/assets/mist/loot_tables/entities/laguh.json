@@ -1,0 +1,107 @@
+{
+   "pools": [
+        {
+            "name": "laguh_meat_1",
+            "conditions": [
+                {
+                    "condition": "mist:skill_cutting",
+                    "value": 1
+                }
+            ],
+            "rolls": {
+                "min": 0,
+                "max": 1
+            },
+            "entries": [
+                {
+                    "type": "loot_table",
+                    "name": "mist:entities/laguh_meat"
+                }
+            ]
+        },
+        {
+            "name": "laguh_meat_2",
+            "conditions": [
+                {
+                    "condition": "mist:skill_cutting",
+                    "value": 2
+                }
+            ],
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "loot_table",
+                    "name": "mist:entities/laguh_meat"
+                }
+            ]
+        },
+        {
+            "name": "laguh_meat_3",
+            "conditions": [
+                {
+                    "condition": "mist:skill_cutting",
+                    "value": 3
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 2
+            },
+            "entries": [
+                {
+                    "type": "loot_table",
+                    "name": "mist:entities/laguh_meat"
+                }
+            ]
+        },
+        {
+            "name": "laguh_meat_4",
+            "conditions": [
+                {
+                    "condition": "mist:skill_cutting",
+                    "value": 4
+                }
+            ],
+            "rolls": {
+                "min": 1,
+                "max": 3
+            },
+            "entries": [
+                {
+                    "type": "loot_table",
+                    "name": "mist:entities/laguh_meat"
+                }
+            ]
+        },
+        {
+            "name": "laguh_meat_5",
+            "conditions": [
+                {
+                    "condition": "mist:skill_cutting",
+                    "value": 5,
+                    "equal": false
+                }
+            ],
+            "rolls": {
+                "min": 2,
+                "max": 4
+            },
+            "entries": [
+                {
+                    "type": "loot_table",
+                    "name": "mist:entities/laguh_meat"
+                }
+            ]
+        },
+        {
+            "name": "bone",
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "loot_table",
+                    "name": "mist:entities/bone"
+                }
+            ]
+        }
+    ]
+}

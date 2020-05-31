@@ -1,0 +1,19 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        [
+            {
+                "item": "mist:humus_dirt",
+                "data": 0
+            },
+            {
+                "item": "mist:humus_grass",
+                "data": 0
+            }
+        ]
+    ],
+    "result": {
+        "item": "mist:humus",
+        "count": 4
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "item/handheld_rod",
+    "textures": {
+        "layer0": "mist:items/food_on_stick_pink"
+    }
+}

@@ -1,0 +1,49 @@
+{
+    "multipart": [
+        {   "when":  { "humus": "0", "wet": "true" },
+            "apply": [
+                { "model": "mist:farmland_f_wet_0" }
+            ]
+        },
+        {   "when":  { "humus": "1", "wet": "true" },
+            "apply": [
+                { "model": "mist:farmland_f_wet_1" }
+            ]
+        },
+        {   "when":  { "humus": "2", "wet": "true" },
+            "apply": [
+                { "model": "mist:farmland_f_wet_2" }
+            ]
+        },
+        {   "when":  { "humus": "3", "wet": "true" },
+            "apply": [
+                { "model": "mist:farmland_f_wet_3" }
+            ]
+        },
+        {   "when":  { "humus": "0", "wet": "false" },
+            "apply": [
+                { "model": "mist:farmland_f_dry_0" }
+            ]
+        },
+        {   "when":  { "humus": "1", "wet": "false" },
+            "apply": [
+                { "model": "mist:farmland_f_dry_1" }
+            ]
+        },
+        {   "when":  { "humus": "2", "wet": "false" },
+            "apply": [
+                { "model": "mist:farmland_f_dry_2" }
+            ]
+        },
+        {   "when":  { "humus": "3", "wet": "false" },
+            "apply": [
+                { "model": "mist:farmland_f_dry_3" }
+            ]
+        },
+        {   "when":  { "mulch": "true" },
+            "apply": [
+                { "model": "mist:farmland_top" }
+            ]
+        }
+    ]
+}

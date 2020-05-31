@@ -1,0 +1,43 @@
+{
+    "multipart": [
+        {   "when":  { "wet": "true", "snowy": "false" },
+            "apply": [
+                { "model": "mist:humus_dirt_wet" },
+                { "model": "mist:humus_dirt_wet", "y": 90 },
+                { "model": "mist:humus_dirt_wet", "y": 180 },
+                { "model": "mist:humus_dirt_wet", "y": 270 }
+            ]
+        },
+        {   "when":  { "wet": "false", "snowy": "false" },
+            "apply": [
+                { "model": "mist:humus_dirt_dry" },
+                { "model": "mist:humus_dirt_dry", "y": 90 },
+                { "model": "mist:humus_dirt_dry", "y": 180 },
+                { "model": "mist:humus_dirt_dry", "y": 270 }
+            ]
+        },
+        {   "when":  { "snowy": "false" },
+            "apply": [
+                { "model": "mist:grass_top_y" },
+                { "model": "mist:grass_top_y", "y": 90 },
+                { "model": "mist:grass_top_y", "y": 180 },
+                { "model": "mist:grass_top_y", "y": 270 }
+            ]
+        },        
+        {   "when":  { "wet": "true", "snowy": "true" },
+            "apply": [
+                { "model": "mist:humus_dirt_wet" }
+            ]
+        },
+        {   "when":  { "wet": "false", "snowy": "true" },
+            "apply": [
+                { "model": "mist:humus_dirt_dry" }
+            ]
+        },
+        {   "when":  { "snowy": "true" },
+            "apply": [
+                { "model": "mist:grass_snow_y" }
+            ]
+        }
+    ]
+}

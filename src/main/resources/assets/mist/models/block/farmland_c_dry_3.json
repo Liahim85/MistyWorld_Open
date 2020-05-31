@@ -1,0 +1,8 @@
+{
+    "parent": "block/farmland",
+    "textures": {
+        "particle": "mist:blocks/dirt_c_d_3",
+        "dirt": "mist:blocks/dirt_c_d_3",
+        "top": "mist:blocks/farmland_c_d_3"
+    }
+}

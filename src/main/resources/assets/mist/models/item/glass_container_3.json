@@ -1,0 +1,10 @@
+{
+    "parent":"item/generated",
+    "textures": {
+        "layer0":"mist:items/glass_container",
+        "layer1":"mist:items/glass_container_color_31",
+        "layer2":"mist:items/glass_container_color_32",
+        "layer3":"mist:items/glass_container_color_33",
+        "layer4":"mist:items/glass_container_color_34"
+    }
+}

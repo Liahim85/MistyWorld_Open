@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "normal": [
+            { "model": "mist:stone_porous" },            
+            { "model": "mist:stone_porous_mirrored" },
+            { "model": "mist:stone_porous", "y": 180 },
+            { "model": "mist:stone_porous_mirrored", "y": 180 }
+        ]
+    }
+}

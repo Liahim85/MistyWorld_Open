@@ -1,0 +1,12 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "mist:tinder_fungus"
+    },
+    "variants": {
+        "facing=south": { "model": "mist:tinder_fungus" },
+        "facing=west":  { "model": "mist:tinder_fungus", "y": 90  },
+        "facing=north": { "model": "mist:tinder_fungus", "y": 180 },
+        "facing=east":  { "model": "mist:tinder_fungus", "y": 270 }
+    }
+}

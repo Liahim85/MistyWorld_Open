@@ -1,0 +1,22 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "group": "latex_pot",
+    "ingredients": [
+        {
+            "item": "minecraft:flower_pot"
+        },
+        {
+            "item": "minecraft:string"
+        },
+        {
+            "item": "minecraft:string"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "nuggetIron"
+        }
+    ],
+    "result": {
+        "item": "mist:latex_pot"
+    }
+}

@@ -1,0 +1,52 @@
+{
+    "variants": {
+        "humus=0,wet=true": [
+            { "model": "mist:dirt_c_wet_0" },
+            { "model": "mist:dirt_c_wet_0", "y": 90 },
+            { "model": "mist:dirt_c_wet_0", "y": 180 },
+            { "model": "mist:dirt_c_wet_0", "y": 270 }
+        ],
+        "humus=1,wet=true": [
+            { "model": "mist:dirt_c_wet_1" },
+            { "model": "mist:dirt_c_wet_1", "y": 90 },
+            { "model": "mist:dirt_c_wet_1", "y": 180 },
+            { "model": "mist:dirt_c_wet_1", "y": 270 }
+        ],
+        "humus=2,wet=true": [
+            { "model": "mist:dirt_c_wet_2" },
+            { "model": "mist:dirt_c_wet_2", "y": 90 },
+            { "model": "mist:dirt_c_wet_2", "y": 180 },
+            { "model": "mist:dirt_c_wet_2", "y": 270 }
+        ],
+        "humus=3,wet=true": [
+            { "model": "mist:dirt_c_wet_3" },
+            { "model": "mist:dirt_c_wet_3", "y": 90 },
+            { "model": "mist:dirt_c_wet_3", "y": 180 },
+            { "model": "mist:dirt_c_wet_3", "y": 270 }
+        ],
+        "humus=0,wet=false": [
+            { "model": "mist:dirt_c_dry_0" },
+            { "model": "mist:dirt_c_dry_0", "y": 90 },
+            { "model": "mist:dirt_c_dry_0", "y": 180 },
+            { "model": "mist:dirt_c_dry_0", "y": 270 }
+        ],
+        "humus=1,wet=false": [
+            { "model": "mist:dirt_c_dry_1" },
+            { "model": "mist:dirt_c_dry_1", "y": 90 },
+            { "model": "mist:dirt_c_dry_1", "y": 180 },
+            { "model": "mist:dirt_c_dry_1", "y": 270 }
+        ],
+        "humus=2,wet=false": [
+            { "model": "mist:dirt_c_dry_2" },
+            { "model": "mist:dirt_c_dry_2", "y": 90 },
+            { "model": "mist:dirt_c_dry_2", "y": 180 },
+            { "model": "mist:dirt_c_dry_2", "y": 270 }
+        ],
+        "humus=3,wet=false": [
+            { "model": "mist:dirt_c_dry_3" },
+            { "model": "mist:dirt_c_dry_3", "y": 90 },
+            { "model": "mist:dirt_c_dry_3", "y": 180 },
+            { "model": "mist:dirt_c_dry_3", "y": 270 }
+        ]
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "textures": {
+        "particle": "mist:blocks/sponge",
+        "side": "mist:blocks/sponge_trunk_1",
+        "top": "mist:blocks/sponge_core",
+        "bottom": "mist:blocks/sponge_s"
+    },
+    "elements": [
+        {   "from": [ 3, 0, 3 ],
+            "to":   [ 13, 16, 13 ],
+            "faces": {
+                "north": { "uv": [ 3, 0, 13, 16 ], "texture": "#side" },
+                "south": { "uv": [ 3, 0, 13, 16 ], "texture": "#side" },
+                "west":  { "uv": [ 3, 0, 13, 16 ], "texture": "#side" },
+                "east":  { "uv": [ 3, 0, 13, 16 ], "texture": "#side" },
+                "up":    { "uv": [ 3, 3, 13, 13 ], "texture": "#top", "cullface": "up" },
+                "down":  { "uv": [ 3, 3, 13, 13 ], "texture": "#bottom", "cullface": "down" }
+            }
+        }
+    ]
+}

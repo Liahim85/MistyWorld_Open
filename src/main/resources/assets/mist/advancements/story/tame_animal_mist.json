@@ -1,0 +1,20 @@
+{
+    "display": {
+        "icon": {
+            "item": "minecraft:lead"
+        },
+        "title": {
+            "translate": "advancements.mist.tame_animal"
+        },
+        "description": {
+            "translate": "advancements.mist.tame_animal.desc"
+        }
+    },
+    "parent": "mist:story/first_breath",
+    "criteria": {
+        "tame_animal": {
+            "trigger": "mist:tame_animal",
+            "conditions": {}
+        }
+    }
+}

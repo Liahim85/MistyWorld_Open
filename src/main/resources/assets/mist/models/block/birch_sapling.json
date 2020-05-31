@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "mist:blocks/birch_sapling"
+    }
+}

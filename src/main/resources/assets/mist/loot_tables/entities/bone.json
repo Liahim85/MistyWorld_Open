@@ -1,0 +1,103 @@
+{
+   "pools": [
+        {
+            "name": "bone_1",
+            "conditions": [
+                {
+                    "condition": "mist:skill_cutting",
+                    "value": 1
+                }
+            ],
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:bone",
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 0,
+                                "max": 3
+                            }
+                        },
+                        {
+                            "function": "looting_enchant",
+                            "count": {
+                                "min": 0,
+                                "max": 1
+                            },
+                            "limit": 5
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "bone_2",
+            "conditions": [
+                {
+                    "condition": "mist:skill_cutting",
+                    "value": 2
+                }
+            ],
+            "rolls": {
+                "min": 0,
+                "max": 1
+            },
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:bone",
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 0,
+                                "max": 2
+                            }
+                        },
+                        {
+                            "function": "looting_enchant",
+                            "count": {
+                                "min": 0,
+                                "max": 1
+                            },
+                            "limit": 3
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "bone_3",
+            "conditions": [
+                {
+                    "condition": "mist:skill_cutting",
+                    "value": 3,
+                    "equal": false
+                }
+            ],
+            "rolls": {
+                "min": 0,
+                "max": 1
+            },
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:bone",
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 0,
+                                "max": 1
+                            },
+                            "limit": 2
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

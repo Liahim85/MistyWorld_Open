@@ -1,0 +1,42 @@
+{
+    "display": {
+        "icon": {
+            "item": "minecraft:saddle"
+        },
+        "title": {
+            "translate": "advancements.mist.riding"
+        },
+        "description": {
+            "translate": "advancements.mist.riding.desc"
+        },
+        "frame": "challenge"
+    },
+    "parent": "mist:story/tame_animal_mist",
+    "rewards": {
+        "experience": 100
+    },
+    "criteria": {
+        "galaga": {
+            "trigger": "mist:riding",
+            "conditions": {
+                "entity" : {
+                    "type": "mist:galaga"
+                }
+            }
+        },
+        "monk": {
+            "trigger": "mist:riding",
+            "conditions": {
+                "entity" : {
+                    "type": "mist:monk"
+                }
+            }
+        }
+    },
+    "requirements": [
+        [
+            "galaga",
+            "monk"
+        ]
+    ]
+}

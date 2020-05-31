@@ -1,0 +1,22 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:niobium_pickaxe"
+        },
+        "title": {
+            "translate": "advancements.mist.pickaxe"
+        },
+        "description": {
+            "translate": "advancements.mist.pickaxe.desc"
+        }
+    },
+    "parent": "mist:story/niobium",
+    "criteria": {
+        "pickaxe": {
+            "trigger": "mist:item_crafted",
+            "conditions": {
+                "item": "mist:niobium_pickaxe"
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:portal_base",
+            "data": 3
+        },
+        "title": {
+            "translate": "advancements.mist.misty_world"
+        },
+        "description": {
+            "translate": "advancements.mist.misty_world.desc"
+        },
+        "background": "mist:textures/blocks/stone.png",
+        "show_toast": false,
+        "announce_to_chat": false
+    },
+    "criteria": {
+        "root": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "dimension": "overworld"
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "XXX"
+    ],
+    "key": {
+        "X": {
+            "item": "#TREE_STEPS"
+        }
+    },
+    "result": {
+        "item": "minecraft:wooden_pressure_plate"
+    }
+}

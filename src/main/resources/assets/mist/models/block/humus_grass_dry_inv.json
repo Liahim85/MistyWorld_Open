@@ -1,0 +1,10 @@
+{  
+    "parent": "mist:block/grass_holey",
+    "textures": {
+        "particle": "mist:blocks/humus_d",
+        "down": "mist:blocks/humus_d",
+        "up": "mist:blocks/grass_top_0",
+        "side": "mist:blocks/humus_d",
+        "overlay": "mist:blocks/grass_overlay_y"
+    }
+}

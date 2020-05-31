@@ -1,0 +1,112 @@
+{
+    "multipart": [
+        {   "when":  { "axis": "x", "deb": "false", "size": "0" },
+            "apply": { "model": "mist:birch_log_4", "x": 90, "y": 90 }
+        },
+        {   "when":  { "axis": "x", "deb": "true", "size": "0" },
+            "apply": { "model": "mist:birch_log_4_d", "x": 90, "y": 90 }
+        },
+        {   "when":  { "axis": "y", "deb": "false", "size": "0" },
+            "apply": { "model": "mist:birch_log_4" }
+        },
+        {   "when":  { "axis": "y", "deb": "true", "size": "0" },
+            "apply": { "model": "mist:birch_log_4_d" }
+        },
+        {   "when":  { "axis": "z", "deb": "false", "size": "0" },
+            "apply": { "model": "mist:birch_log_4", "x": 90 }
+        },
+        {   "when":  { "axis": "z", "deb": "true", "size": "0" },
+            "apply": { "model": "mist:birch_log_4_d", "x": 90 }
+        },
+        {   "when":  { "axis": "x", "deb": "false", "size": "1" },
+            "apply": { "model": "mist:birch_log_8", "x": 90, "y": 90 }
+        },
+        {   "when":  { "axis": "x", "deb": "true", "size": "1" },
+            "apply": { "model": "mist:birch_log_8_d", "x": 90, "y": 90 }
+        },
+        {   "when":  { "axis": "y", "deb": "false", "size": "1" },
+            "apply": { "model": "mist:birch_log_8" }
+        },
+        {   "when":  { "axis": "y", "deb": "true", "size": "1" },
+            "apply": { "model": "mist:birch_log_8_d" }
+        },
+        {   "when":  { "axis": "z", "deb": "false", "size": "1" },
+            "apply": { "model": "mist:birch_log_8", "x": 90 }
+        },
+        {   "when":  { "axis": "z", "deb": "true", "size": "1" },
+            "apply": { "model": "mist:birch_log_8_d", "x": 90 }
+        },
+        {   "when":  { "axis": "x", "deb": "false", "size": "0", "positive": "true" },
+            "apply": { "model": "mist:birch_log_4_pos", "x": 90, "y": 90 }
+        },
+        {   "when":  { "axis": "x", "deb": "true", "size": "0", "positive": "true" },
+            "apply": { "model": "mist:birch_log_4_d_pos", "x": 90, "y": 90 }
+        },
+        {   "when":  { "axis": "y", "deb": "false", "size": "0", "positive": "true" },
+            "apply": { "model": "mist:birch_log_4_pos" }
+        },
+        {   "when":  { "axis": "y", "deb": "true", "size": "0", "positive": "true" },
+            "apply": { "model": "mist:birch_log_4_d_pos" }
+        },
+        {   "when":  { "axis": "z", "deb": "false", "size": "0", "positive": "true" },
+            "apply": { "model": "mist:birch_log_4_neg", "x": 90 }
+        },
+        {   "when":  { "axis": "z", "deb": "true", "size": "0", "positive": "true" },
+            "apply": { "model": "mist:birch_log_4_d_neg", "x": 90 }
+        },
+        {   "when":  { "axis": "x", "deb": "false", "size": "0", "negative": "true" },
+            "apply": { "model": "mist:birch_log_4_neg", "x": 90, "y": 90 }
+        },
+        {   "when":  { "axis": "x", "deb": "true", "size": "0", "negative": "true" },
+            "apply": { "model": "mist:birch_log_4_d_neg", "x": 90, "y": 90 }
+        },
+        {   "when":  { "axis": "y", "deb": "false", "size": "0", "negative": "true" },
+            "apply": { "model": "mist:birch_log_4_neg" }
+        },
+        {   "when":  { "axis": "y", "deb": "true", "size": "0", "negative": "true" },
+            "apply": { "model": "mist:birch_log_4_d_neg" }
+        },
+        {   "when":  { "axis": "z", "deb": "false", "size": "0", "negative": "true" },
+            "apply": { "model": "mist:birch_log_4_pos", "x": 90 }
+        },
+        {   "when":  { "axis": "z", "deb": "true", "size": "0", "negative": "true" },
+            "apply": { "model": "mist:birch_log_4_d_pos", "x": 90 }
+        },
+        {   "when":  { "axis": "x", "deb": "false", "size": "1", "positive": "true" },
+            "apply": { "model": "mist:birch_log_8_pos", "x": 90, "y": 90 }
+        },
+        {   "when":  { "axis": "x", "deb": "true", "size": "1", "positive": "true" },
+            "apply": { "model": "mist:birch_log_8_d_pos", "x": 90, "y": 90 }
+        },
+        {   "when":  { "axis": "y", "deb": "false", "size": "1", "positive": "true" },
+            "apply": { "model": "mist:birch_log_8_pos" }
+        },
+        {   "when":  { "axis": "y", "deb": "true", "size": "1", "positive": "true" },
+            "apply": { "model": "mist:birch_log_8_d_pos" }
+        },
+        {   "when":  { "axis": "z", "deb": "false", "size": "1", "positive": "true" },
+            "apply": { "model": "mist:birch_log_8_neg", "x": 90 }
+        },
+        {   "when":  { "axis": "z", "deb": "true", "size": "1", "positive": "true" },
+            "apply": { "model": "mist:birch_log_8_d_neg", "x": 90 }
+        },
+        {   "when":  { "axis": "x", "deb": "false", "size": "1", "negative": "true" },
+            "apply": { "model": "mist:birch_log_8_neg", "x": 90, "y": 90 }
+        },
+        {   "when":  { "axis": "x", "deb": "true", "size": "1", "negative": "true" },
+            "apply": { "model": "mist:birch_log_8_d_neg", "x": 90, "y": 90 }
+        },
+        {   "when":  { "axis": "y", "deb": "false", "size": "1", "negative": "true" },
+            "apply": { "model": "mist:birch_log_8_neg" }
+        },
+        {   "when":  { "axis": "y", "deb": "true", "size": "1", "negative": "true" },
+            "apply": { "model": "mist:birch_log_8_d_neg" }
+        },
+        {   "when":  { "axis": "z", "deb": "false", "size": "1", "negative": "true" },
+            "apply": { "model": "mist:birch_log_8_pos", "x": 90 }
+        },
+        {   "when":  { "axis": "z", "deb": "true", "size": "1", "negative": "true" },
+            "apply": { "model": "mist:birch_log_8_d_pos", "x": 90 }
+        }
+    ]
+}

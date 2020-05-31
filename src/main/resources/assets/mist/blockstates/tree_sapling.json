@@ -1,0 +1,17 @@
+{
+    "variants": {
+        "type=acacia": { "model": "mist:acacia_sapling" },
+        "type=aspen": { "model": "mist:aspen_sapling" },
+        "type=a_tree": { "model": "mist:a_tree_sapling" },
+        "type=birch": { "model": "mist:birch_sapling" },
+        "type=oak": { "model": "mist:oak_sapling" },
+        "type=pine": { "model": "mist:pine_sapling" },
+        "type=poplar": { "model": "mist:poplar_sapling" },
+        "type=snow": { "model": "mist:snow_sapling" },
+        "type=spruce": { "model": "mist:spruce_sapling" },
+        "type=s_tree": { "model": "mist:s_tree_sapling" },
+        "type=t_tree": { "model": "mist:t_tree_sapling" },
+        "type=willow": { "model": "mist:willow_sapling" },
+        "type=r_tree": { "model": "mist:r_tree_sapling" }
+    }
+}

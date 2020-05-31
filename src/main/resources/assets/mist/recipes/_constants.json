@@ -1,0 +1,179 @@
+[
+    {
+        "name": "ROCKS_AND_ORE_COBBLESTONE",
+        "ingredient": [
+            {
+                "item": "mist:rocks"
+            },
+            {
+                "type": "forge:ore_dict",
+                "ore": "cobblestone"
+            }
+        ]
+    },
+    {
+        "name": "TREE_STEPS",
+        "ingredient": [
+            {
+                "item": "mist:a_tree_step"
+            },
+            {
+                "item": "mist:acacia_step"
+            },
+            {
+                "item": "mist:aspen_step"
+            },
+            {
+                "item": "mist:birch_step"
+            },
+            {
+                "item": "mist:oak_step"
+            },
+            {
+                "item": "mist:pine_step"
+            },
+            {
+                "item": "mist:poplar_step"
+            },
+            {
+                "item": "mist:s_tree_step"
+            },
+            {
+                "item": "mist:snow_step"
+            },
+            {
+                "item": "mist:spruce_step"
+            },
+            {
+                "item": "mist:t_tree_step"
+            },
+            {
+                "item": "mist:willow_step"
+            },
+            {
+                "item": "mist:r_tree_step"
+            }
+        ]
+    },
+    {
+        "name": "TREE_STEPS_AND_ORE_PLANKS",
+        "ingredient": [
+            {
+                "item": "mist:a_tree_step"
+            },
+            {
+                "item": "mist:acacia_step"
+            },
+            {
+                "item": "mist:aspen_step"
+            },
+            {
+                "item": "mist:birch_step"
+            },
+            {
+                "item": "mist:oak_step"
+            },
+            {
+                "item": "mist:pine_step"
+            },
+            {
+                "item": "mist:poplar_step"
+            },
+            {
+                "item": "mist:s_tree_step"
+            },
+            {
+                "item": "mist:snow_step"
+            },
+            {
+                "item": "mist:spruce_step"
+            },
+            {
+                "item": "mist:t_tree_step"
+            },
+            {
+                "item": "mist:willow_step"
+            },
+            {
+                "item": "mist:r_tree_step"
+            },
+            {
+                "type": "forge:ore_dict",
+                "ore": "plankWood"
+            }
+        ]
+    },
+    {
+        "name": "TREE_PLANKS_AND_ORE_PLANKS",
+        "ingredient": [
+            {
+                "item": "mist:a_tree_block",
+                "data": 13
+            },
+            {
+                "item": "mist:acacia_block",
+                "data": 13
+            },
+            {
+                "item": "mist:aspen_block",
+                "data": 13
+            },
+            {
+                "item": "mist:birch_block",
+                "data": 13
+            },
+            {
+                "item": "mist:oak_block",
+                "data": 13
+            },
+            {
+                "item": "mist:pine_block",
+                "data": 13
+            },
+            {
+                "item": "mist:poplar_block",
+                "data": 13
+            },
+            {
+                "item": "mist:s_tree_block",
+                "data": 13
+            },
+            {
+                "item": "mist:snow_block",
+                "data": 13
+            },
+            {
+                "item": "mist:spruce_block",
+                "data": 13
+            },
+            {
+                "item": "mist:t_tree_block",
+                "data": 13
+            },
+            {
+                "item": "mist:willow_block",
+                "data": 13
+            },
+            {
+                "item": "mist:r_tree_block",
+                "data": 13
+            },
+            {
+                "type": "forge:ore_dict",
+                "ore": "plankWood"
+            }
+        ]
+    },
+    {
+        "name": "SALT",
+        "ingredient": [
+            {
+                "item": "mist:saltpeter"
+            },
+            {
+                "type": "forge:ore_dict",
+                "ore": "lumpSalt"
+            }
+        ]
+    }
+]

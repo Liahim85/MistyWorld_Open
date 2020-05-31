@@ -1,0 +1,12 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "mist:niobium_ingot"
+        }
+    ],
+    "result": {
+        "item": "mist:niobium_nugget",
+        "count": 9
+    }
+}

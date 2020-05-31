@@ -1,0 +1,20 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:humus"
+        },
+        "title": {
+            "translate": "advancements.mist.fertile"
+        },
+        "description": {
+            "translate": "advancements.mist.fertile.desc"
+        }
+    },
+    "parent": "mist:story/compost",
+    "criteria": {
+        "fertile": {
+            "trigger": "mist:fertile",
+            "conditions": {}
+        }
+    }
+}

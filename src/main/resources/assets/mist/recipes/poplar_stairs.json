@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "wood_stairs",
+    "pattern": [
+        "X ",
+        "XX"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:poplar_step"
+        }
+    },
+    "result": {
+        "item": "mist:poplar_stairs"
+    }
+}

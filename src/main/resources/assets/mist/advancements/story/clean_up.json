@@ -1,0 +1,21 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:achiev_item",
+            "data": 9
+        },
+        "title": {
+            "translate": "advancements.mist.clean_up"
+        },
+        "description": {
+            "translate": "advancements.mist.clean_up.desc"
+        }
+    },
+    "parent": "mist:story/soap",
+    "criteria": {
+        "clean_up": {
+            "trigger": "mist:clean_up",
+            "conditions": {}
+        }
+    }
+}

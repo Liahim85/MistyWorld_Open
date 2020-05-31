@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "mist:blocks/r_tree_top_d"
+    }
+}

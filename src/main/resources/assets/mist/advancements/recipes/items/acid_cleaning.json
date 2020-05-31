@@ -1,0 +1,48 @@
+{
+    "parent": "mist:recipes/root",
+    "rewards": {
+        "recipes": [
+            "mist:acid_cleaning"
+        ]
+    },
+    "criteria": {
+        "has_item_1": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:sponge",
+                        "data": 13
+                    }
+                ]
+            }
+        },
+        "has_item_2": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "forge:bucketfilled",
+                        "nbt": "{FluidName:\"mist_acid\",Amount:1000}"
+                    }
+                ]
+            }
+        },
+        "has_the_recipes": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:acid_cleaning"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_item_1",
+            "has_the_recipes"
+        ],
+        [
+            "has_item_2",
+            "has_the_recipes"
+        ]
+    ]
+}

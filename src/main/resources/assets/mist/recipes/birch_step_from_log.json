@@ -1,0 +1,32 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "group": "wood_step",
+    "ingredients": [
+        [
+            {
+                "item": "mist:birch_block",
+                "data": 0
+            },
+            {
+                "item": "mist:birch_block",
+                "data": 4
+            },
+            {
+                "item": "mist:birch_block",
+                "data": 7
+            },
+            {
+                "item": "mist:birch_block",
+                "data": 8
+            },
+            {
+                "item": "mist:birch_block",
+                "data": 11
+            }
+        ]
+    ],
+    "result": {
+        "item": "mist:birch_step",
+        "count": 4
+    }
+}

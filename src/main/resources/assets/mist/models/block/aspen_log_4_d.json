@@ -1,0 +1,7 @@
+{
+    "parent": "mist:block/log_4",
+    "textures": {
+        "end": "mist:blocks/aspen_top_d",
+        "side": "mist:blocks/aspen_trunk_d"
+    }
+}

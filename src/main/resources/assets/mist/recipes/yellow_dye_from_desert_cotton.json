@@ -1,0 +1,14 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "group": "yellow_dye",
+    "ingredients": [
+        {
+            "item": "mist:desert_cotton_seed",
+            "data": 0
+        }
+    ],
+    "result": {
+        "item": "minecraft:dye",
+        "data": 11
+    }
+}

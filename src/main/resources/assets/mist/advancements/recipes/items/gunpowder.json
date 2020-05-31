@@ -1,0 +1,55 @@
+{
+    "parent": "mist:recipes/root",
+    "rewards": {
+        "recipes": [
+            "mist:gunpowder"
+        ]
+    },
+    "criteria": {
+        "has_item_1": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:sulfur"
+                    }
+                ]
+            }
+        },
+        "has_item_2": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:saltpeter"
+                    }
+                ]
+            }
+        },
+        "has_item_3": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "minecraft:coal",
+                        "data": 1
+                    }
+                ]
+            }
+        },
+        "has_the_recipes": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:gunpowder"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_item_1",
+            "has_item_2",
+            "has_item_3",
+            "has_the_recipes"
+        ]
+    ]
+}

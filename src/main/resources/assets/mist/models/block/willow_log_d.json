@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "mist:blocks/willow_top_d",
+        "side": "mist:blocks/willow_trunk_d"
+    }
+}

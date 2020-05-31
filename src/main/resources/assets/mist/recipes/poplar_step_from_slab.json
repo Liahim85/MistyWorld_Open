@@ -1,0 +1,13 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "group": "wood_step",
+    "ingredients": [
+        {
+            "item": "mist:poplar_slab"
+        }
+    ],
+    "result": {
+        "item": "mist:poplar_step",
+        "count": 2
+    }
+}

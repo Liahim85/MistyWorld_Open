@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+FMLCorePlugin: ru.liahim.mist.core.hooks.MistHookLoader
+FMLCorePluginContainsFMLMod: true
+Created-By: 1.7.0 (Oracle Corporation)

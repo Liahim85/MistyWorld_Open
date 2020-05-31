@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "XX",
+        "XX"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:tallow"
+        }
+    },
+    "result": {
+        "item": "mist:tallow_block",
+        "data": 0
+    }
+}

@@ -1,0 +1,13 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "group": "gray_dye",
+    "ingredients": [
+        {
+            "item": "mist:ash"
+        }
+    ],
+    "result": {
+        "item": "minecraft:dye",
+        "data": 8
+    }
+}

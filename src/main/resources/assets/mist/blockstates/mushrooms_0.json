@@ -1,0 +1,17 @@
+{
+    "variants": {
+        "type=brown":  { "model": "mist:mushroom_brown" },
+        "type=black":  { "model": "mist:mushroom_black" },
+        "type=gray":   { "model": "mist:mushroom_gray" },
+        "type=red":    { "model": "mist:mushroom_red" },
+        "type=orange": { "model": "mist:mushroom_orange" },
+        "type=coral":  { "model": "mist:mushroom_coral" },
+        "type=yellow": { "model": "mist:mushroom_yellow" },
+        "type=blue":   { "model": "mist:mushroom_blue" },
+        "type=purple": { "model": "mist:mushroom_purple" },
+        "type=marsh":  { "model": "mist:mushroom_marsh" },
+        "type=pink":   { "model": "mist:mushroom_pink" },
+        "type=puff":   { "model": "mist:mushroom_puff" },
+        "type=sand":   { "model": "mist:mushroom_sand" }
+    }
+}

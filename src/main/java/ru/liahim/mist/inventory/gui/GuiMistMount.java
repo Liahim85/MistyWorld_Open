@@ -1,0 +1,73 @@
+package ru.liahim.mist.inventory.gui;
+
+import ru.liahim.mist.entity.AbstractMistChestMount;
+import ru.liahim.mist.entity.AbstractMistMount;
+import ru.liahim.mist.inventory.container.ContainerMountInventory;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.gui.inventory.GuiInventory;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+@SideOnly(Side.CLIENT)
+public class GuiMistMount extends GuiContainer {
+	private static final ResourceLocation HORSE_GUI_TEXTURES = new ResourceLocation("textures/gui/container/horse.png");
+	private final IInventory playerInventory;
+	private final IInventory horseInventory;
+	private final AbstractMistMount horseEntity;
+	private float mousePosx;
+	private float mousePosY;
+
+	public GuiMistMount(IInventory playerInv, IInventory horseInv, AbstractMistMount horse) {
+		super(new ContainerMountInventory(playerInv, horseInv, horse, Minecraft.getMinecraft().player));
+		this.playerInventory = playerInv;
+		this.horseInventory = horseInv;
+		this.horseEntity = horse;
+		this.allowUserInput = false;
+	}
+
+	@Override
+	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
+		this.fontRenderer.drawString(this.horseInventory.getDisplayName().getUnformattedText(), 8, 6, 4210752);
+		this.fontRenderer.drawString(this.playerInventory.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2, 4210752);
+	}
+
+	@Override
+	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
+		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+		this.mc.getTextureManager().bindTexture(HORSE_GUI_TEXTURES);
+		int i = (this.width - this.xSize) / 2;
+		int j = (this.height - this.ySize) / 2;
+		this.drawTexturedModalRect(i, j, 0, 0, this.xSize, this.ySize);
+		if (this.horseEntity instanceof AbstractMistChestMount) {
+			AbstractMistChestMount abstractchesthorse = (AbstractMistChestMount) this.horseEntity;
+			if (abstractchesthorse.hasChest()) {
+				this.drawTexturedModalRect(i + 79, j + 17, 0, this.ySize, abstractchesthorse.getInventoryColumns() * 18, 54);
+			}
+		}
+
+		if (this.horseEntity.canBeSaddled()) {
+			this.drawTexturedModalRect(i + 7, j + 35 - 18, 18, this.ySize + 54, 18, 18);
+		}
+
+		/*if (this.horseEntity.wearsArmor()) {
+			if (this.horseEntity instanceof EntityLlama) {
+				this.drawTexturedModalRect(i + 7, j + 35, 36, this.ySize + 54, 18, 18);
+			} else this.drawTexturedModalRect(i + 7, j + 35, 0, this.ySize + 54, 18, 18);
+		}*/
+
+		GuiInventory.drawEntityOnScreen(i + 51, j + 60, 17, i + 51 - this.mousePosx, j + 75 - 50 - this.mousePosY, this.horseEntity);
+	}
+
+	@Override
+	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+		this.drawDefaultBackground();
+		this.mousePosx = mouseX;
+		this.mousePosY = mouseY;
+		super.drawScreen(mouseX, mouseY, partialTicks);
+		this.renderHoveredToolTip(mouseX, mouseY);
+	}
+}

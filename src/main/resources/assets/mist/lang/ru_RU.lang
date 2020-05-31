@@ -1,0 +1,773 @@
+﻿##############################
+# Misty World
+#
+# РУССКИЙ (RU) (ru_RU) localization
+# Translation by Liahim
+#
+# If you need declinations in a dry/wet tooltip, you can add the suffix "_n" to the item name, where "n" is the declination option number. As an example, see the Russian translation (ru_RU).
+
+# Tab
+itemGroup.mist.tab=Туманный мир
+
+# Blocks
+### Ground
+tile.mist.stone.name=Туманный камень
+tile.mist.stone_porous.name=Пористый туманный камень
+tile.mist.stone_basic.name=Твёрдый туманный камень
+tile.mist.cobblestone.name=Булыжник
+tile.mist.cobblestone_moss.name=Заросший булыжник
+tile.mist.gravel.name=Гравий
+tile.mist.sand.name=Песок_1
+tile.mist.red_sand.name=Красный песок_1
+tile.mist.acid_sand.name=Кислый песок_1
+tile.mist.clay_gray_block.name=Серая глина_0
+tile.mist.clay_gray_nature.name=Залежная серая глина_0
+tile.mist.clay_gray_cracked.name=Потрескавшаяся серая глина_0
+tile.mist.clay_red_block.name=Красная глина_0
+tile.mist.clay_red_nature.name=Залежная красная глина_0
+tile.mist.clay_red_cracked.name=Потрескавшаяся красная глина_0
+tile.mist.floating_mat.name=Сплавина
+tile.mist.peat.name=Торф_1
+tile.mist.filter_coal_ore.name=Фильтрующая руда
+tile.mist.filter_coal_block.name=Блок фильтрующего угля
+tile.mist.bio_shale_ore.name=Бактериальный сланец
+tile.mist.bio_shale_block.name=Блок бактериального сланца
+tile.mist.iron_ore.name=Железная руда
+tile.mist.gold_ore.name=Золотая руда
+tile.mist.niobium_ore.name=Ниобиевая руда
+tile.mist.niobium_block.name=Ниобиевый блок
+tile.mist.lapis_ore.name=Лазуритовая руда
+tile.mist.sulfur_ore.name=Серная руда
+tile.mist.sulfur_block.name=Блок серы
+tile.mist.saltpeter_ore.name=Селитровая руда
+tile.mist.saltpeter_block.name=Блок селитры
+tile.mist.salt_ore.name=Соляная руда
+tile.mist.tallow_block.name=Блок жира
+tile.mist.soap_block.name=Блок мыла
+tile.mist.latex_block.name=Блок латекса
+tile.mist.rubber_block.name=Блок резины
+
+### Dirt
+tile.mist.humus_dirt.name=Перегной_1
+tile.mist.humus_grass.name=Заросший перегной_1
+tile.mist.sapropel_block.name=Сапропель_0
+tile.mist.sapropel_nature.name=Залежная сапропель_0
+tile.mist.dirt_f.name=Лесная почва_0
+tile.mist.dirt_s.name=Песчаная почва_0
+tile.mist.dirt_c.name=Глинистая почва_0
+tile.mist.dirt_r.name=Каменистая почва_0
+tile.mist.dirt_t.name=Тропическая почва_0
+tile.mist.acid_dirt_0.name=Отравленная почва_0
+tile.mist.acid_dirt_1.name=Отравленная почва_0
+tile.mist.acid_dirt_2.name=Отравленная почва_0
+tile.mist.grass_f.name=Лесная трава_0
+tile.mist.grass_s.name=Степная трава_0
+tile.mist.grass_c.name=Болотная трава_0
+tile.mist.grass_r.name=Таёжная трава_0
+tile.mist.grass_t.name=Тропическая трава_0
+tile.mist.acid_grass_0.name=Ковровый лишайник_1
+tile.mist.acid_grass_1.name=Ковровый лишайник_1
+tile.mist.acid_grass_2.name=Ковровый лишайник_1
+tile.mist.mulch_block.name=Мульча
+tile.mist.remains_block.name=Прах
+
+##### Tooltip gender -------------------
+##### Female ("_0")
+tile.mist.block_wet_0.tooltip=Влажная
+tile.mist.block_dry_0.tooltip=Сухая
+tile.mist.soil_porosity_1_0.tooltip=Плотная
+tile.mist.soil_porosity_2_0.tooltip=Рыхлая
+tile.mist.soil_porosity_3_0.tooltip=Сыпучая
+##### Male ("_1")
+tile.mist.block_wet_1.tooltip=Влажный
+tile.mist.block_dry_1.tooltip=Сухой
+tile.mist.soil_porosity_1_1.tooltip=Плотный
+tile.mist.soil_porosity_2_1.tooltip=Рыхлый
+tile.mist.soil_porosity_3_1.tooltip=Сыпучий
+##### Any ("")
+tile.mist.soil_hum.tooltip=Содержание гумуса
+----------------------------------------
+
+### Portal
+tile.mist.portal_new_down.name=Нижний портальный камень
+tile.mist.portal_new_up.name=Верхний портальный камень
+tile.mist.portal_old_down.name=Замшелый камень
+tile.mist.portal_old_down.tooltip=На верхней стороне заметны следы золота
+tile.mist.portal_old_up.name=Выветренный камень
+tile.mist.portal_old_up.tooltip=На нижней стороне заметны следы золота
+
+### Trees
+tile.mist.acacia_leaves.name=Листва зонтичного дерева
+tile.mist.acacia_trunk.name=Живое зонтичное дерево
+tile.mist.aspen_leaves.name=Листва дрожащего дерева
+tile.mist.aspen_trunk.name=Живое дрожащее дерево
+tile.mist.a_tree_leaves.name=Листва араукарии
+tile.mist.a_tree_trunk.name=Живая араукария
+tile.mist.birch_leaves.name=Листва лесной обманщицы
+tile.mist.birch_trunk.name=Живая лесная обманщица
+tile.mist.oak_leaves.name=Листва туманного дуба
+tile.mist.oak_trunk.name=Живой туманный дуб
+tile.mist.pine_leaves.name=Хвоя туманной сосны
+tile.mist.pine_trunk.name=Живая туманная сосна
+tile.mist.poplar_leaves.name=Листва болотного тополя
+tile.mist.poplar_trunk.name=Живой болотный тополь
+tile.mist.snow_leaves.name=Листва снежного дерева
+tile.mist.snow_trunk.name=Живое снежное дерево
+tile.mist.spruce_leaves.name=Хвоя колючего дерева
+tile.mist.spruce_trunk.name=Живое колючее дерево
+tile.mist.s_tree_leaves.name=Листва каменного дерева
+tile.mist.s_tree_trunk.name=Живое каменное дерево
+tile.mist.t_tree_leaves.name=Листва тропического дерева
+tile.mist.t_tree_trunk.name=Живое тропическое дерево
+tile.mist.willow_leaves.name=Листва плачущего дерева
+tile.mist.willow_trunk.name=Живое плачущее дерево
+tile.mist.r_tree_leaves.name=Листва каучукового дерева
+tile.mist.r_tree_trunk.name=Живое каучуковое дерево
+tile.mist.live_tree.tooltip=ПКМ с топором в руке для изменения толщины ствола
+
+### Sapling
+tile.mist.acacia_sapling.name=Саженец зонтичного дерева
+tile.mist.aspen_sapling.name=Саженец дрожащего дерева
+tile.mist.a_tree_sapling.name=Саженец араукарии
+tile.mist.birch_sapling.name=Саженец лесной обманщицы
+tile.mist.oak_sapling.name=Саженец туманного дуба
+tile.mist.pine_sapling.name=Саженец туманной сосны
+tile.mist.poplar_sapling.name=Саженец болотного тополя
+tile.mist.snow_sapling.name=Саженец снежного дерева
+tile.mist.spruce_sapling.name=Саженец колючего дерева
+tile.mist.s_tree_sapling.name=Саженец каменного дерева
+tile.mist.t_tree_sapling.name=Саженец тропического дерева
+tile.mist.willow_sapling.name=Саженец плачущего дерева
+tile.mist.r_tree_sapling.name=Саженец каучукового дерева
+
+### Wood Blocks
+tile.mist.acacia_log.name=Зонтичное дерево
+tile.mist.acacia_log_b.name=Зонтичное дерево
+tile.mist.acacia_log_c.name=Резное зонтичное дерево
+tile.mist.acacia_log_d.name=Окорённое зонтичное дерево
+tile.mist.acacia_log_n.name=Узел зонтичного дерева
+tile.mist.acacia_log_nd.name=Окорённый узел зонтичного дерева
+tile.mist.acacia_planks.name=Доски из зонтичного дерева
+tile.mist.aspen_log.name=Дрожащее дерево
+tile.mist.aspen_log_b.name=Дрожащее дерево
+tile.mist.aspen_log_c.name=Резное дрожащее дерево
+tile.mist.aspen_log_d.name=Окорённое дрожащее дерево
+tile.mist.aspen_log_n.name=Узел дрожащего дерева
+tile.mist.aspen_log_nd.name=Окорённый узел дрожащего дерева
+tile.mist.aspen_planks.name=Доски из дрожащего дерева
+tile.mist.a_tree_log.name=Араукария
+tile.mist.a_tree_log_b.name=Араукария
+tile.mist.a_tree_log_c.name=Резная араукария
+tile.mist.a_tree_log_d.name=Окорённая араукария
+tile.mist.a_tree_log_n.name=Узел араукарии
+tile.mist.a_tree_log_nd.name=Окорённый узел араукарии
+tile.mist.a_tree_planks.name=Доски из араукарии
+tile.mist.birch_log.name=Лесная обманщица
+tile.mist.birch_log_b.name=Лесная обманщица
+tile.mist.birch_log_c.name=Резная лесная обманщица
+tile.mist.birch_log_d.name=Окорённая лесная обманщица
+tile.mist.birch_log_n.name=Узел лесной обманщицы
+tile.mist.birch_log_nd.name=Окорённый узел лесной обманщицы
+tile.mist.birch_planks.name=Доски из лесной обманщицы
+tile.mist.oak_log.name=Туманный дуб
+tile.mist.oak_log_b.name=Туманный дуб
+tile.mist.oak_log_c.name=Резной туманный дуб
+tile.mist.oak_log_d.name=Окорённый туманный дуб
+tile.mist.oak_log_n.name=Узел туманного дуба
+tile.mist.oak_log_nd.name=Окорённый узел туманного дуба
+tile.mist.oak_planks.name=Доски из туманного дуба
+tile.mist.pine_log.name=Туманная сосна
+tile.mist.pine_log_b.name=Туманная сосна
+tile.mist.pine_log_c.name=Резная туманная сосна
+tile.mist.pine_log_d.name=Окорённая туманная сосна
+tile.mist.pine_log_n.name=Узел туманной сосны
+tile.mist.pine_log_nd.name=Окорённый узел туманной сосны
+tile.mist.pine_planks.name=Доски из туманной сосны
+tile.mist.poplar_log.name=Болотный тополь
+tile.mist.poplar_log_b.name=Болотный тополь
+tile.mist.poplar_log_c.name=Резной болотный тополь
+tile.mist.poplar_log_d.name=Окорённый болотный тополь
+tile.mist.poplar_log_n.name=Узел болотного тополя
+tile.mist.poplar_log_nd.name=Окорённый узел болотного тополя
+tile.mist.poplar_planks.name=Доски из болотного тополя
+tile.mist.snow_log.name=Снежное дерево
+tile.mist.snow_log_b.name=Снежное дерево
+tile.mist.snow_log_c.name=Резное снежное дерево
+tile.mist.snow_log_d.name=Окорённое снежное дерево
+tile.mist.snow_log_n.name=Узел снежного дерева
+tile.mist.snow_log_nd.name=Окорённый узел снежного дерева
+tile.mist.snow_planks.name=Доски из снежного дерева
+tile.mist.spruce_log.name=Колючее дерево
+tile.mist.spruce_log_b.name=Колючее дерево
+tile.mist.spruce_log_c.name=Резное колючее дерево
+tile.mist.spruce_log_d.name=Окорённое колючее дерево
+tile.mist.spruce_log_n.name=Узел колючего дерева
+tile.mist.spruce_log_nd.name=Окорённый узел колючего дерева
+tile.mist.spruce_planks.name=Доски из колючего дерева
+tile.mist.s_tree_log.name=Каменное дерево
+tile.mist.s_tree_log_b.name=Каменное дерево
+tile.mist.s_tree_log_c.name=Резное каменное дерево
+tile.mist.s_tree_log_d.name=Окорённое каменное дерево
+tile.mist.s_tree_log_n.name=Узел каменного дерева
+tile.mist.s_tree_log_nd.name=Окорённый узел каменного дерева
+tile.mist.s_tree_planks.name=Доски из каменного дерева
+tile.mist.t_tree_log.name=Тропическое дерево
+tile.mist.t_tree_log_b.name=Тропическое дерево
+tile.mist.t_tree_log_c.name=Резное тропическое дерево
+tile.mist.t_tree_log_d.name=Окорённое тропическое дерево
+tile.mist.t_tree_log_n.name=Узел тропического дерева
+tile.mist.t_tree_log_nd.name=Окорённый узел тропического дерева
+tile.mist.t_tree_planks.name=Доски из тропического дерева
+tile.mist.willow_log.name=Плачущее дерево
+tile.mist.willow_log_b.name=Плачущее дерево
+tile.mist.willow_log_c.name=Резное плачущее дерево
+tile.mist.willow_log_d.name=Окорённое плачущее дерево
+tile.mist.willow_log_n.name=Узел плачущего дерева
+tile.mist.willow_log_nd.name=Окорённый узел плачущего дерева
+tile.mist.willow_planks.name=Доски из плачущего дерева
+tile.mist.r_tree_log.name=Каучуковое дерево
+tile.mist.r_tree_log_b.name=Каучуковое дерево
+tile.mist.r_tree_log_c.name=Резное каучуковое дерево
+tile.mist.r_tree_log_d.name=Окорённое каучуковое дерево
+tile.mist.r_tree_log_n.name=Узел каучукового дерева
+tile.mist.r_tree_log_nd.name=Окорённый узел каучукового дерева
+tile.mist.r_tree_planks.name=Доски из каучукового дерева
+
+### Step
+tile.mist.cobblestone_step.name=Ступень из булыжника
+tile.mist.cobblestone_moss_step.name=Ступень из заросшего булыжника
+tile.mist.acacia_step.name=Брусок из зонтичного дерева
+tile.mist.aspen_step.name=Брусок из дрожащего дерева
+tile.mist.a_tree_step.name=Брусок из араукарии
+tile.mist.birch_step.name=Брусок из лесной обманщицы
+tile.mist.oak_step.name=Брусок из туманного дуба
+tile.mist.pine_step.name=Брусок из туманной сосны
+tile.mist.poplar_step.name=Брусок из болотного тополя
+tile.mist.snow_step.name=Брусок из снежного дерева
+tile.mist.spruce_step.name=Брусок из колючего дерева
+tile.mist.s_tree_step.name=Брусок из каменного дерева
+tile.mist.t_tree_step.name=Брусок из тропического дерева
+tile.mist.willow_step.name=Брусок из плачущего дерева
+tile.mist.r_tree_step.name=Брусок из каучукового дерева
+
+### Slab
+tile.mist.cobblestone_slab.name=Плита из булыжника
+tile.mist.cobblestone_moss_slab.name=Плита из заросшего булыжника
+tile.mist.acacia_slab.name=Плита из зонтичного дерева
+tile.mist.aspen_slab.name=Плита из дрожащего дерева
+tile.mist.a_tree_slab.name=Плита из араукарии
+tile.mist.birch_slab.name=Плита из лесной обманщицы
+tile.mist.oak_slab.name=Плита из туманного дуба
+tile.mist.pine_slab.name=Плита из туманной сосны
+tile.mist.poplar_slab.name=Плита из болотного тополя
+tile.mist.snow_slab.name=Плита из снежного дерева
+tile.mist.spruce_slab.name=Плита из колючего дерева
+tile.mist.s_tree_slab.name=Плита из каменного дерева
+tile.mist.t_tree_slab.name=Плита из тропического дерева
+tile.mist.willow_slab.name=Плита из плачущего дерева
+tile.mist.r_tree_slab.name=Плита из каучукового дерева
+
+### Stairs
+tile.mist.cobblestone_stairs.name=Ступени из булыжника
+tile.mist.cobblestone_moss_stairs.name=Ступени из заросшего булыжника
+tile.mist.acacia_stairs.name=Ступени из зонтичного дерева
+tile.mist.aspen_stairs.name=Ступени из дрожащего дерева
+tile.mist.a_tree_stairs.name=Ступени из араукарии
+tile.mist.birch_stairs.name=Ступени из лесной обманщицы
+tile.mist.oak_stairs.name=Ступени из туманного дуба
+tile.mist.pine_stairs.name=Ступени из туманной сосны
+tile.mist.poplar_stairs.name=Ступени из болотного тополя
+tile.mist.snow_stairs.name=Ступени из снежного дерева
+tile.mist.spruce_stairs.name=Ступени из колючего дерева
+tile.mist.s_tree_stairs.name=Ступени из каменного дерева
+tile.mist.t_tree_stairs.name=Ступени из тропического дерева
+tile.mist.willow_stairs.name=Ступени из плачущего дерева
+tile.mist.r_tree_stairs.name=Ступени из каучукового дерева
+
+### Branch
+tile.mist.acacia_branch_4.name=Ветка зонтичного дерева
+tile.mist.acacia_branch_4_d.name=Окорённая ветка зонтичного дерева
+tile.mist.acacia_branch_8.name=Ствол зонтичного дерева
+tile.mist.acacia_branch_8_d.name=Окорённый ствол зонтичного дерева
+tile.mist.aspen_branch_4.name=Ветка дрожащего дерева
+tile.mist.aspen_branch_4_d.name=Окорённая ветка дрожащего дерева
+tile.mist.aspen_branch_8.name=Ствол дрожащего дерева
+tile.mist.aspen_branch_8_d.name=Окорённый ствол дрожащего дерева
+tile.mist.a_tree_branch_4.name=Ветка араукарии
+tile.mist.a_tree_branch_4_d.name=Окорённая ветка араукарии
+tile.mist.a_tree_branch_8.name=Ствол араукарии
+tile.mist.a_tree_branch_8_d.name=Окорённый ствол араукарии
+tile.mist.birch_branch_4.name=Ветка лесной обманщицы
+tile.mist.birch_branch_4_d.name=Окорённая ветка лесной обманщицы
+tile.mist.birch_branch_8.name=Ствол лесной обманщицы
+tile.mist.birch_branch_8_d.name=Окорённый ствол лесной обманщицы
+tile.mist.oak_branch_4.name=Ветка туманного дуба
+tile.mist.oak_branch_4_d.name=Окорённая ветка туманного дуба
+tile.mist.oak_branch_8.name=Ствол туманного дуба
+tile.mist.oak_branch_8_d.name=Окорённый ствол туманного дуба
+tile.mist.pine_branch_4.name=Ветка туманной сосны
+tile.mist.pine_branch_4_d.name=Окорённая ветка туманной сосны
+tile.mist.pine_branch_8.name=Ствол туманной сосны
+tile.mist.pine_branch_8_d.name=Окорённый ствол туманной сосны
+tile.mist.poplar_branch_4.name=Ветка болотного тополя
+tile.mist.poplar_branch_4_d.name=Окорённая ветка болотного тополя
+tile.mist.poplar_branch_8.name=Ствол болотного тополя
+tile.mist.poplar_branch_8_d.name=Окорённый ствол болотного тополя
+tile.mist.snow_branch_4.name=Ветка снежного дерева
+tile.mist.snow_branch_4_d.name=Окорённая ветка снежного дерева
+tile.mist.snow_branch_8.name=Ствол снежного дерева
+tile.mist.snow_branch_8_d.name=Окорённый ствол снежного дерева
+tile.mist.spruce_branch_4.name=Ветка колючего дерева
+tile.mist.spruce_branch_4_d.name=Окорённая ветка колючего дерева
+tile.mist.spruce_branch_8.name=Ствол колючего дерева
+tile.mist.spruce_branch_8_d.name=Окорённый ствол колючего дерева
+tile.mist.s_tree_branch_4.name=Ветка каменного дерева
+tile.mist.s_tree_branch_4_d.name=Окорённая ветка каменного дерева
+tile.mist.s_tree_branch_8.name=Ствол каменного дерева
+tile.mist.s_tree_branch_8_d.name=Окорённый ствол каменного дерева
+tile.mist.t_tree_branch_4.name=Ветка тропического дерева
+tile.mist.t_tree_branch_4_d.name=Окорённая ветка тропического дерева
+tile.mist.t_tree_branch_8.name=Ствол тропического дерева
+tile.mist.t_tree_branch_8_d.name=Окорённый ствол тропического дерева
+tile.mist.willow_branch_4.name=Ветка плачущего дерева
+tile.mist.willow_branch_4_d.name=Окорённая ветка плачущего дерева
+tile.mist.willow_branch_8.name=Ствол плачущего дерева
+tile.mist.willow_branch_8_d.name=Окорённый ствол плачущего дерева
+tile.mist.r_tree_branch_4.name=Ветка каучукового дерева
+tile.mist.r_tree_branch_4_d.name=Окорённая ветка каучукового дерева
+tile.mist.r_tree_branch_8.name=Ствол каучукового дерева
+tile.mist.r_tree_branch_8_d.name=Окорённый ствол каучукового дерева
+
+### Upper Plants
+tile.mist.mushroom_brown.name=Коричневый гриб
+tile.mist.mushroom_black.name=Чёрный гриб
+tile.mist.mushroom_gray.name=Серый гриб
+tile.mist.mushroom_red.name=Красный гриб
+tile.mist.mushroom_orange.name=Рыжий гриб
+tile.mist.mushroom_coral.name=Коралловый гриб
+tile.mist.mushroom_yellow.name=Жёлтый гриб
+tile.mist.mushroom_blue.name=Синий гриб
+tile.mist.mushroom_purple.name=Пурпурный гриб
+tile.mist.mushroom_marsh.name=Болотный гриб
+tile.mist.mushroom_pink.name=Розовый гриб
+tile.mist.mushroom_puff.name=Дутый гриб
+tile.mist.mushroom_sand.name=Песчаный гриб
+tile.mist.mushroom_spot.name=Крапчатый гриб
+tile.mist.mushroom_cup.name=Чашечный гриб
+tile.mist.mushroom_azure.name=Лазурный гриб
+tile.mist.mushroom_green.name=Зелёный гриб
+tile.mist.mushroom_copper.name=Медный гриб
+tile.mist.mushroom_silver.name=Серебряный гриб
+tile.mist.mushroom_beige.name=Бежевый гриб
+tile.mist.mushroom_gold.name=Золотой гриб
+tile.mist.mushroom_white.name=Белый гриб
+tile.mist.mushroom_violet.name=Фиолетовый гриб
+tile.mist.mushroom_lilac.name=Лиловый гриб
+tile.mist.mushroom_tan.name=Загорелый гриб
+tile.mist.mushroom.tooltip=ПКМ по блоку земли, чтобы разместить грибницу
+
+tile.mist.mushroom_brown_c.name=Приготовленный коричневый гриб
+tile.mist.mushroom_black_c.name=Приготовленный чёрный гриб
+tile.mist.mushroom_gray_c.name=Приготовленный серый гриб
+tile.mist.mushroom_red_c.name=Приготовленный красный гриб
+tile.mist.mushroom_orange_c.name=Приготовленный рыжий гриб
+tile.mist.mushroom_coral_c.name=Приготовленный коралловый гриб
+tile.mist.mushroom_yellow_c.name=Приготовленный жёлтый гриб
+tile.mist.mushroom_blue_c.name=Приготовленный синий гриб
+tile.mist.mushroom_purple_c.name=Приготовленный пурпурный гриб
+tile.mist.mushroom_marsh_c.name=Приготовленный болотный гриб
+tile.mist.mushroom_pink_c.name=Приготовленный розовый гриб
+tile.mist.mushroom_puff_c.name=Приготовленный дутый гриб
+tile.mist.mushroom_sand_c.name=Приготовленный песчаный гриб
+tile.mist.mushroom_spot_c.name=Приготовленный крапчатый гриб
+tile.mist.mushroom_cup_c.name=Приготовленный чашечный гриб
+tile.mist.mushroom_azure_c.name=Приготовленный лазурный гриб
+tile.mist.mushroom_green_c.name=Приготовленный зелёный гриб
+tile.mist.mushroom_copper_c.name=Приготовленный медный гриб
+tile.mist.mushroom_silver_c.name=Приготовленный серебряный гриб
+tile.mist.mushroom_beige_c.name=Приготовленный бежевый гриб
+tile.mist.mushroom_gold_c.name=Приготовленный золотой гриб
+tile.mist.mushroom_white_c.name=Приготовленный белый гриб
+tile.mist.mushroom_violet_c.name=Приготовленный фиолетовый гриб
+tile.mist.mushroom_lilac_c.name=Приготовленный лиловый гриб
+tile.mist.mushroom_tan_c.name=Приготовленный загорелый гриб
+
+tile.mist.mycelium.name=Грибница_0
+
+### Down Plants
+tile.mist.sponge_clear.name=Туманная губка
+tile.mist.sponge_wet.name=Загрязнённая туманная губка
+tile.mist.sponge_spoiled.name=Испорченная туманная губка
+
+### Bed
+tile.mist.bed.in_fog=Вы не можете спать в зоне тумана
+
+# Items
+item.mist.more_info.tooltip=Нажмите 'shift' для большей информации
+### Other
+item.mist.rocks.name=Камни
+item.mist.clay_ball_gray.name=Серая глина
+item.mist.clay_ball_red.name=Красная глина
+item.mist.humus.name=Перегной
+item.mist.sapropel_ball.name=Сапропель
+item.mist.compost.name=Компост
+item.mist.sponge_fibre.name=Загрязнённое волокно туманной губки
+item.mist.sponge_fibre_clear.name=Волокно туманной губки
+item.mist.sponge_slime.name=Ядовитый экстракт
+item.mist.sponge_spore.name=Спора туманной губки
+item.mist.filter_coal.name=Фильтрующий уголь
+item.mist.bio_shale.name=Бактериальный сланец
+item.mist.sulfur.name=Сера
+item.mist.saltpeter.name=Селитра
+item.mist.niobium_ingot.name=Слиток ниобия
+item.mist.niobium_nugget.name=Кусочек ниобия
+item.mist.mulch.name=Мульча
+item.mist.remains.name=Прах
+item.mist.ash.name=Зола
+item.mist.tallow.name=Жир
+item.mist.soap.name=Мыло
+item.mist.latex.name=Латекс
+item.mist.rubber.name=Резина
+item.mist.wing.name=Крыло
+item.mist.swim_bladder.name=Пузырь пустынной рыбы
+
+### Food
+item.mist.meat_mossling.name=Мясо моховика
+item.mist.meat_mossling_c.name=Жареное мясо моховика
+item.mist.meat_forest_runner.name=Мясо лесного бегуна
+item.mist.meat_forest_runner_c.name=Жареное мясо лесного бегуна
+item.mist.meat_momo.name=Мясо момо
+item.mist.meat_momo_c.name=Жареное мясо момо
+item.mist.meat_barvog.name=Мясо барвога
+item.mist.meat_barvog_c.name=Жареное мясо барвога
+item.mist.meat_prickler.name=Мясо колючки
+item.mist.meat_prickler_c.name=Жареное мясо колючки
+item.mist.meat_caravan.name=Мясо каравана
+item.mist.meat_caravan_c.name=Жареное мясо каравана
+item.mist.meat_wulder.name=Мясо вулдера
+item.mist.meat_wulder_c.name=Жареное мясо вулдера
+item.mist.meat_horb.name=Мясо хорба
+item.mist.meat_horb_c.name=Жареное мясо хорба
+item.mist.meat_sniff.name=Мясо нюхача
+item.mist.meat_sniff_c.name=Жареное мясо нюхача
+item.mist.meat_sloth.name=Мясо ленивца
+item.mist.meat_sloth_c.name=Жареное мясо ленивца
+item.mist.meat_monk.name=Мясо монаха
+item.mist.meat_monk_c.name=Жареное мясо монаха
+item.mist.meat_galaga.name=Мясо галаги
+item.mist.meat_galaga_c.name=Жареное мясо галаги
+item.mist.meat_hulter.name=Мясо халтера
+item.mist.meat_hulter_c.name=Жареное мясо халтера
+item.mist.meat_brachiodon.name=Мясо брахиодона
+item.mist.meat_brachiodon_c.name=Жареное мясо брахиодона
+
+item.mist.sponge_meat.name=Мякоть туманной губки
+item.mist.nightberry.name=Ночника
+item.mist.tinder_fungus.name=Гриб-трутовик
+item.mist.soup.name=Похлёбка
+item.mist.soup_toxic.name=Токсичность
+item.mist.glass_container.name=Стеклянный контейнер
+item.mist.food_salt.tooltip=с солью
+item.mist.food_inedible.tooltip=Ядовито
+item.mist.food_unknown.tooltip=Съедобно?
+item.mist.food_edible.tooltip=Съедобно
+item.mist.food_toxic.tooltip=Токсичено
+item.mist.food_antitoxic.tooltip=Детоксикант
+
+### Plant
+item.mist.desert_cotton_f.name=Цветок пустынного хлопка
+item.mist.desert_cotton_s.name=Семя пустынного хлопка
+item.mist.acacia_seed.name=Стручки зонтичного дерева
+item.mist.aspen_seed.name=Серёжки дрожащего дерева
+item.mist.a_tree_seed.name=Шишки араукарии
+item.mist.birch_seed.name=Серёжки лесной обманщицы
+item.mist.oak_seed.name=Туманные жёлуди
+item.mist.pine_seed.name=Шишки туманной сосны
+item.mist.poplar_seed.name=Семя болотного тополя
+item.mist.snow_seed.name=Семя снежного дерева
+item.mist.spruce_seed.name=Шишка колючего дерева
+item.mist.s_tree_seed.name=Ягоды каменного дерева
+item.mist.t_tree_seed.name=Ягоды тропического дерева
+item.mist.willow_seed.name=Крылатки плачущего дерева
+item.mist.r_tree_seed.name=Ламбан
+
+### Tools
+item.mist.niobium_axe.name=Ниобиевый топор
+item.mist.niobium_hoe.name=Ниобиевая мотыга
+item.mist.niobium_pickaxe.name=Ниобиевая кирка
+item.mist.niobium_shovel.name=Ниобиевая лопата
+item.mist.niobium_sword.name=Ниобиевый меч
+
+### Armor
+item.mist.niobium_helmet.name=Ниобиевый шлем
+item.mist.niobium_chestplate.name=Ниобиевый нагрудник
+item.mist.niobium_leggings.name=Ниобиевые поножи
+item.mist.niobium_boots.name=Ниобиевые ботинки
+item.mist.rubber_helmet.name=Часть защитного костюма
+item.mist.rubber_chestplate.name=Часть защитного костюма
+item.mist.rubber_leggings.name=Часть защитного костюма
+item.mist.rubber_boots.name=Часть защитного костюма
+item.mist.suit_protection.tooltip=Защита
+item.mist.suit_inner.tooltip=Подкладка
+
+### Gizmos
+item.mist.respirator_single.name=Кожаный респиратор
+item.mist.respirator_single_open.name=Открытый кожаный респиратор
+item.mist.respirator_rubber.name=Резиновый респиратор
+item.mist.respirator_rubber_open.name=Открытый резиновый респиратор
+item.mist.respirator_impermeability.tooltip=Герметичность
+item.mist.respirator_efficiency.tooltip=Эффективность
+item.mist.respirator_close.tooltip=Ваш рот закрыт респиратором
+item.mist.filter.tooltip=Фильтр
+item.mist.filter_depth.tooltip=Глубина фильтрации
+item.mist.filter_damage.tooltip=Уровень загрязнения
+item.mist.filter_empty.tooltip=Пустой
+item.mist.hygrometer.name=Гигрометр
+item.mist.gas_analyzer.name=Газоанализатор
+item.mist.centrometer.name=Загадочный диск
+item.mist.flint_and_stone.name=Огниво
+tile.mist.furnace.name=Печь
+tile.mist.niobium_chest.name=Ниобиевый сундук
+tile.mist.niobium_chest_trapped.name=Ниобиевый сундук-ловушка
+tile.mist.latex_pot.name=Горшок для сбора латекса
+item.mist.food_on_stick.name=на удочке
+
+### Urn
+item.mist.urn=Керамическая урна
+item.mist.urn_rare=Необычная урна
+item.mist.urn_raw=Глиняная урна
+##### Tooltip -------------------
+item.mist.urn.tooltip.altar=Найдена на алтаре
+item.mist.urn.tooltip.basement=Найдена в старом фундаменте
+item.mist.urn.tooltip.burial=Найдена в погребальной камере
+item.mist.urn.tooltip.well=Найдена в колодце
+item.mist.urn.location.forest=Смешанный лес
+item.mist.urn.location.swamp=Болота
+item.mist.urn.location.taiga=Тайга
+item.mist.urn.location.savanna=Саванна
+item.mist.urn.location.desert=Пустыня
+item.mist.urn.location.jungle=Тропики
+---------------------------------
+
+### Maps
+item.mist.map_up.tooltip=Верхний уровень
+item.mist.map_down.tooltip=Нижний уровень
+
+### Painting
+item.mist.painting.name=Старая картина
+item.mist.painting.tooltip.name=Название
+item.mist.painting.tooltip.format=Размер
+item.mist.painting.tooltip.cliff=Обрыв
+item.mist.painting.tooltip.bushes=Кусты
+item.mist.painting.tooltip.fog_ocean=Туманный океан
+item.mist.painting.tooltip.morning=Утро
+item.mist.painting.tooltip.watering_place=Водопой
+item.mist.painting.tooltip.early_spring=Ранняя весна
+item.mist.painting.tooltip.hot_day=Жаркий день в саванне
+item.mist.painting.tooltip.etude=Безымянный этюд
+item.mist.painting.tooltip.oaks=Дубы
+item.mist.painting.tooltip.somewhere=Где-то там
+item.mist.painting.tooltip.edge=На краю
+item.mist.painting.tooltip.swamp=Болото
+
+### Fluids
+fluid.mist.acid=Кислота
+item.mist.acid_bucket.name=Ведро кислоты
+
+### Entities
+entity.mist.painting.name=Картина
+entity.mist.mossling.name=Моховик
+entity.mist.forest_runner.name=Лесной бегун
+entity.mist.momo.name=Момо
+entity.mist.barvog.name=Барвог
+entity.mist.prickler.name=Колючка
+entity.mist.caravan.name=Караван
+entity.mist.wulder.name=Вулдер
+entity.mist.horb.name=Хорб
+entity.mist.sniff.name=Нюхач
+entity.mist.sloth.name=Ленивец
+entity.mist.monk.name=Монах
+entity.mist.galaga.name=Галага
+entity.mist.hulter.name=Халтер
+entity.mist.brachiodon.name=Брахиодон
+
+entity.mist.grave_bug.name=Могильный клоп
+entity.mist.forest_spider.name=Лесной паук
+entity.mist.swamp_crab.name=Болотный краб
+entity.mist.snow_flea.name=Снежная блоха
+entity.mist.woodlouse.name=Тропическая мокрица
+entity.mist.cyclops.name=Циклоп
+entity.mist.desert_fish.name=Пустынная рыба
+
+# DamageSourse
+death.attack.mist.in_fog=%1$s задохнулся в тумане
+death.attack.mist.dissolution=%1$s растворился в кислоте
+
+# GUI
+gui.mist.bad_sleep=У Вас беспокойный сон
+gui.mist.bad_sleep.line_1=Вы волнуетесь за друзей, ушедших в Туманный мир...
+gui.mist.bad_sleep.line_2=Вы волнуетесь за друзей, оставшихся в Обычном мире...
+gui.mist.pot=Порции
+gui.mist.pot_info=Котелок
+gui.mist.pot_impurity=Примеси
+gui.mist.pot_saturation=Насыщение на порцию
+gui.mist.skills=Навыки
+gui.mist.skills.taming=Приручение
+gui.mist.skills.cutting=Разделка
+gui.mist.effects=Эффекты
+gui.mist.effects.toxic=Интоксикация
+gui.mist.effects.pollution=Химическое загрязнение
+
+# Keybind
+keybind.mist.mask_inventory=Открыть слот для маски
+keybind.mist.skill_inventory=Открыть меню навыков
+
+# Advancements
+advancements.mist.misty_world=Туманный мир
+advancements.mist.misty_world.desc=История начинается
+advancements.mist.start=Наблюдательность
+advancements.mist.start.desc=Прошлой ночью вы заметили в руках у Эндермена странные камни
+advancements.mist.full_set=Полный комплект
+advancements.mist.full_set.desc=Убейте Эндермена, чтобы получить камни
+advancements.mist.portal=Золотая лихорадка
+advancements.mist.portal.desc=Постройте портал в Туманный мир
+advancements.mist.first_breath=Первый вдох
+advancements.mist.first_breath.desc=Отправляйтесь в Туманный мир
+advancements.mist.right_choice=Правильный выбор!
+advancements.mist.right_choice.desc=Откройте портал в туманной пустоте
+advancements.mist.second_breath=Второй вдох
+advancements.mist.second_breath.desc=Спуститесь в туман
+advancements.mist.night_walk=Ночной обход
+advancements.mist.night_walk.desc=Прогуляйтесь ночью по краю обрыва и добудьте ниобиевую руду
+advancements.mist.niobium=Привет Менделееву!
+advancements.mist.niobium.desc=Получите слиток ниобия
+advancements.mist.mask=Дышите глубже!
+advancements.mist.mask.desc=Соберите респиратор из трёх шкур, двух нитей и слитка ниобия
+advancements.mist.mask_full=Одна важная деталь
+advancements.mist.mask_full.desc=Не забудьте поставить фильтр!
+advancements.mist.third_breath=Третий вдох
+advancements.mist.third_breath.desc=Вперёд и вверх!!! В смысле, вниз...
+advancements.mist.pickaxe=Как нож в масло!
+advancements.mist.pickaxe.desc=Соберите ниобиевую кирку, чтобы быстрее разрушать камень
+advancements.mist.coal=Дороже золота
+advancements.mist.coal.desc=Добудьте фильтрующий уголь. Он вам ещё пригодится )
+advancements.mist.coal_block=Жить можно
+advancements.mist.coal_block.desc=Снимите респиратор в тумане возле одного из адсорбентов, например: блока фильтрующего угля
+advancements.mist.carving=Художественная резьба
+advancements.mist.carving.desc=Создайте резной блок дерева щёлкнув по бревну ПКМ с любым топором в руке
+advancements.mist.mulch=Солнце не пройдёт!
+advancements.mist.mulch.desc=Мульчируйте грядку
+advancements.mist.compost=Всё в дело
+advancements.mist.compost.desc=Создайте компостную кучу кликнув Shift + ПКМ по земле с любым биоматериалом в руке
+advancements.mist.fertile=Повышаем плодородность
+advancements.mist.fertile.desc=Удобрите грядку перегноем
+advancements.mist.mushroomer=Грибник
+advancements.mist.mushroomer.desc=Попробуйте все виды грибов в Туманном мире в сыром и приготовленном виде
+advancements.mist.gourmet=Гурман
+advancements.mist.gourmet.desc=Попробуйте все виды мяса в Туманном мире в сыром и приготовленном виде
+advancements.mist.art_critic=Искусствовед
+advancements.mist.art_critic.desc=Найдите все старые картины в Туманном мире
+advancements.mist.collector=Коллекционер
+advancements.mist.collector.desc=Найдите все редкие урны в Туманном мире
+advancements.mist.burnt_out=Истопник
+advancements.mist.burnt_out.desc=Получите древесный уголь в печи
+advancements.mist.remains=Это ты, Лара?
+advancements.mist.remains.desc=Раскопайте могилу
+advancements.mist.tame_animal=Мы с тобой одной крови
+advancements.mist.tame_animal.desc=Приручите животное из Туманного мира
+advancements.mist.riding=Иккинг Кровожадный
+advancements.mist.riding.desc=Оседлайте крупного хищника
+advancements.mist.rain=Первое прикосновение
+advancements.mist.rain.desc=Прогуляйтесь под кислотным дождём
+advancements.mist.toxic=Весёлый денёк!
+advancements.mist.toxic.desc=Получите 10%% интоксикации
+advancements.mist.detoxic=Не содержит ГМО
+advancements.mist.detoxic.desc=Съешьте детоксикант
+advancements.mist.pollution=PO2Lu3TiO2N
+advancements.mist.pollution.desc=Получите 10%% химического загрязнения
+advancements.mist.soap=Мыловар
+advancements.mist.soap.desc=Получите мыло из животного жира, золы и любой соли
+advancements.mist.clean_up=Залог здоровья
+advancements.mist.clean_up.desc=Смойте химическое загрязнение мылом
+advancements.mist.rubber_tree=Начало плантации
+advancements.mist.rubber_tree.desc=Найдите в тропиках каучуковое дерево
+advancements.mist.latex=Любитель латекса
+advancements.mist.latex.desc=Соберите латекс с каучукового дерева
+advancements.mist.rubber=Упругое тело
+advancements.mist.rubber.desc=Получите резину из латекса и серы
+advancements.mist.suit=Второе прикосновение
+advancements.mist.suit.desc=Оцените все преимущества защитного костюма
+advancements.mist.glass_container=Космическое питание
+advancements.mist.glass_container.desc=Съешьте еду из стеклянного контейнера при надетом респираторе
+
+# Config
+config.mist.dimension=Измерение
+config.mist.dimension.tooltip=Общие настройки измерения
+config.mist.dimension.id=ID измерения
+config.mist.dimension.id.tooltip=ID, который будет присвоен измерению. Измените его, если существует конфликт с другими модами
+config.mist.dimension.stones=Отключить дроп портальных камней
+config.mist.dimension.stones.tooltip=Портальные камни больше не будут выпадать из Эндермена
+config.mist.dimension.trees=Запретить рост ванильных деревьев
+config.mist.dimension.trees.tooltip=Саженцы деревьев из других миров не будут расти в Туманном мире
+config.mist.dimension.blacklist=Чёрный список измерений
+config.mist.dimension.blacklist.tooltip=Список измерений, в которых невозможно открыть портал в Туманный мир
+config.mist.dimension.breakers=Эффективность добычи камня
+config.mist.dimension.breakers.tooltip=Устанавливает скорость добычи камня для выбранного инструмента по следующей формуле: ID мода:Предмет:Скорость для пористого камня:Скорость для верхнего камня:Скорость для нижнего камня. Пожалуйста, не меняйте данный параметр, если это не требуется для нужд модпака! Это может повлиять на баланс игры.
+config.mist.dimension.cascad_lag=Отключить сообщение об отставании
+config.mist.dimension.cascad_lag.tooltip=Сообщения о каскадном отставаии при генерации больше не будут засорять консоль
+config.mist.player=Игрок
+config.mist.player.tooltip=Настройки игрока
+config.mist.player.search=Включить поле поиска
+config.mist.player.search.tooltip=Включить поле поиска на вкладке мода в креативном режиме
+config.mist.player.cut=Уменьшение эффектов
+config.mist.player.cut.tooltip=До какого процента будут уменьшены значения интоксикации и химического урона после смерти игрока
+config.mist.player.bars=Показывать прогресс эффектов
+config.mist.player.bars.tooltip=Показывать програссбары эффектов на главном экране
+config.mist.player.effects=Показывать проценты эффектов
+config.mist.player.effects.tooltip=Показывать проценты эффектов на главном экране
+config.mist.player.soap=Стирка брони с мылом
+config.mist.player.soap.tooltip=Включает смывание цвета с надетой брони с помощью мыла
+config.mist.player.skill_factor=Множитель навыков
+config.mist.player.skill_factor.tooltip=Множитель навыков в порядке: Приручение, Разделка. Чем меньше значение, тем быстрее прокачивается навык
+config.mist.player.mobs_for_skill=Мобы для навыка
+config.mist.player.mobs_for_skill.tooltip=Список животных (не монстров), убийство которых будет поднимать навык §oРазделка§r (ID мода:имя моба:количество очков или ID мода:*:количество очков для всех животных в моде). Например: mist:mossling:1, mist:monk:2, mist:brachiodon:3
+config.mist.campfire=Костёр
+config.mist.campfire.tooltip=Настройки костра
+config.mist.campfire.stones=Камни основы и их цвет
+config.mist.campfire.stones.tooltip=Предметы, из которых можно собрать основу для костра, и цвет данной основы можно задать по следующей формуле: ID мода:Предмет:Необходимое количество предметов от 1 до 4:Метадата предмета:Цвет основы
+config.mist.campfire.effects=Показывать эффекты похлёбки
+config.mist.campfire.effects.tooltip=Эффекты созданной похлёбки будут показаны в её описании
+config.mist.graphic=Графика
+config.mist.graphic.tooltip=Настройки графики
+config.mist.graphic.fog=Улучшеный рендер тумана
+config.mist.graphic.fog.tooltip=Добавляет на туман падающие тени
+config.mist.time=Время
+config.mist.time.tooltip=Настройки связанные со временем
+config.mist.time.day=Количество дней в месяце
+config.mist.time.day.tooltip=Устанавливает количество дней в месяце
+config.mist.time.cotton=Количество цветений пустынного хлопка
+config.mist.time.cotton.tooltip=Сколько раз в год будет цвести пустынный хлопок
+config.mist.generation=Генерация
+config.mist.generation.tooltip=Настройки генерации
+config.mist.generation.basement=Шанс генерации старого фундамента
+config.mist.generation.basement.tooltip=0 - никогда, 1 - в каждом чанке
+config.mist.generation.well=Шанс генерации колодца
+config.mist.generation.well.tooltip=0 - никогда, 1 - в каждом чанке
+config.mist.generation.tomb_forest=Шанс генерации гробницы в лесу
+config.mist.generation.tomb_forest.tooltip=0 - никогда, 1 - в каждом чанке
+config.mist.generation.tomb_swamp=Шанс генерации гробницы в болоте
+config.mist.generation.tomb_swamp.tooltip=0 - никогда, 1 - в каждом чанке
+config.mist.generation.tomb_desert=Шанс генерации гробницы в саванне
+config.mist.generation.tomb_desert.tooltip=0 - никогда, 1 - в каждом чанке
+config.mist.generation.tomb_snow=Шанс генерации гробницы в тайге
+config.mist.generation.tomb_snow.tooltip=0 - никогда, 1 - в каждом чанке
+config.mist.generation.tomb_jungle=Шанс генерации гробницы в джунглях
+config.mist.generation.tomb_jungle.tooltip=0 - никогда, 1 - в каждом чанке
+config.mist.generation.tomb_cliff=Шанс генерации гробницы у обрыва
+config.mist.generation.tomb_cliff.tooltip=0 - никогда, 1 - в каждом чанке
+config.mist.generation.altar=Шанс генерации алтарей
+config.mist.generation.altar.tooltip=0 - никогда, 1 - в каждом чанке
+config.mist.generation.rare_urn=Шанс появления редких урн
+config.mist.generation.rare_urn.tooltip=0 - никогда, 1 - каждая урна
+config.mist.generation.desert_fish=Шанс генерации пустынных рыб
+config.mist.generation.desert_fish.tooltip=0 - никогда, 1 - в каждом блоке

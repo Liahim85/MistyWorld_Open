@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "wet=true":  [
+            { "model": "mist:humus_dirt_wet" },
+            { "model": "mist:humus_dirt_wet", "y": 90 },
+            { "model": "mist:humus_dirt_wet", "y": 180 },
+            { "model": "mist:humus_dirt_wet", "y": 270 }
+        ],
+        "wet=false": [
+            { "model": "mist:humus_dirt_dry" },
+            { "model": "mist:humus_dirt_dry", "y": 90 },
+            { "model": "mist:humus_dirt_dry", "y": 180 },
+            { "model": "mist:humus_dirt_dry", "y": 270 }
+        ]
+    }
+}

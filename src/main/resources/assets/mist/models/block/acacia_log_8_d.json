@@ -1,0 +1,7 @@
+{
+    "parent": "mist:block/log_8",
+    "textures": {
+        "end": "mist:blocks/acacia_top_d",
+        "side": "mist:blocks/acacia_trunk_d"
+    }
+}

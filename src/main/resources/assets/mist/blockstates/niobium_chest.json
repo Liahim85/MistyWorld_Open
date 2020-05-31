@@ -1,0 +1,15 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "cube_all",
+        "textures": {
+            "all": "mist:blocks/niobium_block"
+        }
+    },
+    "variants": {
+        "facing=north": { "model": "cube_all" },
+        "facing=south": { "model": "cube_all" },
+        "facing=east": { "model": "cube_all" },
+        "facing=west": { "model": "cube_all" }
+    }
+}

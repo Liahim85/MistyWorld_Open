@@ -1,0 +1,38 @@
+{
+    "textures": {
+        "particle": "mist:blocks/portal",
+        "portal": "mist:blocks/portal"
+    },
+    "elements": [
+        {   "from": [ 1, -11, 1 ],
+            "to": [ 15, 0, 15 ],
+            "shade": false,
+            "faces": {
+                "north": { "uv": [ 1, 0, 15, 11 ], "texture": "#portal" },
+                "south": { "uv": [ 1, 0, 15, 11 ], "texture": "#portal" },
+                "west":  { "uv": [ 1, 0, 15, 11 ], "texture": "#portal" },
+                "east":  { "uv": [ 1, 0, 15, 11 ], "texture": "#portal" }
+            }
+        },
+        {   "from": [ 1, 0, 1 ],
+            "to": [ 15, 16, 15 ],
+            "shade": false,
+            "faces": {
+                "north": { "uv": [ 1, 0, 15, 16 ], "texture": "#portal" },
+                "south": { "uv": [ 1, 0, 15, 16 ], "texture": "#portal" },
+                "west":  { "uv": [ 1, 0, 15, 16 ], "texture": "#portal" },
+                "east":  { "uv": [ 1, 0, 15, 16 ], "texture": "#portal" }
+            }
+        },
+        {   "from": [ 1, 16, 1 ],
+            "to": [ 15, 27, 15 ],
+            "shade": false,
+            "faces": {
+                "north": { "uv": [ 1, 5, 15, 16 ], "texture": "#portal" },
+                "south": { "uv": [ 1, 5, 15, 16 ], "texture": "#portal" },
+                "west":  { "uv": [ 1, 5, 15, 16 ], "texture": "#portal" },
+                "east":  { "uv": [ 1, 5, 15, 16 ], "texture": "#portal" }
+            }
+        }
+    ]
+}

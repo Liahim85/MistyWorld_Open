@@ -1,0 +1,24 @@
+{
+    "display": {
+        "icon": {
+            "item": "minecraft:coal",
+            "data": 1
+        },
+        "title": {
+            "translate": "advancements.mist.burnt_out"
+        },
+        "description": {
+            "translate": "advancements.mist.burnt_out.desc"
+        }
+    },
+    "parent": "mist:story/first_breath",
+    "criteria": {
+        "burnt_out": {
+            "trigger": "mist:item_smelted_mist",
+            "conditions": {
+                "item": "minecraft:coal",
+                "data": 1
+            }
+        }
+    }
+}

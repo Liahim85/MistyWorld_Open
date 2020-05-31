@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "mist:blocks/mycelium_t_d"
+    }
+}

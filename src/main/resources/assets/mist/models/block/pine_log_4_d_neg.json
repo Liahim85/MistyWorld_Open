@@ -1,0 +1,7 @@
+{
+    "parent": "mist:block/log_4_neg",
+    "textures": {
+        "end": "mist:blocks/pine_top_d",
+        "side": "mist:blocks/pine_trunk_d"
+    }
+}

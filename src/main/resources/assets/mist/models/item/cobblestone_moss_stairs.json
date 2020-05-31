@@ -1,0 +1,11 @@
+{
+    "parent": "mist:block/stairs_moss",
+    "textures": {
+        "bottom": "mist:blocks/cobblestone",
+        "top": "mist:blocks/cobblestone",
+        "side": "mist:blocks/cobblestone",
+        "moss_bottom": "mist:blocks/cobblestone_moss",
+        "moss_top": "mist:blocks/cobblestone_moss",
+        "moss": "mist:blocks/cobblestone_moss"
+    }
+}

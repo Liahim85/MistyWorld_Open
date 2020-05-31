@@ -1,0 +1,22 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:soap"
+        },
+        "title": {
+            "translate": "advancements.mist.soap"
+        },
+        "description": {
+            "translate": "advancements.mist.soap.desc"
+        }
+    },
+    "parent": "mist:story/pollution",
+    "criteria": {
+        "soap": {
+            "trigger": "mist:item_crafted",
+            "conditions": {
+                "item": "mist:soap"
+            }
+        }
+    }
+}

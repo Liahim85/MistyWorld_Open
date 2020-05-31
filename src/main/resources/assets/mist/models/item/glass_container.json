@@ -1,0 +1,13 @@
+{
+    "parent":"item/generated",
+    "textures": {
+        "layer0":"mist:items/glass_container"
+    },
+    "overrides": [
+        { "predicate": { "portion": 0 }, "model": "mist:item/glass_container" },
+        { "predicate": { "portion": 1 }, "model": "mist:item/glass_container_1" },
+        { "predicate": { "portion": 2 }, "model": "mist:item/glass_container_2" },
+        { "predicate": { "portion": 3 }, "model": "mist:item/glass_container_3" },
+        { "predicate": { "portion": 4 }, "model": "mist:item/glass_container_4" }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "XX",
+        "XX"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:humus"
+        }
+    },
+    "result": {
+        "item": "mist:humus_dirt",
+        "data": 0
+    }
+}

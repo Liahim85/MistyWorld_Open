@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "S S",
+        "R R",
+        " N "
+    ],
+    "key": {
+        "N": {
+            "type": "forge:ore_dict",
+            "ore": "ingotNiobium"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "R": {
+            "type": "forge:ore_dict",
+            "ore": "rubber"
+        }
+    },
+    "result": {
+        "item": "mist:respirator_rubber_open"
+    }
+}

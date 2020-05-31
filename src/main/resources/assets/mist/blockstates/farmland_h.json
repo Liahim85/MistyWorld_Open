@@ -1,0 +1,19 @@
+{
+    "multipart": [
+        {   "when":  { "wet": "true" },
+            "apply": [
+                { "model": "mist:farmland_h_wet" }
+            ]
+        },
+        {   "when":  { "wet": "false" },
+            "apply": [
+                { "model": "mist:farmland_h_dry" }
+            ]
+        },
+        {   "when":  { "mulch": "true" },
+            "apply": [
+                { "model": "mist:farmland_top" }
+            ]
+        }
+    ]
+}

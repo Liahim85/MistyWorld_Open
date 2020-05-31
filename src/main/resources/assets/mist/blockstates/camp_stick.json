@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "mist:camp_stick" },
+        "facing=east":  { "model": "mist:camp_stick", "y": 90 },
+        "facing=south": { "model": "mist:camp_stick", "y": 180 },
+        "facing=west":  { "model": "mist:camp_stick", "y": 270 }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:achiev_item",
+            "data": 8
+        },
+        "title": {
+            "translate": "advancements.mist.suit"
+        },
+        "description": {
+            "translate": "advancements.mist.suit.desc"
+        }
+    },
+    "parent": "mist:story/rubber",
+    "criteria": {
+        "suit": {
+            "trigger": "mist:fog_damage",
+            "conditions": {
+                "location": {
+                    "dimension": "misty_world"
+                },
+                "damage": {
+                    "type": "by_rain",
+                    "mask": true,
+                    "suit": true
+                }
+            }
+        }
+    }
+}

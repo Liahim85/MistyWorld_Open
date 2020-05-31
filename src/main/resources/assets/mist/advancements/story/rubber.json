@@ -1,0 +1,22 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:rubber"
+        },
+        "title": {
+            "translate": "advancements.mist.rubber"
+        },
+        "description": {
+            "translate": "advancements.mist.rubber.desc"
+        }
+    },
+    "parent": "mist:story/latex",
+    "criteria": {
+        "rubber": {
+            "trigger": "mist:item_crafted",
+            "conditions": {
+                "item": "mist:rubber"
+            }
+        }
+    }
+}

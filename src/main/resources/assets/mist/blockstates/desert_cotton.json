@@ -1,0 +1,28 @@
+{
+    "variants": {
+        "age=0,isup=true":  { "model": "mist:desert_cotton_u_0" },
+        "age=1,isup=true":  { "model": "mist:desert_cotton_u_1" },
+        "age=2,isup=true":  { "model": "mist:desert_cotton_u_2" },
+        "age=3,isup=true":  { "model": "mist:desert_cotton_u_3" },
+        "age=4,isup=true":  { "model": "mist:desert_cotton_u_4" },
+        "age=5,isup=true":  { "model": "mist:desert_cotton_u_4" },
+        "age=6,isup=true":  { "model": "mist:desert_cotton_u_5" },
+        "age=7,isup=true":  { "model": "mist:desert_cotton_u_6" },
+        "age=8,isup=true":  { "model": "mist:desert_cotton_u_5" },
+        "age=9,isup=true":  { "model": "mist:desert_cotton_u_0" },
+        "age=10,isup=true": { "model": "mist:desert_cotton_u_0" },
+        "age=11,isup=true": { "model": "mist:desert_cotton_u_0" },
+        "age=0,isup=false":  { "model": "mist:desert_cotton_d_0" },
+        "age=1,isup=false":  { "model": "mist:desert_cotton_d_1" },
+        "age=2,isup=false":  { "model": "mist:desert_cotton_d_2" },
+        "age=3,isup=false":  { "model": "mist:desert_cotton_d_3" },
+        "age=4,isup=false":  { "model": "mist:desert_cotton_d_4" },
+        "age=5,isup=false":  { "model": "mist:desert_cotton_d_5" },
+        "age=6,isup=false":  { "model": "mist:desert_cotton_d_6" },
+        "age=7,isup=false":  { "model": "mist:desert_cotton_d_7" },
+        "age=8,isup=false":  { "model": "mist:desert_cotton_d_0" },
+        "age=9,isup=false":  { "model": "mist:desert_cotton_d_1" },
+        "age=10,isup=false": { "model": "mist:desert_cotton_d_2" },
+        "age=11,isup=false": { "model": "mist:desert_cotton_d_7" }
+    }
+}

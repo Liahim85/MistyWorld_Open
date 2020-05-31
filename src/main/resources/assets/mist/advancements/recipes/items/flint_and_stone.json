@@ -1,0 +1,43 @@
+{
+    "parent": "mist:recipes/root",
+    "rewards": {
+        "recipes": [
+            "mist:flint_and_stone"
+        ]
+    },
+    "criteria": {
+        "has_item_1": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:rocks"
+                    }
+                ]
+            }
+        },
+        "has_item_2": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "minecraft:flint"
+                    }
+                ]
+            }
+        },
+        "has_the_recipes": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:flint_and_stone"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_item_1",
+            "has_item_2",
+            "has_the_recipes"
+        ]
+    ]
+}

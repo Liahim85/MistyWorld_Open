@@ -1,0 +1,54 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:r_tree_block",
+            "data": 0
+        },
+        "title": {
+            "translate": "advancements.mist.rubber_tree"
+        },
+        "description": {
+            "translate": "advancements.mist.rubber_tree.desc"
+        },
+        "frame": "goal"
+    },
+    "parent": "mist:story/rain",
+    "criteria": {
+        "has_item_1": {
+            "trigger": "mist:item_pickup",
+            "conditions": {
+                "item": "mist:r_tree_branch",
+                "data": 0
+            }
+        },
+        "has_item_2": {
+            "trigger": "mist:item_pickup",
+            "conditions": {
+                "item": "mist:r_tree_branch",
+                "data": 6
+            }
+        },
+        "has_item_3": {
+            "trigger": "mist:item_pickup",
+            "conditions": {
+                "item": "mist:r_tree_block",
+                "data": 0
+            }
+        },
+        "has_item_4": {
+            "trigger": "mist:item_pickup",
+            "conditions": {
+                "item": "mist:r_tree_block",
+                "data": 7
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_item_1",
+            "has_item_2",
+            "has_item_3",
+            "has_item_4"
+        ]
+    ]
+}

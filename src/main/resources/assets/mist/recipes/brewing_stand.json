@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " # ",
+        "XXX"
+    ],
+    "key": {
+        "X": {
+            "item": "#ROCKS_AND_ORE_COBBLESTONE"
+        },
+        "#": {
+            "item": "minecraft:blaze_rod"
+        }
+    },
+    "result": {
+        "item": "minecraft:brewing_stand"
+    }
+}

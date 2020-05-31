@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "normal": [
+            { "model": "mist:stone" },            
+            { "model": "mist:stone_mirrored" },
+            { "model": "mist:stone", "y": 180 },
+            { "model": "mist:stone_mirrored", "y": 180 }
+        ]
+    }
+}

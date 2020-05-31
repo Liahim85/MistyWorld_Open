@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "XXX",
+        "XBX",
+        "XRX"
+    ],
+    "key": {
+        "X": {
+            "item": "#ROCKS_AND_ORE_COBBLESTONE"
+        },
+        "B": {
+            "item": "minecraft:bow"
+        },
+        "R": {
+            "type": "forge:ore_dict",
+            "ore": "dustRedstone"
+        }
+    },
+    "result": {
+        "item": "minecraft:dispenser",
+        "data": 0
+    }
+}

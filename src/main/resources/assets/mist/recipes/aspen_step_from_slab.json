@@ -1,0 +1,13 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "group": "wood_step",
+    "ingredients": [
+        {
+            "item": "mist:aspen_slab"
+        }
+    ],
+    "result": {
+        "item": "mist:aspen_step",
+        "count": 2
+    }
+}

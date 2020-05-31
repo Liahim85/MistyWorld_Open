@@ -1,0 +1,20 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "group": "fire_charge",
+    "ingredients": [
+        {
+            "item": "mist:bio_shale"
+        },
+        {
+            "item": "minecraft:blaze_powder"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "gunpowder"
+        }
+    ],
+    "result": {
+        "item": "minecraft:fire_charge",
+        "count": 3
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:filter_coal_block",
+            "data": 0
+        },
+        "title": {
+            "translate": "advancements.mist.coal_block"
+        },
+        "description": {
+            "translate": "advancements.mist.coal_block.desc"
+        }
+    },
+    "parent": "mist:story/coal",
+    "criteria": {
+        "coal_block": {
+            "trigger": "mist:fog_damage",
+            "conditions": {
+                "location": {
+                    "dimension": "misty_world"
+                },
+                "damage": {
+                    "type": "by_fog",
+                    "mask": false,
+                    "absorbent": true
+                }
+            }
+        }
+    }
+}

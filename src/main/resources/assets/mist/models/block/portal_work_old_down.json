@@ -1,0 +1,7 @@
+{
+    "parent": "mist:block/portal_work_symbols",
+    "textures": {
+        "side": "mist:blocks/portal_base_old_symbols",
+        "down": "mist:blocks/stone_basic"
+    }
+}

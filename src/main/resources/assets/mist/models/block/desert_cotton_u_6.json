@@ -1,0 +1,7 @@
+{
+    "parent": "mist:block/tinted_cross_2",
+    "textures": {
+        "cross_0": "mist:blocks/desert_cotton_up_6",
+        "cross_1": "mist:blocks/desert_cotton_up_6b"
+    }
+}

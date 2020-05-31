@@ -1,0 +1,16 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "mist:sponge",
+            "data": 14
+        },
+        {
+            "item": "minecraft:water_bucket"
+        }
+    ],
+    "result": {
+        "item": "mist:sponge",
+        "data": 13
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "mist:items/urn_line_0",
+        "layer1": "mist:items/urn_line_1"
+    }
+}

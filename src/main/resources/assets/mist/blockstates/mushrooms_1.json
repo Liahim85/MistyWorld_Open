@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "type=spot":   { "model": "mist:mushroom_spot" },
+        "type=cup":    { "model": "mist:mushroom_cup" },
+        "type=azure":  { "model": "mist:mushroom_azure" },
+        "type=green":  { "model": "mist:mushroom_green" },
+        "type=copper": { "model": "mist:mushroom_copper" },
+        "type=silver": { "model": "mist:mushroom_silver" },
+        "type=beige":  { "model": "mist:mushroom_beige" },
+        "type=gold":   { "model": "mist:mushroom_gold" },
+        "type=white":  { "model": "mist:mushroom_white" },
+        "type=violet": { "model": "mist:mushroom_violet" },
+        "type=lilac":  { "model": "mist:mushroom_lilac" },
+        "type=tan":    { "model": "mist:mushroom_tan" }
+    }
+}

@@ -1,0 +1,46 @@
+{
+    "multipart": [
+        {   "when":  { "isup": "false" },
+            "apply": { "model": "mist:portal_work" }
+        },
+        {   "when":  { "isup": "true" },
+            "apply": { "model": "mist:portal_work", "x": 180 }
+        },
+        {   "when": { "isup": "false" },
+            "apply": { "model": "mist:portal_work_side" }
+        },
+        {   "when": { "isup": "true" },
+            "apply": { "model": "mist:portal_work_side", "x": 180 }
+        },        
+        {   "when": { "isup": "false" },
+            "apply": { "model": "mist:portal_work_side", "y": 90 }
+        },
+        {   "when": { "isup": "true" },
+            "apply": { "model": "mist:portal_work_side", "x": 180, "y": 90 }
+        },        
+        {   "when": { "isup": "false" },
+            "apply": { "model": "mist:portal_work_side", "y": 180 }
+        },
+        {   "when": { "isup": "true" },
+            "apply": { "model": "mist:portal_work_side", "x": 180, "y": 180 }
+        },        
+        {   "when": { "isup": "false" },
+            "apply": { "model": "mist:portal_work_side", "y": 270 }
+        },
+        {   "when": { "isup": "true" },
+            "apply": { "model": "mist:portal_work_side", "x": 180, "y": 270 }
+        },        
+        {   "when": { "isnew": "true", "isup": "false" },
+            "apply": { "model": "mist:portal_work_new_down" }
+        },
+        {   "when": { "isnew": "true", "isup": "true" },
+            "apply": { "model": "mist:portal_work_new_up", "x": 180, "uvlock": true }
+        },
+        {   "when": { "isnew": "false", "isup": "false" },
+            "apply": { "model": "mist:portal_work_old_down" }
+        },
+        {   "when": { "isnew": "false", "isup": "true" },
+            "apply": { "model": "mist:portal_work_old_up", "x": 180, "uvlock": true }
+        }
+    ]
+}

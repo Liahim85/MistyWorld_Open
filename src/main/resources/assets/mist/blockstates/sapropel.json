@@ -1,0 +1,28 @@
+{
+    "variants": {
+        "type=block,wet=true": [ 
+            { "model": "mist:sapropel_block_wet" },
+            { "model": "mist:sapropel_block_wet", "y": 90 },
+            { "model": "mist:sapropel_block_wet", "y": 180 },
+            { "model": "mist:sapropel_block_wet", "y": 270 }
+        ],
+        "type=block,wet=false": [ 
+            { "model": "mist:sapropel_block_dry" },
+            { "model": "mist:sapropel_block_dry", "y": 90 },
+            { "model": "mist:sapropel_block_dry", "y": 180 },
+            { "model": "mist:sapropel_block_dry", "y": 270 }
+        ],
+        "type=nature,wet=true": [ 
+            { "model": "mist:sapropel_nature_wet" },
+            { "model": "mist:sapropel_nature_wet", "y": 90 },
+            { "model": "mist:sapropel_nature_wet", "y": 180 },
+            { "model": "mist:sapropel_nature_wet", "y": 270 }
+        ],
+        "type=nature,wet=false": [ 
+            { "model": "mist:sapropel_nature_dry" },
+            { "model": "mist:sapropel_nature_dry", "y": 90 },
+            { "model": "mist:sapropel_nature_dry", "y": 180 },
+            { "model": "mist:sapropel_nature_dry", "y": 270 }
+        ]
+    }
+}

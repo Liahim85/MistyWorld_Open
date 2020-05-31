@@ -1,0 +1,7 @@
+{
+    "parent": "mist:block/cube_column_x",
+    "textures": {
+        "end": "mist:blocks/birch_top",
+        "side": "mist:blocks/birch_trunk_c"
+    }
+}

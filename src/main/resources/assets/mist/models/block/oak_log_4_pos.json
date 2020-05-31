@@ -1,0 +1,7 @@
+{
+    "parent": "mist:block/log_4_pos",
+    "textures": {
+        "end": "mist:blocks/oak_top_0",
+        "side": "mist:blocks/oak_trunk_s"
+    }
+}

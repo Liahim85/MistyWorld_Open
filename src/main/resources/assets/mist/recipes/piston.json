@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "WWW",
+        "XIX",
+        "XRX"
+    ],
+    "key": {
+        "W": {
+            "type": "forge:ore_dict",
+            "ore": "plankWood"
+        },
+        "X": {
+            "item": "#ROCKS_AND_ORE_COBBLESTONE"
+        },
+        "I": {
+            "type": "forge:ore_dict",
+            "ore": "ingotIron"
+        },
+        "R": {
+            "type": "forge:ore_dict",
+            "ore": "dustRedstone"
+        }
+    },
+    "result": {
+        "item": "minecraft:piston",
+        "data": 0
+    }
+}

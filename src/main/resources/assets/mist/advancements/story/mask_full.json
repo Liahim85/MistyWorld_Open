@@ -1,0 +1,22 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:filter_coal"
+        },
+        "title": {
+            "translate": "advancements.mist.mask_full"
+        },
+        "description": {
+            "translate": "advancements.mist.mask_full.desc"
+        }
+    },
+    "parent": "mist:story/mask",
+    "criteria": {
+        "mask_full": {
+            "trigger": "mist:put_filter",
+            "conditions": {
+                "items": [{}]
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:achiev_item",
+            "data": 5
+        },
+        "title": {
+            "translate": "advancements.mist.rain"
+        },
+        "description": {
+            "translate": "advancements.mist.rain.desc"
+        }
+    },
+    "parent": "mist:story/third_breath",
+    "criteria": {
+        "rain": {
+            "trigger": "mist:fog_damage",
+            "conditions": {
+                "location": {
+                    "dimension": "misty_world"
+                },
+                "damage": {
+                    "type": "by_rain"
+                }
+            }
+        }
+    }
+}

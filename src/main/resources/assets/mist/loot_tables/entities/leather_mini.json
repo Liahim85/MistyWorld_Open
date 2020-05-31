@@ -1,0 +1,89 @@
+{
+   "pools": [
+        {
+            "name": "leather_1",
+            "conditions": [
+                {
+                    "condition": "mist:skill_cutting",
+                    "value": 1
+                }
+            ],
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:leather",
+                    "weight": 1
+                },
+                {
+                    "type": "empty",
+                    "weight": 5
+                }
+            ]
+        },
+        {
+            "name": "leather_2",
+            "conditions": [
+                {
+                    "condition": "mist:skill_cutting",
+                    "value": 2
+                }
+            ],
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:leather",
+                    "weight": 1
+                },
+                {
+                    "type": "empty",
+                    "weight": 2
+                }
+            ]
+        },
+        {
+            "name": "leather_3",
+            "conditions": [
+                {
+                    "condition": "mist:skill_cutting",
+                    "value": 3
+                }
+            ],
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:leather",
+                    "weight": 2
+                },
+                {
+                    "type": "empty",
+                    "weight": 1
+                }
+            ]
+        },
+        {
+            "name": "leather_4",
+            "conditions": [
+                {
+                    "condition": "mist:skill_cutting",
+                    "value": 4,
+                    "equal": false
+                }
+            ],
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:leather",
+                    "weight": 5
+                },
+                {
+                    "type": "empty",
+                    "weight": 1
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "textures": {
+        "particle": "mist:items/sponge_spore",
+        "side": "mist:blocks/sponge_mix"
+    },
+    "elements": [
+        {   "from": [ 6, 0, 6 ],
+            "to":   [ 10, 2, 10 ],
+            "faces": {
+                "north": { "uv": [ 6, 14, 10, 16 ], "texture": "#side", "cullface": "north" },
+                "south": { "uv": [ 6, 14, 10, 16 ], "texture": "#side", "cullface": "south" },
+                "west":  { "uv": [ 6, 14, 10, 16 ], "texture": "#side", "cullface": "west" },
+                "east":  { "uv": [ 6, 14, 10, 16 ], "texture": "#side", "cullface": "east" },
+                "up":    { "uv": [ 6, 10, 10, 14 ], "texture": "#side", "cullface": "west" }
+            }
+        }
+    ]
+}

@@ -1,0 +1,81 @@
+{
+    "parent": "mist:recipes/root",
+    "rewards": {
+        "recipes": [
+            "mist:acacia_step_from_log"
+        ]
+    },
+    "criteria": {
+        "has_item_1": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:acacia_block",
+                        "data": 0
+                    }
+                ]
+            }
+        },
+        "has_item_2": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:acacia_block",
+                        "data": 4
+                    }
+                ]
+            }
+        },
+        "has_item_3": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:acacia_block",
+                        "data": 7
+                    }
+                ]
+            }
+        },
+        "has_item_4": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:acacia_block",
+                        "data": 8
+                    }
+                ]
+            }
+        },
+        "has_item_5": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:acacia_block",
+                        "data": 11
+                    }
+                ]
+            }
+        },
+        "has_the_recipes": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:acacia_step_from_log"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_item_1",
+            "has_item_2",
+            "has_item_3",
+            "has_item_4",
+            "has_item_5",
+            "has_the_recipes"
+        ]
+    ]
+}

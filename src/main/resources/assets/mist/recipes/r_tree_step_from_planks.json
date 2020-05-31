@@ -1,0 +1,14 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "group": "wood_step",
+    "ingredients": [
+        {
+            "item": "mist:r_tree_block",
+            "data": 13
+        }
+    ],
+    "result": {
+        "item": "mist:r_tree_step",
+        "count": 4
+    }
+}

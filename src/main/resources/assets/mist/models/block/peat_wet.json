@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "mist:blocks/peat_top_w",
+        "side": "mist:blocks/peat_side_w"
+    }
+}

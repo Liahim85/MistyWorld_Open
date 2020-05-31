@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "XXX",
+        "XXX",
+        "XXX"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:soap"
+        }
+    },
+    "result": {
+        "item": "mist:soap_block",
+        "data": 0
+    }
+}

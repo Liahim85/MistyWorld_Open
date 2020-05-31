@@ -1,0 +1,109 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "cube_all",
+        "textures": {
+            "particle": "mist:blocks/remains",
+            "texture": "mist:blocks/remains",
+            "all": "mist:blocks/remains"
+        }
+    },
+    "variants": {
+        "layers=0,old=false": [
+            { "model": "snow_height2" },
+            { "model": "snow_height2", "y": 90 },
+            { "model": "snow_height2", "y": 180 },
+            { "model": "snow_height2", "y": 270 }
+        ],
+        "layers=1,old=false": [
+            { "model": "snow_height4", "y": 90 },
+            { "model": "snow_height4", "y": 180 },
+            { "model": "snow_height4", "y": 270 },
+            { "model": "snow_height4" }
+        ],
+        "layers=2,old=false": [
+            { "model": "snow_height6", "y": 180 },
+            { "model": "snow_height6", "y": 270 },
+            { "model": "snow_height6" },
+            { "model": "snow_height6", "y": 90 }
+        ],
+        "layers=3,old=false": [
+            { "model": "snow_height8", "y": 270 },
+            { "model": "snow_height8" },
+            { "model": "snow_height8", "y": 90 },
+            { "model": "snow_height8", "y": 180 }
+        ],
+        "layers=4,old=false": [
+            { "model": "snow_height10" },
+            { "model": "snow_height10", "y": 90 },
+            { "model": "snow_height10", "y": 180 },
+            { "model": "snow_height10", "y": 270 }
+        ],
+        "layers=5,old=false": [
+            { "model": "snow_height12", "y": 90 },
+            { "model": "snow_height12", "y": 180 },
+            { "model": "snow_height12", "y": 270 },
+            { "model": "snow_height12" }
+        ],
+        "layers=6,old=false": [
+            { "model": "snow_height14", "y": 180 },
+            { "model": "snow_height14", "y": 270 },
+            { "model": "snow_height14" },
+            { "model": "snow_height14", "y": 90 }
+        ],
+        "layers=7,old=false": [
+            { "model": "cube_all", "y": 270 },
+            { "model": "cube_all" },
+            { "model": "cube_all", "y": 90 },
+            { "model": "cube_all", "y": 180 }
+        ],
+        "layers=0,old=true": [
+            { "model": "snow_height2", "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }},
+            { "model": "snow_height2", "y": 90, "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }},
+            { "model": "snow_height2", "y": 180, "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }},
+            { "model": "snow_height2", "y": 270, "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }}
+        ],
+        "layers=1,old=true": [
+            { "model": "snow_height4", "y": 90, "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }},
+            { "model": "snow_height4", "y": 180, "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }},
+            { "model": "snow_height4", "y": 270, "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }},
+            { "model": "snow_height4", "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }}
+        ],
+        "layers=2,old=true": [
+            { "model": "snow_height6", "y": 180, "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }},
+            { "model": "snow_height6", "y": 270, "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }},
+            { "model": "snow_height6", "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }},
+            { "model": "snow_height6", "y": 90, "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }}
+        ],
+        "layers=3,old=true": [
+            { "model": "snow_height8", "y": 270, "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }},
+            { "model": "snow_height8", "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }},
+            { "model": "snow_height8", "y": 90, "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }},
+            { "model": "snow_height8", "y": 180, "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }}
+        ],
+        "layers=4,old=true": [
+            { "model": "snow_height10", "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }},
+            { "model": "snow_height10", "y": 90, "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }},
+            { "model": "snow_height10", "y": 180, "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }},
+            { "model": "snow_height10", "y": 270, "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }}
+        ],
+        "layers=5,old=true": [
+            { "model": "snow_height12", "y": 90, "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }},
+            { "model": "snow_height12", "y": 180, "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }},
+            { "model": "snow_height12", "y": 270, "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }},
+            { "model": "snow_height12", "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }}
+        ],
+        "layers=6,old=true": [
+            { "model": "snow_height14", "y": 180, "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }},
+            { "model": "snow_height14", "y": 270, "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }},
+            { "model": "snow_height14", "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }},
+            { "model": "snow_height14", "y": 90, "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }}
+        ],
+        "layers=7,old=true": [
+            { "model": "cube_all", "y": 270, "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }},
+            { "model": "cube_all", "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }},
+            { "model": "cube_all", "y": 90, "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }},
+            { "model": "cube_all", "y": 180, "textures": { "texture": "mist:blocks/remains_old", "all": "mist:blocks/remains_old" }}
+        ]
+    }
+}

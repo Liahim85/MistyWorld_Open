@@ -1,0 +1,8 @@
+{  
+    "parent": "mist:block/grass_top",
+    "textures": {
+        "particle": "mist:blocks/grass_top_1",
+        "top": "mist:blocks/grass_top_y",
+        "overlay": "mist:blocks/grass_overlay_y"
+    }
+}

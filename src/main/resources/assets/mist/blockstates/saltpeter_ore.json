@@ -1,0 +1,11 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "cube_all",
+        "textures": { "all": "mist:blocks/saltpeter_ore" }
+    },
+    "variants": {
+        "type=normal": { "model": "cube_all", "textures": { "all": "mist:blocks/saltpeter_ore" }},
+        "type=salt": { "model": "cube_all", "textures": { "all": "mist:blocks/salt_ore" }}
+    }
+}

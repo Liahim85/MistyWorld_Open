@@ -1,0 +1,20 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "mist:nightberry",
+        "textures": {
+            "texture_0": "mist:blocks/nightberry_0",
+            "texture_1": "mist:blocks/nightberry_1",
+            "texture_2": "mist:blocks/nightberry_2",
+            "fruit_0":   "mist:blocks/nightberry_f_0",
+            "fruit_1":   "mist:blocks/nightberry_f_1"
+        }
+    },
+    "variants": {
+        "age": {
+            "empty": {},
+            "potential": {},
+            "fruit": { "submodel": "mist:nightberry_f" }
+        }
+    }
+}

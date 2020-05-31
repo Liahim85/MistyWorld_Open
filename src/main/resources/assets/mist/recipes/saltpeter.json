@@ -1,0 +1,13 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "mist:saltpeter_block",
+            "data": 0
+        }
+    ],
+    "result": {
+        "item": "mist:saltpeter",
+        "count": 9
+    }
+}

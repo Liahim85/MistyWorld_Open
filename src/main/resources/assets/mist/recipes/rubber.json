@@ -1,0 +1,16 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "group": "rubber",
+    "ingredients": [
+        {
+            "item": "mist:latex"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "dustSulfur"
+        }
+    ],
+    "result": {
+        "item": "mist:rubber"
+    }
+}

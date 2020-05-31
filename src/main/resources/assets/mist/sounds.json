@@ -1,0 +1,551 @@
+{
+    "mist_gas_analyzer": {
+        "category": "player",
+        "sounds": [
+            { "name": "mist:entity/gas_analyzer/gas_analyzer" }
+        ]
+    },
+    "mist_urn_open": {
+        "category": "block",
+        "sounds": [
+            { "name": "mist:entity/urn/urn_open" }
+        ]
+    },
+    "mist_urn_close": {
+        "category": "block",
+        "sounds": [
+            { "name": "mist:entity/urn/urn_close" }
+        ]
+    },
+    "mist_wood_creak": {
+        "category": "block",
+        "sounds": [
+            { "name": "mist:tree/wood_creak_1" },
+            { "name": "mist:tree/wood_creak_2" },
+            { "name": "mist:tree/wood_creak_3" }
+        ]
+    },
+    "mist_caravan_ambient": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/caravan/caravan_1" },
+            { "name": "mist:mobs/caravan/caravan_2" },
+            { "name": "mist:mobs/caravan/caravan_3" },
+            { "name": "mist:mobs/caravan/caravan_4" }
+        ]
+    },
+    "mist_caravan_hurt": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/caravan/caravan_h_1" },
+            { "name": "mist:mobs/caravan/caravan_h_2" }
+        ]
+    },
+    "mist_caravan_death": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/caravan/caravan_d" }
+        ]
+    },
+    "mist_mossling_ambient": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/mossling/mossling_1" },
+            { "name": "mist:mobs/mossling/mossling_2" },
+            { "name": "mist:mobs/mossling/mossling_3" }
+        ]
+    },
+    "mist_mossling_hurt": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/mossling/mossling_h" }
+        ]
+    },
+    "mist_mossling_death": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/mossling/mossling_d" }
+        ]
+    },
+    "mist_barvog_ambient": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/barvog/barvog_1" },
+            { "name": "mist:mobs/barvog/barvog_2" },
+            { "name": "mist:mobs/barvog/barvog_3" }
+        ]
+    },
+    "mist_barvog_hurt": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/barvog/barvog_h" }
+        ]
+    },
+    "mist_barvog_death": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/barvog/barvog_d" }
+        ]
+    },
+    "mist_momo_ambient": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/momo/momo_1" },
+            { "name": "mist:mobs/momo/momo_2" },
+            { "name": "mist:mobs/momo/momo_3" }
+        ]
+    },
+    "mist_momo_hurt": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/momo/momo_h" }
+        ]
+    },
+    "mist_momo_death": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/momo/momo_d" }
+        ]
+    },
+    "mist_monk_ambient": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/monk/monk_1" },
+            { "name": "mist:mobs/monk/monk_2" },
+            { "name": "mist:mobs/monk/monk_3" },
+            { "name": "mist:mobs/monk/monk_4" }
+        ]
+    },
+    "mist_monk_hurt": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/monk/monk_h" }
+        ]
+    },
+    "mist_monk_death": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/monk/monk_d" }
+        ]
+    },
+    "mist_monk_warning": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/monk/monk_w_1" },
+            { "name": "mist:mobs/monk/monk_w_2" },
+            { "name": "mist:mobs/monk/monk_w_3" }
+        ]
+    },
+    "mist_hulter_ambient": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/hulter/hulter_1" },
+            { "name": "mist:mobs/hulter/hulter_2" },
+            { "name": "mist:mobs/hulter/hulter_3" },
+            { "name": "mist:mobs/hulter/hulter_4" },
+            { "name": "mist:mobs/hulter/hulter_5" }
+        ]
+    },
+    "mist_hulter_hurt": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/hulter/hulter_h" }
+        ]
+    },
+    "mist_hulter_death": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/hulter/hulter_d" }
+        ]
+    },
+    "mist_hulter_warning": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/hulter/hulter_w_1" },
+            { "name": "mist:mobs/hulter/hulter_w_2" }
+        ]
+    },
+    "mist_forest_runner_ambient": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/forest_runner/forest_runner_1" },
+            { "name": "mist:mobs/forest_runner/forest_runner_2" },
+            { "name": "mist:mobs/forest_runner/forest_runner_3" }
+        ]
+    },
+    "mist_forest_runner_hurt": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/forest_runner/forest_runner_h" }
+        ]
+    },
+    "mist_forest_runner_death": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/forest_runner/forest_runner_d" }
+        ]
+    },
+    "mist_wulder_ambient": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/wulder/wulder_1" },
+            { "name": "mist:mobs/wulder/wulder_2" },
+            { "name": "mist:mobs/wulder/wulder_3" }
+        ]
+    },
+    "mist_wulder_hurt": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/wulder/wulder_h_1" },
+            { "name": "mist:mobs/wulder/wulder_h_2" }
+        ]
+    },
+    "mist_wulder_death": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/wulder/wulder_d" }
+        ]
+    },
+    "mist_prickler_ambient": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/prickler/prickler_1" },
+            { "name": "mist:mobs/prickler/prickler_2" },
+            { "name": "mist:mobs/prickler/prickler_3" },
+            { "name": "mist:mobs/prickler/prickler_4" },
+            { "name": "mist:mobs/prickler/prickler_5" }
+        ]
+    },
+    "mist_prickler_hurt": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/prickler/prickler_h_1" },
+            { "name": "mist:mobs/prickler/prickler_h_2" }
+        ]
+    },
+    "mist_prickler_death": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/prickler/prickler_d" }
+        ]
+    },
+    "mist_horb_ambient": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/horb/horb_1" },
+            { "name": "mist:mobs/horb/horb_2" },
+            { "name": "mist:mobs/horb/horb_3" }
+        ]
+    },
+    "mist_horb_hurt": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/horb/horb_h_1" },
+            { "name": "mist:mobs/horb/horb_h_2" }
+        ]
+    },
+    "mist_horb_death": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/horb/horb_d" }
+        ]
+    },
+    "mist_galaga_ambient": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/galaga/galaga_1" },
+            { "name": "mist:mobs/galaga/galaga_2" },
+            { "name": "mist:mobs/galaga/galaga_3" }
+        ]
+    },
+    "mist_galaga_hurt": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/galaga/galaga_h_1" },
+            { "name": "mist:mobs/galaga/galaga_h_2" }
+        ]
+    },
+    "mist_galaga_death": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/galaga/galaga_d" }
+        ]
+    },
+    "mist_sloth_ambient": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/sloth/sloth_1" },
+            { "name": "mist:mobs/sloth/sloth_2" },
+            { "name": "mist:mobs/sloth/sloth_3" }
+        ]
+    },
+    "mist_sloth_ambient_child": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/sloth/sloth_1" },
+            { "name": "mist:mobs/sloth/sloth_4" },
+            { "name": "mist:mobs/sloth/sloth_5" }
+        ]
+    },
+    "mist_sloth_hurt": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/sloth/sloth_h" }
+        ]
+    },
+    "mist_sloth_death": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/sloth/sloth_d" }
+        ]
+    },
+    "mist_sniff_ambient": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/sniff/sniff_1" },
+            { "name": "mist:mobs/sniff/sniff_2" },
+            { "name": "mist:mobs/sniff/sniff_3" },
+            { "name": "mist:mobs/sniff/sniff_4" }
+        ]
+    },
+    "mist_sniff_hurt": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/sniff/sniff_h" }
+        ]
+    },
+    "mist_sniff_death": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/sniff/sniff_d" }
+        ]
+    },
+    "mist_brachiodon_ambient": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/brachiodon/brachiodon_1" },
+            { "name": "mist:mobs/brachiodon/brachiodon_2" },
+            { "name": "mist:mobs/brachiodon/brachiodon_3" }
+        ]
+    },
+    "mist_brachiodon_hurt": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/brachiodon/brachiodon_h" }
+        ]
+    },
+    "mist_brachiodon_death": {
+        "category": "neutral",
+        "sounds": [
+            { "name": "mist:mobs/brachiodon/brachiodon_d" }
+        ]
+    },
+    "mist_swamp_crab_ambient": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/swamp_crab/swamp_crab_1" },
+            { "name": "mist:mobs/swamp_crab/swamp_crab_2" },
+            { "name": "mist:mobs/swamp_crab/swamp_crab_3" }
+        ]
+    },
+    "mist_swamp_crab_hurt": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/swamp_crab/swamp_crab_h" }
+        ]
+    },
+    "mist_swamp_crab_death": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/swamp_crab/swamp_crab_d" }
+        ]
+    },
+    "mist_swamp_crab_step": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/swamp_crab/swamp_crab_s_1" },
+            { "name": "mist:mobs/swamp_crab/swamp_crab_s_2" },
+            { "name": "mist:mobs/swamp_crab/swamp_crab_s_3" }
+        ]
+    },
+    "mist_grave_bug_ambient": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/grave_bug/grave_bug_1" },
+            { "name": "mist:mobs/grave_bug/grave_bug_2" },
+            { "name": "mist:mobs/grave_bug/grave_bug_3" }
+        ]
+    },
+    "mist_grave_bug_hurt": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/grave_bug/grave_bug_h" }
+        ]
+    },
+    "mist_grave_bug_death": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/grave_bug/grave_bug_d" }
+        ]
+    },
+    "mist_grave_bug_step": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/grave_bug/grave_bug_s_1" },
+            { "name": "mist:mobs/grave_bug/grave_bug_s_2" },
+            { "name": "mist:mobs/grave_bug/grave_bug_s_3" }
+        ]
+    },
+    "mist_forest_spider_ambient": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/forest_spider/forest_spider_1" },
+            { "name": "mist:mobs/forest_spider/forest_spider_2" },
+            { "name": "mist:mobs/forest_spider/forest_spider_3" }
+        ]
+    },
+    "mist_forest_spider_hurt": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/forest_spider/forest_spider_h" }
+        ]
+    },
+    "mist_forest_spider_death": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/forest_spider/forest_spider_d" }
+        ]
+    },
+    "mist_forest_spider_step": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/forest_spider/forest_spider_s_1" },
+            { "name": "mist:mobs/forest_spider/forest_spider_s_2" }
+        ]
+    },
+    "mist_woodlouse_ambient": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/woodlouse/woodlouse_1" },
+            { "name": "mist:mobs/woodlouse/woodlouse_2" },
+            { "name": "mist:mobs/woodlouse/woodlouse_3" }
+        ]
+    },
+    "mist_woodlouse_hurt": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/woodlouse/woodlouse_h" }
+        ]
+    },
+    "mist_woodlouse_death": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/woodlouse/woodlouse_d" }
+        ]
+    },
+    "mist_snow_flea_ambient": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/snow_flea/snow_flea_1" },
+            { "name": "mist:mobs/snow_flea/snow_flea_2" },
+            { "name": "mist:mobs/snow_flea/snow_flea_3" }
+        ]
+    },
+    "mist_snow_flea_hurt": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/snow_flea/snow_flea_h" }
+        ]
+    },
+    "mist_snow_flea_death": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/snow_flea/snow_flea_d" }
+        ]
+    },
+    "mist_snow_flea_step": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/snow_flea/snow_flea_s_1" },
+            { "name": "mist:mobs/snow_flea/snow_flea_s_2" },
+            { "name": "mist:mobs/snow_flea/snow_flea_s_3" }
+        ]
+    },
+    "mist_snow_flea_flay": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/snow_flea/snow_flea_f" }
+        ]
+    },
+    "mist_cyclops_ambient": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/cyclops/cyclops" }
+        ]
+    },
+    "mist_cyclops_hurt": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/cyclops/cyclops_h_1" },
+            { "name": "mist:mobs/cyclops/cyclops_h_2" }
+        ]
+    },
+    "mist_cyclops_death": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/cyclops/cyclops_d" }
+        ]
+    },
+    "mist_cyclops_step": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/cyclops/cyclops_s_1" },
+            { "name": "mist:mobs/cyclops/cyclops_s_2" },
+            { "name": "mist:mobs/cyclops/cyclops_s_3" }
+        ]
+    },
+    "mist_desert_fish_ambient": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/desert_fish/desert_fish_1" }
+        ]
+    },
+    "mist_desert_fish_hurt": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/desert_fish/desert_fish_h" }
+        ]
+    },
+    "mist_desert_fish_death": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/desert_fish/desert_fish_d" }
+        ]
+    },
+    "mist_desert_fish_step": {
+        "category": "hostile",
+        "sounds": [
+            { "name": "mist:mobs/desert_fish/desert_fish_s_1" },
+            { "name": "mist:mobs/desert_fish/desert_fish_s_2" },
+            { "name": "mist:mobs/desert_fish/desert_fish_s_3" }
+        ]
+    },
+    "mist_up_music": {
+        "category": "music",
+        "sounds": [
+            {
+                "name": "mist:music/deceived",
+                "stream": true
+            }
+        ]
+    },
+    "mist_down_music": {
+        "category": "music",
+        "sounds": [
+            {
+                "name": "mist:music/echolocation",
+                "stream": true
+            }
+        ]
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "mist:block/sponge_base",
+    "textures": {
+        "side": "mist:blocks/sponge_side_m"
+    }
+}

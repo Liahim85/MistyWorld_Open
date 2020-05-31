@@ -1,0 +1,17 @@
+{
+    "textures": {
+        "particle": "#stalk"
+    },
+    "elements": [
+        {   "from": [ 7, -6, 7 ],
+            "to":   [ 9, 0, 9 ],
+            "faces": {
+                "up":    { "uv": [ 7,  4, 9,  6 ], "texture": "#stalk" },
+                "north": { "uv": [ 7, 10, 9, 16 ], "texture": "#stalk" },
+                "south": { "uv": [ 7, 10, 9, 16 ], "texture": "#stalk" },
+                "west":  { "uv": [ 7, 10, 9, 16 ], "texture": "#stalk" },
+                "east":  { "uv": [ 7, 10, 9, 16 ], "texture": "#stalk" }
+            }
+        }
+    ]
+}

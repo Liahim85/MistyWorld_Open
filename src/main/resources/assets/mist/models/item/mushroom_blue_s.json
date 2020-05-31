@@ -1,0 +1,7 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "mist:blocks/mushroom_blue_c",
+        "layer1": "mist:items/salt_food"
+    }
+}

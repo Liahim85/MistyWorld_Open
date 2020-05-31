@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "S S",
+        "L L",
+        " N "
+    ],
+    "key": {
+        "N": {
+            "type": "forge:ore_dict",
+            "ore": "ingotNiobium"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "L": {
+            "type": "forge:ore_dict",
+            "ore": "leather"
+        }
+    },
+    "result": {
+        "item": "mist:respirator_single_open"
+    }
+}

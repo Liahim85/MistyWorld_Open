@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "mist:blocks/pine_planks",
+        "side": "mist:blocks/pine_planks_rot"
+    }
+}

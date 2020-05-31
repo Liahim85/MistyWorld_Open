@@ -1,0 +1,32 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "group": "wood_step",
+    "ingredients": [
+        [
+            {
+                "item": "mist:spruce_block",
+                "data": 0
+            },
+            {
+                "item": "mist:spruce_block",
+                "data": 4
+            },
+            {
+                "item": "mist:spruce_block",
+                "data": 7
+            },
+            {
+                "item": "mist:spruce_block",
+                "data": 8
+            },
+            {
+                "item": "mist:spruce_block",
+                "data": 11
+            }
+        ]
+    ],
+    "result": {
+        "item": "mist:spruce_step",
+        "count": 4
+    }
+}

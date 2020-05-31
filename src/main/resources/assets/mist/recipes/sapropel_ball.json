@@ -1,0 +1,13 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "mist:sapropel",
+            "data": 0
+        }
+    ],
+    "result": {
+        "item": "mist:sapropel_ball",
+        "count": 4
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:remains"
+        },
+        "title": {
+            "translate": "advancements.mist.remains"
+        },
+        "description": {
+            "translate": "advancements.mist.remains.desc"
+        }
+    },
+    "parent": "mist:story/first_breath",
+    "criteria": {
+        "remains": {
+            "trigger": "mist:remains",
+            "conditions": {}
+        }
+    }
+}

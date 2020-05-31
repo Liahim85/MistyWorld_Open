@@ -1,0 +1,19 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "flower_pot",
+        "textures": {
+            "particle": "blocks/flower_pot",
+            "flowerpot": "blocks/flower_pot",
+            "dirt": "blocks/dirt"
+        }
+    },
+    "variants": {
+        "facing": {
+            "north": {},
+            "east":  {},
+            "south": {},
+            "west":  {}
+        }
+    }
+}

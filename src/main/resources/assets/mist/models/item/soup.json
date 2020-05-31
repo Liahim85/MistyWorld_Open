@@ -1,0 +1,10 @@
+{
+    "parent":"item/generated",
+    "textures": {
+        "layer0":"mist:items/soup",
+        "layer1":"mist:items/soup_color_0",
+        "layer2":"mist:items/soup_color_1",
+        "layer3":"mist:items/soup_color_2",
+        "layer4":"mist:items/soup_color_3"
+    }
+}

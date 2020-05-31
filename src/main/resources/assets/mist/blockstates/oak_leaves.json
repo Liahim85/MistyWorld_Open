@@ -1,0 +1,33 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "leaves",
+        "textures": {
+            "all":   "mist:blocks/oak_leaves",
+            "stalk": "mist:blocks/oak_top_0",
+            "fruit": "mist:blocks/oak_leaves_f"
+        }
+    },
+    "variants": {
+        "fast": {
+            "true": {
+                "textures": { "all": "mist:blocks/oak_leaves_fast" }
+            },
+            "false": {}
+        },
+        "age": {
+            "empty": {},
+            "potential": {},
+            "bloomy": {},
+            "fruit": { "submodel": "mist:leaves_f" }
+        },
+        "dir": {
+            "down":  {},
+            "up":    { "submodel": "mist:leaves_j" },
+            "north": { "submodel": "mist:leaves_j", "x": 90 },
+            "east":  { "submodel": "mist:leaves_j", "x": 90, "y": 90 },
+            "south": { "submodel": "mist:leaves_j", "x": -90 },
+            "west":  { "submodel": "mist:leaves_j", "x": 90, "y": 270 }
+        }
+    }
+}

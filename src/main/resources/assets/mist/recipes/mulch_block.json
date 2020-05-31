@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "XXX",
+        "XXX",
+        "XXX"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:mulch"
+        }
+    },
+    "result": {
+        "item": "mist:mulch_block",
+        "data": 0
+    }
+}

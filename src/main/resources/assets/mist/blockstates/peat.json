@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "wet=true":  { "model": "mist:peat_wet" },
+        "wet=false": { "model": "mist:peat_dry" }
+    }
+}

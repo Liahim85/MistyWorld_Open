@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "axis=x,type=log": { "model": "mist:r_tree_log_16", "x": 90, "y": 90 },
+        "axis=y,type=log": { "model": "mist:r_tree_log_16" },
+        "axis=z,type=log": { "model": "mist:r_tree_log_16", "x": 90 },
+        "axis=none,type=log": { "model": "mist:r_tree_log_b" },
+        "axis=x,type=chiseled": { "model": "mist:r_tree_log_c_x", "x": 90, "y": 90 },
+        "axis=y,type=chiseled": { "model": "mist:r_tree_log_c" },
+        "axis=z,type=chiseled": { "model": "mist:r_tree_log_c_x", "x": 90 },
+        "axis=none,type=chiseled": { "model": "mist:r_tree_log_n" },
+        "axis=x,type=debarking":  { "model": "mist:r_tree_log_d_x", "x": 90, "y": 90 },
+        "axis=y,type=debarking":  { "model": "mist:r_tree_log_d" },        
+        "axis=z,type=debarking":  { "model": "mist:r_tree_log_d_x", "x": 90 },
+        "axis=none,type=debarking":  { "model": "mist:r_tree_log_nd" },
+        "axis=x,type=plank":  { "model": "mist:r_tree_planks_h" },
+        "axis=y,type=plank":  { "model": "mist:r_tree_planks_v" },
+        "axis=z,type=plank":  { "model": "mist:r_tree_planks_h_rot" },
+        "axis=none,type=plank":  { "model": "mist:r_tree_planks_v_rot" }
+    }
+}

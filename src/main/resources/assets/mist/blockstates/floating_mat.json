@@ -1,0 +1,21 @@
+{
+    "multipart": [
+        {
+            "when":  { "growth": "true" },
+            "apply": [
+                { "model": "mist:floating_mat_g" },
+                { "model": "mist:floating_mat_g", "y": 90 },
+                { "model": "mist:floating_mat_g", "y": 180 },
+                { "model": "mist:floating_mat_g", "y": 270 }
+            ]
+        },
+        {
+            "apply": [
+                { "model": "mist:floating_mat" },
+                { "model": "mist:floating_mat", "y": 90 },
+                { "model": "mist:floating_mat", "y": 180 },
+                { "model": "mist:floating_mat", "y": 270 }
+            ]
+        }
+    ]
+}

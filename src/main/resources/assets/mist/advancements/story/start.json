@@ -1,0 +1,22 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:achiev_item"
+        },
+        "title": {
+            "translate": "advancements.mist.start"
+        },
+        "description": {
+            "translate": "advancements.mist.start.desc"
+        }
+    },
+    "parent": "mist:story/root",
+    "criteria": {
+        "start": {
+            "trigger": "minecraft:location",
+            "conditions": {
+                "dimension": "overworld"
+            }
+        }
+    }
+}

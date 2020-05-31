@@ -1,0 +1,9 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "mist:blocks/mushroom_azure_c"
+    },
+    "overrides": [
+        { "predicate": { "mist:salt": 1 }, "model": "mist:item/mushroom_azure_s" }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "variants": {
+        "type=block,variant=clay_gray,wet=true": { "model": "mist:clay_gray_block_wet" },
+        "type=block,variant=clay_gray,wet=false": { "model": "mist:clay_gray_block_dry" },
+        "type=nature,variant=clay_gray,wet=true": { "model": "mist:clay_gray_nature_wet" },
+        "type=nature,variant=clay_gray,wet=false": { "model": "mist:clay_gray_nature_dry" },
+        "type=cracked,variant=clay_gray,wet=true": [ 
+            { "model": "mist:clay_gray_cracked_wet" },
+            { "model": "mist:clay_gray_cracked_wet", "y": 90 },
+            { "model": "mist:clay_gray_cracked_wet", "y": 180 },
+            { "model": "mist:clay_gray_cracked_wet", "y": 270 }
+        ],
+        "type=cracked,variant=clay_gray,wet=false": [ 
+            { "model": "mist:clay_gray_cracked_dry" },
+            { "model": "mist:clay_gray_cracked_dry", "y": 90 },
+            { "model": "mist:clay_gray_cracked_dry", "y": 180 },
+            { "model": "mist:clay_gray_cracked_dry", "y": 270 }
+        ],
+        "type=container,variant=clay_gray,wet=true": { "model": "mist:clay_gray_nature_wet" },
+        "type=container,variant=clay_gray,wet=false": { "model": "mist:clay_gray_nature_dry" },
+        "type=block,variant=clay_red,wet=true": { "model": "mist:clay_red_block_wet" },
+        "type=block,variant=clay_red,wet=false": { "model": "mist:clay_red_block_dry" },
+        "type=nature,variant=clay_red,wet=true": { "model": "mist:clay_red_nature_wet" },
+        "type=nature,variant=clay_red,wet=false": { "model": "mist:clay_red_nature_dry" },
+        "type=cracked,variant=clay_red,wet=true": [ 
+            { "model": "mist:clay_red_cracked_wet" },
+            { "model": "mist:clay_red_cracked_wet", "y": 90 },
+            { "model": "mist:clay_red_cracked_wet", "y": 180 },
+            { "model": "mist:clay_red_cracked_wet", "y": 270 }
+        ],
+        "type=cracked,variant=clay_red,wet=false": [ 
+            { "model": "mist:clay_red_cracked_dry" },
+            { "model": "mist:clay_red_cracked_dry", "y": 90 },
+            { "model": "mist:clay_red_cracked_dry", "y": 180 },
+            { "model": "mist:clay_red_cracked_dry", "y": 270 }
+        ],
+        "type=container,variant=clay_red,wet=true": { "model": "mist:clay_red_nature_wet" },
+        "type=container,variant=clay_red,wet=false": { "model": "mist:clay_red_nature_dry" }
+    }
+}

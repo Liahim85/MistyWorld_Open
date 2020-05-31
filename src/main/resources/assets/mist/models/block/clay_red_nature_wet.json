@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "mist:blocks/clay_red_w",
+        "side": "mist:blocks/clay_red_w_side"
+    }
+}

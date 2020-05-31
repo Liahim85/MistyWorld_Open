@@ -1,0 +1,309 @@
+{
+    "parent": "mist:recipes/root",
+    "rewards": {
+        "recipes": [
+            "mist:stick"
+        ]
+    },
+    "criteria": {
+        "has_item_1": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:acacia_branch",
+                        "data": 0
+                    }
+                ]
+            }
+        },
+        "has_item_2": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:aspen_branch",
+                        "data": 0
+                    }
+                ]
+            }
+        },
+        "has_item_3": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:a_tree_branch",
+                        "data": 0
+                    }
+                ]
+            }
+        },
+        "has_item_4": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:birch_branch",
+                        "data": 0
+                    }
+                ]
+            }
+        },
+        "has_item_5": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:oak_branch",
+                        "data": 0
+                    }
+                ]
+            }
+        },
+        "has_item_6": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:pine_branch",
+                        "data": 0
+                    }
+                ]
+            }
+        },
+        "has_item_7": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:poplar_branch",
+                        "data": 0
+                    }
+                ]
+            }
+        },
+        "has_item_8": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:snow_branch",
+                        "data": 0
+                    }
+                ]
+            }
+        },
+        "has_item_9": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:spruce_branch",
+                        "data": 0
+                    }
+                ]
+            }
+        },
+        "has_item_10": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:s_tree_branch",
+                        "data": 0
+                    }
+                ]
+            }
+        },
+        "has_item_11": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:t_tree_branch",
+                        "data": 0
+                    }
+                ]
+            }
+        },
+        "has_item_12": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:willow_branch",
+                        "data": 0
+                    }
+                ]
+            }
+        },
+        "has_item_13": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:acacia_branch",
+                        "data": 3
+                    }
+                ]
+            }
+        },
+        "has_item_14": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:aspen_branch",
+                        "data": 3
+                    }
+                ]
+            }
+        },
+        "has_item_15": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:a_tree_branch",
+                        "data": 3
+                    }
+                ]
+            }
+        },
+        "has_item_16": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:birch_branch",
+                        "data": 3
+                    }
+                ]
+            }
+        },
+        "has_item_17": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:oak_branch",
+                        "data": 3
+                    }
+                ]
+            }
+        },
+        "has_item_18": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:pine_branch",
+                        "data": 3
+                    }
+                ]
+            }
+        },
+        "has_item_19": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:poplar_branch",
+                        "data": 3
+                    }
+                ]
+            }
+        },
+        "has_item_20": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:snow_branch",
+                        "data": 3
+                    }
+                ]
+            }
+        },
+        "has_item_21": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:spruce_branch",
+                        "data": 3
+                    }
+                ]
+            }
+        },
+        "has_item_22": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:s_tree_branch",
+                        "data": 3
+                    }
+                ]
+            }
+        },
+        "has_item_23": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:t_tree_branch",
+                        "data": 3
+                    }
+                ]
+            }
+        },
+        "has_item_24": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:willow_branch",
+                        "data": 3
+                    }
+                ]
+            }
+        },
+        "has_the_recipes": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:stick"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_item_1",
+            "has_item_2",
+            "has_item_3",
+            "has_item_4",
+            "has_item_5",
+            "has_item_6",
+            "has_item_7",
+            "has_item_8",
+            "has_item_9",
+            "has_item_10",
+            "has_item_11",
+            "has_item_12",
+            "has_item_13",
+            "has_item_14",
+            "has_item_15",
+            "has_item_16",
+            "has_item_17",
+            "has_item_18",
+            "has_item_19",
+            "has_item_20",
+            "has_item_21",
+            "has_item_22",
+            "has_item_23",
+            "has_item_24",
+            "has_the_recipes"
+        ]
+    ]
+}

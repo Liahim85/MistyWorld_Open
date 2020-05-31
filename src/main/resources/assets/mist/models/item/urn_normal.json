@@ -1,0 +1,29 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "mist:items/urn_normal_0",
+        "layer1": "mist:items/urn_normal_1",
+        "layer2": "mist:items/urn_normal_2"
+    },
+    "overrides": [
+        { "predicate": { "type": 0 }, "model": "mist:item/urn_normal" },
+        { "predicate": { "type": 1 }, "model": "mist:item/urn_patina" },
+        { "predicate": { "type": 2 }, "model": "mist:item/urn_line" },
+        { "predicate": { "type": 3 }, "model": "mist:item/urn_stripe" },
+        { "predicate": { "type": 4 }, "model": "mist:item/urn_stars" },
+        { "predicate": { "type": 5 }, "model": "mist:item/urn_cloth" },
+        { "predicate": { "type": 6 }, "model": "mist:item/urn_zone" },
+        { "predicate": { "type": 16 }, "model": "mist:item/urn_rare_1" },
+        { "predicate": { "type": 17 }, "model": "mist:item/urn_rare_2" },
+        { "predicate": { "type": 18 }, "model": "mist:item/urn_rare_3" },
+        { "predicate": { "type": 19 }, "model": "mist:item/urn_rare_4" },
+        { "predicate": { "type": 20 }, "model": "mist:item/urn_rare_5" },
+        { "predicate": { "type": 21 }, "model": "mist:item/urn_rare_6" },
+        { "predicate": { "type": 22 }, "model": "mist:item/urn_rare_7" },
+        { "predicate": { "type": 23 }, "model": "mist:item/urn_rare_8" },
+        { "predicate": { "type": 24 }, "model": "mist:item/urn_rare_9" },
+        { "predicate": { "type": 25 }, "model": "mist:item/urn_rare_10" },
+        { "predicate": { "type": 26 }, "model": "mist:item/urn_rare_11" },
+        { "predicate": { "type": 27 }, "model": "mist:item/urn_rare_12" }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:niobium_ore",
+            "data": 0
+        },
+        "title": {
+            "translate": "advancements.mist.night_walk"
+        },
+        "description": {
+            "translate": "advancements.mist.night_walk.desc"
+        },
+        "frame": "goal"
+    },
+    "parent": "mist:story/second_breath",
+    "criteria": {
+        "night_walk": {
+            "trigger": "mist:item_pickup",
+            "conditions": {
+                "item": "mist:niobium_ore",
+                "data": 0
+            }
+        }
+    }
+}

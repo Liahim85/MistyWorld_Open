@@ -1,0 +1,28 @@
+{
+    "variants": {
+        "variant=sand,wet=false": [ 
+            { "model": "mist:sand_dry" },
+            { "model": "mist:sand_dry", "y": 90 },
+            { "model": "mist:sand_dry", "y": 180 },
+            { "model": "mist:sand_dry", "y": 270 }
+        ],
+        "variant=sand,wet=true": [ 
+            { "model": "mist:sand_wet" },
+            { "model": "mist:sand_wet", "y": 90 },
+            { "model": "mist:sand_wet", "y": 180 },
+            { "model": "mist:sand_wet", "y": 270 }
+        ],
+        "variant=red_sand,wet=false": [ 
+            { "model": "mist:red_sand_dry" },
+            { "model": "mist:red_sand_dry", "y": 90 },
+            { "model": "mist:red_sand_dry", "y": 180 },
+            { "model": "mist:red_sand_dry", "y": 270 }
+        ],
+        "variant=red_sand,wet=true": [ 
+            { "model": "mist:red_sand_wet" },
+            { "model": "mist:red_sand_wet", "y": 90 },
+            { "model": "mist:red_sand_wet", "y": 180 },
+            { "model": "mist:red_sand_wet", "y": 270 }
+        ]
+    }
+}

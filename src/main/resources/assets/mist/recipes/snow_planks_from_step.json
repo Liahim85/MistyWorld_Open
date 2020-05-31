@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "wood_planks",
+    "pattern": [
+        "XX",
+        "XX"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:snow_step"
+        }
+    },
+    "result": {
+        "item": "mist:snow_block",
+        "data": 13
+    }
+}

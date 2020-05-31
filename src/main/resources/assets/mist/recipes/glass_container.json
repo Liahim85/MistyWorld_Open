@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "R",
+        "B"
+    ],
+    "key": {
+        "B": {
+            "item": "minecraft:glass_bottle"
+        },
+        "R": {
+            "type": "forge:ore_dict",
+            "ore": "rubber"
+        }
+    },
+    "result": {
+        "item": "mist:glass_container"
+    }
+}

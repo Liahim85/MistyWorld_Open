@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "wood_planks",
+    "pattern": [
+        "X",
+        "X"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:acacia_slab"
+        }
+    },
+    "result": {
+        "item": "mist:acacia_block",
+        "data": 13
+    }
+}

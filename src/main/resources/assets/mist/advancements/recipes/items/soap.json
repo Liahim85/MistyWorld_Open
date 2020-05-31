@@ -1,0 +1,65 @@
+{
+    "parent": "mist:recipes/root",
+    "rewards": {
+        "recipes": [
+            "mist:soap"
+        ]
+    },
+    "criteria": {
+        "ash": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:ash"
+                    }
+                ]
+            }
+        },
+        "tallow": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "type": "forge:ore_dict",
+                        "ore": "tallow"
+                    }
+                ]
+            }
+        },
+        "salt": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:saltpeter"
+                    },
+                    {
+                        "type": "forge:ore_dict",
+                        "ore": "lumpSalt"
+                    }
+                ]
+            }
+        },
+        "has_the_recipes": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:soap"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "ash",
+            "has_the_recipes"
+        ],
+        [
+            "salt",
+            "has_the_recipes"
+        ],
+        [
+            "tallow",
+            "has_the_recipes"
+        ]
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:achiev_item",
+            "data": 6
+        },
+        "title": {
+            "translate": "advancements.mist.toxic"
+        },
+        "description": {
+            "translate": "advancements.mist.toxic.desc"
+        }
+    },
+    "parent": "mist:story/rain",
+    "criteria": {
+        "toxic": {
+            "trigger": "mist:fog_effect",
+            "conditions": {
+                "toxic": {
+                    "min": 1000
+                }
+            }
+        }
+    }
+}

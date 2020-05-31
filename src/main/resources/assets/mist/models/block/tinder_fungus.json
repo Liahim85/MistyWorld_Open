@@ -1,0 +1,29 @@
+{   "parent": "block/block",
+    "textures": {
+        "particle": "mist:blocks/tinder_fungus",
+        "side":     "mist:blocks/tinder_fungus"
+    },
+    "elements": [
+        {
+            "from": [  4, 4, 0 ],
+            "to":   [ 12, 7, 6 ],
+            "faces": {
+                "south": { "uv": [  4, 13, 12, 16 ], "texture": "#side" },
+                "west":  { "uv": [  0,  0,  5,  3 ], "texture": "#side" },
+                "east":  { "uv": [ 11,  0, 16,  3 ], "texture": "#side" },
+                "up":    { "uv": [  4,  8, 12, 13 ], "texture": "#side" },
+                "down":  { "uv": [  4,  3, 12,  8 ], "texture": "#side" }
+            }
+        },
+        {
+            "from": [  5, 7, 0 ],
+            "to":   [ 11, 9, 5 ],
+            "faces": {
+                "south": { "uv": [  5,  0, 11,  2 ], "texture": "#side" },
+                "west":  { "uv": [  0, 14,  4, 16 ], "texture": "#side" },
+                "east":  { "uv": [ 12, 14, 16, 16 ], "texture": "#side" },
+                "up":    { "uv": [  5,  8, 11, 12 ], "texture": "#side" }
+            }
+        }
+    ]
+}

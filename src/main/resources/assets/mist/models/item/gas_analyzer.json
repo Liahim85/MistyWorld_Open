@@ -1,0 +1,51 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "mist:items/gas_analyzer_00"
+    },
+    "overrides": [
+        { "predicate": { "mist:value": 0 }, "model": "mist:item/gas_analyzer" },
+        { "predicate": { "mist:value": 1 }, "model": "mist:item/gas_analyzer_01" },
+        { "predicate": { "mist:value": 2 }, "model": "mist:item/gas_analyzer_02" },
+        { "predicate": { "mist:value": 3 }, "model": "mist:item/gas_analyzer_03" },
+        { "predicate": { "mist:value": 4 }, "model": "mist:item/gas_analyzer_04" },
+        { "predicate": { "mist:value": 5 }, "model": "mist:item/gas_analyzer_05" },
+        { "predicate": { "mist:value": 6 }, "model": "mist:item/gas_analyzer_06" },
+        { "predicate": { "mist:value": 7 }, "model": "mist:item/gas_analyzer_07" },
+        { "predicate": { "mist:value": 8 }, "model": "mist:item/gas_analyzer_08" },
+        { "predicate": { "mist:value": 9 }, "model": "mist:item/gas_analyzer_09" },
+        { "predicate": { "mist:value": 10 }, "model": "mist:item/gas_analyzer_10" },
+        { "predicate": { "mist:value": 11 }, "model": "mist:item/gas_analyzer_11" },
+        { "predicate": { "mist:value": 12 }, "model": "mist:item/gas_analyzer_12" },
+        { "predicate": { "mist:value": 13 }, "model": "mist:item/gas_analyzer_13" },
+        { "predicate": { "mist:value": 14 }, "model": "mist:item/gas_analyzer_14" },
+        { "predicate": { "mist:value": 15 }, "model": "mist:item/gas_analyzer_15" },
+        { "predicate": { "mist:value": 16 }, "model": "mist:item/gas_analyzer_16" },
+        { "predicate": { "mist:value": 17 }, "model": "mist:item/gas_analyzer_17" },
+        { "predicate": { "mist:value": 18 }, "model": "mist:item/gas_analyzer_18" },
+        { "predicate": { "mist:value": 19 }, "model": "mist:item/gas_analyzer_19" },
+        { "predicate": { "mist:value": 20 }, "model": "mist:item/gas_analyzer_20" },
+        { "predicate": { "mist:value": 21 }, "model": "mist:item/gas_analyzer_21" },
+        { "predicate": { "mist:value": 22 }, "model": "mist:item/gas_analyzer_22" },
+        { "predicate": { "mist:value": 23 }, "model": "mist:item/gas_analyzer_23" },
+        { "predicate": { "mist:value": 24 }, "model": "mist:item/gas_analyzer_24" },
+        { "predicate": { "mist:value": 25 }, "model": "mist:item/gas_analyzer_25" },
+        { "predicate": { "mist:value": 26 }, "model": "mist:item/gas_analyzer_26" },
+        { "predicate": { "mist:value": 27 }, "model": "mist:item/gas_analyzer_27" },
+        { "predicate": { "mist:value": 28 }, "model": "mist:item/gas_analyzer_28" },
+        { "predicate": { "mist:value": 29 }, "model": "mist:item/gas_analyzer_29" },
+        { "predicate": { "mist:value": 30 }, "model": "mist:item/gas_analyzer_30" }
+    ],
+    "display": {
+        "firstperson_righthand": {
+            "rotation": [ -30, -30, 0 ],
+            "translation": [ 3, 1.5, -5 ],
+            "scale": [ 0.68, 0.68, 0.68 ]
+        },
+        "firstperson_lefthand": {
+            "rotation": [ -30, -30, 0 ],
+            "translation": [ 3, 1.5, -5 ],
+            "scale": [ 0.68, 0.68, 0.68 ]
+        }
+    }
+}

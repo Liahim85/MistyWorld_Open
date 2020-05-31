@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "X ",
+        "XX"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:rocks"
+        }
+    },
+    "result": {
+        "item": "mist:cobblestone_stairs",
+        "data": 0
+    }
+}

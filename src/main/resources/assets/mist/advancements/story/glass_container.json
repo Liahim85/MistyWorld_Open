@@ -1,0 +1,20 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:glass_container"
+        },
+        "title": {
+            "translate": "advancements.mist.glass_container"
+        },
+        "description": {
+            "translate": "advancements.mist.glass_container.desc"
+        }
+    },
+    "parent": "mist:story/rubber",
+    "criteria": {
+        "glass_container": {
+            "trigger": "mist:glass_container",
+            "conditions": {}
+        }
+    }
+}

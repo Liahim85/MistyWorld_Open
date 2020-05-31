@@ -1,0 +1,23 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:achiev_item",
+            "data": 1
+        },
+        "title": {
+            "translate": "advancements.mist.first_breath"
+        },
+        "description": {
+            "translate": "advancements.mist.first_breath.desc"
+        }
+    },
+    "parent": "mist:story/portal",
+    "criteria": {
+        "first_breath": {
+            "trigger": "minecraft:changed_dimension",
+            "conditions": {
+                "to": "misty_world"
+            }
+        }
+    }
+}

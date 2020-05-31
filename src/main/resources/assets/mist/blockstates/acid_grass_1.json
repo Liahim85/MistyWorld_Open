@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "wet=true":  [
+            { "model": "mist:acid_grass_1_wet" },
+            { "model": "mist:acid_grass_1_wet", "y": 90 },
+            { "model": "mist:acid_grass_1_wet", "y": 180 },
+            { "model": "mist:acid_grass_1_wet", "y": 270 }
+        ],
+        "wet=false": [
+            { "model": "mist:acid_grass_1_dry" },
+            { "model": "mist:acid_grass_1_dry", "y": 90 },
+            { "model": "mist:acid_grass_1_dry", "y": 180 },
+            { "model": "mist:acid_grass_1_dry", "y": 270 }
+        ]
+    }
+}

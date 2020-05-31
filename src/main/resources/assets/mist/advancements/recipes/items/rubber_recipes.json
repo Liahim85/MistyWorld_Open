@@ -1,0 +1,72 @@
+{
+    "parent": "mist:recipes/root",
+    "rewards": {
+        "recipes": [
+            "mist:rubber_block",
+            "mist:rubber_helmet",
+            "mist:rubber_chestplate",
+            "mist:rubber_leggings",
+            "mist:rubber_boots",
+            "mist:glass_container"
+        ]
+    },
+    "criteria": {
+        "has_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:rubber"
+                    }
+                ]
+            }
+        },
+        "has_the_recipes_0": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:rubber_block"
+            }
+        },
+        "has_the_recipes_1": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:rubber_helmet"
+            }
+        },
+        "has_the_recipes_2": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:rubber_chestplate"
+            }
+        },
+        "has_the_recipes_3": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:rubber_leggings"
+            }
+        },
+        "has_the_recipes_4": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:rubber_boots"
+            }
+        },
+        "has_the_recipes_5": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:glass_container"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_item",
+            "has_the_recipes_0",
+            "has_the_recipes_1",
+            "has_the_recipes_2",
+            "has_the_recipes_3",
+            "has_the_recipes_4",
+            "has_the_recipes_5"
+        ]
+    ]
+}

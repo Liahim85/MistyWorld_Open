@@ -1,0 +1,106 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        [
+            {
+                "item": "mist:a_tree_branch",
+                "data": 0
+            },
+            {
+                "item": "mist:a_tree_branch",
+                "data": 3
+            },
+            {
+                "item": "mist:acacia_branch",
+                "data": 0
+            },
+            {
+                "item": "mist:acacia_branch",
+                "data": 3
+            },
+            {
+                "item": "mist:aspen_branch",
+                "data": 0
+            },
+            {
+                "item": "mist:aspen_branch",
+                "data": 3
+            },
+            {
+                "item": "mist:birch_branch",
+                "data": 0
+            },
+            {
+                "item": "mist:birch_branch",
+                "data": 3
+            },
+            {
+                "item": "mist:oak_branch",
+                "data": 0
+            },
+            {
+                "item": "mist:oak_branch",
+                "data": 3
+            },
+            {
+                "item": "mist:pine_branch",
+                "data": 0
+            },
+            {
+                "item": "mist:pine_branch",
+                "data": 3
+            },
+            {
+                "item": "mist:poplar_branch",
+                "data": 0
+            },
+            {
+                "item": "mist:poplar_branch",
+                "data": 3
+            },
+            {
+                "item": "mist:s_tree_branch",
+                "data": 0
+            },
+            {
+                "item": "mist:s_tree_branch",
+                "data": 3
+            },
+            {
+                "item": "mist:snow_branch",
+                "data": 0
+            },
+            {
+                "item": "mist:snow_branch",
+                "data": 3
+            },
+            {
+                "item": "mist:spruce_branch",
+                "data": 0
+            },
+            {
+                "item": "mist:spruce_branch",
+                "data": 3
+            },
+            {
+                "item": "mist:t_tree_branch",
+                "data": 0
+            },
+            {
+                "item": "mist:t_tree_branch",
+                "data": 3
+            },
+            {
+                "item": "mist:willow_branch",
+                "data": 0
+            },
+            {
+                "item": "mist:willow_branch",
+                "data": 3
+            }
+        ]
+    ],
+    "result": {
+        "item": "minecraft:stick"
+    }
+}

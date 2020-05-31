@@ -1,0 +1,24 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "mist:items/hygrometer_07"
+    },
+    "overrides": [
+        { "predicate": { "mist:humi": 0.000 }, "model": "mist:item/hygrometer_00" },
+        { "predicate": { "mist:humi": 5.000 }, "model": "mist:item/hygrometer_01" },
+        { "predicate": { "mist:humi": 11.25 }, "model": "mist:item/hygrometer_02" },
+        { "predicate": { "mist:humi": 17.50 }, "model": "mist:item/hygrometer_03" },
+        { "predicate": { "mist:humi": 23.75 }, "model": "mist:item/hygrometer_04" },
+        { "predicate": { "mist:humi": 30.00 }, "model": "mist:item/hygrometer_05" },
+        { "predicate": { "mist:humi": 36.65 }, "model": "mist:item/hygrometer_06" },
+        { "predicate": { "mist:humi": 43.30 }, "model": "mist:item/hygrometer" },
+        { "predicate": { "mist:humi": 50.00 }, "model": "mist:item/hygrometer_08" },
+        { "predicate": { "mist:humi": 57.10 }, "model": "mist:item/hygrometer_09" },
+        { "predicate": { "mist:humi": 64.25 }, "model": "mist:item/hygrometer_10" },
+        { "predicate": { "mist:humi": 71.40 }, "model": "mist:item/hygrometer_11" },
+        { "predicate": { "mist:humi": 78.55 }, "model": "mist:item/hygrometer_12" },
+        { "predicate": { "mist:humi": 85.70 }, "model": "mist:item/hygrometer_13" },
+        { "predicate": { "mist:humi": 92.85 }, "model": "mist:item/hygrometer_14" },
+        { "predicate": { "mist:humi": 100.0 }, "model": "mist:item/hygrometer_15" }
+    ]
+}

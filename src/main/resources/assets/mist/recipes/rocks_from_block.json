@@ -1,0 +1,14 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "group": "rocks",
+    "ingredients": [
+        {
+            "item": "mist:cobblestone",
+            "data": 0
+        }
+    ],
+    "result": {
+        "item": "mist:rocks",
+        "count": 4
+    }
+}

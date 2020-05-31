@@ -1,0 +1,153 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:urn",
+            "nbt": "{Urn:{UrnType:19}}"
+        },
+        "title": {
+            "translate": "advancements.mist.collector"
+        },
+        "description": {
+            "translate": "advancements.mist.collector.desc"
+        },
+        "frame": "challenge"
+    },
+    "parent": "mist:story/first_breath",
+    "rewards": {
+        "experience": 200
+    },
+    "criteria": {
+        "_16": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items":[
+                    {
+                        "item": "mist:urn",
+                        "nbt": "{Urn:{UrnType:16}}"
+                    }
+                ]
+            }
+        },
+        "_17": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:urn",
+                        "nbt": "{Urn:{UrnType:17}}"
+                    }
+                ]
+            }
+        },
+        "_18": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:urn",
+                        "nbt": "{Urn:{UrnType:18}}"
+                    }
+                ]
+            }
+        },
+        "_19": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:urn",
+                        "nbt": "{Urn:{UrnType:19}}"
+                    }
+                ]
+            }
+        },
+        "_20": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:urn",
+                        "nbt": "{Urn:{UrnType:20}}"
+                    }
+                ]
+            }
+        },
+        "_21": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:urn",
+                        "nbt": "{Urn:{UrnType:21}}"
+                    }
+                ]
+            }
+        },
+        "_22": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:urn",
+                        "nbt": "{Urn:{UrnType:22}}"
+                    }
+                ]
+            }
+        },
+        "_23": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:urn",
+                        "nbt": "{Urn:{UrnType:23}}"
+                    }
+                ]
+            }
+        },
+        "_24": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:urn",
+                        "nbt": "{Urn:{UrnType:24}}"
+                    }
+                ]
+            }
+        },
+        "_25": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:urn",
+                        "nbt": "{Urn:{UrnType:25}}"
+                    }
+                ]
+            }
+        },
+        "_26": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:urn",
+                        "nbt": "{Urn:{UrnType:26}}"
+                    }
+                ]
+            }
+        },
+        "_27": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:urn",
+                        "nbt": "{Urn:{UrnType:27}}"
+                    }
+                ]
+            }
+        }
+    }
+}

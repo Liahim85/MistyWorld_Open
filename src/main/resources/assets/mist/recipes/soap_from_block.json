@@ -1,0 +1,14 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "group": "soap",
+    "ingredients": [
+        {
+            "item": "mist:soap_block",
+            "data": 0
+        }
+    ],
+    "result": {
+        "item": "mist:soap",
+        "count": 9
+    }
+}
