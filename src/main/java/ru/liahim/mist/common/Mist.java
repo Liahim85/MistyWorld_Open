@@ -74,6 +74,7 @@ public class Mist {
 		ModRecipes.registerRecipes();
 		ModSounds.registerSounds();
 		ModAdvancements.load();
+		LootTables.Init();
 		proxy.preInit(event);
 	}
 
@@ -84,7 +85,6 @@ public class Mist {
 		dimensionType = DimensionType.register(NAME, "_mist", getID(), WorldProviderMist.class, false);
 		DimensionManager.registerDimension(getID(), dimensionType);
 		initCompatibilityMod();
-		LootTables.Init();
 		proxy.init(event);
 	}
 
