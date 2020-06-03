@@ -45,7 +45,7 @@ public class Mist {
 
 	public static final String MODID = "mist";
 	public static final String NAME = "misty_world";
-	public static final String VERSION = "1.2.4.6";
+	public static final String VERSION = "1.2.4.7";
 	public static final Logger logger = LogManager.getLogger(NAME);
 	public static DimensionType dimensionType;
 	public static CreativeTabs mistTab = new MistTab("mist.tab");
@@ -84,13 +84,13 @@ public class Mist {
 		dimensionType = DimensionType.register(NAME, "_mist", getID(), WorldProviderMist.class, false);
 		DimensionManager.registerDimension(getID(), dimensionType);
 		initCompatibilityMod();
+		LootTables.Init();
 		proxy.init(event);
 	}
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 		logger.info("Starting " + Mist.NAME + " PostInitialization");
-		LootTables.Init();
 		proxy.postInit(event);
 	}
 
