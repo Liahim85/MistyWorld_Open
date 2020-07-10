@@ -1,7 +1,7 @@
 package ru.liahim.mist.api.registry;
 
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.annotation.Nonnull;
 import ru.liahim.mist.api.block.IMistStoneBasic;
@@ -18,17 +18,19 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 
 public class MistRegistry {
 
 	public static final Map<Item, int[]> mistStoneBreakers = Maps.newHashMap();
 	public static final Map<String, Integer> dimsForSkill = Maps.newHashMap();
 	public static final Map<ResourceLocation, Integer> mobsForSkill = Maps.newHashMap();
+	public static final Set<String> mobsDimsBlackList = Sets.newHashSet();
+	public static final Set<ResourceLocation> mobsBlackList = Sets.newHashSet();
 	private static final Map<Block, HarvestType> harvestTypeList = Maps.newHashMap();
-	private static final List<ItemStack> compostIngredients = Lists.newArrayList();
-	private static final List<IShiftPlaceable> shiftPlaceableBlocks = Lists.newArrayList();
+	private static final Set<ItemStack> compostIngredients = Sets.newHashSet();
+	private static final Set<IShiftPlaceable> shiftPlaceableBlocks = Sets.newHashSet();
 
 	/** Register the ingredients for the Compost Heap. */
 	public static void registerCompostIngredient(ItemStack stack) {

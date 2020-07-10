@@ -38,6 +38,7 @@ import net.minecraft.item.ItemFlintAndSteel;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.play.server.SPacketSpawnPosition;
 import net.minecraft.stats.StatList;
 import net.minecraft.tileentity.TileEntityFlowerPot;
 import net.minecraft.util.EnumActionResult;
@@ -599,9 +600,14 @@ public class ServerEventHandler {
 				IMistCapaHandler capa = IMistCapaHandler.getHandler(playerMP);
 				PacketHandler.INSTANCE.sendTo(new PacketToxicSync(capa.getPollution(), HurtType.POLLUTION.getID()), playerMP);
 				PacketHandler.INSTANCE.sendTo(new PacketToxicSync(capa.getToxic(), HurtType.TOXIC.getID()), playerMP);
-			} else if (event.getEntity() instanceof EntitySheep) {
-				EntitySheep sheep = (EntitySheep)event.getEntity();
-				sheep.tasks.addTask(5, new EntityAIEatMistGrass(sheep, false));
+			} else {
+				ResourceLocation res = EntityList.getKey(event.getEntity());
+				if (MistRegistry.mobsDimsBlackList.contains(res.getResourceDomain()) || MistRegistry.mobsBlackList.contains(res)) {
+					event.setCanceled(true);
+				} else if (event.getEntity() instanceof EntitySheep) {
+					EntitySheep sheep = (EntitySheep)event.getEntity();
+					sheep.tasks.addTask(5, new EntityAIEatMistGrass(sheep, false));
+				}
 			}
 		}
 	}
@@ -751,17 +757,22 @@ public class ServerEventHandler {
 				event.getEntityPlayer().entityDropItem(capa.getMask(), 1);
 				capa.setStackInSlot(0, ItemStack.EMPTY);
 			}
-			if (world.provider.getDimension() == Mist.getID()) setSpawnPos(event.getEntityPlayer());
+			if (world.provider.getDimension() == Mist.getID() && event.getEntityPlayer() instanceof EntityPlayerMP) {
+				setSpawnPos((EntityPlayerMP) event.getEntityPlayer());
+			}
 		}
 	}
 
-	public static void setSpawnPos(EntityPlayer player) {
+	public static void setSpawnPos(EntityPlayerMP player) {
 		IBlockState state = null;
 		BlockPos pos = player.getBedLocation(Mist.getID());
 		if (pos != null) state = DimensionManager.getWorld(Mist.getID()).getBlockState(pos);
 		if (pos == null || !state.getBlock().isBed(state, player.world, pos, player)) {
 			pos = PlayerLocationData.get(player.world).getSpawnPos(player);
-			if (pos != null) player.setSpawnChunk(pos, true, Mist.getID());
+			if (pos != null) {
+				player.setSpawnChunk(pos, true, Mist.getID());
+				player.connection.sendPacket(new SPacketSpawnPosition(pos));
+			}
 		}
 	}
 

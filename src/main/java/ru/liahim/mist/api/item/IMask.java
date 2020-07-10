@@ -47,7 +47,7 @@ public interface IMask {
 	}
 
 	public static boolean canEquip(ItemStack stack, EntityLivingBase player) {
-		if (!stack.isEmpty()) {
+		if (isMask(stack)) {
 			if (stack.getItem() instanceof IMask) return ((IMask)stack.getItem()).canEquipMask(stack, player);
 			else return !isMaskInHelmetSlot(player);
 		} else return false;

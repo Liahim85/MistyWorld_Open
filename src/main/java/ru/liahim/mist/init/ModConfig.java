@@ -74,6 +74,10 @@ public class ModConfig {
 		@Comment("Assigns the mining speed multiplier of the foggy stone to the item (ModID:Item:Porous:Upper:Basic). Please do not change this parameter! This may affect the game balance")
 		public String[] stoneBreakers = { "mist:niobium_pickaxe:1:8:8" };
 
+		@LangKey("config.mist.dimension.mod_blacklist")
+		@Comment("Blacklist of mobs that can't spawn in a Misty World (modId:mobName or modId:* for all mobs in the mod). For example: minecraft:pig")
+		public String[] mobsBlackList = {};
+
 		@LangKey("config.mist.dimension.cascad_lag")
 		@Comment("Disable the message about cascading worldgen lag. Temporary measure until I find a solution to the problem")
 		public boolean disableCascadingLog = true;
@@ -220,6 +224,7 @@ public class ModConfig {
 		ModConfig.applyFirePitColors(false);
 		ModConfig.applyStoneBreakers();
 		ModConfig.applyMobsForSkill();
+		ModConfig.applyMobsBlackList();
 		TombGen.updateChance();
 	}
 
@@ -414,6 +419,39 @@ public class ModConfig {
 						MistRegistry.mobsForSkill.put(res, Integer.valueOf(point));
 					}
 				} else MistRegistry.dimsForSkill.put(pettern[0], Integer.valueOf(point));
+			}
+		}
+	}
+
+	public static void applyMobsBlackList() {
+		MistRegistry.mobsDimsBlackList.clear();
+		MistRegistry.mobsBlackList.clear();
+		Pattern splitpattern = Pattern.compile(":");
+		for (int i = 0; i < ModConfig.dimension.mobsBlackList.length; i++) {
+			String[] pettern = splitpattern.split(ModConfig.dimension.mobsBlackList[i]);
+			if (pettern.length != 2) {
+				Mist.logger.warn("Invalid set of parameters at mobsBlackList line " + (i + 1));
+				continue;
+			}
+			if (!Loader.isModLoaded(pettern[0])) {
+				Mist.logger.warn("Cannot found the modId \"" + pettern[0] + "\" from mobsBlackList line " + (i + 1));
+				continue;
+			} else if (pettern[0].equals(Mist.MODID)) {
+				Mist.logger.warn("Misty mobs cannot add to the blacklist (mobsBlackList, line " + (i + 1) + ")");
+				continue;
+			} else {
+				if (!pettern[1].equals("*")) {
+					ResourceLocation res = new ResourceLocation(pettern[0], pettern[1]);
+					if (!ForgeRegistries.ENTITIES.containsKey(res)) {
+						Mist.logger.warn("Cannot found the mob \"" + pettern[0] + ":" + pettern[1] + "\" from mobsBlackList line " + (i + 1));
+						continue;
+					} else if (MistRegistry.mobsBlackList.contains(res)) {
+						Mist.logger.warn("Mob \"" + pettern[0] + ":" + pettern[1] + "\" is already exist (mobsBlackList, line " + (i + 1) + ")");
+						continue;
+					} else {
+						MistRegistry.mobsBlackList.add(res);
+					}
+				} else MistRegistry.mobsDimsBlackList.add(pettern[0]);
 			}
 		}
 	}
