@@ -601,11 +601,13 @@ public class ServerEventHandler {
 				PacketHandler.INSTANCE.sendTo(new PacketToxicSync(capa.getPollution(), HurtType.POLLUTION.getID()), playerMP);
 				PacketHandler.INSTANCE.sendTo(new PacketToxicSync(capa.getToxic(), HurtType.TOXIC.getID()), playerMP);
 			} else if (event.getEntity() instanceof EntityLiving) {
-				ResourceLocation res = EntityList.getKey(event.getEntity());
-				if (event.getWorld().provider.getDimension() == Mist.getID() &&
-						MistRegistry.mobsDimsBlackList.contains(res.getResourceDomain()) || MistRegistry.mobsBlackList.contains(res)) {
-					event.setCanceled(true);
-				} else if (event.getEntity() instanceof EntitySheep) {
+				if (event.getWorld().provider.getDimension() == Mist.getID()) {
+					ResourceLocation res = EntityList.getKey(event.getEntity());
+					if (res != null && MistRegistry.mobsDimsBlackList.contains(res.getResourceDomain()) || MistRegistry.mobsBlackList.contains(res)) {
+						event.setCanceled(true);
+					}
+				}
+				if (event.getEntity() instanceof EntitySheep) {
 					EntitySheep sheep = (EntitySheep)event.getEntity();
 					sheep.tasks.addTask(5, new EntityAIEatMistGrass(sheep, false));
 				}
