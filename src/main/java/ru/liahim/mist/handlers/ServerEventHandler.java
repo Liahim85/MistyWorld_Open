@@ -600,9 +600,10 @@ public class ServerEventHandler {
 				IMistCapaHandler capa = IMistCapaHandler.getHandler(playerMP);
 				PacketHandler.INSTANCE.sendTo(new PacketToxicSync(capa.getPollution(), HurtType.POLLUTION.getID()), playerMP);
 				PacketHandler.INSTANCE.sendTo(new PacketToxicSync(capa.getToxic(), HurtType.TOXIC.getID()), playerMP);
-			} else {
+			} else if (event.getEntity() instanceof EntityLiving) {
 				ResourceLocation res = EntityList.getKey(event.getEntity());
-				if (MistRegistry.mobsDimsBlackList.contains(res.getResourceDomain()) || MistRegistry.mobsBlackList.contains(res)) {
+				if (event.getWorld().provider.getDimension() == Mist.getID() &&
+						MistRegistry.mobsDimsBlackList.contains(res.getResourceDomain()) || MistRegistry.mobsBlackList.contains(res)) {
 					event.setCanceled(true);
 				} else if (event.getEntity() instanceof EntitySheep) {
 					EntitySheep sheep = (EntitySheep)event.getEntity();
