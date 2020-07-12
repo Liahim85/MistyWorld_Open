@@ -1,6 +1,7 @@
 package ru.liahim.mist.world;
 
 import java.util.List;
+import java.util.Random;
 
 import javax.annotation.Nullable;
 
@@ -8,6 +9,7 @@ import net.minecraft.crash.CrashReport;
 import net.minecraft.crash.CrashReportCategory;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.ReportedException;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeCache;
@@ -65,6 +67,16 @@ public class BiomeProviderMist extends BiomeProvider {
 	}
 
 	@Override
+	public List<Biome> getBiomesToSpawnIn() {
+		return this.biomesToSpawnIn;
+	}
+
+	@Override
+	public Biome getBiome(BlockPos pos, Biome defaultBiome) {
+		return this.biomeCache.getBiome(pos.getX(), pos.getZ(), defaultBiome);
+	}
+
+	@Override
 	public Biome[] getBiomesForGeneration(Biome[] biomes, int x, int z, int width, int height) {
 		IntCache.resetIntCache();
 		if (biomes == null || biomes.length < width * height) {
@@ -104,5 +116,68 @@ public class BiomeProviderMist extends BiomeProvider {
 			}
 			return listToReuse;
 		}
+	}
+
+	@Override
+	public boolean areBiomesViable(int x, int z, int radius, List<Biome> allowed) {
+		IntCache.resetIntCache();
+		int i = x - radius >> 2;
+		int j = z - radius >> 2;
+		int k = x + radius >> 2;
+		int l = z + radius >> 2;
+		int i1 = k - i + 1;
+		int j1 = l - j + 1;
+		int[] aint = this.genBiomes.getInts(i, j, i1, j1);
+		try {
+			for (int k1 = 0; k1 < i1 * j1; ++k1) {
+				Biome biome = Biome.getBiome(aint[k1]);
+
+				if (!allowed.contains(biome)) {
+					return false;
+				}
+			}
+
+			return true;
+		}
+		catch (Throwable throwable) {
+			CrashReport crashreport = CrashReport.makeCrashReport(throwable, "Invalid Biome id");
+			CrashReportCategory crashreportcategory = crashreport.makeCategory("Layer");
+			crashreportcategory.addCrashSection("Layer", this.genBiomes.toString());
+			crashreportcategory.addCrashSection("x", Integer.valueOf(x));
+			crashreportcategory.addCrashSection("z", Integer.valueOf(z));
+			crashreportcategory.addCrashSection("radius", Integer.valueOf(radius));
+			crashreportcategory.addCrashSection("allowed", allowed);
+			throw new ReportedException(crashreport);
+		}
+	}
+
+	@Override
+	@Nullable
+	public BlockPos findBiomePosition(int x, int z, int range, List<Biome> biomes, Random random) {
+		IntCache.resetIntCache();
+		int i = x - range >> 2;
+		int j = z - range >> 2;
+		int k = x + range >> 2;
+		int l = z + range >> 2;
+		int i1 = k - i + 1;
+		int j1 = l - j + 1;
+		int[] aint = this.genBiomes.getInts(i, j, i1, j1);
+		BlockPos blockpos = null;
+		int k1 = 0;
+		for (int l1 = 0; l1 < i1 * j1; ++l1) {
+			int i2 = i + l1 % i1 << 2;
+			int j2 = j + l1 / i1 << 2;
+			Biome biome = Biome.getBiome(aint[l1]);
+			if (biomes.contains(biome) && (blockpos == null || random.nextInt(k1 + 1) == 0)) {
+				blockpos = new BlockPos(i2, 0, j2);
+				++k1;
+			}
+		}
+		return blockpos;
+	}
+
+	@Override
+	public void cleanupCache() {
+		this.biomeCache.cleanupCache();
 	}
 }
