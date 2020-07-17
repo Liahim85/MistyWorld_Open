@@ -42,6 +42,7 @@ import ru.liahim.mist.api.block.IWettable;
 import ru.liahim.mist.api.block.MistBlocks;
 import ru.liahim.mist.block.MistBlockWettable;
 import ru.liahim.mist.common.Mist;
+import ru.liahim.mist.init.ModConfig;
 import ru.liahim.mist.tileentity.TileEntityMycelium;
 import ru.liahim.mist.util.SoilHelper;
 import ru.liahim.mist.world.MistWorld;
@@ -226,7 +227,7 @@ public class MistMycelium extends MistBlockWettable implements ITileEntityProvid
 	public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te, ItemStack stack) {
 		player.addStat(StatList.getBlockStats(this));
 		player.addExhaustion(0.005F);
-		if (this.canSilkHarvest(world, pos, state, player) && EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, stack) > 0) {
+		if (ModConfig.dimension.myceliumHarvesting || (this.canSilkHarvest(world, pos, state, player) && EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, stack) > 0)) {
 			List<ItemStack> items = new ArrayList<ItemStack>();
 			ItemStack itemstack = this.getSilkTouchDrop(state, te);
 			if (!itemstack.isEmpty()) items.add(itemstack);

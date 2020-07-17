@@ -508,9 +508,7 @@ public class FogRenderer {  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ ï¿½ï¿
 			FogTexture.allocateTexture();
 			FogTexture.createFogTexture(world, cX, cZ);
 		}
-		byte i = 4; //Segment count
 		int r = FogTexture.offset * 16 + 8;
-		int e = r / i; //Segment size
 		int d = r * 2;
 		playerX = playerX - cX * 16 - 8;
 		playerZ = playerZ - cZ * 16 - 8;
@@ -552,14 +550,12 @@ public class FogRenderer {  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ ï¿½ï¿
 				vertexbuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
 				ShaderProgram.setUniform1f("alpha", 0.075F);
 				ShaderProgram.setUniform1f("deep", FogRenderer.fogHeight - 4 + layerOffset - MathHelper.floor(FogRenderer.fogHeight - 0.0025f));
-				for (int x = -e * i; x < e * i; x += e) {
-					for (int z = -e * i; z < e * i; z += e) {
-						vertexbuffer.pos(x - playerX, height, z - playerZ).tex((float)(r + x) / d, (float)(r + z) / d).endVertex();
-						vertexbuffer.pos(x - playerX, height, z + e - playerZ).tex((float)(r + x) / d, (float)(r + z + e) / d).endVertex();
-						vertexbuffer.pos(x + e - playerX, height, z + e - playerZ).tex((float)(r + x + e) / d, (float)(r + z + e) / d).endVertex();
-						vertexbuffer.pos(x + e - playerX, height, z - playerZ).tex((float)(r + x + e) / d, (float)(r + z) / d).endVertex();
-					}
-				}
+
+				vertexbuffer.pos(-r - playerX, height, -r - playerZ).tex(0, 0).endVertex();
+				vertexbuffer.pos(-r - playerX, height, r - playerZ).tex(0, 1).endVertex();
+				vertexbuffer.pos(r - playerX, height, r - playerZ).tex(1, 1).endVertex();
+				vertexbuffer.pos(r - playerX, height, -r - playerZ).tex(1, 0).endVertex();
+
 				tessellator.draw();
 			}
 			height = FogRenderer.fogHeight - 4 - playerHeight - layerOffset;
@@ -567,14 +563,12 @@ public class FogRenderer {  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ ï¿½ï¿
 				vertexbuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
 				ShaderProgram.setUniform1f("alpha", Math.min(0.5F, 0.075F + Math.max(0, (height) / 100)));
 				ShaderProgram.setUniform1f("deep", MathHelper.ceil(FogRenderer.fogHeight - 8 + 0.0025f) - FogRenderer.fogHeight + 4 + layerOffset);
-				for (int x = -e * i; x < e * i; x += e) {
-					for (int z = -e * i; z < e * i; z += e) {
-						vertexbuffer.pos(x - playerX, height, z - playerZ).tex((float)(r + x) / d, (float)(r + z) / d).endVertex();
-						vertexbuffer.pos(x + e - playerX, height, z - playerZ).tex((float)(r + x + e) / d, (float)(r + z) / d).endVertex();
-						vertexbuffer.pos(x + e - playerX, height, z + e - playerZ).tex((float)(r + x + e) / d, (float)(r + z + e) / d).endVertex();
-						vertexbuffer.pos(x - playerX, height, z + e - playerZ).tex((float)(r + x) / d, (float)(r + z + e) / d).endVertex();
-					}
-				}
+
+				vertexbuffer.pos(-r - playerX, height, -r - playerZ).tex(0, 0).endVertex();
+				vertexbuffer.pos(r - playerX, height, -r - playerZ).tex(1, 0).endVertex();
+				vertexbuffer.pos(r - playerX, height, r - playerZ).tex(1, 1).endVertex();
+				vertexbuffer.pos(-r - playerX, height, r - playerZ).tex(0, 1).endVertex();
+
 				tessellator.draw();
 			}
 			layerOffset += 0.0625F;

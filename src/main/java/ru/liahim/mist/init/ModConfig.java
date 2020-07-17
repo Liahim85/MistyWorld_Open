@@ -66,6 +66,10 @@ public class ModConfig {
 		@Comment("Disable vanilla tree growth")
 		public boolean disableVanillaTreeGrowth = true;
 
+		@LangKey("config.mist.dimension.mycelium")
+		@Comment("Can mycelium be harvested without a silk touch")
+		public boolean myceliumHarvesting = false;
+
 		@LangKey("config.mist.dimension.blacklist")
 		@Comment("Black list of dimensions in which it is impossible to build a portal into a Misty World")
 		public int[] dimBlackList = { 1 };
