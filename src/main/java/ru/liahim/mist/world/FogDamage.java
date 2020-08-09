@@ -28,10 +28,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockPos.PooledMutableBlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 import ru.liahim.mist.api.MistTags;
 import ru.liahim.mist.api.advancement.FogDamagePredicate.FogDamageType;
 import ru.liahim.mist.api.block.IMistAdsorbent;
 import ru.liahim.mist.api.block.MistBlocks;
+import ru.liahim.mist.api.event.PollutionEvent;
 import ru.liahim.mist.api.item.IMask;
 import ru.liahim.mist.api.item.ISuit;
 import ru.liahim.mist.capability.handler.IMistCapaHandler;
@@ -39,43 +41,8 @@ import ru.liahim.mist.common.Mist;
 import ru.liahim.mist.init.ModAdvancements;
 
 public class FogDamage {
+	private static final UUID healthUUID = UUID.fromString("4e65bedc-27d8-44da-8d8e-4493874517ab");
 
-	private static final UUID[] healthUUIDs = new UUID[] {
-		UUID.fromString("4e65bedc-27d8-44da-8d8e-4493874517ab"),
-		UUID.fromString("0051b697-c495-4c85-bac0-2089cfd967fd"),
-		UUID.fromString("55801a45-15e9-4445-9658-47f42b4e30b0"),
-		UUID.fromString("9e36fc8c-27ec-40cd-a8d4-5f227c9f2082"),
-		UUID.fromString("9640f779-eec2-4b8d-9bb5-8ef5690c8cf8"),
-		UUID.fromString("2328268e-dbb9-4a52-bfbc-975f81cd32b2"),
-		UUID.fromString("b2545134-6801-4e90-81c6-c52e8d231655"),
-		UUID.fromString("731e3c7e-c729-465b-b6a9-dd1f27746bc3"),
-		UUID.fromString("149ecd6a-974a-44e5-812f-b6f981371d66"),
-		UUID.fromString("65c9a779-fddc-4c55-91ba-6fba62768268"),
-		UUID.fromString("f30c6bc4-9617-42f5-bdf9-ade683591126"),
-		UUID.fromString("2a1367b9-b9be-464f-8382-62e14cb3f147"),
-		UUID.fromString("bf90bfae-4619-44b9-a440-dbfeec5bc754"),
-		UUID.fromString("59d63b61-c9bc-4a7d-8e53-591d5da1e6f6"),
-		UUID.fromString("2b43567d-4f84-4774-aef8-f69457f43ab1"),
-		UUID.fromString("6616b020-606e-46ba-817e-a32a5e33ef50")
-	};
-	private static final AttributeModifier[] toxicModifiers = new AttributeModifier[] {
-		new AttributeModifier(healthUUIDs[0], "toxicDamage", -1, 0),
-		new AttributeModifier(healthUUIDs[1], "toxicDamage", -2, 0),
-		new AttributeModifier(healthUUIDs[2], "toxicDamage", -3, 0),
-		new AttributeModifier(healthUUIDs[3], "toxicDamage", -4, 0),
-		new AttributeModifier(healthUUIDs[4], "toxicDamage", -5, 0),
-		new AttributeModifier(healthUUIDs[5], "toxicDamage", -6, 0),
-		new AttributeModifier(healthUUIDs[6], "toxicDamage", -7, 0),
-		new AttributeModifier(healthUUIDs[7], "toxicDamage", -8, 0),
-		new AttributeModifier(healthUUIDs[8], "toxicDamage", -9, 0),
-		new AttributeModifier(healthUUIDs[9], "toxicDamage", -10, 0),
-		new AttributeModifier(healthUUIDs[10], "toxicDamage", -11, 0),
-		new AttributeModifier(healthUUIDs[11], "toxicDamage", -12, 0),
-		new AttributeModifier(healthUUIDs[12], "toxicDamage", -13, 0),
-		new AttributeModifier(healthUUIDs[13], "toxicDamage", -14, 0),
-		new AttributeModifier(healthUUIDs[14], "toxicDamage", -15, 0),
-		new AttributeModifier(healthUUIDs[15], "toxicDamage", -16, 0)
-	};
 	private static final boolean ambient = true;
 	private static final int pollutiomDamageBorder = (10000 - 2000)/100;
 
@@ -154,6 +121,13 @@ public class FogDamage {
 					pollution *= pollutionFactor;
 				}
 
+				PollutionEvent event = new PollutionEvent(entity, pollution, toxic, fogDamage, rainDamage);
+				MinecraftForge.EVENT_BUS.post(event);
+				pollution = event.getPollution();
+				toxic = event.getToxic();
+				fogDamage = event.getFogDamage();
+				rainDamage = event.getRainDamage();
+
 				boolean damage = false;
 				if (fogDamage > 0) {
 					if (entity instanceof EntityPlayerMP) ModAdvancements.FOG_DAMAGE.trigger((EntityPlayerMP)entity, entity.world, entity.getPosition(), FogDamageType.BY_FOG, concentration, isMask, suit, adsorbent);
@@ -218,11 +192,9 @@ public class FogDamage {
 		int t = toxic - 2000;
 		if (t < 0) t = 0;
 		t = t/500 - 1;
-		for (int i = 0; i < toxicModifiers.length; ++i) {
-			if (i == t) {
-				if(!boost.hasModifier(toxicModifiers[i])) boost.applyModifier(toxicModifiers[i]);
-			} else if (boost.hasModifier(toxicModifiers[i])) boost.removeModifier(toxicModifiers[i]);
-		}
+		int healthDamage = -(t + 1);
+		boost.removeModifier(healthUUID);
+		boost.applyModifier(new AttributeModifier(healthUUID, "toxicDamage", healthDamage, 0));
 		if (player.getHealth() > player.getMaxHealth()) player.setHealth(player.getMaxHealth());
 		if (player.ticksExisted % 80 == 0) {
 			if (toxic > 7500) {
