@@ -28,6 +28,7 @@ import ru.liahim.mist.api.registry.MistRegistry;
 import ru.liahim.mist.capability.handler.ISkillCapaHandler.Skill;
 import ru.liahim.mist.common.Mist;
 import ru.liahim.mist.common.MistTime;
+import ru.liahim.mist.handlers.FogRenderer;
 import ru.liahim.mist.tileentity.TileEntityCampfire;
 import ru.liahim.mist.world.generators.TombGen;
 
@@ -77,6 +78,10 @@ public class ModConfig {
 		@LangKey("config.mist.dimension.breakers")
 		@Comment("Assigns the mining speed multiplier of the foggy stone to the item (ModID:Item:Porous:Upper:Basic). Please do not change this parameter! This may affect the game balance")
 		public String[] stoneBreakers = { "mist:niobium_pickaxe:1:8:8" };
+
+		@LangKey("config.mist.dimension.filter_coal_breakers")
+		@Comment("List of tools that can mine filter coal ore. Please do not change this parameter! This may affect the game balance")
+		public String[] filterCoalBreakers = { "mist:niobium_pickaxe" };
 
 		@LangKey("config.mist.dimension.mod_blacklist")
 		@Comment("Blacklist of mobs that can't spawn in a Misty World (modId:mobName or modId:* for all mobs in the mod). For example: minecraft:pig")
@@ -130,6 +135,11 @@ public class ModConfig {
 		@LangKey("config.mist.graphic.fog")
 		@Comment("Advanced fog renderer. Adds falling shadows to the fog")
 		public boolean advancedFogRenderer = true;
+
+		@LangKey("config.mist.graphic.fog_quality")
+		@Comment("Fog render quality")
+		@RangeInt(min = 1, max = 5)
+		public int fogQuality = 5;
 	}
 
 	public static class Campfire {
@@ -227,9 +237,11 @@ public class ModConfig {
 		for (Skill skill : Skill.values()) skill.updateSizes();
 		ModConfig.applyFirePitColors(false);
 		ModConfig.applyStoneBreakers();
+		ModConfig.applyFilterCoalBreakers();
 		ModConfig.applyMobsForSkill();
 		ModConfig.applyMobsBlackList();
 		TombGen.updateChance();
+		FogRenderer.updateFogQuality();
 	}
 
 	public static long getCustomSeed(long seed) {
@@ -381,6 +393,31 @@ public class ModConfig {
 			}
 		}
 		if (MistRegistry.mistStoneBreakers.isEmpty()) MistRegistry.mistStoneBreakers.put(MistItems.NIOBIUM_PICKAXE, new int[] {1, 8, 8});
+	}
+
+	public static void applyFilterCoalBreakers() {
+		MistRegistry.filterCoalBreakers.clear();
+		Pattern splitpattern = Pattern.compile(":");
+		for (int i = 0; i < ModConfig.dimension.filterCoalBreakers.length; i++) {
+			String s = ModConfig.dimension.filterCoalBreakers[i];
+			String[] pettern = splitpattern.split(s);
+			if (pettern.length != 2) {
+				Mist.logger.warn("Invalid set of parameters at filterCoalBreakers line " + (i + 1));
+				continue;
+			}
+			ResourceLocation res = new ResourceLocation(pettern[0], pettern[1]);
+			Item item;
+			if (ForgeRegistries.ITEMS.containsKey(res)) {
+				item = ForgeRegistries.ITEMS.getValue(res);
+			} else {
+				Mist.logger.warn("Cannot found item \"" + pettern[0] + ":" + pettern[1] + "\" from filterCoalBreakers line " + (i + 1));
+				continue;
+			}
+			boolean check = false;
+			if (MistRegistry.filterCoalBreakers.contains(item)) Mist.logger.warn("Item \"" + pettern[0] + ":" + pettern[1] + "\" is already exist (filterCoalBreakers, line " + (i + 1) + ")");
+			else MistRegistry.filterCoalBreakers.add(item);
+		}
+		if (MistRegistry.filterCoalBreakers.isEmpty()) MistRegistry.filterCoalBreakers.add(MistItems.NIOBIUM_PICKAXE);
 	}
 
 	public static void applyMobsForSkill() {

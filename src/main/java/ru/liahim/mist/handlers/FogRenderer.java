@@ -488,6 +488,18 @@ public class FogRenderer {  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ ï¿½ï¿
 		}
 	}
 
+	private static int planeCount = (int) Math.pow(2, ModConfig.graphic.fogQuality + 1);
+	private static float layerRange = 4.0F / planeCount;
+	private static float colorRange = 0.65F / planeCount;
+	private static float alpha = Math.min(1.0F, 5.0F / planeCount);
+
+	public static void updateFogQuality() {
+		planeCount = (int) Math.pow(2, ModConfig.graphic.fogQuality + 1);
+		layerRange = 4.0F / planeCount;
+		colorRange = 0.65F / planeCount;
+		alpha = Math.min(1.0F, 5.0F / planeCount);
+	}
+
 	private void fogRender(float partialTicks, WorldClient world, Minecraft mc) {
 		Entity entity = mc.getRenderViewEntity();
 		float cameraHeight = mc.getRenderViewEntity().getEyeHeight();
@@ -528,7 +540,7 @@ public class FogRenderer {  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ ï¿½ï¿
 			f4 = (float)vecDown.z;
 		}
 		float colorOffset;
-		float layerOffset = -0.0025F;
+		float layerOffset = -0.0035F;
 		float height;
 
 		Tessellator tessellator = Tessellator.getInstance();
@@ -542,13 +554,13 @@ public class FogRenderer {  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ ï¿½ï¿
 		ShaderProgram.setUniform2f("center", (float)(playerX + 8 + FogTexture.offset * 16) / d, (float)(playerZ + 8 + FogTexture.offset * 16) / d);
 		ShaderProgram.setUniform3f("main_color", f2, f3, f4);
 		ShaderProgram.setUniform1f("fog_smooth", Graphic.smoothFogTexture ? 1 : 0);
-		for (int n = 0; n < 64; n++) {
+		for (int n = 0; n <= planeCount; n++) {
 			height = FogRenderer.fogHeight - 4 - playerHeight + layerOffset;
-			colorOffset = 0.63F - n * 0.01F;
+			colorOffset = 0.65F - n * colorRange;
 			ShaderProgram.setUniform1f("offset", colorOffset);
 			if (height - cameraHeight < -0.1) {
 				vertexbuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
-				ShaderProgram.setUniform1f("alpha", 0.075F);
+				ShaderProgram.setUniform1f("alpha", alpha);
 				ShaderProgram.setUniform1f("deep", FogRenderer.fogHeight - 4 + layerOffset - MathHelper.floor(FogRenderer.fogHeight - 0.0025f));
 
 				vertexbuffer.pos(-r - playerX, height, -r - playerZ).tex(0, 0).endVertex();
@@ -561,7 +573,7 @@ public class FogRenderer {  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ ï¿½ï¿
 			height = FogRenderer.fogHeight - 4 - playerHeight - layerOffset;
 			if (height - cameraHeight > 0.1) {
 				vertexbuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
-				ShaderProgram.setUniform1f("alpha", Math.min(0.5F, 0.075F + Math.max(0, (height) / 100)));
+				ShaderProgram.setUniform1f("alpha", Math.min(1.0F, alpha + Math.max(0, (height) / 100)));
 				ShaderProgram.setUniform1f("deep", MathHelper.ceil(FogRenderer.fogHeight - 8 + 0.0025f) - FogRenderer.fogHeight + 4 + layerOffset);
 
 				vertexbuffer.pos(-r - playerX, height, -r - playerZ).tex(0, 0).endVertex();
@@ -571,7 +583,7 @@ public class FogRenderer {  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ ï¿½ï¿
 
 				tessellator.draw();
 			}
-			layerOffset += 0.0625F;
+			layerOffset += layerRange;
 		}
 		ShaderProgram.releaseShader();
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
@@ -609,23 +621,23 @@ public class FogRenderer {  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ ï¿½ï¿
 			f4 = (float)vecDown.z;
 		}
 		float colorOffset;
-		float layerOffset = -0.0025F;
-		float height; float red; float green; float blue; float alpha;
-		for (int n = 0; n < 64; n++) {
+		float layerOffset = -0.0035F;
+		float height; float red; float green; float blue; float alphaFin;
+		for (int n = 0; n <= planeCount; n++) {
 			height = FogRenderer.fogHeight - 4 - playerHeight + layerOffset;
-			colorOffset = 0.63F - n * 0.01F;
+			colorOffset = 0.65F - n * colorRange;
 			if (height - cameraHeight < -0.1) {
 				vertexbuffer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR);
 				red = Math.min(1, f2 + colorOffset);
 				green = Math.min(1, f3 + colorOffset);
 				blue = Math.min(1, f4 + colorOffset);
-				alpha = 0.07F;
+				alphaFin = alpha;
 				for (int x = -e * i; x < e * i; x += e) {
 					for (int z = -e * i; z < e * i; z += e) {
-						vertexbuffer.pos(x, height, z).tex((float)(r + z) / d, (float)(r - x) / d).color(red, green, blue, alpha).endVertex();
-						vertexbuffer.pos(x, height, z + e).tex((float)(r + z + e) / d, (float)(r - x) / d).color(red, green, blue, alpha).endVertex();
-						vertexbuffer.pos(x + e, height, z + e).tex((float)(r + z + e) / d, (float)(r - x - e) / d).color(red, green, blue, alpha).endVertex();
-						vertexbuffer.pos(x + e, height, z).tex((float)(r + z) / d, (float)(r - x - e) / d).color(red, green, blue, alpha).endVertex();
+						vertexbuffer.pos(x, height, z).tex((float)(r + z) / d, (float)(r - x) / d).color(red, green, blue, alphaFin).endVertex();
+						vertexbuffer.pos(x, height, z + e).tex((float)(r + z + e) / d, (float)(r - x) / d).color(red, green, blue, alphaFin).endVertex();
+						vertexbuffer.pos(x + e, height, z + e).tex((float)(r + z + e) / d, (float)(r - x - e) / d).color(red, green, blue, alphaFin).endVertex();
+						vertexbuffer.pos(x + e, height, z).tex((float)(r + z) / d, (float)(r - x - e) / d).color(red, green, blue, alphaFin).endVertex();
 					}
 				}
 				tessellator.draw();
@@ -636,18 +648,18 @@ public class FogRenderer {  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ ï¿½ï¿
 				red = Math.min(1, f2 + colorOffset);
 				green = Math.min(1, f3 + colorOffset);
 				blue = Math.min(1, f4 + colorOffset);
-				alpha = Math.min(0.5F, 0.07F + Math.max(0, (height) / 100));
+				alphaFin = Math.min(1.0F, alpha + Math.max(0, (height) / 100));
 				for (int x = -e * i; x < e * i; x += e) {
 					for (int z = -e * i; z < e * i; z += e) {
-						vertexbuffer.pos(x, height, z).tex((float)(r + z) / d, (float)(r - x) / d).color(red, green, blue, alpha).endVertex();
-						vertexbuffer.pos(x + e, height, z).tex((float)(r + z) / d, (float)(r - x - e) / d).color(red, green, blue, alpha).endVertex();
-						vertexbuffer.pos(x + e, height, z + e).tex((float)(r + z + e) / d, (float)(r - x - e) / d).color(red, green, blue, alpha).endVertex();
-						vertexbuffer.pos(x, height, z + e).tex((float)(r + z + e) / d, (float)(r - x) / d).color(red, green, blue, alpha).endVertex();
+						vertexbuffer.pos(x, height, z).tex((float)(r + z) / d, (float)(r - x) / d).color(red, green, blue, alphaFin).endVertex();
+						vertexbuffer.pos(x + e, height, z).tex((float)(r + z) / d, (float)(r - x - e) / d).color(red, green, blue, alphaFin).endVertex();
+						vertexbuffer.pos(x + e, height, z + e).tex((float)(r + z + e) / d, (float)(r - x - e) / d).color(red, green, blue, alphaFin).endVertex();
+						vertexbuffer.pos(x, height, z + e).tex((float)(r + z + e) / d, (float)(r - x) / d).color(red, green, blue, alphaFin).endVertex();
 					}
 				}
 				tessellator.draw();
 			}
-			layerOffset += 0.0625F;
+			layerOffset += layerRange;
 		}
 		GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 		GlStateManager.alphaFunc(GL11.GL_GREATER, 0.1F);

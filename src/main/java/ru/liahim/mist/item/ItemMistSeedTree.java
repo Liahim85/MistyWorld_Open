@@ -4,6 +4,7 @@ import ru.liahim.mist.api.item.IMistFood;
 import ru.liahim.mist.block.MistTreeSapling.EnumType;
 import ru.liahim.mist.capability.handler.IFoodHandler;
 import ru.liahim.mist.capability.handler.IMistCapaHandler;
+import ru.liahim.mist.init.ModAdvancements;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemFood;
@@ -102,7 +104,10 @@ public class ItemMistSeedTree extends ItemFood implements IMistFood {
 		}
 
 		int toxic = (int) this.getToxic(stack);
-		if (toxic != 0) IMistCapaHandler.getHandler(player).addToxic(toxic);
+		if (toxic != 0) {
+			IMistCapaHandler.getHandler(player).addToxic(toxic);
+			if (player instanceof EntityPlayerMP) ModAdvancements.CONSUME_TOXIC.trigger((EntityPlayerMP) player, stack, Float.valueOf(toxic));
+		}
 		IFoodHandler.getHandler(player).setFoodStudy(stack);
 	}
 

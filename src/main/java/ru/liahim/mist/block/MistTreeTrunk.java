@@ -458,7 +458,7 @@ public abstract class MistTreeTrunk extends MistBlock implements IPlantable {
 						if (upState.getBlock() == this.leaves && upState.getValue(LDIR) == face) ++count;
 					}
 				}
-				sapling = world.rand.nextInt((5 - count) * 2 + 2) == 0;
+				sapling = world.rand.nextInt((5 - count) + 2) == 0;
 			}
 		}
 		if (sapling) {

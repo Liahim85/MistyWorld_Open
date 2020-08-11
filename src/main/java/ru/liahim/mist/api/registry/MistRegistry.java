@@ -23,6 +23,7 @@ import com.google.common.collect.Sets;
 
 public class MistRegistry {
 
+	public static final Set<Item> filterCoalBreakers = Sets.newHashSet();
 	public static final Map<Item, int[]> mistStoneBreakers = Maps.newHashMap();
 	public static final Map<String, Integer> dimsForSkill = Maps.newHashMap();
 	public static final Map<ResourceLocation, Integer> mobsForSkill = Maps.newHashMap();

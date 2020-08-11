@@ -398,7 +398,7 @@ public class ServerEventHandler {
 			if (block == MistBlocks.FILTER_COAL_ORE) {
 				if (event.getHarvester() != null) {
 					Item pickaxe = event.getHarvester().inventory.getCurrentItem().getItem();
-					if (pickaxe != MistItems.NIOBIUM_PICKAXE) event.getDrops().clear();
+					if (!MistRegistry.filterCoalBreakers.contains(pickaxe)) event.getDrops().clear();
 				} else event.getDrops().clear();
 			}
 			//Crops
