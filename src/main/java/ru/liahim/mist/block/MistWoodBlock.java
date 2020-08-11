@@ -238,7 +238,7 @@ public class MistWoodBlock extends MistBlock implements IDividable {
 	@Override
 	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
 		if (state.getValue(TYPE) == EnumType.PLANK) {
-			return new ItemStack(Item.getItemFromBlock(this), 1, 12);
+			return new ItemStack(Item.getItemFromBlock(this), 1, 13);
 		} else if (state.getValue(AXIS) == EnumAxis.NONE) {
 			return new ItemStack(Item.getItemFromBlock(this), 1, this.getMetaFromState(state));
 		} else return new ItemStack(Item.getItemFromBlock(this), 1, this.getMetaFromState(state.withProperty(AXIS, EnumAxis.Y)));

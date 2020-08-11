@@ -395,6 +395,7 @@ tile.mist.mushroom_tan_c.name=Приготовленный загорелый г
 tile.mist.mycelium.name=Грибница_0
 
 ### Down Plants
+tile.mist.sponge.name=Туманная губка
 tile.mist.sponge_clear.name=Туманная губка
 tile.mist.sponge_wet.name=Загрязнённая туманная губка
 tile.mist.sponge_spoiled.name=Испорченная туманная губка

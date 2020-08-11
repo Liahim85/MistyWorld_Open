@@ -22,15 +22,15 @@ public class ItemMistSponge extends ItemBlock {
 		String nameBlock = "";
 		switch (stack.getItemDamage()) {
 		case 13:
-			nameBlock = "sponge_clear";
+			nameBlock = "_clear";
 			break;
 		case 14:
-			nameBlock = "sponge_wet";
+			nameBlock = "_wet";
 			break;
 		case 15:
-			nameBlock = "sponge_spoiled";
+			nameBlock = "_spoiled";
 			break;
 		}
-		return "tile.mist." + nameBlock;
+		return "tile.mist.sponge" + nameBlock;
 	}
 }

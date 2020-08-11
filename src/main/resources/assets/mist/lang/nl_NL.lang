@@ -398,6 +398,7 @@ tile.mist.mushroom_tan_c.name=Gekookte Bruinzwam
 tile.mist.mycelium.name=Mycelium
 
 ### Down Plants
+tile.mist.sponge.name=Mistspons
 tile.mist.sponge_clear.name=Mistspons
 tile.mist.sponge_wet.name=Vieze Mistspons
 tile.mist.sponge_spoiled.name=Verspilde Mistspons

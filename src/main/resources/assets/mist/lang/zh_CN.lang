@@ -387,6 +387,7 @@ tile.mist.mushroom_tan_c.name=熟黄褐色蘑菇
 tile.mist.mycelium.name=菌丝体
 
 ### Down Plants
+tile.mist.sponge.name=雾朦海绵
 tile.mist.sponge_clear.name=雾朦海绵
 tile.mist.sponge_wet.name=脏的雾朦海绵
 tile.mist.sponge_spoiled.name=变质的雾朦海绵

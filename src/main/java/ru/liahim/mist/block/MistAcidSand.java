@@ -19,6 +19,11 @@ public class MistAcidSand extends MistBlockWettableFalling {
 	}
 
 	@Override
+	public String getUnlocalizedName() {
+		return "tile.mist." + super.getUnlocalizedName().substring(5);
+	}
+
+	@Override
 	@SideOnly(Side.CLIENT)
 	protected boolean showPorosityTooltip() { return false; }
 
@@ -32,7 +37,7 @@ public class MistAcidSand extends MistBlockWettableFalling {
 	public int getDustColor(IBlockState state) {
 		return 0x9B906D;
 	}
-	
+
 	@Override
 	public int getTopProtectPercent(IBlockState state, boolean isWet) {
 		return isWet ? 60 : 145;

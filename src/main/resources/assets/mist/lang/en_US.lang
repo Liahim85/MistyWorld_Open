@@ -387,6 +387,7 @@ tile.mist.mushroom_tan_c.name=Cooked Tan Mushroom
 tile.mist.mycelium.name=Mycelium
 
 ### Down Plants
+tile.mist.sponge.name=Foggy Sponge
 tile.mist.sponge_clear.name=Foggy Sponge
 tile.mist.sponge_wet.name=Dirty Foggy Sponge
 tile.mist.sponge_spoiled.name=Spoiled Foggy Sponge

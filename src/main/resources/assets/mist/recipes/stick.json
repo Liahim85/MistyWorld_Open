@@ -97,6 +97,14 @@
             {
                 "item": "mist:willow_branch",
                 "data": 3
+            },
+            {
+                "item": "mist:r_tree_branch",
+                "data": 0
+            },
+            {
+                "item": "mist:r_tree_branch",
+                "data": 3
             }
         ]
     ],
