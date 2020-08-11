@@ -3,7 +3,6 @@ package ru.liahim.mist.world.layer;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import ru.liahim.mist.api.biome.MistBiomes;
-import ru.liahim.mist.world.biome.BiomeMist;
 
 public class GenLayerBordersCenter extends GenLayerBorders {
 
@@ -18,6 +17,6 @@ public class GenLayerBordersCenter extends GenLayerBorders {
 
 	@Override
 	protected boolean getBool(int biome) {
-		return ((BiomeMist)Biome.getBiome(biome)).isUpBiome();
+		return isUpBiome(biome);
 	}
 }

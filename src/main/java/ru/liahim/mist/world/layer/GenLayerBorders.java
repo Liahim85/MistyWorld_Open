@@ -1,7 +1,9 @@
 package ru.liahim.mist.world.layer;
 
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
+import ru.liahim.mist.world.biome.BiomeMist;
 
 public abstract class GenLayerBorders extends GenLayer {
 
@@ -57,6 +59,10 @@ public abstract class GenLayerBorders extends GenLayer {
 			}
 		}
 		return output;
+	}
+
+	protected boolean isUpBiome(int center) {
+		return Biome.getBiome(center) instanceof BiomeMist && ((BiomeMist)Biome.getBiome(center)).isUpBiome();
 	}
 
 	protected abstract int getBorder(int center, int up, int upLeft, int left);

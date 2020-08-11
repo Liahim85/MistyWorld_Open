@@ -2,6 +2,7 @@ package ru.liahim.mist.world.layer;
 
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
+import ru.liahim.mist.api.biome.EnumBiomeType;
 import ru.liahim.mist.init.ModBiomesIds;
 import ru.liahim.mist.world.biome.BiomeMist;
 
@@ -20,15 +21,15 @@ public class GenLayerDoCanyons extends GenLayerDoubleBorder {
 	protected boolean getBool(int center, int up, int upLeft, int left) {
 		int point = ModBiomesIds.BORDER_DOWN;
 		if (center != point && up != point && upLeft != point && left != point) {
-			if (((BiomeMist)Biome.getBiome(center)).getBiomeType() != ((BiomeMist)Biome.getBiome(up)).getBiomeType())
-				return true;
-			if (((BiomeMist)Biome.getBiome(center)).getBiomeType() != ((BiomeMist)Biome.getBiome(upLeft)).getBiomeType())
-				return true;
-			if (((BiomeMist)Biome.getBiome(center)).getBiomeType() != ((BiomeMist)Biome.getBiome(left)).getBiomeType())
-				return true;
-			if (((BiomeMist)Biome.getBiome(up)).getBiomeType() != ((BiomeMist)Biome.getBiome(left)).getBiomeType())
-				return true;
+			if (getBiomeType(center) != getBiomeType(up)) return true;
+			if (getBiomeType(center) != getBiomeType(upLeft)) return true;
+			if (getBiomeType(center) != getBiomeType(left)) return true;
+			if (getBiomeType(up) != getBiomeType(left)) return true;
 		}
 		return false;
+	}
+
+	protected EnumBiomeType getBiomeType(int center) {
+		return Biome.getBiome(center) instanceof BiomeMist ? ((BiomeMist)Biome.getBiome(center)).getBiomeType() : EnumBiomeType.Down;
 	}
 }

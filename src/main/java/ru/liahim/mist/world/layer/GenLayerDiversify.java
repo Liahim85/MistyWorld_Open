@@ -64,22 +64,24 @@ public class GenLayerDiversify extends GenLayer {
 		for (int zOut = 0; zOut < height; zOut++) {
 			for (int xOut = 0; xOut < width; xOut++) {
 				int i = xOut + zOut * width;
-				int biome = input[i];
+				int center = input[i];
 				initChunkSeed(xOut + x, zOut + z);
-				type = ((BiomeMist)Biome.getBiome(biome)).getBiomeType();
 				if (nextInt(5) == 0) {
-					if (type == EnumBiomeType.Forest)
-						output[i] = forestBiomes[nextInt(forestBiomes.length)];
-					else if (type == EnumBiomeType.Desert)
-						output[i] = desertBiomes[nextInt(desertBiomes.length)];
-					else if (type == EnumBiomeType.Cold)
-						output[i] = coldBiomes[nextInt(coldBiomes.length)];
-					else if (type == EnumBiomeType.Swamp)
-						output[i] = swampBiomes[nextInt(swampBiomes.length)];
-					else if (type == EnumBiomeType.Jungle)
-						output[i] = jungleBiomes[nextInt(jungleBiomes.length)];
-					else output[i] = biome;
-				} else output[i] = biome;
+					if (Biome.getBiome(center) instanceof BiomeMist) {
+						type = ((BiomeMist)Biome.getBiome(center)).getBiomeType();
+						if (type == EnumBiomeType.Forest)
+							output[i] = forestBiomes[nextInt(forestBiomes.length)];
+						else if (type == EnumBiomeType.Desert)
+							output[i] = desertBiomes[nextInt(desertBiomes.length)];
+						else if (type == EnumBiomeType.Cold)
+							output[i] = coldBiomes[nextInt(coldBiomes.length)];
+						else if (type == EnumBiomeType.Swamp)
+							output[i] = swampBiomes[nextInt(swampBiomes.length)];
+						else if (type == EnumBiomeType.Jungle)
+							output[i] = jungleBiomes[nextInt(jungleBiomes.length)];
+						else output[i] = center;
+					} else output[i] = forestBiomes[nextInt(forestBiomes.length)];
+				} else output[i] = center;
 			}
 		}
 		return output;
@@ -126,29 +128,5 @@ public class GenLayerDiversify extends GenLayer {
 			}
 		}
 		return output;
-	}
-
-	private boolean onBorder(int center, int right, int left, int up, int down) {
-		if (((BiomeMist)Biome.getBiome(right)).getBiomeType() != ((BiomeMist)Biome.getBiome(center)).getBiomeType())
-			return true;
-		if (((BiomeMist)Biome.getBiome(left)).getBiomeType() != ((BiomeMist)Biome.getBiome(center)).getBiomeType())
-			return true;
-		if (((BiomeMist)Biome.getBiome(up)).getBiomeType() != ((BiomeMist)Biome.getBiome(center)).getBiomeType())
-			return true;
-		if (((BiomeMist)Biome.getBiome(down)).getBiomeType() != ((BiomeMist)Biome.getBiome(center)).getBiomeType())
-			return true;
-		return false;
-	}
-
-	private boolean notClose(int right, int left, int up, int down) {
-		if (right == point || right == border)
-			return false;
-		if (left == point || left == border)
-			return false;
-		if (up == point || up == border)
-			return false;
-		if (down == point || down == border)
-			return false;
-		return true;
 	}
 }
