@@ -1,0 +1,16 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "group": "respirator_rubber",
+    "ingredients": [
+        {
+            "item": "mist:respirator_rubber_open"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "rubber"
+        }
+    ],
+    "result": {
+        "item": "mist:respirator_rubber"
+    }
+}

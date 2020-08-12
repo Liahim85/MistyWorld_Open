@@ -274,7 +274,7 @@ public class ItemMistSoup extends ItemSoup implements IColoredItem, IMistFood {
 
 	@Override
 	public EnumAction getItemUseAction(ItemStack stack) {
-		return this.drink ? EnumAction.DRINK : EnumAction.EAT;
+		return this.getCurrentPortion(stack) == 0 ? EnumAction.NONE : this.drink ? EnumAction.DRINK : EnumAction.EAT;
 	}
 
 	public static ItemStack getSoupStack(ItemStack stack) {

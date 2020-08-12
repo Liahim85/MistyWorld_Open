@@ -1,0 +1,16 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "group": "respirator_leather",
+    "ingredients": [
+        {
+            "item": "mist:respirator_single_open"
+        },
+        {
+            "type": "forge:ore_dict",
+            "ore": "leather"
+        }
+    ],
+    "result": {
+        "item": "mist:respirator_single"
+    }
+}

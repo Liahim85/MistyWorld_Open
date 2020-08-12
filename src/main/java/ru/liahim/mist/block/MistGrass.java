@@ -12,7 +12,6 @@ import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.color.IBlockColor;
@@ -67,7 +66,7 @@ public class MistGrass extends MistDirt implements IColoredBlock, IGrowable {
 		if (!world.isRemote) {
 			boolean change = false;
 			IBlockState stateUp = world.getBlockState(pos.up());
-			if (stateUp.getBlockFaceShape(world, pos.up(), EnumFacing.DOWN) == BlockFaceShape.SOLID || (world.getLightFromNeighbors(pos.up()) < 4 && stateUp.getLightOpacity(world, pos.up()) > 2)) {
+			if (world.getLightFromNeighbors(pos.up()) < 4 && stateUp.getLightOpacity(world, pos.up()) > 2) {
 				if (state.getValue(GROWTH)) change = world.setBlockState(pos, state.withProperty(GROWTH, false), 2);
 				else change = world.setBlockState(pos, this.getSoilBlock().getDefaultState().withProperty(HUMUS, state.getValue(HUMUS)).withProperty(WET, state.getValue(WET)), 2);
 			}
@@ -96,14 +95,12 @@ public class MistGrass extends MistDirt implements IColoredBlock, IGrowable {
 						if (pos1.getY() >= 0 && pos1.getY() < 256 && !world.isBlockLoaded(pos1)) continue;
 						state1 = world.getBlockState(pos1);
 						state1Up = world.getBlockState(pos1.up());
-						if (state1Up.getBlockFaceShape(world, pos1.up(), EnumFacing.DOWN) != BlockFaceShape.SOLID && world.getLightFromNeighbors(pos1.up()) >= 4 && state1Up.getLightOpacity(world, pos1.up()) <= 2) {
+						if (world.getLightFromNeighbors(pos1.up()) >= 4 && state1Up.getLightOpacity(world, pos1.up()) <= 2) {
 							if (!(state1.getBlock() instanceof MistGrass) && !(state1.getBlock() instanceof IFarmland) && state1.getBlock() instanceof MistSoil && state1.getValue(WET))
 								SoilHelper.setGrass(world, pos1, state1, true, false, 2);
 						}
 					}
-				} else {
-					return world.setBlockState(pos, state.withProperty(GROWTH, true), 2);
-				}
+				} else return world.setBlockState(pos, state.withProperty(GROWTH, true), 2);
 			}
 		}
 		return false;

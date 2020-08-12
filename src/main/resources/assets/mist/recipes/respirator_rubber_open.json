@@ -1,5 +1,6 @@
 {
     "type": "minecraft:crafting_shaped",
+    "group": "respirator_rubber_open",
     "pattern": [
         "S S",
         "R R",
