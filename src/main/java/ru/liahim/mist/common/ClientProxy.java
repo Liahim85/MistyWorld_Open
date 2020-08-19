@@ -37,7 +37,6 @@ import ru.liahim.mist.init.ModParticle;
 import ru.liahim.mist.shader.ShaderProgram;
 import ru.liahim.mist.util.FogTexture;
 import ru.liahim.mist.world.MistWorld;
-
 import com.google.common.collect.Lists;
 
 public class ClientProxy extends CommonProxy {
@@ -136,6 +135,11 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public boolean hasOptifine() {
 		return !FMLClientHandler.instance().hasOptifine();
+	}
+
+	@Override
+	public void onConfigChange() {
+		FogRenderer.updateFogQuality();
 	}
 
 	/*@Override

@@ -58,4 +58,5 @@ public class CommonProxy {
 	public void setClientSeed(long seed) {}
 	public long getClientSeed() { return 0; }
 	public boolean hasOptifine() { return false; }
+	public void onConfigChange() {}
 }

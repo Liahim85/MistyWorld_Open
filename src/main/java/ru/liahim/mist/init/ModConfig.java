@@ -28,7 +28,6 @@ import ru.liahim.mist.api.registry.MistRegistry;
 import ru.liahim.mist.capability.handler.ISkillCapaHandler.Skill;
 import ru.liahim.mist.common.Mist;
 import ru.liahim.mist.common.MistTime;
-import ru.liahim.mist.handlers.FogRenderer;
 import ru.liahim.mist.tileentity.TileEntityCampfire;
 import ru.liahim.mist.world.generators.TombGen;
 
@@ -241,7 +240,7 @@ public class ModConfig {
 		ModConfig.applyMobsForSkill();
 		ModConfig.applyMobsBlackList();
 		TombGen.updateChance();
-		FogRenderer.updateFogQuality();
+		Mist.proxy.onConfigChange();
 	}
 
 	public static long getCustomSeed(long seed) {
