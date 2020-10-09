@@ -93,13 +93,10 @@ public class MistPortalStone extends MistBlock {
         EnumFacing side
     ) {
         if (this.isWork) {
-            if (blockState.getValue(ISUP) && side == EnumFacing.DOWN) {
+            boolean isUp = blockState.getValue(ISUP);
+            if (isUp && side == EnumFacing.DOWN) {
                 return false;
-            } else if (!blockState.getValue(ISUP) && side == EnumFacing.UP) {
-                return false;
-            } else {
-                return true;
-            }
+            } else return isUp || side != EnumFacing.UP;
         }
         return true;
     }
@@ -107,21 +104,16 @@ public class MistPortalStone extends MistBlock {
     @Override
     public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
         if (!world.isRemote && !Dimension.loadedDimBlackList.contains(world.provider.getDimension())) {
+            boolean isUp = state.getValue(ISUP);
+            BlockPos portalPos = isUp ? pos.down() : pos.up();
+            BlockPos anotherBasePos = isUp ? pos.down(2) : pos.up(2);
+            IBlockState anotherState = world.getBlockState(anotherBasePos);
             if (
-                state.getValue(ISUP) &&
-                world.getBlockState(pos.down()).getBlock() == Blocks.GOLD_BLOCK &&
-                world.getBlockState(pos.down(2)).getBlock() == MistBlocks.PORTAL_BASE &&
-                !world.getBlockState(pos.down(2)).getValue(ISUP)
+                world.getBlockState(portalPos).getBlock() == Blocks.GOLD_BLOCK &&
+                anotherState.getBlock() == MistBlocks.PORTAL_BASE &&
+                anotherState.getValue(ISUP) == !isUp
             ) {
-                createPortal(world, pos.down());
-            }
-            if (
-                !state.getValue(ISUP) &&
-                world.getBlockState(pos.up()).getBlock() == Blocks.GOLD_BLOCK &&
-                world.getBlockState(pos.up(2)).getBlock() == MistBlocks.PORTAL_BASE &&
-                world.getBlockState(pos.up(2)).getValue(ISUP)
-            ) {
-                createPortal(world, pos.up());
+                createPortal(world, portalPos);
             }
         }
     }
@@ -136,12 +128,13 @@ public class MistPortalStone extends MistBlock {
     @Override
     public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
         if (!world.isRemote && !Dimension.loadedDimBlackList.contains(world.provider.getDimension())) {
+            boolean isUp = state.getValue(ISUP);
             if (!this.isWork) {
                 BlockPos portalPos = pos.down();
                 BlockPos bottomPos = pos.down(2);
                 IBlockState bottomState = world.getBlockState(bottomPos);
                 if (
-                    state.getValue(ISUP) &&
+                    isUp &&
                     world.getBlockState(portalPos).getBlock() == Blocks.GOLD_BLOCK &&
                     bottomState.getBlock() == MistBlocks.PORTAL_BASE &&
                     !bottomState.getValue(ISUP)
@@ -149,7 +142,6 @@ public class MistPortalStone extends MistBlock {
                     createPortal(world, portalPos);
                 }
             } else {
-                boolean isUp = state.getValue(ISUP);
                 Block portalBlock = world.getBlockState(isUp ? pos.down() : pos.up()).getBlock();
 
                 if (portalBlock == MistBlocks.PORTAL) {
@@ -243,7 +235,7 @@ public class MistPortalStone extends MistBlock {
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, new IProperty[] { ISUP, ISNEW });
+        return new BlockStateContainer(this, ISUP, ISNEW);
     }
 
     @Override
