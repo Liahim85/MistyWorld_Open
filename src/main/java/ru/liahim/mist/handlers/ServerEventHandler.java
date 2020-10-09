@@ -356,8 +356,8 @@ public class ServerEventHandler {
 				if (block == Blocks.GOLD_BLOCK) {
 					IBlockState up = world.getBlockState(pos.up());
 					IBlockState down = world.getBlockState(pos.down());
-					if (up.getBlock() == MistBlocks.PORTAL_BASE && up.getValue(MistPortalStone.ISUP) == true &&
-							down.getBlock() == MistBlocks.PORTAL_BASE && down.getValue(MistPortalStone.ISUP) == false) {
+					if (up.getBlock() == MistBlocks.PORTAL_BASE && up.getValue(MistPortalStone.ISUP) &&
+							down.getBlock() == MistBlocks.PORTAL_BASE && !down.getValue(MistPortalStone.ISUP)) {
 						check = true;
 						portalPos = pos;
 					}
@@ -366,14 +366,14 @@ public class ServerEventHandler {
 						IBlockState center = world.getBlockState(pos.down());
 						IBlockState down = world.getBlockState(pos.down(2));
 						if (center.getBlock() == Blocks.GOLD_BLOCK &&
-								down.getBlock() == MistBlocks.PORTAL_BASE && down.getValue(MistPortalStone.ISUP) == false) {
+								down.getBlock() == MistBlocks.PORTAL_BASE && !down.getValue(MistPortalStone.ISUP)) {
 							check = true;
 							portalPos = pos.down();
 						}
 					} else {
 						IBlockState up = world.getBlockState(pos.up(2));
 						IBlockState center = world.getBlockState(pos.up());
-						if (up.getBlock() == MistBlocks.PORTAL_BASE && up.getValue(MistPortalStone.ISUP) == true &&
+						if (up.getBlock() == MistBlocks.PORTAL_BASE && up.getValue(MistPortalStone.ISUP) &&
 								center.getBlock() == Blocks.GOLD_BLOCK) {
 							check = true;
 							portalPos = pos.up();
