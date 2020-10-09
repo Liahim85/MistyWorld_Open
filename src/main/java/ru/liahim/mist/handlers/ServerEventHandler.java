@@ -153,10 +153,10 @@ import ru.liahim.mist.world.FogDamage;
 import ru.liahim.mist.world.MistWorld;
 
 public class ServerEventHandler {
-    private static final HashMap<UUID, ItemStack> maskSync = new HashMap<UUID, ItemStack>();
-    private static final HashMap<UUID, Integer> mulchDelay = new HashMap<UUID, Integer>();
-    private static final HashMap<UUID, Integer> portDelay = new HashMap<UUID, Integer>();
-    private static final HashSet<UUID> milkCheck = new HashSet<UUID>();
+    private static final HashMap<UUID, ItemStack> maskSync = new HashMap<>();
+    private static final HashMap<UUID, Integer> mulchDelay = new HashMap<>();
+    private static final HashMap<UUID, Integer> portDelay = new HashMap<>();
+    private static final HashSet<UUID> milkCheck = new HashSet<>();
 
     @SubscribeEvent
     public void onPlayerTick(PlayerTickEvent event) {
@@ -207,7 +207,7 @@ public class ServerEventHandler {
                             PacketHandler.INSTANCE.sendTo(new PacketMaskSync(player, stack), (EntityPlayerMP) player);
                         }
                         maskHandler.setMaskChanged(false, false);
-                    } catch (Exception e) {}
+                    } catch (Exception ignored) {}
                     maskSync.put(uuid, stack);
                 }
                 //Sleeping
@@ -276,7 +276,7 @@ public class ServerEventHandler {
             event.getEntityPlayer().world.provider.getDimension() == Mist.getID() &&
             event.getPos().getY() < MistWorld.getFogMaxHight() + 4
         ) {
-            event.getEntityPlayer().sendMessage(new TextComponentTranslation("tile.mist.bed.in_fog", new Object[0]));
+            event.getEntityPlayer().sendMessage(new TextComponentTranslation("tile.mist.bed.in_fog"));
             event.setResult(SleepResult.NOT_POSSIBLE_HERE);
         }
     }
@@ -394,7 +394,7 @@ public class ServerEventHandler {
 
     @SubscribeEvent
     public void itemCrafting(ItemCraftedEvent event) {
-        if (event.player != null && event.player instanceof EntityPlayerMP) {
+        if (event.player instanceof EntityPlayerMP) {
             ModAdvancements.ITEM_CRAFTED.trigger((EntityPlayerMP) event.player, event.crafting);
         }
     }
@@ -478,7 +478,7 @@ public class ServerEventHandler {
                     if (soil.getBlock() instanceof IWettable) {
                         Random rand = event.getWorld().rand;
                         boolean norm = IMistHarvest.isSoilSuitable(event.getState().getBlock(), soil);
-                        Item crop = ((BlockCrops) block).getItemDropped(event.getState(), rand, 0);
+                        Item crop = block.getItemDropped(event.getState(), rand, 0);
                         ItemStack stack = ItemStack.EMPTY;
                         int count = 0;
                         for (int j = 0; j < event.getDrops().size(); ++j) {
@@ -576,7 +576,7 @@ public class ServerEventHandler {
                 }
             }
             if (!IMask.canEat(mask)) {
-                player.sendMessage(new TextComponentTranslation("item.mist.respirator_close.tooltip", new Object[0]));
+                player.sendMessage(new TextComponentTranslation("item.mist.respirator_close.tooltip"));
                 event.setCancellationResult(EnumActionResult.SUCCESS);
                 event.setCanceled(true);
             }
@@ -1033,7 +1033,7 @@ public class ServerEventHandler {
                 event
                     .getOrb()
                     .world.playSound(
-                        (EntityPlayer) null,
+                        null,
                         event.getEntityPlayer().posX,
                         event.getEntityPlayer().posY,
                         event.getEntityPlayer().posZ,
@@ -1052,7 +1052,7 @@ public class ServerEventHandler {
                     );
                 event.getEntityPlayer().onItemPickup(event.getOrb(), 1);
                 Iterable<ItemStack> iterable = Enchantments.MENDING.getEntityEquipment(event.getEntityPlayer());
-                List<ItemStack> list = Lists.<ItemStack>newArrayList();
+                List<ItemStack> list = Lists.newArrayList();
                 if (iterable != null) {
                     for (ItemStack itemstack : iterable) {
                         if (
@@ -1299,12 +1299,14 @@ public class ServerEventHandler {
         }
     }
 
-    @SubscribeEvent
-    public void animalTameEvent(AnimalTameEvent event) {
-        if (event.getEntityLiving() instanceof EntityAnimalMist) {
-            //ISkillCapaHandler.getHandler(event.getTamer()).addSkill(Skill.TAMING, ((EntityAnimalMist)event.getEntityLiving()).getTameLevel());
-        }
-    }
+    /*
+     * @SubscribeEvent
+     * public void animalTameEvent(AnimalTameEvent event) {
+     *     if (event.getEntityLiving() instanceof EntityAnimalMist) {
+     *         //ISkillCapaHandler.getHandler(event.getTamer()).addSkill(Skill.TAMING, ((EntityAnimalMist)event.getEntityLiving()).getTameLevel());
+     *     }
+     * }
+     */
 
     @SubscribeEvent
     public void harvestCheck(HarvestCheck event) {
@@ -1322,13 +1324,15 @@ public class ServerEventHandler {
 
     ///////////////////////////////////////// Fishing /////////////////////////////////////////
 
-    /*@SubscribeEvent
-	public void fishing(ItemFishedEvent event) {
-		if (event.getHookEntity().world.getBlockState(new BlockPos(event.getHookEntity())).getBlock() == MistBlocks.ACID_BLOCK) {
-			event.damageRodBy(10);
-			event.setCanceled(true);
-		}
-	}*/
+    /*
+     *  @SubscribeEvent
+     *  public void fishing(ItemFishedEvent event) {
+     *  	if (event.getHookEntity().world.getBlockState(new BlockPos(event.getHookEntity())).getBlock() == MistBlocks.ACID_BLOCK) {
+     *  		event.damageRodBy(10);
+     *  		event.setCanceled(true);
+     *  	}
+     *  }
+     */
 
     ///////////////////////////////////////// World /////////////////////////////////////////
 
