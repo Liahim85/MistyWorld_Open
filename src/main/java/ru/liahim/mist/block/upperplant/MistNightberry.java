@@ -61,7 +61,7 @@ public class MistNightberry extends MistBlock implements IColoredBlock, ISeasona
 	public MistNightberry() {
 		super(Material.PLANTS);
         this.setSoundType(SoundType.PLANT);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, EnumAge.EMPTY));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, EnumAge.POTENTIAL));
         this.setHardness(0.2F);
         this.setTickRandomly(true);
 	}
@@ -93,7 +93,7 @@ public class MistNightberry extends MistBlock implements IColoredBlock, ISeasona
 			if (rand.nextInt(10) == 0 && !(world.getBlockState(pos.down(2)).getBlock() instanceof BlockLiquid)) world.setBlockToAir(pos);
 			else {
 				IBlockState newState = getSeasonState(world, pos, state, MistTime.getTickOfMonth(world));
-				if (newState != null) world.setBlockState(pos, newState);
+				world.setBlockState(pos, newState);
 			}
 		}
 	}
@@ -101,34 +101,27 @@ public class MistNightberry extends MistBlock implements IColoredBlock, ISeasona
 	@Override
 	public IBlockState getSeasonState(World world, BlockPos pos, IBlockState state, long monthTick) {
 		EnumAge age = state.getValue(AGE);
-		int length = 8000;
-		long nightTime = getTimeOfNights(monthTick);
-		long range = MistTime.getTickInMonth();
-		long startTick = nightTime % range;
-		startTick -= startTick % length;
-		long endTick = startTick + length;
-		long r = MistWorld.getPosRandom(world, pos, 0);
-		long rr = r % range;
-		if (rr > startTick && rr < endTick) {
-			endTick = (nightTime % length) * 2;
-			startTick = endTick - length;
-			rr = r % length;
-			if (rr > startTick && rr < endTick && age == EnumAge.POTENTIAL) {
+		int currentDay = MistTime.getDay();
+		// Each Nightberry bush will fruit on a specific day of the month as a pseudo-random function
+		// of its position and the world seed.
+		int fruitingDay = (int)MistWorld.getPosRandom(world, pos, MistTime.getDayInMonth());
+
+		if (currentDay == fruitingDay) {
+			if (MistTime.isNightTime(world) && age == EnumAge.POTENTIAL) {
 				return state.withProperty(AGE, EnumAge.FRUIT);
 			}
-			return null;
-		} else return age == EnumAge.POTENTIAL ? null : state.withProperty(AGE, EnumAge.POTENTIAL);
-	}
-
-	/** Returns sum of nights ticks (from 14000 to 22000) of Year */
-	public static long getTimeOfNights(long monthTick) {
-		int space = 16000;
-		int shift = 20000;
-		long dayTime = (monthTick + shift) % 24000;
-		long nightTime = (MistTime.getTickOfYear(monthTick) + shift) % MistTime.getTickInYear();
-		nightTime -= (nightTime / 24000) * space;
-		if (dayTime < space) nightTime += space - dayTime;
-		return nightTime;
+			else if (age == EnumAge.EMPTY) {
+				// Do not repopulate picked fruit until the next fruitingDay
+				return state.withProperty(AGE, EnumAge.EMPTY);
+			}
+			else {
+				// Go back to Potential and despawn berries during daytime of fruitingDay
+				return state.withProperty(AGE, EnumAge.POTENTIAL);
+			}
+		}
+		else {
+			return state.withProperty(AGE, EnumAge.POTENTIAL);
+		}
 	}
 
 	@Override
@@ -198,6 +191,11 @@ public class MistNightberry extends MistBlock implements IColoredBlock, ISeasona
 		return BlockRenderLayer.CUTOUT_MIPPED;
 	}
 
+	/**
+	 * EMPTY = Bush has fruited, and was picked by the player
+	 * POTENTIAL = Bush will produce fruit during the night of its next fruiting day of the month
+	 * FRUIT = Bush actively has a fruit ready to be picked
+	 */
 	public static enum EnumAge implements IStringSerializable {
 
 		EMPTY("empty"),
