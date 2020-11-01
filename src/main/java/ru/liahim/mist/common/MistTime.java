@@ -144,6 +144,20 @@ public class MistTime {
 		}
 	}
 
+	/**
+	* Returns true if it is MistyWorld "night time" which equates
+	* to Minecraft time 14000 through 22000
+	*/
+	public static boolean isNightTime(World world) {
+		long tick = world.getWorldTime() % 24000;
+		if (tick > 14000 && tick < 22000) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
 	private static final String[] months = new String[] {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 	private static final String[] months1 = new String[] {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
