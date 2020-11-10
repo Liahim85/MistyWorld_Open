@@ -10,6 +10,7 @@ import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import ru.liahim.mist.api.block.MistBlocks;
 import ru.liahim.mist.api.item.MistItems;
+import ru.liahim.mist.block.MistBlockDoor;
 import ru.liahim.mist.block.MistTreeSapling;
 import ru.liahim.mist.block.upperplant.MistMycelium;
 import ru.liahim.mist.client.renderer.entity.*;
@@ -42,6 +43,14 @@ public class ModClientRegistry {
 		registerBlocks(MistBlocks.STONE);
 		registerBlocks(MistBlocks.STONE_POROUS);
 		registerBlocks(MistBlocks.STONE_BASIC);
+		registerMultyBlocks(MistBlocks.STONE_MINED, 0, "stone_mined");
+		registerMultyBlocks(MistBlocks.STONE_MINED, 4, "stone_mined_moss");
+		registerMultyBlocks(MistBlocks.STONE_MINED, 5, "stone_chiseled");
+		registerMultyBlocks(MistBlocks.STONE_MINED, 9, "stone_chiseled_moss");
+		registerMultyBlocks(MistBlocks.STONE_BRICK, 0, "stone_brick");
+		registerMultyBlocks(MistBlocks.STONE_BRICK, 1, "stone_brick_moss");
+		registerMultyBlocks(MistBlocks.MASONRY, 0, "masonry");
+		registerMultyBlocks(MistBlocks.MASONRY, 1, "masonry_moss");
 		registerMultyBlocks(MistBlocks.COBBLESTONE, 0, "cobblestone");
 		registerMultyBlocks(MistBlocks.COBBLESTONE, 1, "cobblestone_moss");
 		registerBlocks(MistBlocks.GRAVEL);
@@ -164,6 +173,8 @@ public class ModClientRegistry {
 		/**Step*/
 		registerBlocks(MistBlocks.COBBLESTONE_STEP);
 		registerBlocks(MistBlocks.COBBLESTONE_MOSS_STEP);
+		registerBlocks(MistBlocks.STONE_BRICK_STEP);
+		registerBlocks(MistBlocks.STONE_BRICK_MOSS_STEP);
 		registerBlocks(MistBlocks.ACACIA_STEP);
 		registerBlocks(MistBlocks.ASPEN_STEP);
 		registerBlocks(MistBlocks.A_TREE_STEP);
@@ -177,9 +188,29 @@ public class ModClientRegistry {
 		registerBlocks(MistBlocks.T_TREE_STEP);
 		registerBlocks(MistBlocks.WILLOW_STEP);
 		registerBlocks(MistBlocks.R_TREE_STEP);
+		/**Wall*/
+		registerBlocks(MistBlocks.COBBLESTONE_WALL);
+		registerBlocks(MistBlocks.COBBLESTONE_MOSS_WALL);
+		registerBlocks(MistBlocks.STONE_BRICK_WALL);
+		registerBlocks(MistBlocks.STONE_BRICK_MOSS_WALL);
+		registerBlocks(MistBlocks.ACACIA_WALL);
+		registerBlocks(MistBlocks.ASPEN_WALL);
+		registerBlocks(MistBlocks.A_TREE_WALL);
+		registerBlocks(MistBlocks.BIRCH_WALL);
+		registerBlocks(MistBlocks.OAK_WALL);
+		registerBlocks(MistBlocks.PINE_WALL);
+		registerBlocks(MistBlocks.POPLAR_WALL);
+		registerBlocks(MistBlocks.SNOW_WALL);
+		registerBlocks(MistBlocks.SPRUCE_WALL);
+		registerBlocks(MistBlocks.S_TREE_WALL);
+		registerBlocks(MistBlocks.T_TREE_WALL);
+		registerBlocks(MistBlocks.WILLOW_WALL);
+		registerBlocks(MistBlocks.R_TREE_WALL);
 		/**Slab*/
 		registerMultyBlocks(MistBlocks.COBBLESTONE_SLAB, 0, "cobblestone_slab");
 		registerMultyBlocks(MistBlocks.COBBLESTONE_SLAB, 1, "cobblestone_moss_slab");
+		registerMultyBlocks(MistBlocks.STONE_BRICK_SLAB, 0, "stone_brick_slab");
+		registerMultyBlocks(MistBlocks.STONE_BRICK_SLAB, 1, "stone_brick_moss_slab");
 		registerBlocks(MistBlocks.ACACIA_SLAB);
 		registerBlocks(MistBlocks.ASPEN_SLAB);
 		registerBlocks(MistBlocks.A_TREE_SLAB);
@@ -196,6 +227,8 @@ public class ModClientRegistry {
 		/**Stairs*/
 		registerBlocks(MistBlocks.COBBLESTONE_STAIRS);
 		registerBlocks(MistBlocks.COBBLESTONE_MOSS_STAIRS);
+		registerBlocks(MistBlocks.STONE_BRICK_STAIRS);
+		registerBlocks(MistBlocks.STONE_BRICK_MOSS_STAIRS);
 		registerBlocks(MistBlocks.ACACIA_STAIRS);
 		registerBlocks(MistBlocks.ASPEN_STAIRS);
 		registerBlocks(MistBlocks.A_TREE_STAIRS);
@@ -223,6 +256,68 @@ public class ModClientRegistry {
 		registerBranch(MistBlocks.T_TREE_BRANCH);
 		registerBranch(MistBlocks.WILLOW_BRANCH);
 		registerBranch(MistBlocks.R_TREE_BRANCH);
+		/**Fence*/
+		registerMultyBlocks(MistBlocks.COBBLESTONE_FENCE, 0, "cobblestone_fence");
+		registerMultyBlocks(MistBlocks.COBBLESTONE_FENCE, 1, "cobblestone_moss_fence");
+		registerMultyBlocks(MistBlocks.STONE_BRICK_FENCE, 0, "stone_brick_fence");
+		registerMultyBlocks(MistBlocks.STONE_BRICK_FENCE, 1, "stone_brick_moss_fence");
+		registerFence(MistBlocks.ACACIA_FENCE);
+		registerFence(MistBlocks.ASPEN_FENCE);
+		registerFence(MistBlocks.A_TREE_FENCE);
+		registerFence(MistBlocks.BIRCH_FENCE);
+		registerFence(MistBlocks.OAK_FENCE);
+		registerFence(MistBlocks.PINE_FENCE);
+		registerFence(MistBlocks.POPLAR_FENCE);
+		registerFence(MistBlocks.SNOW_FENCE);
+		registerFence(MistBlocks.SPRUCE_FENCE);
+		registerFence(MistBlocks.S_TREE_FENCE);
+		registerFence(MistBlocks.T_TREE_FENCE);
+		registerFence(MistBlocks.WILLOW_FENCE);
+		registerFence(MistBlocks.R_TREE_FENCE);
+		/**Fence Gate*/
+		registerBlocks(MistBlocks.ACACIA_FENCE_GATE);
+		registerBlocks(MistBlocks.ASPEN_FENCE_GATE);
+		registerBlocks(MistBlocks.A_TREE_FENCE_GATE);
+		registerBlocks(MistBlocks.BIRCH_FENCE_GATE);
+		registerBlocks(MistBlocks.OAK_FENCE_GATE);
+		registerBlocks(MistBlocks.PINE_FENCE_GATE);
+		registerBlocks(MistBlocks.POPLAR_FENCE_GATE);
+		registerBlocks(MistBlocks.SNOW_FENCE_GATE);
+		registerBlocks(MistBlocks.SPRUCE_FENCE_GATE);
+		registerBlocks(MistBlocks.S_TREE_FENCE_GATE);
+		registerBlocks(MistBlocks.T_TREE_FENCE_GATE);
+		registerBlocks(MistBlocks.WILLOW_FENCE_GATE);
+		registerBlocks(MistBlocks.R_TREE_FENCE_GATE);
+		/**Door*/
+		registerDoors(MistBlocks.ACACIA_DOOR);
+		registerDoors(MistBlocks.ASPEN_DOOR);
+		registerDoors(MistBlocks.A_TREE_DOOR);
+		registerDoors(MistBlocks.BIRCH_DOOR);
+		registerDoors(MistBlocks.OAK_DOOR);
+		registerDoors(MistBlocks.PINE_DOOR);
+		registerDoors(MistBlocks.POPLAR_DOOR);
+		registerDoors(MistBlocks.SNOW_DOOR);
+		registerDoors(MistBlocks.SPRUCE_DOOR);
+		registerDoors(MistBlocks.S_TREE_DOOR);
+		registerDoors(MistBlocks.T_TREE_DOOR);
+		registerDoors(MistBlocks.WILLOW_DOOR);
+		registerDoors(MistBlocks.R_TREE_DOOR);
+		registerDoors(MistBlocks.NIOBIUM_DOOR);
+		/**Trapdoor*/
+		registerBlocks(MistBlocks.ACACIA_TRAPDOOR);
+		registerBlocks(MistBlocks.ASPEN_TRAPDOOR);
+		registerBlocks(MistBlocks.A_TREE_TRAPDOOR);
+		registerBlocks(MistBlocks.BIRCH_TRAPDOOR);
+		registerBlocks(MistBlocks.OAK_TRAPDOOR);
+		registerBlocks(MistBlocks.PINE_TRAPDOOR);
+		registerBlocks(MistBlocks.POPLAR_TRAPDOOR);
+		registerBlocks(MistBlocks.SNOW_TRAPDOOR);
+		registerBlocks(MistBlocks.SPRUCE_TRAPDOOR);
+		registerBlocks(MistBlocks.S_TREE_TRAPDOOR);
+		registerBlocks(MistBlocks.T_TREE_TRAPDOOR);
+		registerBlocks(MistBlocks.WILLOW_TRAPDOOR);
+		registerBlocks(MistBlocks.R_TREE_TRAPDOOR);
+		registerBlocks(MistBlocks.NIOBIUM_TRAPDOOR);
 		/**Down plants*/
 		registerMultyBlocks(MistBlocks.SPONGE, 13, "sponge_clear");
 		registerMultyBlocks(MistBlocks.SPONGE, 14, "sponge_wet");
@@ -250,6 +345,7 @@ public class ModClientRegistry {
 
 	public static void registerItemRenderer() {
 		registerItems(MistItems.ROCKS);
+		registerItems(MistItems.BRICK);
 		registerMultyItems(MistItems.CLAY_BALL, 0, "clay_ball_gray");
 		registerMultyItems(MistItems.CLAY_BALL, 1, "clay_ball_red");
 		registerItems(MistItems.HUMUS);
@@ -275,12 +371,14 @@ public class ModClientRegistry {
 		registerItems(MistItems.RUBBER);
 		registerItems(MistItems.WING);
 		registerItems(MistItems.SWIM_BLADDER);
+		registerItems(MistItems.PILLS_BITTER);
 		//Tools
 		registerItems(MistItems.NIOBIUM_AXE);
 		registerItems(MistItems.NIOBIUM_HOE);
 		registerItems(MistItems.NIOBIUM_PICKAXE);
 		registerItems(MistItems.NIOBIUM_SHOVEL);
 		registerItems(MistItems.NIOBIUM_SWORD);
+		registerItems(MistItems.NIOBIUM_CHISEL);
 		//Armor
 		registerItems(MistItems.NIOBIUM_HELMET);
 		registerItems(MistItems.NIOBIUM_CHESTPLATE);
@@ -405,6 +503,14 @@ public class ModClientRegistry {
 		registerMultyBlocks(block, 9, blockName + "_8_d");
 	}
 
+	private static void registerFence(Block block) {
+		String blockName = block.getUnlocalizedName().substring(nameSubstring);
+		registerMultyBlocks(block, 0, blockName + "_4");
+		registerMultyBlocks(block, 1, blockName + "_4_d");
+		registerMultyBlocks(block, 2, blockName + "_8");
+		registerMultyBlocks(block, 3, blockName + "_8_d");
+	}
+
 	private static void registerSapling(Block block) {
 		if (block instanceof MistTreeSapling) {
 			for (MistTreeSapling.EnumType type : MistTreeSapling.EnumType.values()) {
@@ -447,6 +553,10 @@ public class ModClientRegistry {
 
 	public static void registerBlocks(Block block) {
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(modid + ":" + block.getUnlocalizedName().substring(nameSubstring), "inventory"));
+	}
+
+	public static void registerDoors(MistBlockDoor block) {
+		ModelLoader.setCustomModelResourceLocation(block.getDoor(), 0, new ModelResourceLocation(modid + ":" + block.getUnlocalizedName().substring(nameSubstring), "inventory"));
 	}
 
 	public static void registerMultyBlocks(Block block, int meta, String file) {

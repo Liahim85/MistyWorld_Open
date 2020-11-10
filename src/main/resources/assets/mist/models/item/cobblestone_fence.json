@@ -1,0 +1,8 @@
+{
+    "parent": "mist:block/fence_inv",
+    "textures": {
+        "wall": "mist:blocks/cobblestone",
+        "top": "mist:blocks/cobblestone_post_top",
+        "post": "mist:blocks/furnace_side"
+    }
+}

@@ -27,6 +27,7 @@ public class GuiSkills extends GuiScreen {
 	protected int xSize = 176;
 	protected int ySize = 80;
 	protected int barSize = 160;
+	protected int hotbarCount = 0;
 	protected int guiLeft;
 	protected int guiTop;
     private static Page currentPage = Page.PAGES_ARRAY[0];
@@ -40,9 +41,11 @@ public class GuiSkills extends GuiScreen {
 	@Override
 	public void initGui() {
 		super.initGui();
+		GuiSkills.currentPage.initPage(player);
+		for (Page page : Page.PAGES_ARRAY) if (page.hotbarsCount > this.hotbarCount) this.hotbarCount = page.hotbarsCount;
+		ySize = this.hotbarCount * barsShift + 40;
 		this.guiLeft = (this.width - this.xSize) / 2;
 		this.guiTop = (this.height - this.ySize - 28) / 2;
-		GuiSkills.currentPage.initPage(player);
 	}
 
 	@Override
@@ -56,19 +59,22 @@ public class GuiSkills extends GuiScreen {
 	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
 		this.mc.getTextureManager().bindTexture(guiTextures);
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		drawTexturedModalRect(this.guiLeft, this.guiTop, 0, 0, this.xSize, this.ySize);
+		drawTexturedModalRect(this.guiLeft, this.guiTop, 0, 0, this.xSize, 20);
+		for (int i = 0; i < this.hotbarCount; ++i)
+			drawTexturedModalRect(this.guiLeft, this.guiTop + 20 + barsShift * i, 0, 10, this.xSize, barsShift);
+		drawTexturedModalRect(this.guiLeft, this.guiTop + 20 + barsShift * this.hotbarCount, 0, 60, this.xSize, 20);
 		for (Page page : Page.PAGES_ARRAY) {
 			boolean current = page.index == GuiSkills.currentPage.index;
 			int i = page.index == 0 ? 0 : 1;
-			drawTexturedModalRect(this.guiLeft + page.index * 29, this.guiTop + this.ySize - 4, i * 28, this.ySize + (current ? 50 : 18), 28, 32);
+			drawTexturedModalRect(this.guiLeft + page.index * 29, this.guiTop + this.ySize - 4, i * 28, current ? 130 : 98, 28, 32);
 		}
 		int shift = barsShift + 4;
 		for (int i = 0; i < GuiSkills.currentPage.hotbarsCount; ++i) {
 			boolean icon = GuiSkills.currentPage.hasIcon(i);
 			if (icon) drawTexturedModalRect(this.guiLeft + 7, this.guiTop + shift + 6, this.xSize + i * 9, 0, 9, 10);
-			drawTexturedModalRect(this.guiLeft, this.guiTop + shift + 10, 0, ySize + (icon ? 9 : 1), this.xSize, 4);
+			drawTexturedModalRect(this.guiLeft, this.guiTop + shift + 10, 0, icon ? 89 : 81, this.xSize, 4);
 			GuiSkills.currentPage.setBarColor(i);
-			drawTexturedModalRect(this.guiLeft + (icon ? 21 : 8), this.guiTop + shift + 11, (icon ? 21 : 8), ySize + (icon ? 14 : 6), GuiSkills.currentPage.getScaledBar(i, this.barSize - (icon ? 13 : 0)), 2);
+			drawTexturedModalRect(this.guiLeft + (icon ? 21 : 8), this.guiTop + shift + 11, icon ? 21 : 8, icon ? 94 : 86, GuiSkills.currentPage.getScaledBar(i, this.barSize - (icon ? 13 : 0)), 2);
 			shift += barsShift;
 			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		}

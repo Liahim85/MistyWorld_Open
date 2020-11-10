@@ -150,12 +150,7 @@ public class MistTime {
 	*/
 	public static boolean isNightTime(World world) {
 		long tick = world.getWorldTime() % 24000;
-		if (tick > 14000 && tick < 22000) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		return tick > 14000 && tick < 22000;
 	}
 
 	private static final String[] months = new String[] {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};

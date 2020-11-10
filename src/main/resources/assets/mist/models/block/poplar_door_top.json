@@ -1,0 +1,7 @@
+{
+    "parent": "block/door_top",
+    "textures": {
+        "bottom": "mist:blocks/poplar_door_lower",
+        "top": "mist:blocks/poplar_door_upper"
+    }
+}

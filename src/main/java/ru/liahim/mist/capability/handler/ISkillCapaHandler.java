@@ -26,7 +26,8 @@ public interface ISkillCapaHandler extends INBTSerializable<NBTTagCompound> {
 	public static enum Skill {
 
 		TAMING("taming", new int[] { 50, 150, 300, 500, 750, 1000 }),
-		CUTTING("cutting", new int[] { 100, 300, 600, 1000 });
+		CUTTING("cutting", new int[] { 100, 300, 600, 1000 }),
+		MASON("mason", new int[] { 500, 1000, 1500, 2000, 2500, 3000 });
 
 		private final String name;
 		private final int[] levelSizesIn;

@@ -9,8 +9,11 @@ import java.util.Map;
 import javax.vecmath.Vector2f;
 import javax.vecmath.Vector3f;
 
+import ru.liahim.mist.api.block.MistBlocks;
 import ru.liahim.mist.api.item.IMistFood;
 import ru.liahim.mist.api.item.MistItems;
+import ru.liahim.mist.block.MistStoneMined;
+import ru.liahim.mist.block.MistStoneMined.EnumStoneStage;
 import ru.liahim.mist.block.gizmos.MistCampfire;
 import ru.liahim.mist.block.gizmos.MistCampfire.CookingTool;
 import ru.liahim.mist.common.Mist;
@@ -74,6 +77,8 @@ public class TileEntityCampfire extends TileEntity implements ITickable, ISidedI
 	private static final HashMap<ItemStack,Vector2f> stoneAndColor = new HashMap<ItemStack,Vector2f>();
 	private ItemStack stone = ItemStack.EMPTY;
 	private int stoneColor = 0;
+	private int minedTimer = -1;
+	private final int maxMinedTimer = 500;
 
 	/** Input parameters */
 	private byte volume;
@@ -148,6 +153,7 @@ public class TileEntityCampfire extends TileEntity implements ITickable, ISidedI
 					}
 				}
 				if (this.temperature > 20) this.updateFoodProgress(true);
+				else if (this.minedTimer > 0 && this.minedTimer != this.maxMinedTimer) this.minedTimer = this.maxMinedTimer;
 			}
 			if (this.toxicY >= 0 && ++this.toxicTimer > 100 && this.getCookingTool() == CookingTool.POT && this.volume > 0) {
 				this.toxicTimer = 0;
@@ -196,6 +202,16 @@ public class TileEntityCampfire extends TileEntity implements ITickable, ISidedI
 						this.updateStatus();
 					}
 				}
+			}
+		} else if (this.minedTimer > 0) {
+			--this.minedTimer;
+			if (this.minedTimer == 0) {
+				this.minedTimer = this.maxMinedTimer;
+				IBlockState state = this.world.getBlockState(this.pos.up());
+				if (state.getBlock() == MistBlocks.STONE_MINED) {
+					EnumStoneStage type = MistStoneMined.updateHotStatus(this.world, this.pos.up(), state);
+					if (type != null) world.setBlockState(pos.up(), state.withProperty(MistStoneMined.STAGE, type));
+				} else this.minedTimer = -1;
 			}
 		}
 	}
@@ -261,6 +277,10 @@ public class TileEntityCampfire extends TileEntity implements ITickable, ISidedI
 		return this.finalHealAmaunt;
 	}
 
+	public void setMinedStone(boolean stone) {
+		this.minedTimer = stone ? this.maxMinedTimer : -1;
+	}
+
 	//////////////////////////////////// ANIMATION  ////////////////////////////////////
 
 	@SideOnly(Side.CLIENT)
@@ -302,6 +322,10 @@ public class TileEntityCampfire extends TileEntity implements ITickable, ISidedI
 	@SideOnly(Side.CLIENT)
 	public float[] getFoodPercent() {
 		return this.foodPercent;
+	}
+
+	public int getTemperature() {
+		return this.temperature;
 	}
 
 	public void updateFoodColors() {
@@ -391,6 +415,7 @@ public class TileEntityCampfire extends TileEntity implements ITickable, ISidedI
 		this.setCookingTool(CookingTool.fromIndex(compound.getByte("Tool")));
 		this.temperature = compound.getInteger("Temperature");
 		this.ashTimer = compound.getInteger("AshTimer");
+		this.minedTimer = compound.getInteger("MinedTimer");
 		NBTTagList list = compound.getTagList("Progress", 10);
 		for (int i = 0; i < this.progress.length; ++i) {
 			NBTTagCompound tag = list.getCompoundTagAt(i);
@@ -422,6 +447,7 @@ public class TileEntityCampfire extends TileEntity implements ITickable, ISidedI
 		compound.setInteger("BurnTime", (short)this.currentBurningTime);
 		compound.setInteger("Temperature", (short)this.temperature);
 		compound.setInteger("AshTimer", this.ashTimer);
+		compound.setInteger("MinedTimer", this.minedTimer);
 		NBTTagList list = new NBTTagList();
 		for (int i = 0; i < this.progress.length; ++i) {
 			NBTTagCompound tag = new NBTTagCompound();

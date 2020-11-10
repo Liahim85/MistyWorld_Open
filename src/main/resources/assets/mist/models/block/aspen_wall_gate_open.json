@@ -1,0 +1,6 @@
+{
+    "parent": "mist:block/wall_gate_open",
+    "textures": {
+        "texture": "mist:blocks/aspen_planks"
+    }
+}

@@ -14,6 +14,14 @@ itemGroup.mist.tab=迷霧世界
 tile.mist.stone.name=迷霧石
 tile.mist.stone_porous.name=多孔迷霧石
 tile.mist.stone_basic.name=堅硬迷霧石
+tile.mist.stone_mined.name=Mined Foggy Stone
+tile.mist.stone_mined_moss.name=Mossy Mined Foggy Stone
+tile.mist.stone_chiseled.name=Chiseled Foggy Stone
+tile.mist.stone_chiseled_moss.name=Mossy Chiseled Foggy Stone
+tile.mist.stone_brick.name=Foggy Stone Bricks
+tile.mist.stone_brick_moss.name=Mossy Foggy Stone Bricks
+tile.mist.masonry.name=Masonry
+tile.mist.masonry_moss.name=Mossy Masonry
 tile.mist.cobblestone.name=迷霧鵝卵石
 tile.mist.cobblestone_moss.name=迷霧青苔石
 tile.mist.gravel.name=迷霧礫石
@@ -228,6 +236,8 @@ tile.mist.r_tree_planks.name=橡膠樹木材
 ### Step
 tile.mist.cobblestone_step.name=迷霧鵝卵石桿
 tile.mist.cobblestone_moss_step.name=迷霧青苔石桿
+tile.mist.stone_brick_step.name=Stone Brick Step
+tile.mist.stone_brick_moss_step.name=Mossy Stone Brick Step
 tile.mist.acacia_step.name=傘樹桿
 tile.mist.aspen_step.name=顫楊桿
 tile.mist.a_tree_step.name=南洋杉桿
@@ -245,6 +255,8 @@ tile.mist.r_tree_step.name=橡膠樹桿
 ### Slab
 tile.mist.cobblestone_slab.name=迷霧鵝卵石半磚
 tile.mist.cobblestone_moss_slab.name=迷霧青苔石半磚
+tile.mist.stone_brick_slab.name=Stone Brick Slab
+tile.mist.stone_brick_moss_slab.name=Mossy Stone Brick Slab
 tile.mist.acacia_slab.name=傘樹半磚
 tile.mist.aspen_slab.name=顫楊半磚
 tile.mist.a_tree_slab.name=南洋杉半磚
@@ -259,9 +271,28 @@ tile.mist.t_tree_slab.name=熱帶樹半磚
 tile.mist.willow_slab.name=垂榕半磚
 tile.mist.r_tree_slab.name=橡膠樹半磚
 
+### Wall
+tile.mist.cobblestone_wall.name=Cobblestone Wall
+tile.mist.cobblestone_moss_wall.name=Mossy Cobblestone Wall
+tile.mist.acacia_wall.name=Umbrella Tree Wall
+tile.mist.aspen_wall.name=Trembling Tree Wall
+tile.mist.a_tree_wall.name=Araucaria Wall
+tile.mist.birch_wall.name=Forest Deceiver Wall
+tile.mist.oak_wall.name=Foggy Oak Wall
+tile.mist.pine_wall.name=Foggy Pine Wall
+tile.mist.poplar_wall.name=Swampy Poplar Wall
+tile.mist.snow_wall.name=Snow Tree Wall
+tile.mist.spruce_wall.name=Prickly Tree Wall
+tile.mist.s_tree_wall.name=Stone Tree Wall
+tile.mist.t_tree_wall.name=Tropic Tree Wall
+tile.mist.willow_wall.name=Weeping Tree Wall
+tile.mist.r_tree_wall.name=Rubber Tree Wall
+
 ### Stairs
 tile.mist.cobblestone_stairs.name=迷霧鵝卵石階梯
 tile.mist.cobblestone_moss_stairs.name=迷霧青苔石階梯
+tile.mist.stone_brick_stairs.name=Stone Brick Stairs
+tile.mist.stone_brick_moss_stairs.name=Mossy Stone Brick Stairs
 tile.mist.acacia_stairs.name=傘樹階梯
 tile.mist.aspen_stairs.name=顫楊階梯
 tile.mist.a_tree_stairs.name=南洋杉階梯
@@ -329,6 +360,111 @@ tile.mist.r_tree_branch_4.name=橡膠樹枝條
 tile.mist.r_tree_branch_4_d.name=剝皮橡膠樹枝條
 tile.mist.r_tree_branch_8.name=橡膠樹樹幹
 tile.mist.r_tree_branch_8_d.name=剝皮橡膠樹樹幹
+
+### Fence
+tile.mist.cobblestone_fence.name=Cobblestone Fence
+tile.mist.cobblestone_fence_moss.name=Mossy Cobblestone Fence
+tile.mist.stone_brick_fence.name=Stone Brick Fence
+tile.mist.stone_brick_fence_moss.name=Mossy Stone Brick Fence
+tile.mist.acacia_fence_4.name=Umbrella Tree Fence
+tile.mist.acacia_fence_4_d.name=Umbrella Tree Fence
+tile.mist.acacia_fence_8.name=Solid Umbrella Tree Fence
+tile.mist.acacia_fence_8_d.name=Solid Umbrella Tree Fence
+tile.mist.aspen_fence_4.name=Trembling Tree Fence
+tile.mist.aspen_fence_4_d.name=Trembling Tree Fence
+tile.mist.aspen_fence_8.name=Solid Trembling Tree Fence
+tile.mist.aspen_fence_8_d.name=Solid Trembling Tree Fence
+tile.mist.a_tree_fence_4.name=Araucaria Fence
+tile.mist.a_tree_fence_4_d.name=Araucaria Fence
+tile.mist.a_tree_fence_8.name=Solid Araucaria Fence
+tile.mist.a_tree_fence_8_d.name=Solid Araucaria Fence
+tile.mist.birch_fence_4.name=Forest Deceiver Fence
+tile.mist.birch_fence_4_d.name=Forest Deceiver Fence
+tile.mist.birch_fence_8.name=Solid Forest Deceiver Fence
+tile.mist.birch_fence_8_d.name=Solid Forest Deceiver Fence
+tile.mist.oak_fence_4.name=Foggy Oak Fence
+tile.mist.oak_fence_4_d.name=Foggy Oak Fence
+tile.mist.oak_fence_8.name=Solid Foggy Oak Fence
+tile.mist.oak_fence_8_d.name=Solid Foggy Oak Fence
+tile.mist.pine_fence_4.name=Foggy Pine Fence
+tile.mist.pine_fence_4_d.name=Foggy Pine Fence
+tile.mist.pine_fence_8.name=Solid Foggy Pine Fence
+tile.mist.pine_fence_8_d.name=Solid Foggy Pine Fence
+tile.mist.poplar_fence_4.name=Swampy Poplar Fence
+tile.mist.poplar_fence_4_d.name=Swampy Poplar Fence
+tile.mist.poplar_fence_8.name=Solid Swampy Poplar Fence
+tile.mist.poplar_fence_8_d.name=Solid Swampy Poplar Fence
+tile.mist.snow_fence_4.name=Snow Tree Fence
+tile.mist.snow_fence_4_d.name=Snow Tree Fence
+tile.mist.snow_fence_8.name=Solid Snow Tree Fence
+tile.mist.snow_fence_8_d.name=Solid Snow Tree Fence
+tile.mist.spruce_fence_4.name=Prickly Tree Fence
+tile.mist.spruce_fence_4_d.name=Prickly Tree Fence
+tile.mist.spruce_fence_8.name=Solid Prickly Tree Fence
+tile.mist.spruce_fence_8_d.name=Solid Prickly Tree Fence
+tile.mist.s_tree_fence_4.name=Stone Tree Fence
+tile.mist.s_tree_fence_4_d.name=Stone Tree Fence
+tile.mist.s_tree_fence_8.name=Solid Stone Tree Fence
+tile.mist.s_tree_fence_8_d.name=Solid Stone Tree Fence
+tile.mist.t_tree_fence_4.name=Tropic Tree Fence
+tile.mist.t_tree_fence_4_d.name=Tropic Tree Fence
+tile.mist.t_tree_fence_8.name=Solid Tropic Tree Fence
+tile.mist.t_tree_fence_8_d.name=Solid Tropic Tree Fence
+tile.mist.willow_fence_4.name=Weeping Tree Fence
+tile.mist.willow_fence_4_d.name=Weeping Tree Fence
+tile.mist.willow_fence_8.name=Solid Weeping Tree Fence
+tile.mist.willow_fence_8_d.name=Solid Weeping Tree Fence
+tile.mist.r_tree_fence_4.name=Rubber Tree Fence
+tile.mist.r_tree_fence_4_d.name=Rubber Tree Fence
+tile.mist.r_tree_fence_8.name=Solid Rubber Tree Fence
+tile.mist.r_tree_fence_8_d.name=Solid Rubber Tree Fence
+
+### Fence Gate
+tile.mist.acacia_fence_gate.name=Umbrella Tree Fence Gate
+tile.mist.aspen_fence_gate.name=Trembling Tree Fence Gate
+tile.mist.a_tree_fence_gate.name=Araucaria Fence Gate
+tile.mist.birch_fence_gate.name=Forest Deceiver Fence Gate
+tile.mist.oak_fence_gate.name=Foggy Oak Fence Gate
+tile.mist.pine_fence_gate.name=Foggy Pine Fence Gate
+tile.mist.poplar_fence_gate.name=Swampy Poplar Fence Gate
+tile.mist.snow_fence_gate.name=Snow Tree Fence Gate
+tile.mist.spruce_fence_gate.name=Prickly Tree Fence Gate
+tile.mist.s_tree_fence_gate.name=Stone Tree Fence Gate
+tile.mist.t_tree_fence_gate.name=Tropic Tree Fence Gate
+tile.mist.willow_fence_gate.name=Weeping Tree Fence Gate
+tile.mist.r_tree_fence_gate.name=Rubber Tree Fence Gate
+
+### Door
+tile.mist.acacia_door.name=Umbrella Tree Door
+tile.mist.aspen_door.name=Trembling Tree Door
+tile.mist.a_tree_door.name=Araucaria Door
+tile.mist.birch_door.name=Forest Deceiver Door
+tile.mist.oak_door.name=Foggy Oak Door
+tile.mist.pine_door.name=Foggy Pine Door
+tile.mist.poplar_door.name=Swampy Poplar Door
+tile.mist.snow_door.name=Snow Tree Door
+tile.mist.spruce_door.name=Prickly Tree Door
+tile.mist.s_tree_door.name=Stone Tree Door
+tile.mist.t_tree_door.name=Tropic Tree Door
+tile.mist.willow_door.name=Weeping Tree Door
+tile.mist.r_tree_door.name=Rubber Tree Door
+tile.mist.niobium_door.name=Niobium Door
+
+### Trapdoor
+tile.mist.acacia_trapdoor.name=Umbrella Tree Trapdoor
+tile.mist.aspen_trapdoor.name=Trembling Tree Trapdoor
+tile.mist.a_tree_trapdoor.name=Araucaria Trapdoor
+tile.mist.birch_trapdoor.name=Forest Deceiver Trapdoor
+tile.mist.oak_trapdoor.name=Foggy Oak Trapdoor
+tile.mist.pine_trapdoor.name=Foggy Pine Trapdoor
+tile.mist.poplar_trapdoor.name=Swampy Poplar Trapdoor
+tile.mist.snow_trapdoor.name=Snow Tree Trapdoor
+tile.mist.spruce_trapdoor.name=Prickly Tree Trapdoor
+tile.mist.s_tree_trapdoor.name=Stone Tree Trapdoor
+tile.mist.t_tree_trapdoor.name=Tropic Tree Trapdoor
+tile.mist.willow_trapdoor.name=Weeping Tree Trapdoor
+tile.mist.r_tree_trapdoor.name=Rubber Tree Trapdoor
+tile.mist.niobium_trapdoor.name=Niobium Trapdoor
 
 ### Upper Plants
 tile.mist.mushroom_brown.name=棕色蘑菇
@@ -399,6 +535,7 @@ tile.mist.bed.in_fog=你不能在迷霧區睡覺
 item.mist.more_info.tooltip=按住「Shift」以查看更多資訊
 ### Other
 item.mist.rocks.name=碎石
+item.mist.brick.name=Stone Brick
 item.mist.clay_ball_gray.name=灰黏土
 item.mist.clay_ball_red.name=紅黏土
 item.mist.humus.name=腐殖質
@@ -457,6 +594,7 @@ item.mist.meat_brachiodon_c.name=烤長腕乳齒獸肉
 item.mist.sponge_meat.name=迷霧海綿肉質
 item.mist.nightberry.name=黑莓果
 item.mist.tinder_fungus.name=火絨真菌
+item.mist.pills_bitter.name=Bitter Pills
 item.mist.soup.name=濃湯
 item.mist.soup_toxic.name=毒性
 item.mist.glass_container.name=玻璃容器
@@ -490,6 +628,7 @@ item.mist.niobium_hoe.name=鈮鋤
 item.mist.niobium_pickaxe.name=鈮鎬
 item.mist.niobium_shovel.name=鈮鏟
 item.mist.niobium_sword.name=鈮劍
+item.mist.niobium_chisel.name=Niobium Chisel
 
 ### Armor
 item.mist.niobium_helmet.name=鈮頭盔
@@ -562,6 +701,8 @@ item.mist.painting.tooltip.oaks=橡木
 item.mist.painting.tooltip.somewhere=某處
 item.mist.painting.tooltip.edge=在邊緣
 item.mist.painting.tooltip.swamp=沼澤
+item.mist.painting.tooltip.meadow=Meadow
+item.mist.painting.tooltip.fall=Fall
 
 ### Fluids
 
@@ -609,6 +750,7 @@ gui.mist.pot_saturation=飢餓值/進度
 gui.mist.skills=技巧
 gui.mist.skills.taming=馴服技巧
 gui.mist.skills.cutting=切肉技巧
+gui.mist.skills.mason=Stone Processing
 gui.mist.effects=毒性影響
 gui.mist.effects.toxic=霧氣中毒
 gui.mist.effects.pollution=化學污染
@@ -694,6 +836,12 @@ advancements.mist.suit=再次接觸
 advancements.mist.suit.desc=享受防護服的所有好處
 advancements.mist.glass_container=太空食品
 advancements.mist.glass_container.desc=戴著過濾罩時從玻璃容器中進食
+advancements.mist.isolation=Isolation
+advancements.mist.isolation.desc=Obtain a Foggy Stone by freeing it from its supports
+advancements.mist.rockbreaker=Rockbreaker
+advancements.mist.rockbreaker.desc=Heat a stone over a campfire and cool it with water
+advancements.mist.mason=Mason
+advancements.mist.mason.desc=Get Stone Processing Skill II and try the Chisel on the Mined Foggy Stone
 
 # Config
 config.mist.dimension=世界
@@ -729,7 +877,7 @@ config.mist.player.effects.tooltip=在螢幕上顯示影響百分比
 config.mist.player.soap=肥皂洗甲
 config.mist.player.soap.tooltip=啟用肥皂清洗盔甲
 config.mist.player.skill_factor=技能係數
-config.mist.player.skill_factor.tooltip=技能係數依次為：馴服，切割。數值越低，技能升級越快
+config.mist.player.skill_factor.tooltip=Skill factor in order: Taming, Cutting, Stone Processing. The lower the value, the faster the skills upgrade
 config.mist.player.mobs_for_skill=可提升技能的生物
 config.mist.player.mobs_for_skill.tooltip=殺死後能提升§oCutting§r技巧的生物(非怪物)清單(ModId:生物名稱:點數 或 ModId:*:點數，任何模組內生物皆可。例如：mist:mossling:1, mist:monk:2, mist:brachiodon:3)
 config.mist.campfire=營火

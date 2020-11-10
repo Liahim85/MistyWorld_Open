@@ -1,0 +1,14 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+    "group": "brick",
+    "ingredients": [
+        {
+            "item": "mist:stone_brick",
+            "data": 0
+        }
+    ],
+    "result": {
+        "item": "mist:brick",
+        "count": 4
+    }
+}

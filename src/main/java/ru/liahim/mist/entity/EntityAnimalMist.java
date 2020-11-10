@@ -121,8 +121,8 @@ public abstract class EntityAnimalMist extends EntityTameable {
 
 	protected boolean tamedProcess(EntityPlayer player, ItemStack stack) {
 		if ((this.aiTempt == null || this.aiTempt.isRunning()) && this.isBreedingItem(stack) && player.getDistanceSq(this) < 9.0D) {
-			if (!player.capabilities.isCreativeMode) stack.shrink(1);
 			if (!this.world.isRemote) {
+				if (!player.capabilities.isCreativeMode) stack.shrink(1);
 				ISkillCapaHandler capa = ISkillCapaHandler.getHandler(player);
 				int tameLevel = Skill.TAMING.getLevel(capa.getSkill(Skill.TAMING));
 				if (tameLevel >= this.getTameLevel() && this.rand.nextInt(5) == 0 && !ForgeEventFactory.onAnimalTame(this, player)) {

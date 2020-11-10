@@ -1,6 +1,7 @@
 package ru.liahim.mist.common;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.CapabilityManager;
@@ -54,9 +55,12 @@ public class CommonProxy {
 	public void registerBlockColored(Block block) {}
 	public void registerItemColored(Item item) {}
 	public void registerFluidBlockRendering(Block block, String name) {}
+	public void registerStateWithName(Block block, IProperty prop, String suffix) {}
+	public void registerStateWithIgnoring(Block block, IProperty prop) {}
 
 	public void setClientSeed(long seed) {}
 	public long getClientSeed() { return 0; }
 	public boolean hasOptifine() { return false; }
 	public void onConfigChange() {}
+
 }

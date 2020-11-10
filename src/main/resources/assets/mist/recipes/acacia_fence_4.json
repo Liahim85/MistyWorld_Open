@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "wood_fence_4",
+    "pattern": [
+        "SXS"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:acacia_branch",
+            "data": 0
+        },
+        "S": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "mist:acacia_fence",
+        "data": 0
+    }
+}

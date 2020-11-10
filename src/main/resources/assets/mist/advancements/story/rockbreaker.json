@@ -1,0 +1,22 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:brick"
+        },
+        "title": {
+            "translate": "advancements.mist.rockbreaker"
+        },
+        "description": {
+            "translate": "advancements.mist.rockbreaker.desc"
+        }
+    },
+    "parent": "mist:story/isolation",
+    "criteria": {
+        "coal": {
+            "trigger": "mist:brick",
+            "conditions": {
+                "item": "mist:brick"
+            }
+        }
+    }
+}

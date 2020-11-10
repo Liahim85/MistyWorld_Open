@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "wood_fence_gate",
+    "pattern": [
+        "SWS"
+    ],
+    "key": {
+        "W": {
+            "item": "mist:snow_wall"
+        },
+        "S": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "mist:snow_fence_gate"
+    }
+}

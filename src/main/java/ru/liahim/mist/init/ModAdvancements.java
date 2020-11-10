@@ -31,6 +31,8 @@ public class ModAdvancements {
 	public static final ItemStackAndFloatTrigger GLASS_CONTAINER = registerCriteriaTrigger(new ItemStackAndFloatTrigger(new ResourceLocation(Mist.MODID, "glass_container")));
 	public static final AnimalTrigger TAME_ANIMAL = registerCriteriaTrigger(new AnimalTrigger(new ResourceLocation(Mist.MODID, "tame_animal")));
 	public static final AnimalTrigger RIDING_ANIMAL = registerCriteriaTrigger(new AnimalTrigger(new ResourceLocation(Mist.MODID, "riding")));
+	public static final ItemStackTrigger STONE_MINED = registerCriteriaTrigger(new ItemStackTrigger(new ResourceLocation(Mist.MODID, "stone_mined")));
+	public static final ItemStackTrigger BRICK = registerCriteriaTrigger(new ItemStackTrigger(new ResourceLocation(Mist.MODID, "brick")));
 
 	public static void load() {}
 

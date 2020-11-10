@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "cobblestone_fence",
+    "pattern": [
+        "XXX",
+        "XXX"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:rocks"
+        }
+    },
+    "result": {
+        "item": "mist:cobblestone_fence",
+        "data": 0
+    }
+}

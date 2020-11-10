@@ -14,8 +14,16 @@ itemGroup.mist.tab=Туманный мир
 tile.mist.stone.name=Туманный камень
 tile.mist.stone_porous.name=Пористый туманный камень
 tile.mist.stone_basic.name=Твёрдый туманный камень
+tile.mist.stone_mined.name=Добытый туманный камень
+tile.mist.stone_mined_moss.name=Замшелый добытый туманный камень
+tile.mist.stone_chiseled.name=Резной туманный камень
+tile.mist.stone_chiseled_moss.name=Замшелый резной туманный камень
+tile.mist.stone_brick.name=Каменные кирпичи
+tile.mist.stone_brick_moss.name=Замшелые каменные кирпичи
+tile.mist.masonry.name=Каменная кладка
+tile.mist.masonry_moss.name=Замшелая каменная кладка
 tile.mist.cobblestone.name=Булыжник
-tile.mist.cobblestone_moss.name=Заросший булыжник
+tile.mist.cobblestone_moss.name=Замшелый булыжник
 tile.mist.gravel.name=Гравий
 tile.mist.sand.name=Песок_1
 tile.mist.red_sand.name=Красный песок_1
@@ -235,7 +243,9 @@ tile.mist.r_tree_planks.name=Доски из каучукового дерева
 
 ### Step
 tile.mist.cobblestone_step.name=Ступень из булыжника
-tile.mist.cobblestone_moss_step.name=Ступень из заросшего булыжника
+tile.mist.cobblestone_moss_step.name=Замшелая ступень из булыжника
+tile.mist.stone_brick_step.name=Ступень из каменного кирпича
+tile.mist.stone_brick_moss_step.name=Замшелая ступень из каменного кирпича
 tile.mist.acacia_step.name=Брусок из зонтичного дерева
 tile.mist.aspen_step.name=Брусок из дрожащего дерева
 tile.mist.a_tree_step.name=Брусок из араукарии
@@ -252,7 +262,9 @@ tile.mist.r_tree_step.name=Брусок из каучукового дерева
 
 ### Slab
 tile.mist.cobblestone_slab.name=Плита из булыжника
-tile.mist.cobblestone_moss_slab.name=Плита из заросшего булыжника
+tile.mist.cobblestone_moss_slab.name=Замшелая плита из булыжника
+tile.mist.stone_brick_slab.name=Плита из каменного кирпича
+tile.mist.stone_brick_moss_slab.name=Замшелая плита из каменного кирпича
 tile.mist.acacia_slab.name=Плита из зонтичного дерева
 tile.mist.aspen_slab.name=Плита из дрожащего дерева
 tile.mist.a_tree_slab.name=Плита из араукарии
@@ -267,9 +279,30 @@ tile.mist.t_tree_slab.name=Плита из тропического дерева
 tile.mist.willow_slab.name=Плита из плачущего дерева
 tile.mist.r_tree_slab.name=Плита из каучукового дерева
 
+### Wall
+tile.mist.cobblestone_wall.name=Стена из булыжника
+tile.mist.cobblestone_moss_wall.name=Замшелая стена из булыжника
+tile.mist.stone_brick_wall.name=Стена из каменного кирпича
+tile.mist.stone_brick_moss_wall.name=Замшелая стена из каменного кирпича
+tile.mist.acacia_wall.name=Стена из зонтичного дерева
+tile.mist.aspen_wall.name=Стена из дрожащего дерева
+tile.mist.a_tree_wall.name=Стена из араукарии
+tile.mist.birch_wall.name=Стена из лесной обманщицы
+tile.mist.oak_wall.name=Стена из туманного дуба
+tile.mist.pine_wall.name=Стена из туманной сосны
+tile.mist.poplar_wall.name=Стена из болотного тополя
+tile.mist.snow_wall.name=Стена из снежного дерева
+tile.mist.spruce_wall.name=Стена из колючего дерева
+tile.mist.s_tree_wall.name=Стена из каменного дерева
+tile.mist.t_tree_wall.name=Стена из тропического дерева
+tile.mist.willow_wall.name=Стена из плачущего дерева
+tile.mist.r_tree_wall.name=Стена из каучукового дерева
+
 ### Stairs
 tile.mist.cobblestone_stairs.name=Ступени из булыжника
-tile.mist.cobblestone_moss_stairs.name=Ступени из заросшего булыжника
+tile.mist.cobblestone_moss_stairs.name=Замшелые ступени из булыжника
+tile.mist.stone_brick_stairs.name=Ступени из каменного кирпича
+tile.mist.stone_brick_moss_stairs.name=Замшелые ступени из каменного кирпича
 tile.mist.acacia_stairs.name=Ступени из зонтичного дерева
 tile.mist.aspen_stairs.name=Ступени из дрожащего дерева
 tile.mist.a_tree_stairs.name=Ступени из араукарии
@@ -337,6 +370,111 @@ tile.mist.r_tree_branch_4.name=Ветка каучукового дерева
 tile.mist.r_tree_branch_4_d.name=Окорённая ветка каучукового дерева
 tile.mist.r_tree_branch_8.name=Ствол каучукового дерева
 tile.mist.r_tree_branch_8_d.name=Окорённый ствол каучукового дерева
+
+### Fence
+tile.mist.cobblestone_fence.name=Забор из булыжника
+tile.mist.cobblestone_fence_moss.name=Замшелый забор из булыжника
+tile.mist.stone_brick_fence.name=Забор из каменного кирпича
+tile.mist.stone_brick_fence_moss.name=Замшелый забор из каменного кирпича
+tile.mist.acacia_fence_4.name=Забор из зонтичного дерева
+tile.mist.acacia_fence_4_d.name=Забор из зонтичного дерева
+tile.mist.acacia_fence_8.name=Добротный забор из зонтичного дерева
+tile.mist.acacia_fence_8_d.name=Добротный забор из зонтичного дерева
+tile.mist.aspen_fence_4.name=Забор из дрожащего дерева
+tile.mist.aspen_fence_4_d.name=Забор из дрожащего дерева
+tile.mist.aspen_fence_8.name=Добротный забор из дрожащего дерева
+tile.mist.aspen_fence_8_d.name=Добротный забор из дрожащего дерева
+tile.mist.a_tree_fence_4.name=Забор из араукарии
+tile.mist.a_tree_fence_4_d.name=Забор из араукарии
+tile.mist.a_tree_fence_8.name=Добротный забор из араукарии
+tile.mist.a_tree_fence_8_d.name=Добротный забор из араукарии
+tile.mist.birch_fence_4.name=Забор из лесной обманщицы
+tile.mist.birch_fence_4_d.name=Забор из лесной обманщицы
+tile.mist.birch_fence_8.name=Добротный забор из лесной обманщицы
+tile.mist.birch_fence_8_d.name=Добротный забор из лесной обманщицы
+tile.mist.oak_fence_4.name=Забор из туманного дуба
+tile.mist.oak_fence_4_d.name=Забор из туманного дуба
+tile.mist.oak_fence_8.name=Добротный забор из туманного дуба
+tile.mist.oak_fence_8_d.name=Добротный забор из туманного дуба
+tile.mist.pine_fence_4.name=Забор из туманной сосны
+tile.mist.pine_fence_4_d.name=Забор из туманной сосны
+tile.mist.pine_fence_8.name=Добротный забор из туманной сосны
+tile.mist.pine_fence_8_d.name=Добротный забор из туманной сосны
+tile.mist.poplar_fence_4.name=Забор из болотного тополя
+tile.mist.poplar_fence_4_d.name=Забор из болотного тополя
+tile.mist.poplar_fence_8.name=Добротный забор из болотного тополя
+tile.mist.poplar_fence_8_d.name=Добротный забор из болотного тополя
+tile.mist.snow_fence_4.name=Забор из снежного дерева
+tile.mist.snow_fence_4_d.name=Забор из ветка снежного дерева
+tile.mist.snow_fence_8.name=Добротный забор из снежного дерева
+tile.mist.snow_fence_8_d.name=Добротный забор из снежного дерева
+tile.mist.spruce_fence_4.name=Забор из колючего дерева
+tile.mist.spruce_fence_4_d.name=Забор из колючего дерева
+tile.mist.spruce_fence_8.name=Добротный забор из колючего дерева
+tile.mist.spruce_fence_8_d.name=Добротный забор из колючего дерева
+tile.mist.s_tree_fence_4.name=Забор из каменного дерева
+tile.mist.s_tree_fence_4_d.name=Забор из каменного дерева
+tile.mist.s_tree_fence_8.name=Добротный забор из каменного дерева
+tile.mist.s_tree_fence_8_d.name=Добротный забор из каменного дерева
+tile.mist.t_tree_fence_4.name=Забор из тропического дерева
+tile.mist.t_tree_fence_4_d.name=Забор из тропического дерева
+tile.mist.t_tree_fence_8.name=Добротный забор из тропического дерева
+tile.mist.t_tree_fence_8_d.name=Добротный забор из тропического дерева
+tile.mist.willow_fence_4.name=Забор из плачущего дерева
+tile.mist.willow_fence_4_d.name=Забор из плачущего дерева
+tile.mist.willow_fence_8.name=Добротный забор из плачущего дерева
+tile.mist.willow_fence_8_d.name=Добротный забор из плачущего дерева
+tile.mist.r_tree_fence_4.name=Забор из каучукового дерева
+tile.mist.r_tree_fence_4_d.name=Забор из каучукового дерева
+tile.mist.r_tree_fence_8.name=Добротный забор из каучукового дерева
+tile.mist.r_tree_fence_8_d.name=Добротный забор из каучукового дерева
+
+### Fence Gate
+tile.mist.acacia_fence_gate.name=Ворота из зонтичного дерева
+tile.mist.aspen_fence_gate.name=Ворота из дрожащего дерева
+tile.mist.a_tree_fence_gate.name=Ворота из араукарии
+tile.mist.birch_fence_gate.name=Ворота из лесной обманщицы
+tile.mist.oak_fence_gate.name=Ворота из туманного дуба
+tile.mist.pine_fence_gate.name=Ворота из туманной сосны
+tile.mist.poplar_fence_gate.name=Ворота из болотного тополя
+tile.mist.snow_fence_gate.name=Ворота из снежного дерева
+tile.mist.spruce_fence_gate.name=Ворота из колючего дерева
+tile.mist.s_tree_fence_gate.name=Ворота из каменного дерева
+tile.mist.t_tree_fence_gate.name=Ворота из тропического дерева
+tile.mist.willow_fence_gate.name=Ворота из плачущего дерева
+tile.mist.r_tree_fence_gate.name=Ворота из каучукового дерева
+
+### Door
+tile.mist.acacia_door.name=Дверь из зонтичного дерева
+tile.mist.aspen_door.name=Дверь из дрожащего дерева
+tile.mist.a_tree_door.name=Дверь из араукарии
+tile.mist.birch_door.name=Дверь из лесной обманщицы
+tile.mist.oak_door.name=Дверь из туманного дуба
+tile.mist.pine_door.name=Дверь из туманной сосны
+tile.mist.poplar_door.name=Дверь из болотного тополя
+tile.mist.snow_door.name=Дверь из снежного дерева
+tile.mist.spruce_door.name=Дверь из колючего дерева
+tile.mist.s_tree_door.name=Дверь из каменного дерева
+tile.mist.t_tree_door.name=Дверь из тропического дерева
+tile.mist.willow_door.name=Дверь из плачущего дерева
+tile.mist.r_tree_door.name=Дверь из каучукового дерева
+tile.mist.niobium_door.name=Ниобиевая дверь
+
+### Trapdoor
+tile.mist.acacia_trapdoor.name=Люк из зонтичного дерева
+tile.mist.aspen_trapdoor.name=Люк из дрожащего дерева
+tile.mist.a_tree_trapdoor.name=Люк из араукарии
+tile.mist.birch_trapdoor.name=Люк из лесной обманщицы
+tile.mist.oak_trapdoor.name=Люк из туманного дуба
+tile.mist.pine_trapdoor.name=Люк из туманной сосны
+tile.mist.poplar_trapdoor.name=Люк из болотного тополя
+tile.mist.snow_trapdoor.name=Люк из снежного дерева
+tile.mist.spruce_trapdoor.name=Люк из колючего дерева
+tile.mist.s_tree_trapdoor.name=Люк из каменного дерева
+tile.mist.t_tree_trapdoor.name=Люк из тропического дерева
+tile.mist.willow_trapdoor.name=Люк из плачущего дерева
+tile.mist.r_tree_trapdoor.name=Люк из каучукового дерева
+tile.mist.niobium_trapdoor.name=Ниобиевый люк
 
 ### Upper Plants
 tile.mist.mushroom_brown.name=Коричневый гриб
@@ -407,6 +545,7 @@ tile.mist.bed.in_fog=Вы не можете спать в зоне тумана
 item.mist.more_info.tooltip=Нажмите 'shift' для большей информации
 ### Other
 item.mist.rocks.name=Камни
+item.mist.brick.name=Каменный кирпич
 item.mist.clay_ball_gray.name=Серая глина
 item.mist.clay_ball_red.name=Красная глина
 item.mist.humus.name=Перегной
@@ -465,6 +604,7 @@ item.mist.meat_brachiodon_c.name=Жареное мясо брахиодона
 item.mist.sponge_meat.name=Мякоть туманной губки
 item.mist.nightberry.name=Ночника
 item.mist.tinder_fungus.name=Гриб-трутовик
+item.mist.pills_bitter.name=Горькие таблетки
 item.mist.soup.name=Похлёбка
 item.mist.soup_toxic.name=Токсичность
 item.mist.glass_container.name=Стеклянный контейнер
@@ -498,6 +638,7 @@ item.mist.niobium_hoe.name=Ниобиевая мотыга
 item.mist.niobium_pickaxe.name=Ниобиевая кирка
 item.mist.niobium_shovel.name=Ниобиевая лопата
 item.mist.niobium_sword.name=Ниобиевый меч
+item.mist.niobium_chisel.name=Ниобиевое зубило
 
 ### Armor
 item.mist.niobium_helmet.name=Ниобиевый шлем
@@ -570,6 +711,8 @@ item.mist.painting.tooltip.oaks=Дубы
 item.mist.painting.tooltip.somewhere=Где-то там
 item.mist.painting.tooltip.edge=На краю
 item.mist.painting.tooltip.swamp=Болото
+item.mist.painting.tooltip.meadow=На опушке
+item.mist.painting.tooltip.fall=Осень
 
 ### Fluids
 fluid.mist.acid=Кислота
@@ -615,6 +758,7 @@ gui.mist.pot_saturation=Насыщение на порцию
 gui.mist.skills=Навыки
 gui.mist.skills.taming=Приручение
 gui.mist.skills.cutting=Разделка
+gui.mist.skills.mason=Обработка камня
 gui.mist.effects=Эффекты
 gui.mist.effects.toxic=Интоксикация
 gui.mist.effects.pollution=Химическое загрязнение
@@ -700,6 +844,12 @@ advancements.mist.suit=Второе прикосновение
 advancements.mist.suit.desc=Оцените все преимущества защитного костюма
 advancements.mist.glass_container=Космическое питание
 advancements.mist.glass_container.desc=Съешьте еду из стеклянного контейнера при надетом респираторе
+advancements.mist.isolation=Изоляция
+advancements.mist.isolation.desc=Добудьте туманный камень освободив его от опор
+advancements.mist.rockbreaker=Камнедробитель
+advancements.mist.rockbreaker.desc=Нагрейте блок камня над костром и остудите его водой
+advancements.mist.mason=Каменщик
+advancements.mist.mason.desc=Получите навык обработки камня II и испробуйте зубило на добытом туманном камне
 
 # Config
 config.mist.dimension=Измерение
@@ -735,7 +885,7 @@ config.mist.player.effects.tooltip=Показывать проценты эфф�
 config.mist.player.soap=Стирка брони с мылом
 config.mist.player.soap.tooltip=Включает смывание цвета с надетой брони с помощью мыла
 config.mist.player.skill_factor=Множитель навыков
-config.mist.player.skill_factor.tooltip=Множитель навыков в порядке: Приручение, Разделка. Чем меньше значение, тем быстрее прокачивается навык
+config.mist.player.skill_factor.tooltip=Множитель навыков в порядке: Приручение, Разделка, Обработка камня. Чем меньше значение, тем быстрее прокачивается навык
 config.mist.player.mobs_for_skill=Мобы для навыка
 config.mist.player.mobs_for_skill.tooltip=Список животных (не монстров), убийство которых будет поднимать навык §oРазделка§r (ID мода:имя моба:количество очков или ID мода:*:количество очков для всех животных в моде). Например: mist:mossling:1, mist:monk:2, mist:brachiodon:3
 config.mist.campfire=Костёр

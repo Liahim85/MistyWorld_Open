@@ -7,9 +7,9 @@ import net.minecraft.block.BlockChest;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.IJumpingMount;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -30,18 +30,21 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
 import ru.liahim.mist.common.Mist;
 
-public abstract class AbstractMistMount extends EntityAlbino implements IInventoryChangedListener {
+public abstract class AbstractMistMount extends EntityAlbino implements IInventoryChangedListener, IJumpingMount {
 
 	private static final DataParameter<Boolean> SADDLED = EntityDataManager.<Boolean>createKey(AbstractMistMount.class, DataSerializers.BOOLEAN);
 	private static final DataParameter<Integer> SPRINT_TIME = EntityDataManager.<Integer>createKey(AbstractMistMount.class, DataSerializers.VARINT);
 	private boolean sprinting;
 	private int sprintTime;
 	public ContainerHorseChest horseChest;
+    protected boolean jump;
     protected boolean horseJumping;
 
 	public AbstractMistMount(World world) {
@@ -117,7 +120,8 @@ public abstract class AbstractMistMount extends EntityAlbino implements IInvento
 
 			if (forward <= 0.0F) forward *= 0.5F;
 
-			if (passenger instanceof EntityPlayerSP && ((EntityPlayerSP)passenger).movementInput.jump && !this.isHorseJumping() && this.onGround) {
+			if (this.jump && !this.isHorseJumping() && this.onGround) {
+				this.jump = false;
 				this.motionY = this.getHorseJumpStrength();
 				if (this.isPotionActive(MobEffects.JUMP_BOOST)) {
 					this.motionY += (this.getActivePotionEffect(MobEffects.JUMP_BOOST).getAmplifier() + 1) * 0.1F;
@@ -189,6 +193,25 @@ public abstract class AbstractMistMount extends EntityAlbino implements IInvento
 	public int getMaxSprintTime() {
 		return 300;
 	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void setJumpPower(int jumpPower) {
+		if (this.canJump() && jumpPower > 0) this.jump = true;
+	}
+
+	@Override
+	public boolean canJump() {
+		return this.isSaddled();
+	}
+
+	@Override
+	public void handleStartJump(int jumpPower) {
+		if (this.canJump() && jumpPower > 0) this.jump = true;
+	}
+
+	@Override
+	public void handleStopJump() {}
 
 	@Override
 	public boolean canBeSteered() {

@@ -1,0 +1,6 @@
+{
+    "parent": "mist:block/wall_gate_closed",
+    "textures": {
+        "texture": "mist:blocks/pine_planks"
+    }
+}

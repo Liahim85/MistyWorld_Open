@@ -27,6 +27,15 @@ public class RecipesWood {
     		Item.getItemFromBlock(MistBlocks.T_TREE_SLAB), Item.getItemFromBlock(MistBlocks.WILLOW_SLAB),
     		Item.getItemFromBlock(MistBlocks.R_TREE_SLAB)
 		};
+    private final Item[] wallItems = new Item[] {
+    		Item.getItemFromBlock(MistBlocks.ACACIA_WALL), Item.getItemFromBlock(MistBlocks.ASPEN_WALL),
+    		Item.getItemFromBlock(MistBlocks.A_TREE_WALL), Item.getItemFromBlock(MistBlocks.BIRCH_WALL),
+    		Item.getItemFromBlock(MistBlocks.OAK_WALL), Item.getItemFromBlock(MistBlocks.PINE_WALL),
+    		Item.getItemFromBlock(MistBlocks.POPLAR_WALL), Item.getItemFromBlock(MistBlocks.SNOW_WALL),
+    		Item.getItemFromBlock(MistBlocks.SPRUCE_WALL), Item.getItemFromBlock(MistBlocks.S_TREE_WALL),
+    		Item.getItemFromBlock(MistBlocks.T_TREE_WALL), Item.getItemFromBlock(MistBlocks.WILLOW_WALL),
+    		Item.getItemFromBlock(MistBlocks.R_TREE_WALL)
+		};
     private final Item[] stairsItems = new Item[] {
     		Item.getItemFromBlock(MistBlocks.ACACIA_STAIRS), Item.getItemFromBlock(MistBlocks.ASPEN_STAIRS),
     		Item.getItemFromBlock(MistBlocks.A_TREE_STAIRS), Item.getItemFromBlock(MistBlocks.BIRCH_STAIRS),
@@ -54,6 +63,24 @@ public class RecipesWood {
     		Item.getItemFromBlock(MistBlocks.T_TREE_BRANCH), Item.getItemFromBlock(MistBlocks.WILLOW_BRANCH),
     		Item.getItemFromBlock(MistBlocks.R_TREE_BRANCH)
 		};
+    private final Item[] fenceItems = new Item[] {
+    		Item.getItemFromBlock(MistBlocks.ACACIA_FENCE), Item.getItemFromBlock(MistBlocks.ASPEN_FENCE),
+    		Item.getItemFromBlock(MistBlocks.A_TREE_FENCE), Item.getItemFromBlock(MistBlocks.BIRCH_FENCE),
+    		Item.getItemFromBlock(MistBlocks.OAK_FENCE), Item.getItemFromBlock(MistBlocks.PINE_FENCE),
+    		Item.getItemFromBlock(MistBlocks.POPLAR_FENCE), Item.getItemFromBlock(MistBlocks.SNOW_FENCE),
+    		Item.getItemFromBlock(MistBlocks.SPRUCE_FENCE), Item.getItemFromBlock(MistBlocks.S_TREE_FENCE),
+    		Item.getItemFromBlock(MistBlocks.T_TREE_FENCE), Item.getItemFromBlock(MistBlocks.WILLOW_FENCE),
+    		Item.getItemFromBlock(MistBlocks.R_TREE_FENCE)
+		};
+    private final Item[] fenceGateItems = new Item[] {
+    		Item.getItemFromBlock(MistBlocks.ACACIA_FENCE_GATE), Item.getItemFromBlock(MistBlocks.ASPEN_FENCE_GATE),
+    		Item.getItemFromBlock(MistBlocks.A_TREE_FENCE_GATE), Item.getItemFromBlock(MistBlocks.BIRCH_FENCE_GATE),
+    		Item.getItemFromBlock(MistBlocks.OAK_FENCE_GATE), Item.getItemFromBlock(MistBlocks.PINE_FENCE_GATE),
+    		Item.getItemFromBlock(MistBlocks.POPLAR_FENCE_GATE), Item.getItemFromBlock(MistBlocks.SNOW_FENCE_GATE),
+    		Item.getItemFromBlock(MistBlocks.SPRUCE_FENCE_GATE), Item.getItemFromBlock(MistBlocks.S_TREE_FENCE_GATE),
+    		Item.getItemFromBlock(MistBlocks.T_TREE_FENCE_GATE), Item.getItemFromBlock(MistBlocks.WILLOW_FENCE_GATE),
+    		Item.getItemFromBlock(MistBlocks.R_TREE_FENCE_GATE)
+		};
     private final int[] logMetas = new int[] { 0, 4, 7, 8, 11 };
 
     public void addRecipes() {
@@ -72,7 +99,10 @@ public class RecipesWood {
 
 			OreDictionary.registerOre("plankWood", new ItemStack(stepItems[i]));
 			OreDictionary.registerOre("slabWood", new ItemStack(slabItems[i]));
+			OreDictionary.registerOre("wallWood", new ItemStack(wallItems[i]));
 			OreDictionary.registerOre("stairWood", new ItemStack(stairsItems[i]));
+			OreDictionary.registerOre("fenceWood", new ItemStack(fenceItems[i]));
+			OreDictionary.registerOre("fenceGateWood", new ItemStack(fenceGateItems[i]));
 			OreDictionary.registerOre("stickWood", new ItemStack(branch, 1, 0));
 			OreDictionary.registerOre("stickWood", new ItemStack(branch, 1, 3));
 		}

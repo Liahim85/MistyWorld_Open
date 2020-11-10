@@ -1,0 +1,24 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:stone_mined",
+            "data": 0
+        },
+        "title": {
+            "translate": "advancements.mist.isolation"
+        },
+        "description": {
+            "translate": "advancements.mist.isolation.desc"
+        }
+    },
+    "parent": "mist:story/pickaxe",
+    "criteria": {
+        "coal": {
+            "trigger": "mist:stone_mined",
+            "conditions": {
+                "item": "mist:stone_mined",
+                "data": 0
+            }
+        }
+    }
+}

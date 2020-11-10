@@ -3,8 +3,11 @@
     "rewards": {
         "recipes": [
             "mist:s_tree_slab",
+            "mist:s_tree_wall",
             "mist:s_tree_stairs",
-            "mist:s_tree_planks_from_step"
+            "mist:s_tree_planks_from_step",
+            "mist:s_tree_door",
+            "mist:s_tree_trapdoor"
         ]
     },
     "criteria": {
@@ -13,8 +16,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "mist:s_tree_step",
-                        "data": 0
+                        "item": "mist:s_tree_step"
                     }
                 ]
             }
@@ -28,13 +30,31 @@
         "has_the_recipes_2": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-                "recipe": "mist:s_tree_stairs"
+                "recipe": "mist:s_tree_wall"
             }
         },
         "has_the_recipes_3": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
+                "recipe": "mist:s_tree_stairs"
+            }
+        },
+        "has_the_recipes_4": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
                 "recipe": "mist:s_tree_planks_from_step"
+            }
+        },
+        "has_the_recipes_5": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:s_tree_door"
+            }
+        },
+        "has_the_recipes_6": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:s_tree_trapdoor"
             }
         }
     },
@@ -43,7 +63,10 @@
             "has_item",
             "has_the_recipes_1",
             "has_the_recipes_2",
-            "has_the_recipes_3"
+            "has_the_recipes_3",
+            "has_the_recipes_4",
+            "has_the_recipes_5",
+            "has_the_recipes_6"
         ]
     ]
 }

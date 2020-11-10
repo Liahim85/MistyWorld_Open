@@ -1,6 +1,7 @@
 package ru.liahim.mist.util;
 
 import ru.liahim.mist.common.MistTime;
+import ru.liahim.mist.handlers.ServerEventHandler;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.MapStorage;
@@ -51,6 +52,22 @@ public class TimeData extends WorldSavedData {
 			MistTime.setTime(0, 0, 0, 0);
 			this.setTime(0, 0, 0, 0);
 		}
+	}
+
+	public void setSoundsTime(long sky_last, long sky_interval, long boom_last, long boom_interval) {
+		tag.setLong("SkySoundLastTime", sky_last);
+		tag.setLong("SkySoundInterval", sky_interval);
+		tag.setLong("SkyBoomLastTime", boom_last);
+		tag.setLong("SkyBoomInterval", boom_interval);
+		this.markDirty();
+	}
+
+	public void getSoundsTime() {
+		ServerEventHandler.setSoundsTime(
+			tag.getLong("SkySoundLastTime"),
+			tag.getLong("SkySoundInterval"),
+			tag.getLong("SkyBoomLastTime"),
+			tag.getLong("SkyBoomInterval"));
 	}
 
 	public static TimeData get(World world) {

@@ -1,0 +1,8 @@
+{
+    "parent": "mist:block/fence_8_inv",
+    "textures": {
+        "end": "mist:blocks/poplar_top_2",
+        "side": "mist:blocks/poplar_trunk",
+        "plank": "mist:blocks/poplar_planks"
+    }
+}

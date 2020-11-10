@@ -4,8 +4,10 @@
         "recipes": [
             "mist:cobblestone",
             "mist:cobblestone_slab",
+            "mist:cobblestone_wall",
             "mist:cobblestone_stairs",
             "mist:furnace",
+            "mist:cobblestone_fence",
             "mist:lever"
         ]
     },
@@ -35,16 +37,28 @@
         "has_the_recipes_3": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-                "recipe": "mist:cobblestone_stairs"
+                "recipe": "mist:cobblestone_wall"
             }
         },
         "has_the_recipes_4": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-                "recipe": "mist:furnace"
+                "recipe": "mist:cobblestone_stairs"
             }
         },
         "has_the_recipes_5": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:furnace"
+            }
+        },
+        "has_the_recipes_6": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:cobblestone_fence"
+            }
+        },
+        "has_the_recipes_7": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
                 "recipe": "mist:lever"
@@ -58,7 +72,9 @@
             "has_the_recipes_2",
             "has_the_recipes_3",
             "has_the_recipes_4",
-            "has_the_recipes_5"
+            "has_the_recipes_5",
+            "has_the_recipes_6",
+            "has_the_recipes_7"
         ]
     ]
 }

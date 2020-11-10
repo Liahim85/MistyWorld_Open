@@ -1,0 +1,18 @@
+{
+    "parent": "mist:block/cube_moss",
+    "textures": {
+        "particle":     "mist:blocks/cobblestone",
+        "down":         "mist:blocks/stone_brick_1",
+        "down_moss":    "mist:blocks/stone_brick_moss_1",
+        "up":           "mist:blocks/masonry_wn",
+        "up_moss":      "mist:blocks/masonry_moss_wn",
+        "south":        "mist:blocks/cobblestone",
+        "south_moss":   "mist:blocks/cobblestone_moss",
+        "west":         "mist:blocks/masonry_l",
+        "west_moss":    "mist:blocks/masonry_moss_l",
+        "north":        "mist:blocks/masonry_r",
+        "north_moss":   "mist:blocks/masonry_moss_r",
+        "east":         "mist:blocks/cobblestone",
+        "east_moss":    "mist:blocks/cobblestone_moss"
+    }
+}

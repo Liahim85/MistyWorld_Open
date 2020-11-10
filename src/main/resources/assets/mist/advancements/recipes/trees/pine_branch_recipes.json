@@ -1,0 +1,93 @@
+{
+    "parent": "mist:recipes/root",
+    "rewards": {
+        "recipes": [
+            "mist:pine_fence_4",
+            "mist:pine_fence_4_d",
+            "mist:pine_fence_8",
+            "mist:pine_fence_8_d"
+        ]
+    },
+    "criteria": {
+        "has_item_1": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:pine_branch",
+                        "data": 0
+                    }
+                ]
+            }
+        },
+        "has_item_2": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:pine_branch",
+                        "data": 3
+                    }
+                ]
+            }
+        },
+        "has_item_3": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:pine_branch",
+                        "data": 6
+                    }
+                ]
+            }
+        },
+        "has_item_4": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:pine_branch",
+                        "data": 9
+                    }
+                ]
+            }
+        },
+        "has_the_recipes_1": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:pine_fence_4"
+            }
+        },
+        "has_the_recipes_2": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:pine_fence_4_d"
+            }
+        },
+        "has_the_recipes_3": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:pine_fence_8"
+            }
+        },
+        "has_the_recipes_4": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:pine_fence_8_d"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_item_1",
+            "has_item_2",
+            "has_item_3",
+            "has_item_4",
+            "has_the_recipes_1",
+            "has_the_recipes_2",
+            "has_the_recipes_3",
+            "has_the_recipes_4"
+        ]
+    ]
+}

@@ -4,6 +4,7 @@ import javax.annotation.Nullable;
 
 import ru.liahim.mist.api.item.MistItems;
 import ru.liahim.mist.init.ModAdvancements;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -20,6 +21,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
@@ -28,6 +30,7 @@ import net.minecraft.util.EnumFacing.AxisDirection;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.Rotation;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.EnumFacing.Axis;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -46,6 +49,7 @@ public class MistBlockBranch extends MistBlock {
 	public static final PropertyBool NEGATIVE_CONNECTION = PropertyBool.create("negative");
 	private final int flammability;
 	private final int fireSpeed;
+	private Block fence;
 
 	protected static final AxisAlignedBB X0 = new AxisAlignedBB(0.0D, 0.375D, 0.375D, 1.0D, 0.625D, 0.625D);
 	protected static final AxisAlignedBB Y0 = new AxisAlignedBB(0.375D, 0.0D, 0.375D, 0.625D, 1.0D, 0.625D);
@@ -133,6 +137,19 @@ public class MistBlockBranch extends MistBlock {
 				return true;
 			}
 		}
+		if (heldItem.getItem() == Items.STICK && heldItem.getCount() >= 2 && state.getValue(AXIS) == Axis.Y) {
+			if (!world.isRemote) {
+				world.setBlockState(pos, this.fence.getDefaultState().withProperty(SIZE, state.getValue(SIZE)).withProperty(DEBARKING, state.getValue(DEBARKING)));
+				if (!player.isCreative()) heldItem.shrink(2);
+			}
+			SoundType soundtype = this.fence.getSoundType(this.fence.getDefaultState(), world, pos, player);
+			world.playSound(player, pos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
+			return true;
+		}
+		/*if (heldItem.getItem() == Items.LEAD && state.getValue(AXIS) == Axis.Y && state.getValue(SIZE) == 0) {
+			if (!world.isRemote) return ItemLead.attachToFence(player, world, pos);
+			else return true;
+		}*/
 		return false;
 	}
 
@@ -164,6 +181,10 @@ public class MistBlockBranch extends MistBlock {
 	@Override
 	public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face) {
 		return this.fireSpeed;
+	}
+
+	public void setFence(Block fence) {
+		this.fence = fence;
 	}
 
 	@Override
@@ -228,9 +249,9 @@ public class MistBlockBranch extends MistBlock {
 		IBlockState posState = world.getBlockState(pos.offset(EnumFacing.getFacingFromAxis(AxisDirection.POSITIVE, axis)));
 		IBlockState negState = world.getBlockState(pos.offset(EnumFacing.getFacingFromAxis(AxisDirection.NEGATIVE, axis)));
 		boolean positive = (posState.getBlock() instanceof MistBlockBranch && posState.getValue(AXIS) != axis && posState.getValue(SIZE) >= size) ||
-				(posState.getBlock() instanceof BlockFence && axis != Axis.Y && size == 0);
+				(posState.getBlock() instanceof BlockFence && axis != Axis.Y && size == 0) || (posState.getBlock() instanceof MistBlockFence && axis != Axis.Y && size == 1 && posState.getValue(SIZE) == 1);
 		boolean negative = (negState.getBlock() instanceof MistBlockBranch && negState.getValue(AXIS) != axis && negState.getValue(SIZE) >= size) ||
-				(negState.getBlock() instanceof BlockFence && axis != Axis.Y && size == 0);
+				(negState.getBlock() instanceof BlockFence && axis != Axis.Y && size == 0) || (negState.getBlock() instanceof MistBlockFence && axis != Axis.Y && size == 1 && negState.getValue(SIZE) == 1);
 		return state.withProperty(POSITIVE_CONNECTION, positive).withProperty(NEGATIVE_CONNECTION, negative);
 	}
 

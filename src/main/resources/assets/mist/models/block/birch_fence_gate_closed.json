@@ -1,0 +1,6 @@
+{
+    "parent": "mist:block/fence_gate_closed",
+    "textures": {
+        "texture": "mist:blocks/birch_planks"
+    }
+}

@@ -7,11 +7,14 @@
             "mist:niobium_axe",
             "mist:niobium_hoe",
             "mist:niobium_sword",
+            "mist:niobium_chisel",
             "mist:niobium_helmet",
             "mist:niobium_chestplate",
             "mist:niobium_leggings",
             "mist:niobium_boots",
-            "mist:niobium_nugget"
+            "mist:niobium_nugget",
+            "mist:niobium_door",
+            "mist:niobium_trapdoor"
         ]
     },
     "criteria": {
@@ -58,31 +61,49 @@
         "has_the_recipes_6": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-                "recipe": "mist:niobium_helmet"
+                "recipe": "mist:niobium_chisel"
             }
         },
         "has_the_recipes_7": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-                "recipe": "mist:niobium_chestplate"
+                "recipe": "mist:niobium_helmet"
             }
         },
         "has_the_recipes_8": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-                "recipe": "mist:niobium_leggings"
+                "recipe": "mist:niobium_chestplate"
             }
         },
         "has_the_recipes_9": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-                "recipe": "mist:niobium_boots"
+                "recipe": "mist:niobium_leggings"
             }
         },
         "has_the_recipes_10": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
+                "recipe": "mist:niobium_boots"
+            }
+        },
+        "has_the_recipes_11": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
                 "recipe": "mist:niobium_nugget"
+            }
+        },
+        "has_the_recipes_12": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:niobium_door"
+            }
+        },
+        "has_the_recipes_13": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:niobium_trapdoor"
             }
         }
     },
@@ -98,7 +119,10 @@
             "has_the_recipes_7",
             "has_the_recipes_8",
             "has_the_recipes_9",
-            "has_the_recipes_10"
+            "has_the_recipes_10",
+            "has_the_recipes_11",
+            "has_the_recipes_12",
+            "has_the_recipes_13"
         ]
     ]
 }

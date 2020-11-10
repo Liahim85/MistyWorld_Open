@@ -2,6 +2,8 @@ package ru.liahim.mist.init;
 
 import static ru.liahim.mist.api.block.MistBlocks.*;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockDoor;
+import net.minecraft.block.BlockFenceGate;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -12,77 +14,20 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import ru.liahim.mist.api.block.IShiftPlaceable;
 import ru.liahim.mist.api.registry.MistRegistry;
-import ru.liahim.mist.block.MistAcidSand;
-import ru.liahim.mist.block.MistBlock;
-import ru.liahim.mist.block.MistFloatingMat;
-import ru.liahim.mist.block.MistAcidDirt;
-import ru.liahim.mist.block.MistAcidGrass;
-import ru.liahim.mist.block.MistBlockSlabStone;
-import ru.liahim.mist.block.MistBlockSlabWood;
-import ru.liahim.mist.block.MistBlockStairs;
-import ru.liahim.mist.block.MistBlockStairsColored;
-import ru.liahim.mist.block.MistBlockStep;
-import ru.liahim.mist.block.MistBlockStepColored;
-import ru.liahim.mist.block.MistBlockBranch;
-import ru.liahim.mist.block.MistClay;
-import ru.liahim.mist.block.MistCobblestone;
-import ru.liahim.mist.block.MistDirt;
-import ru.liahim.mist.block.MistFarmland;
-import ru.liahim.mist.block.MistFarmland_H;
-import ru.liahim.mist.block.MistFilterCoalBlock;
-import ru.liahim.mist.block.MistGrass;
-import ru.liahim.mist.block.MistGravel;
-import ru.liahim.mist.block.MistHumus_Dirt;
-import ru.liahim.mist.block.MistHumus_Grass;
-import ru.liahim.mist.block.MistLatexBlock;
-import ru.liahim.mist.block.MistLooseRock;
-import ru.liahim.mist.block.MistMulchBlock;
-import ru.liahim.mist.block.MistNiobiumBlock;
-import ru.liahim.mist.block.MistOre;
-import ru.liahim.mist.block.MistPeat;
-import ru.liahim.mist.block.MistPortal;
-import ru.liahim.mist.block.MistPortalStone;
-import ru.liahim.mist.block.MistRubberBlock;
-import ru.liahim.mist.block.MistSaltpeterOre;
-import ru.liahim.mist.block.MistSand;
-import ru.liahim.mist.block.MistSapropel;
-import ru.liahim.mist.block.MistSoapBlock;
-import ru.liahim.mist.block.MistStoneUpper;
-import ru.liahim.mist.block.MistTallowBlock;
-import ru.liahim.mist.block.MistStoneBasic;
-import ru.liahim.mist.block.MistStonePorous;
-import ru.liahim.mist.block.MistTreeLeaves;
-import ru.liahim.mist.block.MistTreeLeavesConifers;
-import ru.liahim.mist.block.MistTreeLeavesSpreading;
-import ru.liahim.mist.block.MistTreeLeavesWeeping;
-import ru.liahim.mist.block.MistTreeSapling;
-import ru.liahim.mist.block.MistTreeTrunk;
-import ru.liahim.mist.block.MistOreUpper;
-import ru.liahim.mist.block.MistAcidBlock;
-import ru.liahim.mist.block.MistWoodBlock;
-import ru.liahim.mist.block.downplant.MistSponge;
-import ru.liahim.mist.block.gizmos.Remains;
-import ru.liahim.mist.block.gizmos.MistFurnace;
-import ru.liahim.mist.block.gizmos.MistLatexPot;
-import ru.liahim.mist.block.gizmos.MistChest;
-import ru.liahim.mist.block.gizmos.MistCampStick;
-import ru.liahim.mist.block.gizmos.MistCampfire;
-import ru.liahim.mist.block.gizmos.MistCompostHeap;
-import ru.liahim.mist.block.gizmos.MistFlowerPot;
-import ru.liahim.mist.block.gizmos.MistUrn;
+import ru.liahim.mist.block.*;
+import ru.liahim.mist.block.downplant.*;
+import ru.liahim.mist.block.gizmos.*;
 import ru.liahim.mist.block.tree.*;
-import ru.liahim.mist.block.upperplant.MistDesertCotton;
-import ru.liahim.mist.block.upperplant.MistMushroom;
-import ru.liahim.mist.block.upperplant.MistMushroom_0;
-import ru.liahim.mist.block.upperplant.MistMushroom_1;
-import ru.liahim.mist.block.upperplant.MistMycelium;
-import ru.liahim.mist.block.upperplant.MistNightberry;
-import ru.liahim.mist.block.upperplant.MistTinderFungus;
+import ru.liahim.mist.block.upperplant.*;
 import ru.liahim.mist.common.Mist;
 import ru.liahim.mist.fluid.MistAcid;
 import ru.liahim.mist.item.ItemMistBranchBlock;
 import ru.liahim.mist.item.ItemMistClay;
+import ru.liahim.mist.item.ItemMistDoor;
+import ru.liahim.mist.item.ItemMistFenceBlock;
+import ru.liahim.mist.item.ItemMistFenceStoneBlock;
 import ru.liahim.mist.item.ItemMistMossy;
+import ru.liahim.mist.item.ItemMistMinedStone;
 import ru.liahim.mist.item.ItemMistFloatingMat;
 import ru.liahim.mist.item.ItemMistGenderNameBlock;
 import ru.liahim.mist.item.ItemMistMycelium;
@@ -98,6 +43,7 @@ import ru.liahim.mist.item.ItemMistStairs;
 import ru.liahim.mist.item.ItemMistStep;
 import ru.liahim.mist.item.ItemMistTreeSapling;
 import ru.liahim.mist.item.ItemMistUrn;
+import ru.liahim.mist.item.ItemMistWall;
 import ru.liahim.mist.item.ItemMistWoodBlock;
 import ru.liahim.mist.world.MistWorld;
 
@@ -110,7 +56,13 @@ public class ModBlocks {
 		STONE = registerBlock(new MistStoneUpper(), "stone", tab);
 		STONE_POROUS = registerBlock(new MistStonePorous(), "stone_porous", tab);
 		STONE_BASIC = registerBlock(new MistStoneBasic(), "stone_basic", tab);
+		STONE_MINED = registerBlockWithoutItem(new MistStoneMined(), "stone_mined", tab);
+		registerItemBlock(new ItemMistMinedStone(STONE_MINED));
 		LOOSE_ROCK = registerBlockWithoutItem(new MistLooseRock(), "loose_rock", null);
+		STONE_BRICK = registerBlockWithoutItem(new MistStoneBrick(), "stone_brick", tab);
+		registerItemBlock(new ItemMistMossy(STONE_BRICK));
+		MASONRY = registerBlockWithoutItem(new MistMasonry(), "masonry", tab);
+		registerItemBlock(new ItemMistMossy(MASONRY));
 		COBBLESTONE = registerBlockWithoutItem(new MistCobblestone(), "cobblestone", tab);
 		registerItemBlock(new ItemMistMossy(COBBLESTONE));
 		GRAVEL = registerBlock(new MistGravel(), "gravel", tab);
@@ -333,8 +285,12 @@ public class ModBlocks {
 		/**Stairs*/
 		COBBLESTONE_STAIRS = registerBlockWithoutItem(new MistBlockStairs(COBBLESTONE.getDefaultState(), true), "cobblestone_stairs", tab);
 		registerItemBlock(new ItemMistStairs(COBBLESTONE_STAIRS));
-		COBBLESTONE_MOSS_STAIRS = registerBlockWithoutItem(new MistBlockStairsColored(COBBLESTONE.getDefaultState().withProperty(MistCobblestone.VARIANT, MistCobblestone.EnumType.MOSSY), true), "cobblestone_moss_stairs", tab);
+		COBBLESTONE_MOSS_STAIRS = registerBlockWithoutItem(new MistBlockStairsColored(COBBLESTONE.getDefaultState().withProperty(MistBlockMossy.VARIANT, MistCobblestone.EnumType.MOSSY), true), "cobblestone_moss_stairs", tab);
 		registerItemBlock(new ItemMistStairs(COBBLESTONE_MOSS_STAIRS));
+		STONE_BRICK_STAIRS = registerBlockWithoutItem(new MistBlockStairs(STONE_BRICK.getDefaultState(), true), "stone_brick_stairs", tab);
+		registerItemBlock(new ItemMistStairs(STONE_BRICK_STAIRS));
+		STONE_BRICK_MOSS_STAIRS = registerBlockWithoutItem(new MistBlockStairsColored(STONE_BRICK.getDefaultState().withProperty(MistBlockMossy.VARIANT, MistCobblestone.EnumType.MOSSY), true), "stone_brick_moss_stairs", tab);
+		registerItemBlock(new ItemMistStairs(STONE_BRICK_MOSS_STAIRS));
 		ACACIA_STAIRS = registerBlockWithoutItem(new MistBlockStairs(ACACIA_BLOCK.getDefaultState()), "acacia_stairs", tab);
 		registerItemBlock(new ItemMistStairs(ACACIA_STAIRS));
 		ASPEN_STAIRS = registerBlockWithoutItem(new MistBlockStairs(ASPEN_BLOCK.getDefaultState()), "aspen_stairs", tab);
@@ -364,6 +320,8 @@ public class ModBlocks {
 		/**Slab*/
 		COBBLESTONE_SLAB = registerBlockWithoutItem(new MistBlockSlabStone(COBBLESTONE, 3.0F, 10.0F), "cobblestone_slab", tab);
 		registerItemBlock(new ItemMistSlabMoss(COBBLESTONE_SLAB));
+		STONE_BRICK_SLAB = registerBlockWithoutItem(new MistBlockSlabStone(STONE_BRICK, 3.0F, 10.0F), "stone_brick_slab", tab);
+		registerItemBlock(new ItemMistSlabMoss(STONE_BRICK_SLAB));
 		ACACIA_SLAB = registerBlockWithoutItem(new MistBlockSlabWood(ACACIA_BLOCK, 4.0F), "acacia_slab", tab);
 		registerItemBlock(new ItemMistSlab(ACACIA_SLAB));
 		ASPEN_SLAB = registerBlockWithoutItem(new MistBlockSlabWood(ASPEN_BLOCK, 4.0F), "aspen_slab", tab);
@@ -390,11 +348,50 @@ public class ModBlocks {
 		registerItemBlock(new ItemMistSlab(WILLOW_SLAB));
 		R_TREE_SLAB = registerBlockWithoutItem(new MistBlockSlabWood(R_TREE_BLOCK, 4.0F), "r_tree_slab", tab);
 		registerItemBlock(new ItemMistSlab(R_TREE_SLAB));
+		/**Wall*/
+		COBBLESTONE_WALL = registerBlockWithoutItem(new MistBlockWall(COBBLESTONE.getDefaultState(), true), "cobblestone_wall", tab);
+		registerItemBlock(new ItemMistWall(COBBLESTONE_WALL));
+		COBBLESTONE_MOSS_WALL = registerBlockWithoutItem(new MistBlockWallColored(COBBLESTONE.getDefaultState().withProperty(MistBlockMossy.VARIANT, MistCobblestone.EnumType.MOSSY), true), "cobblestone_moss_wall", tab);
+		registerItemBlock(new ItemMistWall(COBBLESTONE_MOSS_WALL));
+		STONE_BRICK_WALL = registerBlockWithoutItem(new MistBlockWall(STONE_BRICK.getDefaultState(), true), "stone_brick_wall", tab);
+		registerItemBlock(new ItemMistWall(STONE_BRICK_WALL));
+		STONE_BRICK_MOSS_WALL = registerBlockWithoutItem(new MistBlockWallColored(STONE_BRICK.getDefaultState().withProperty(MistBlockMossy.VARIANT, MistCobblestone.EnumType.MOSSY), true), "stone_brick_moss_wall", tab);
+		registerItemBlock(new ItemMistWall(STONE_BRICK_MOSS_WALL));
+		ACACIA_WALL = registerBlockWithoutItem(new MistBlockWall(ACACIA_BLOCK.getDefaultState()), "acacia_wall", tab);
+		registerItemBlock(new ItemMistWall(ACACIA_WALL));
+		ASPEN_WALL = registerBlockWithoutItem(new MistBlockWall(ASPEN_BLOCK.getDefaultState()), "aspen_wall", tab);
+		registerItemBlock(new ItemMistWall(ASPEN_WALL));
+		A_TREE_WALL = registerBlockWithoutItem(new MistBlockWall(A_TREE_BLOCK.getDefaultState()), "a_tree_wall", tab);
+		registerItemBlock(new ItemMistWall(A_TREE_WALL));
+		BIRCH_WALL = registerBlockWithoutItem(new MistBlockWall(BIRCH_BLOCK.getDefaultState()), "birch_wall", tab);
+		registerItemBlock(new ItemMistWall(BIRCH_WALL));
+		OAK_WALL = registerBlockWithoutItem(new MistBlockWall(OAK_BLOCK.getDefaultState()), "oak_wall", tab);
+		registerItemBlock(new ItemMistWall(OAK_WALL));
+		PINE_WALL = registerBlockWithoutItem(new MistBlockWall(PINE_BLOCK.getDefaultState()), "pine_wall", tab);
+		registerItemBlock(new ItemMistWall(PINE_WALL));
+		POPLAR_WALL = registerBlockWithoutItem(new MistBlockWall(POPLAR_BLOCK.getDefaultState()), "poplar_wall", tab);
+		registerItemBlock(new ItemMistWall(POPLAR_WALL));
+		SNOW_WALL = registerBlockWithoutItem(new MistBlockWall(SNOW_BLOCK.getDefaultState()), "snow_wall", tab);
+		registerItemBlock(new ItemMistWall(SNOW_WALL));
+		SPRUCE_WALL = registerBlockWithoutItem(new MistBlockWall(SPRUCE_BLOCK.getDefaultState()), "spruce_wall", tab);
+		registerItemBlock(new ItemMistWall(SPRUCE_WALL));
+		S_TREE_WALL = registerBlockWithoutItem(new MistBlockWall(S_TREE_BLOCK.getDefaultState()), "s_tree_wall", tab);
+		registerItemBlock(new ItemMistWall(S_TREE_WALL));
+		T_TREE_WALL = registerBlockWithoutItem(new MistBlockWall(T_TREE_BLOCK.getDefaultState()), "t_tree_wall", tab);
+		registerItemBlock(new ItemMistWall(T_TREE_WALL));
+		WILLOW_WALL = registerBlockWithoutItem(new MistBlockWall(WILLOW_BLOCK.getDefaultState()), "willow_wall", tab);
+		registerItemBlock(new ItemMistWall(WILLOW_WALL));
+		R_TREE_WALL = registerBlockWithoutItem(new MistBlockWall(R_TREE_BLOCK.getDefaultState()), "r_tree_wall", tab);
+		registerItemBlock(new ItemMistWall(R_TREE_WALL));
 		/**Step*/
 		COBBLESTONE_STEP = registerBlockWithoutItem(new MistBlockStep(COBBLESTONE.getDefaultState(), true), "cobblestone_step", tab);
 		registerItemBlock(new ItemMistStep(COBBLESTONE_STEP));
-		COBBLESTONE_MOSS_STEP = registerBlockWithoutItem(new MistBlockStepColored(COBBLESTONE.getDefaultState().withProperty(MistCobblestone.VARIANT, MistCobblestone.EnumType.MOSSY), true), "cobblestone_moss_step", tab);
+		COBBLESTONE_MOSS_STEP = registerBlockWithoutItem(new MistBlockStepColored(COBBLESTONE.getDefaultState().withProperty(MistBlockMossy.VARIANT, MistCobblestone.EnumType.MOSSY), true), "cobblestone_moss_step", tab);
 		registerItemBlock(new ItemMistStep(COBBLESTONE_MOSS_STEP));
+		STONE_BRICK_STEP = registerBlockWithoutItem(new MistBlockStep(STONE_BRICK.getDefaultState(), true), "stone_brick_step", tab);
+		registerItemBlock(new ItemMistStep(STONE_BRICK_STEP));
+		STONE_BRICK_MOSS_STEP = registerBlockWithoutItem(new MistBlockStepColored(STONE_BRICK.getDefaultState().withProperty(MistBlockMossy.VARIANT, MistCobblestone.EnumType.MOSSY), true), "stone_brick_moss_step", tab);
+		registerItemBlock(new ItemMistStep(STONE_BRICK_MOSS_STEP));
 		ACACIA_STEP = registerBlockWithoutItem(new MistBlockStep(ACACIA_BLOCK.getDefaultState()), "acacia_step", tab);
 		registerItemBlock(new ItemMistStep(ACACIA_STEP));
 		ASPEN_STEP = registerBlockWithoutItem(new MistBlockStep(ASPEN_BLOCK.getDefaultState()), "aspen_step", tab);
@@ -425,42 +422,55 @@ public class ModBlocks {
 		((MistWoodBlock)ACACIA_BLOCK).setStairsBlock(ACACIA_STAIRS);
 		((MistWoodBlock)ACACIA_BLOCK).setSlabBlock(ACACIA_SLAB);
 		((MistWoodBlock)ACACIA_BLOCK).setStepBlock(ACACIA_STEP);
+		((MistWoodBlock)ACACIA_BLOCK).setWallBlock(ACACIA_WALL);
 		((MistWoodBlock)ASPEN_BLOCK).setStairsBlock(ASPEN_STAIRS);
 		((MistWoodBlock)ASPEN_BLOCK).setSlabBlock(ASPEN_SLAB);
 		((MistWoodBlock)ASPEN_BLOCK).setStepBlock(ASPEN_STEP);
+		((MistWoodBlock)ASPEN_BLOCK).setWallBlock(ASPEN_WALL);
 		((MistWoodBlock)A_TREE_BLOCK).setStairsBlock(A_TREE_STAIRS);
 		((MistWoodBlock)A_TREE_BLOCK).setSlabBlock(A_TREE_SLAB);
 		((MistWoodBlock)A_TREE_BLOCK).setStepBlock(A_TREE_STEP);
+		((MistWoodBlock)A_TREE_BLOCK).setWallBlock(A_TREE_WALL);
 		((MistWoodBlock)BIRCH_BLOCK).setStairsBlock(BIRCH_STAIRS);
 		((MistWoodBlock)BIRCH_BLOCK).setSlabBlock(BIRCH_SLAB);
 		((MistWoodBlock)BIRCH_BLOCK).setStepBlock(BIRCH_STEP);
+		((MistWoodBlock)BIRCH_BLOCK).setWallBlock(BIRCH_WALL);
 		((MistWoodBlock)OAK_BLOCK).setStairsBlock(OAK_STAIRS);
 		((MistWoodBlock)OAK_BLOCK).setSlabBlock(OAK_SLAB);
 		((MistWoodBlock)OAK_BLOCK).setStepBlock(OAK_STEP);
+		((MistWoodBlock)OAK_BLOCK).setWallBlock(OAK_WALL);
 		((MistWoodBlock)PINE_BLOCK).setStairsBlock(PINE_STAIRS);
 		((MistWoodBlock)PINE_BLOCK).setSlabBlock(PINE_SLAB);
 		((MistWoodBlock)PINE_BLOCK).setStepBlock(PINE_STEP);
+		((MistWoodBlock)PINE_BLOCK).setWallBlock(PINE_WALL);
 		((MistWoodBlock)POPLAR_BLOCK).setStairsBlock(POPLAR_STAIRS);
 		((MistWoodBlock)POPLAR_BLOCK).setSlabBlock(POPLAR_SLAB);
 		((MistWoodBlock)POPLAR_BLOCK).setStepBlock(POPLAR_STEP);
+		((MistWoodBlock)POPLAR_BLOCK).setWallBlock(POPLAR_WALL);
 		((MistWoodBlock)SNOW_BLOCK).setStairsBlock(SNOW_STAIRS);
 		((MistWoodBlock)SNOW_BLOCK).setSlabBlock(SNOW_SLAB);
 		((MistWoodBlock)SNOW_BLOCK).setStepBlock(SNOW_STEP);
+		((MistWoodBlock)SNOW_BLOCK).setWallBlock(SNOW_WALL);
 		((MistWoodBlock)SPRUCE_BLOCK).setStairsBlock(SPRUCE_STAIRS);
 		((MistWoodBlock)SPRUCE_BLOCK).setSlabBlock(SPRUCE_SLAB);
 		((MistWoodBlock)SPRUCE_BLOCK).setStepBlock(SPRUCE_STEP);
+		((MistWoodBlock)SPRUCE_BLOCK).setWallBlock(SPRUCE_WALL);
 		((MistWoodBlock)S_TREE_BLOCK).setStairsBlock(S_TREE_STAIRS);
 		((MistWoodBlock)S_TREE_BLOCK).setSlabBlock(S_TREE_SLAB);
 		((MistWoodBlock)S_TREE_BLOCK).setStepBlock(S_TREE_STEP);
+		((MistWoodBlock)S_TREE_BLOCK).setWallBlock(S_TREE_WALL);
 		((MistWoodBlock)T_TREE_BLOCK).setStairsBlock(T_TREE_STAIRS);
 		((MistWoodBlock)T_TREE_BLOCK).setSlabBlock(T_TREE_SLAB);
 		((MistWoodBlock)T_TREE_BLOCK).setStepBlock(T_TREE_STEP);
+		((MistWoodBlock)T_TREE_BLOCK).setWallBlock(T_TREE_WALL);
 		((MistWoodBlock)WILLOW_BLOCK).setStairsBlock(WILLOW_STAIRS);
 		((MistWoodBlock)WILLOW_BLOCK).setSlabBlock(WILLOW_SLAB);
 		((MistWoodBlock)WILLOW_BLOCK).setStepBlock(WILLOW_STEP);
+		((MistWoodBlock)WILLOW_BLOCK).setWallBlock(WILLOW_WALL);
 		((MistWoodBlock)R_TREE_BLOCK).setStairsBlock(R_TREE_STAIRS);
 		((MistWoodBlock)R_TREE_BLOCK).setSlabBlock(R_TREE_SLAB);
 		((MistWoodBlock)R_TREE_BLOCK).setStepBlock(R_TREE_STEP);
+		((MistWoodBlock)R_TREE_BLOCK).setWallBlock(R_TREE_WALL);
 		/**Branch*/
 		ACACIA_BRANCH = registerBlockWithoutItem(new MistBlockBranch(4.0F), "acacia_branch", tab);
 		registerItemBlock(new ItemMistBranchBlock(ACACIA_BRANCH));
@@ -488,6 +498,109 @@ public class ModBlocks {
 		registerItemBlock(new ItemMistBranchBlock(WILLOW_BRANCH));
 		R_TREE_BRANCH = registerBlockWithoutItem(new MistBlockBranch(4.0F, 10, 2), "r_tree_branch", tab);
 		registerItemBlock(new ItemMistBranchBlock(R_TREE_BRANCH));
+		/**Fence*/
+		COBBLESTONE_FENCE = registerBlockWithoutItem(new MistBlockFenceStone(COBBLESTONE), "cobblestone_fence", tab);
+		registerItemBlock(new ItemMistFenceStoneBlock(COBBLESTONE_FENCE));
+		STONE_BRICK_FENCE = registerBlockWithoutItem(new MistBlockFenceStone(STONE_BRICK), "stone_brick_fence", tab);
+		registerItemBlock(new ItemMistFenceStoneBlock(STONE_BRICK_FENCE));
+		ACACIA_FENCE = registerBlockWithoutItem(new MistBlockFence(ACACIA_BRANCH, 4.0F), "acacia_fence", tab);
+		registerItemBlock(new ItemMistFenceBlock(ACACIA_FENCE));
+		ASPEN_FENCE = registerBlockWithoutItem(new MistBlockFence(ASPEN_BRANCH, 4.0F), "aspen_fence", tab);
+		registerItemBlock(new ItemMistFenceBlock(ASPEN_FENCE));
+		A_TREE_FENCE = registerBlockWithoutItem(new MistBlockFence(A_TREE_BRANCH, 3.0F), "a_tree_fence", tab);
+		registerItemBlock(new ItemMistFenceBlock(A_TREE_FENCE));
+		BIRCH_FENCE = registerBlockWithoutItem(new MistBlockFence(BIRCH_BRANCH, 4.0F), "birch_fence", tab);
+		registerItemBlock(new ItemMistFenceBlock(BIRCH_FENCE));
+		OAK_FENCE = registerBlockWithoutItem(new MistBlockFence(OAK_BRANCH, 5.0F), "oak_fence", tab);
+		registerItemBlock(new ItemMistFenceBlock(OAK_FENCE));
+		PINE_FENCE = registerBlockWithoutItem(new MistBlockFence(PINE_BRANCH, 4.0F, 30, 8), "pine_fence", tab);
+		registerItemBlock(new ItemMistFenceBlock(PINE_FENCE));
+		POPLAR_FENCE = registerBlockWithoutItem(new MistBlockFence(POPLAR_BRANCH, 3.0F), "poplar_fence", tab);
+		registerItemBlock(new ItemMistFenceBlock(POPLAR_FENCE));
+		SNOW_FENCE = registerBlockWithoutItem(new MistBlockFence(SNOW_BRANCH, 5.0F, 15, 3), "snow_fence", tab);
+		registerItemBlock(new ItemMistFenceBlock(SNOW_FENCE));
+		SPRUCE_FENCE = registerBlockWithoutItem(new MistBlockFence(SPRUCE_BRANCH, 4.0F, 25, 7), "spruce_fence", tab);
+		registerItemBlock(new ItemMistFenceBlock(SPRUCE_FENCE));
+		S_TREE_FENCE = registerBlockWithoutItem(new MistBlockFence(S_TREE_BRANCH, 10.0F, 5, 1), "s_tree_fence", tab);
+		registerItemBlock(new ItemMistFenceBlock(S_TREE_FENCE));
+		T_TREE_FENCE = registerBlockWithoutItem(new MistBlockFence(T_TREE_BRANCH, 6.0F), "t_tree_fence", tab);
+		registerItemBlock(new ItemMistFenceBlock(T_TREE_FENCE));
+		WILLOW_FENCE = registerBlockWithoutItem(new MistBlockFence(WILLOW_BRANCH, 4.0F, 10, 2), "willow_fence", tab);
+		registerItemBlock(new ItemMistFenceBlock(WILLOW_FENCE));
+		R_TREE_FENCE = registerBlockWithoutItem(new MistBlockFence(R_TREE_BRANCH, 4.0F, 10, 2), "r_tree_fence", tab);
+		registerItemBlock(new ItemMistFenceBlock(R_TREE_FENCE));
+		/**Fence Gate*/
+		ACACIA_FENCE_GATE = registerBlockGate(new MistBlockFenceGate(4.0F), "acacia_fence_gate", tab);
+		ASPEN_FENCE_GATE = registerBlockGate(new MistBlockFenceGate(4.0F), "aspen_fence_gate", tab);
+		A_TREE_FENCE_GATE = registerBlockGate(new MistBlockFenceGate(3.0F), "a_tree_fence_gate", tab);
+		BIRCH_FENCE_GATE = registerBlockGate(new MistBlockFenceGate(4.0F), "birch_fence_gate", tab);
+		OAK_FENCE_GATE = registerBlockGate(new MistBlockFenceGate(5.0F), "oak_fence_gate", tab);
+		PINE_FENCE_GATE = registerBlockGate(new MistBlockFenceGate(4.0F, 30, 8), "pine_fence_gate", tab);
+		POPLAR_FENCE_GATE = registerBlockGate(new MistBlockFenceGate(3.0F), "poplar_fence_gate", tab);
+		SNOW_FENCE_GATE = registerBlockGate(new MistBlockFenceGate(5.0F, 15, 3), "snow_fence_gate", tab);
+		SPRUCE_FENCE_GATE = registerBlockGate(new MistBlockFenceGate(4.0F, 25, 7), "spruce_fence_gate", tab);
+		S_TREE_FENCE_GATE = registerBlockGate(new MistBlockFenceGate(10.0F, 5, 1), "s_tree_fence_gate", tab);
+		T_TREE_FENCE_GATE = registerBlockGate(new MistBlockFenceGate(6.0F), "t_tree_fence_gate", tab);
+		WILLOW_FENCE_GATE = registerBlockGate(new MistBlockFenceGate(4.0F, 10, 2), "willow_fence_gate", tab);
+		R_TREE_FENCE_GATE = registerBlockGate(new MistBlockFenceGate(4.0F, 10, 2), "r_tree_fence_gate", tab);
+		/**Fence connect*/
+		((MistBlockBranch)ACACIA_BRANCH).setFence(ACACIA_FENCE);
+		((MistBlockBranch)ASPEN_BRANCH).setFence(ASPEN_FENCE);
+		((MistBlockBranch)A_TREE_BRANCH).setFence(A_TREE_FENCE);
+		((MistBlockBranch)BIRCH_BRANCH).setFence(BIRCH_FENCE);
+		((MistBlockBranch)OAK_BRANCH).setFence(OAK_FENCE);
+		((MistBlockBranch)PINE_BRANCH).setFence(PINE_FENCE);
+		((MistBlockBranch)POPLAR_BRANCH).setFence(POPLAR_FENCE);
+		((MistBlockBranch)SNOW_BRANCH).setFence(SNOW_FENCE);
+		((MistBlockBranch)SPRUCE_BRANCH).setFence(SPRUCE_FENCE);
+		((MistBlockBranch)S_TREE_BRANCH).setFence(S_TREE_FENCE);
+		((MistBlockBranch)T_TREE_BRANCH).setFence(T_TREE_FENCE);
+		((MistBlockBranch)WILLOW_BRANCH).setFence(WILLOW_FENCE);
+		((MistBlockBranch)R_TREE_BRANCH).setFence(R_TREE_FENCE);
+		/**Door*/
+		ACACIA_DOOR = registerBlockDoor(new MistBlockDoor(4.0F), "acacia_door", tab);
+		registerItemDoor(new ItemMistDoor(ACACIA_DOOR));
+		ASPEN_DOOR = registerBlockDoor(new MistBlockDoor(4.0F), "aspen_door", tab);
+		registerItemDoor(new ItemMistDoor(ASPEN_DOOR));
+		A_TREE_DOOR = registerBlockDoor(new MistBlockDoor(3.0F), "a_tree_door", tab);
+		registerItemDoor(new ItemMistDoor(A_TREE_DOOR));
+		BIRCH_DOOR = registerBlockDoor(new MistBlockDoor(4.0F), "birch_door", tab);
+		registerItemDoor(new ItemMistDoor(BIRCH_DOOR));
+		OAK_DOOR = registerBlockDoor(new MistBlockDoor(5.0F), "oak_door", tab);
+		registerItemDoor(new ItemMistDoor(OAK_DOOR));
+		PINE_DOOR = registerBlockDoor(new MistBlockDoor(4.0F, 30, 8), "pine_door", tab);
+		registerItemDoor(new ItemMistDoor(PINE_DOOR));
+		POPLAR_DOOR = registerBlockDoor(new MistBlockDoor(3.0F), "poplar_door", tab);
+		registerItemDoor(new ItemMistDoor(POPLAR_DOOR));
+		SNOW_DOOR = registerBlockDoor(new MistBlockDoor(5.0F, 15, 3), "snow_door", tab);
+		registerItemDoor(new ItemMistDoor(SNOW_DOOR));
+		SPRUCE_DOOR = registerBlockDoor(new MistBlockDoor(4.0F, 25, 7), "spruce_door", tab);
+		registerItemDoor(new ItemMistDoor(SPRUCE_DOOR));
+		S_TREE_DOOR = registerBlockDoor(new MistBlockDoor(10.0F, 5, 1), "s_tree_door", tab);
+		registerItemDoor(new ItemMistDoor(S_TREE_DOOR));
+		T_TREE_DOOR = registerBlockDoor(new MistBlockDoor(6.0F), "t_tree_door", tab);
+		registerItemDoor(new ItemMistDoor(T_TREE_DOOR));
+		WILLOW_DOOR = registerBlockDoor(new MistBlockDoor(4.0F, 10, 2), "willow_door", tab);
+		registerItemDoor(new ItemMistDoor(WILLOW_DOOR));
+		R_TREE_DOOR = registerBlockDoor(new MistBlockDoor(4.0F, 10, 2), "r_tree_door", tab);
+		registerItemDoor(new ItemMistDoor(R_TREE_DOOR));
+		NIOBIUM_DOOR = registerBlockDoor((MistBlockDoor)new MistBlockDoor(Material.IRON, 5.0F).setResistance(10.0F).setLightLevel(0.125F), "niobium_door", tab);
+		registerItemDoor(new ItemMistDoor(NIOBIUM_DOOR));
+		/**Trapdoor*/
+		ACACIA_TRAPDOOR = registerTrapdoor(new MistBlockTrapdoor(4.0F), "acacia_trapdoor", tab);
+		ASPEN_TRAPDOOR = registerTrapdoor(new MistBlockTrapdoor(4.0F), "aspen_trapdoor", tab);
+		A_TREE_TRAPDOOR = registerTrapdoor(new MistBlockTrapdoor(3.0F), "a_tree_trapdoor", tab);
+		BIRCH_TRAPDOOR = registerTrapdoor(new MistBlockTrapdoor(4.0F), "birch_trapdoor", tab);
+		OAK_TRAPDOOR = registerTrapdoor(new MistBlockTrapdoor(5.0F), "oak_trapdoor", tab);
+		PINE_TRAPDOOR = registerTrapdoor(new MistBlockTrapdoor(4.0F, 30, 8), "pine_trapdoor", tab);
+		POPLAR_TRAPDOOR = registerTrapdoor(new MistBlockTrapdoor(3.0F), "poplar_trapdoor", tab);
+		SNOW_TRAPDOOR = registerTrapdoor(new MistBlockTrapdoor(5.0F, 15, 3), "snow_trapdoor", tab);
+		SPRUCE_TRAPDOOR = registerTrapdoor(new MistBlockTrapdoor(4.0F, 25, 7), "spruce_trapdoor", tab);
+		S_TREE_TRAPDOOR = registerTrapdoor(new MistBlockTrapdoor(10.0F, 5, 1), "s_tree_trapdoor", tab);
+		T_TREE_TRAPDOOR = registerTrapdoor(new MistBlockTrapdoor(6.0F), "t_tree_trapdoor", tab);
+		WILLOW_TRAPDOOR = registerTrapdoor(new MistBlockTrapdoor(4.0F, 10, 2), "willow_trapdoor", tab);
+		R_TREE_TRAPDOOR = registerTrapdoor(new MistBlockTrapdoor(4.0F, 10, 2), "r_tree_trapdoor", tab);
+		NIOBIUM_TRAPDOOR = registerTrapdoor(new MistBlockTrapdoor(Material.IRON, 5.0F).setResistance(10.0F).setLightLevel(0.125F), "niobium_trapdoor", tab);
 
 		/**Upper plants*/
 		MUSHROOMS_0 = (MistMushroom)registerBlockWithoutItem(new MistMushroom_0(), "mushrooms_0", null);
@@ -536,6 +649,20 @@ public class ModBlocks {
 		return checkBlock(RL);
 	}
 
+	private static Block registerBlockGate(Block block, String name, CreativeTabs tab) {
+		Mist.proxy.registerStateWithIgnoring(block, BlockFenceGate.POWERED);
+		return registerBlock(block, name, tab);
+	}
+
+	private static MistBlockDoor registerBlockDoor(MistBlockDoor block, String name, CreativeTabs tab) {
+		Mist.proxy.registerStateWithIgnoring(block, BlockDoor.POWERED);
+		return (MistBlockDoor) registerBlockWithoutItem(block, name, tab);
+	}
+
+	private static Block registerTrapdoor(Block block, String name, CreativeTabs tab) {
+		return registerBlock(block, name, tab);
+	}
+
 	private static Block registerBlockWithoutItem(Block block, String name, CreativeTabs tab) {
 		ResourceLocation RL = new ResourceLocation(Mist.MODID, name);
 		block.setRegistryName(RL).setUnlocalizedName(name).setCreativeTab(tab);
@@ -547,6 +674,12 @@ public class ModBlocks {
 	private static void registerItemBlock(ItemBlock itemBlock) {
 		itemBlock.setRegistryName(itemBlock.getBlock().getRegistryName());
 		ForgeRegistries.ITEMS.register(itemBlock);
+	}
+
+	private static void registerItemDoor(ItemMistDoor itemDoor) {
+		itemDoor.setRegistryName(itemDoor.getBlock().getRegistryName());
+		if ((itemDoor.getBlock()) instanceof MistBlockDoor) ((MistBlockDoor)itemDoor.getBlock()).setDoor(itemDoor);
+		ForgeRegistries.ITEMS.register(itemDoor);
 	}
 
 	private static Block registerFluidBlock(Fluid fluid, Block fluidBlock, String name) {

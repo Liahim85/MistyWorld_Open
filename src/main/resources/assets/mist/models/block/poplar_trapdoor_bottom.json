@@ -1,0 +1,6 @@
+{
+    "parent": "mist:block/trapdoor_bottom",
+    "textures": {
+        "texture": "mist:blocks/poplar_trapdoor"
+    }
+}

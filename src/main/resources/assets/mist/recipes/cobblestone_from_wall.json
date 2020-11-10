@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "cobblestone",
+    "pattern": [
+        "XX"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:cobblestone_wall",
+            "data": 0
+        }
+    },
+    "result": {
+        "item": "mist:cobblestone",
+        "data": 0
+    }
+}

@@ -105,7 +105,9 @@ public class EntityMistPainting extends EntityHanging implements IEntityAddition
 		OAKS("oaks", 32, 16, 0, 32),						// 8 Forest Cold			Savanna
 		SOMEWHERE("somewhere", 32, 16, 32, 32),				// 9 		Cold	Swamp			Tropics
 		EDGE("edge", 32, 16, 64, 32),						// 10 Forest		Swamp
-		SWAMP("swamp", 16, 32, 0, 64);						// 11 Forest		Swamp			Tropics
+		SWAMP("swamp", 16, 32, 0, 64),						// 11 Forest		Swamp			Tropics
+		MEADOW("meadow", 16, 16, 128, 0),					// 12 Forest				Savanna	Tropics
+		FALL("fall", 16, 32, 16, 64);						// 13 Forest Cold	Swamp
 
 		public static final int MAX_NAME_LENGTH = "SkullAndRoses".length();
 		/** Painting Title. */

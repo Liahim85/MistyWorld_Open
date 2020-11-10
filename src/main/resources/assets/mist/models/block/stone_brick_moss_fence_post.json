@@ -1,0 +1,36 @@
+{
+    "parent": "block/block",
+    "textures": {
+        "particle": "mist:blocks/stone_brick_1",
+        "wall": "mist:blocks/stone_brick_double",
+        "top": "mist:blocks/cobblestone_post_top",
+        "moss": "mist:blocks/stone_brick_moss_double",
+        "mosstop": "mist:blocks/cobblestone_moss_post_top"
+    },
+    "elements": [
+        {   "from": [ 4, 0, 4 ],
+            "to": [ 12, 16, 12 ],
+            "faces": {
+                "down":  { "texture": "#wall", "cullface": "down" },
+                "up":    { "texture": "#top",  "cullface": "up"   },
+                "north": { "texture": "#wall" },
+                "south": { "texture": "#wall" },
+                "west":  { "texture": "#wall" },
+                "east":  { "texture": "#wall" }
+            },
+            "__comment": "Center post"
+        },
+        {   "from": [ 4, 0, 4 ],
+            "to": [ 12, 16, 12 ],
+            "faces": {
+                "down":  { "texture": "#moss",   "tintindex": 1, "cullface": "down" },
+                "up":    { "texture": "#mosstop","tintindex": 1, "cullface": "up"   },
+                "north": { "texture": "#moss",   "tintindex": 1 },
+                "south": { "texture": "#moss",   "tintindex": 1 },
+                "west":  { "texture": "#moss",   "tintindex": 1 },
+                "east":  { "texture": "#moss",   "tintindex": 1 }
+            },
+            "__comment": "Moss"
+        }
+    ]
+}

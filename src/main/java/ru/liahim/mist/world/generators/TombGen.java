@@ -16,6 +16,7 @@ import ru.liahim.mist.api.block.MistBlocks;
 import ru.liahim.mist.api.loottable.LootTables;
 import ru.liahim.mist.block.MistDirt;
 import ru.liahim.mist.block.MistSoil;
+import ru.liahim.mist.block.MistStoneMined;
 import ru.liahim.mist.block.gizmos.Remains;
 import ru.liahim.mist.init.ModConfig;
 import ru.liahim.mist.tileentity.TileEntityRemains;
@@ -71,7 +72,7 @@ public class TombGen extends TombGenBase {
 		return false;
 	}
 
-	private static void generateEntrance(GenUtil gen, BiomeMist biome, Random rand, int offset, boolean wet) {
+	private static void generateEntrance(GenUtil gen, BiomeMist biome, Random rand, int offset, boolean wet, Type type) {
 		BlockPos center = gen.set.center;
 		BlockPos checkPos;
 		boolean cold = biome.isSnowyBiome();
@@ -84,24 +85,24 @@ public class TombGen extends TombGenBase {
 							if (cold && (x != 0 || z == -offset) && gen.world.canBlockSeeSky(gen.getPos(checkPos.up()))) gen.setBlockState(checkPos.up(), Blocks.SNOW_LAYER.getDefaultState());
 							else gen.setBlockState(checkPos.up(), Blocks.AIR.getDefaultState());
 							if (x == -1) {
-								if (cold) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : -1));
-								else if (rand.nextInt(8) == 0) gen.setBlockState(checkPos, getSlab(false, rand, wet ? 1 : -1));
-								else gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, false, rand,  wet ? 1 : -1));
+								if (cold) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : -1));
+								else if (rand.nextInt(8) == 0) gen.setBlockState(checkPos, getSlab(type, false, rand, wet ? 1 : -1));
+								else gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, false, rand,  wet ? 1 : -1));
 							} else if (x == 1) {
-								if (cold) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : -1));
-								else if (rand.nextInt(8) == 0) gen.setBlockState(checkPos, getSlab(false, rand,  wet ? 1 : -1));
-								else gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, false, rand,  wet ? 1 : -1));
+								if (cold) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : -1));
+								else if (rand.nextInt(8) == 0) gen.setBlockState(checkPos, getSlab(type, false, rand,  wet ? 1 : -1));
+								else gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, false, rand,  wet ? 1 : -1));
 							} else {
 								if (z == -offset) {
-									if (cold) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : -1));
-									else gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, false, rand,  wet ? 1 : -1));
-								} else if (z == -5 - offset && gen.world.isBlockNormalCube(gen.getPos(checkPos.add(0, 0, -1)), false)) gen.setBlockState(checkPos, getStairs(EnumFacing.NORTH, false, rand,  wet ? 1 : -1));
+									if (cold) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : -1));
+									else gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, false, rand,  wet ? 1 : -1));
+								} else if (z == -5 - offset && gen.world.isBlockNormalCube(gen.getPos(checkPos.add(0, 0, -1)), false)) gen.setBlockState(checkPos, getStairs(type, EnumFacing.NORTH, false, rand,  wet ? 1 : -1));
 								else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 							}
 						}
 					} else if (y <= -1 - z - offset && y >= -7 - z - offset) {
 						if (x == 0 && y < -1 - z - offset && y > -7 - z - offset) {
-							if (y == -2 - z - offset) gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, wet ? 0 : d));
+							if (y == -2 - z - offset) gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, true, rand, wet ? 0 : d));
 							else if (y > -6 - offset) {
 								if (y > -6 - z - offset) {
 									if (y == -2) {
@@ -109,9 +110,9 @@ public class TombGen extends TombGenBase {
 										if (cold && gen.world.canBlockSeeSky(gen.getPos(checkPos.up()))) gen.setBlockState(checkPos.up(), Blocks.SNOW_LAYER.getDefaultState());
 									} else if (y == -3) gen.setBlockState(checkPos, biome.secondTopBlock); //dirt
 									else gen.setBlockState(checkPos, biome.fillerBlock); //dirt
-								} else gen.setBlockState(checkPos, getStairs(EnumFacing.NORTH, false, rand, wet ? 0 : y == -2 ? -1 : d));
+								} else gen.setBlockState(checkPos, getStairs(type, EnumFacing.NORTH, false, rand, wet ? 0 : y == -2 ? -1 : d));
 							} else gen.setBlockState(checkPos, MistBlocks.GRAVEL.getDefaultState());
-						} else gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : (y == -2 && z == -4 - offset) ? -1 : d));
+						} else gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : (y == -2 && z == -4 - offset) ? -1 : d));
 					}
 				}
 			}
@@ -168,14 +169,24 @@ public class TombGen extends TombGenBase {
 					i = -1;
 					if (x <= -2) {
 						if (z <= -2) i = 0;
+						else if (z == -1) i = -1;
 						else if (z == 0) i = 1;
+						else if (z == 1) i = -2;
 						else if (z >= 2) i = 2;
+					} else if (x == -1) {
+						if (z > 2) i = -3;
+						else if (z < -2) i = -8;
 					} else if (x == 0) {
 						if (z >= 2) i = 3;
 						else if (z <= -2) i = 7;
+					} else if (x == 1) {
+						if (z > 2) i = -4;
+						else if (z < -2) i = -7;
 					} else if (x >= 2) {
 						if (z >= 2) i = 4;
+						else if (z == 1) i = -5;
 						else if (z == 0) i = 5;
+						else if (z == -1) i = -6;
 						else if (z <= -2) i = 6;
 					}
 					bottonDeep = MistWorld.fogMaxHight_S + 4 - center.getY() + (int)(biome.getGrassNoise().getValue((double)(center.getX() + x) / 20, (double)(center.getZ() + z) / 20) * 2 + (Math.abs(x * z)) * 0.2D);
@@ -186,17 +197,23 @@ public class TombGen extends TombGenBase {
 						checkPos = center.add(x, y, z);
 						if (gen.world.isBlockFullCube(gen.getPos(checkPos))) {
 							if (x == -3 || x == 3 || z == -3 || z == 3) {
-								if (i == -1) gen.setBlockState(checkPos, getCobble(rand, 1));
-								else {
+								if (i < 0) {
+									if (y == -1) gen.setBlockState(checkPos, MistBlocks.STONE_MINED.getDefaultState().withProperty(MistStoneMined.STAGE, MistStoneMined.EnumStoneStage.MOSS));
+									else if (y == -2) gen.setBlockState(checkPos, getBlock(Type.BRICK, rand, 1));
+									else if ((y - 7) % 8 == i + 1 || (y - 4) % 8 == i + 1) gen.setBlockState(checkPos, getBlock(Type.MASONRY, rand, 1));
+									else if ((y - 6) % 8 == i + 1 || (y - 5) % 8 == i + 1) gen.setBlockState(checkPos, getBlock(Type.BRICK, rand, 1));
+									else if (gen.getBlockState(checkPos).getBlock() != MistBlocks.MASONRY) gen.setBlockState(checkPos, getBlock(Type.COBBLE, rand, 1));
+								} else {
 									int w = wet || -y - 1 <= i ? 1 : (-y - 4) % 8 == i ? -1 : 0;
 									if (y < -1 && (-y - 2) % 8 == i) gen.setBlockState(checkPos, MistBlocks.STONE.getDefaultState());
+									else if (y == -2) gen.setBlockState(checkPos, getBlock(Type.BRICK, rand, 1));
 									else if (y > MistWorld.fogMaxHight_S + 5 - center.getY()) {
 										if (y == -1 || (-y - 1) % 8 == i) {
 											if (y > -6 || (x != 0 && z != 0)) {
-												if (x == -3) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, w));
-												else if (x == 3) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, w));
-												else if (z == -3) gen.setBlockState(checkPos, getStairs(EnumFacing.NORTH, true, rand, w));
-												else gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, w));
+												if (x == -3) gen.setBlockState(checkPos, getStairs(Type.BRICK, EnumFacing.WEST, true, rand, w));
+												else if (x == 3) gen.setBlockState(checkPos, getStairs(Type.BRICK, EnumFacing.EAST, true, rand, w));
+												else if (z == -3) gen.setBlockState(checkPos, getStairs(Type.BRICK, EnumFacing.NORTH, true, rand, w));
+												else gen.setBlockState(checkPos, getStairs(Type.BRICK, EnumFacing.SOUTH, true, rand, w));
 											} else if (y > MistWorld.fogMaxHight_S + 4 - center.getY()) {
 												gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 												Rotation rot = x == -3 ? Rotation.CLOCKWISE_90 : x == 3 ? Rotation.COUNTERCLOCKWISE_90 : z == -3 ? Rotation.CLOCKWISE_180 : Rotation.NONE;
@@ -206,20 +223,17 @@ public class TombGen extends TombGenBase {
 												else generateEnd(gen.add(checkPos.down(), rot, Mirror.NONE), biome, rand, false);
 											}
 										} else if (y < -2 && (-y - 3) % 8 == i) {
-											if (x == -3) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, false, rand, -1));
-											else if (x == 3) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, false, rand, -1));
-											else if (z == -3) gen.setBlockState(checkPos, getStairs(EnumFacing.NORTH, false, rand, -1));
-											else gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, false, rand, -1));
+											if (x == -3) gen.setBlockState(checkPos, getStairs(Type.BRICK, EnumFacing.WEST, false, rand, -1));
+											else if (x == 3) gen.setBlockState(checkPos, getStairs(Type.BRICK, EnumFacing.EAST, false, rand, -1));
+											else if (z == -3) gen.setBlockState(checkPos, getStairs(Type.BRICK, EnumFacing.NORTH, false, rand, -1));
+											else gen.setBlockState(checkPos, getStairs(Type.BRICK, EnumFacing.SOUTH, false, rand, -1));
 										} else if ((x == 0 || z == 0) && y > MistWorld.fogMaxHight_S + 6 - center.getY()) {
 											if (y <= -5 && -y % 8 == i) gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 											else if (y <= -4 && (-y + 1) % 8 == i) {
-												if (x == -3) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, w));
-												else if (x == 3) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, w));
-												else if (z == -3) gen.setBlockState(checkPos, getStairs(EnumFacing.NORTH, true, rand, w));
-												else gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, w));
-											} else gen.setBlockState(checkPos, getCobble(rand, w));
-										} else gen.setBlockState(checkPos, getCobble(rand, w));
-									} else gen.setBlockState(checkPos, getCobble(rand, w));
+												gen.setBlockState(checkPos, MistBlocks.STONE_MINED.getDefaultState().withProperty(MistStoneMined.TYPE, MistStoneMined.EnumStoneType.CHISELED).withProperty(MistStoneMined.STAGE, MistStoneMined.EnumStoneStage.MOSS));
+											} else gen.setBlockState(checkPos, getBlock(Type.COBBLE, rand, w));
+										} else gen.setBlockState(checkPos, getBlock(Type.COBBLE, rand, w));
+									} else gen.setBlockState(checkPos, getBlock(Type.COBBLE, rand, w));
 								}
 							} else {
 								if ((x == -2 || x == 2 || z == -2 || z == 2) && (i != -1 && (y < -1 && (-y - 2) % 8 == i))) gen.setBlockState(checkPos, MistBlocks.STONE.getDefaultState());
@@ -248,13 +262,14 @@ public class TombGen extends TombGenBase {
 				for (int x = -2; x <= 2; ++x) {
 					for (int z = 1; z <= 6; ++z) {
 						for (int y = 0; y <= 4; ++y) {
+							Type type = y >= 3 || (z == 1 && x != 0) ? Type.BRICK : Type.COBBLE;
 							checkPos = center.add(x, y, z);
-							if (x == -2 || x == 2 || z == 1 || z == 6 || y == 4) gen.setBlockState(checkPos, getCobble(rand, wet ? 1 : 0));
+							if (x == -2 || x == 2 || z == 1 || z == 6 || y == 4) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 1 : 0));
 							else if (y == 0) gen.setBlockState(checkPos, redSandDry);
 							else if (y == 3) {
-								if (x == -1) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, wet ? 1 : 0));
-								else if (x == 1) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, wet ? 1 : 0));
-								else if (z == 5) gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, wet ? 1 : 0));
+								if (x == -1) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, true, rand, wet ? 1 : 0));
+								else if (x == 1) gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, true, rand, wet ? 1 : 0));
+								else if (z == 5) gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, true, rand, wet ? 1 : 0));
 								else placeWeb(gen, checkPos, rand, true);
 							} else if (y == 2) {
 								if ((x == -1 || x == 1) && (z == 2 || z == 6)) placeWeb(gen, checkPos, rand, true);
@@ -264,21 +279,25 @@ public class TombGen extends TombGenBase {
 					}
 				}
 				gen.setBlockState(center.add(0, 0, 1), MistBlocks.STONE.getDefaultState());
-				gen.setBlockState(center.add(-3, 2, 3), getCobble(rand, wet ? 1 : 0));
-				gen.setBlockState(center.add(3, 2, 3), getCobble(rand, wet ? 1 : 0));
+				gen.setBlockState(center.add(-1, 2, 0), getBlock(Type.MASONRY, rand, wet ? 1 : 0));
+				gen.setBlockState(center.add(-1, 3, 0), getBlock(Type.MASONRY, rand, wet ? 1 : 0));
+				gen.setBlockState(center.add(1, 2, 0), getBlock(Type.MASONRY, rand, wet ? 1 : 0));
+				gen.setBlockState(center.add(1, 3, 0), getBlock(Type.MASONRY, rand, wet ? 1 : 0));
+				gen.setBlockState(center.add(-3, 2, 3), getBlock(Type.COBBLE, rand, wet ? 1 : 0));
+				gen.setBlockState(center.add(3, 2, 3), getBlock(Type.COBBLE, rand, wet ? 1 : 0));
 				placeUrn(gen, center.add(-2, 2, 3), biomeType, loc, rand, true);
 				placeUrn(gen, center.add(2, 2, 3), biomeType, loc, rand, true);
 				int i = rand.nextInt(5);
 				if (i == 0) {
-					gen.setBlockState(center.add(-1, 2, 7), getCobble(rand, wet ? 1 : 0));
+					gen.setBlockState(center.add(-1, 2, 7), getBlock(Type.COBBLE, rand, wet ? 1 : 0));
 					placeUrn(gen, center.add(-1, 2, 6), biomeType, loc, rand, true);
 					generateGrave(gen, center.add(1, 1, 5), Rotation.COUNTERCLOCKWISE_90, rand, wet, false);
 				} else if (i == 1) {
-					gen.setBlockState(center.add(1, 2, 7), getCobble(rand, wet ? 1 : 0));
+					gen.setBlockState(center.add(1, 2, 7), getBlock(Type.COBBLE, rand, wet ? 1 : 0));
 					placeUrn(gen, center.add(1, 2, 6), biomeType, loc, rand, true);
 					generateGrave(gen, center.add(-1, 1, 5), Rotation.CLOCKWISE_90, rand, wet, true);
 				} else {
-					gen.setBlockState(center.add(0, 2, 7), getCobble(rand, wet ? 1 : 0));
+					gen.setBlockState(center.add(0, 2, 7), getBlock(Type.COBBLE, rand, wet ? 1 : 0));
 					placeUrn(gen, center.add(0, 2, 6), biomeType, loc, rand, true);
 					generateGrave(gen, center.add(-1, 1, 5), Rotation.NONE, rand, wet, false);
 					generateGrave(gen, center.add(1, 1, 5), Rotation.NONE, rand, wet, true);
@@ -293,25 +312,28 @@ public class TombGen extends TombGenBase {
 				for (int x = -4; x <= 4; ++x) {
 					for (int z = 1; z <= 7; ++z) {
 						for (int y = 0; y <= 4; ++y) {
+							Type type = y >= 3 ? Type.BRICK : Type.COBBLE;
 							checkPos = center.add(x, y, z);
-							if (x == -4 || x == 4 || z == 1 || z == 7 || y == 4) {
-								if (y != 4 || (x >= -2 && x <= 2)) gen.setBlockState(checkPos, getCobble(rand, wet ? 1 : 0));
+							if (z == 1 && (y == 1 || y == 2) && (x == -1 || x == 1)) gen.setBlockState(checkPos, getBlock(Type.BRICK, rand, wet ? 1 : 0));
+							else if (z == 1 && (y == 1 || y == 2) && (x == -2 || x == 2)) gen.setBlockState(checkPos, getBlock(Type.MASONRY, rand, wet ? 1 : 0));
+							else if (x == -4 || x == 4 || z == 1 || z == 7 || y == 4) {
+								if (y != 4 || (x >= -2 && x <= 2)) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 1 : 0));
 							} else if (y == 0) {
-								if (z == 4 && (x == 2 || x == -2)) gen.setBlockState(checkPos, getCobble(rand, wet ? 1 : 0));
+								if (z == 4 && (x == 2 || x == -2)) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 1 : 0));
 								else gen.setBlockState(checkPos, redSandDry);
 							} else if (y == 3) {
 								if (z == 6) {
-									if (x >= -1 && x <= 1) gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, wet ? 1 : 0));
-									else gen.setBlockState(checkPos, getCobble(rand, wet ? 1 : 0));
+									if (x >= -1 && x <= 1) gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, true, rand, wet ? 1 : 0));
+									else gen.setBlockState(checkPos, getBlock(type, rand, wet ? 1 : 0));
 								} else {
-									if (x == -1) gen.setBlockState(checkPos, getStep(EnumFacing.WEST, true, rand, wet ? 1 : 0));
-									else if (x == 1) gen.setBlockState(checkPos, getStep(EnumFacing.EAST, true, rand, wet ? 1 : 0));
+									if (x == -1) gen.setBlockState(checkPos, getStep(type, EnumFacing.WEST, true, rand, wet ? 1 : 0));
+									else if (x == 1) gen.setBlockState(checkPos, getStep(type, EnumFacing.EAST, true, rand, wet ? 1 : 0));
 									else if (x == 0) placeWeb(gen, checkPos, rand, true);
-									else gen.setBlockState(checkPos, getCobble(rand, wet ? 1 : 0));
+									else gen.setBlockState(checkPos, getBlock(type, rand, wet ? 1 : 0));
 								}
 							} else if (z == 4) {
 								if (x == -3 || x == 3) placeWeb(gen, checkPos, rand, true);
-								else if (x == -2 || x == 2) gen.setBlockState(checkPos, getCobble(rand, wet ? 1 : 0));
+								else if (x == -2 || x == 2) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 1 : 0));
 								else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 							} else if (y == 2) {
 								if ((x == -3 || x == 3) && (z == 2 || z == 7)) placeWeb(gen, checkPos, rand, true);
@@ -321,16 +343,20 @@ public class TombGen extends TombGenBase {
 					}
 				}
 				gen.setBlockState(center.add(0, 0, 1), MistBlocks.STONE.getDefaultState());
-				gen.setBlockState(center.add(-5, 2, 3), getCobble(rand, wet ? 1 : 0));
-				gen.setBlockState(center.add(5, 2, 3), getCobble(rand, wet ? 1 : 0));
+				gen.setBlockState(center.add(-1, 2, 0), getBlock(Type.MASONRY, rand, wet ? 1 : 0));
+				gen.setBlockState(center.add(-1, 3, 0), getBlock(Type.MASONRY, rand, wet ? 1 : 0));
+				gen.setBlockState(center.add(1, 2, 0), getBlock(Type.MASONRY, rand, wet ? 1 : 0));
+				gen.setBlockState(center.add(1, 3, 0), getBlock(Type.MASONRY, rand, wet ? 1 : 0));
+				gen.setBlockState(center.add(-5, 2, 3), getBlock(Type.COBBLE, rand, wet ? 1 : 0));
+				gen.setBlockState(center.add(5, 2, 3), getBlock(Type.COBBLE, rand, wet ? 1 : 0));
 				placeUrn(gen, center.add(-4, 2, 3), biomeType, loc, rand, true);
 				placeUrn(gen, center.add(4, 2, 3), biomeType, loc, rand, true);
-				gen.setBlockState(center.add(-5, 2, 5), getCobble(rand, wet ? 1 : 0));
-				gen.setBlockState(center.add(5, 2, 5), getCobble(rand, wet ? 1 : 0));
+				gen.setBlockState(center.add(-5, 2, 5), getBlock(Type.COBBLE, rand, wet ? 1 : 0));
+				gen.setBlockState(center.add(5, 2, 5), getBlock(Type.COBBLE, rand, wet ? 1 : 0));
 				placeUrn(gen, center.add(-4, 2, 5), biomeType, loc, rand, true);
 				placeUrn(gen, center.add(4, 2, 5), biomeType, loc, rand, true);
-				gen.setBlockState(center.add(-1, 2, 8), getCobble(rand, wet ? 1 : 0));
-				gen.setBlockState(center.add(1, 2, 8), getCobble(rand, wet ? 1 : 0));
+				gen.setBlockState(center.add(-1, 2, 8), getBlock(Type.COBBLE, rand, wet ? 1 : 0));
+				gen.setBlockState(center.add(1, 2, 8), getBlock(Type.COBBLE, rand, wet ? 1 : 0));
 				placeUrn(gen, center.add(-1, 2, 7), biomeType, loc, rand, true);
 				placeUrn(gen, center.add(1, 2, 7), biomeType, loc, rand, true);
 				generateGrave(gen, center.add(-3, 1, 2), Rotation.CLOCKWISE_90, rand, wet, false);
@@ -348,27 +374,33 @@ public class TombGen extends TombGenBase {
 				for (int z = 1; z <= 2; ++z) {
 					for (int y = 0; y <= 3; ++y) {
 						checkPos = center.add(x, y, z);
-						if (x == -1 || x == 1 || z == 2 || y == 3) gen.setBlockState(checkPos, getCobble(rand, wet ? 1 : 0));
+						if (x == -1 || x == 1 || y == 3) gen.setBlockState(checkPos, getBlock(Type.BRICK, rand, wet ? 1 : 0));
+						else if (z == 2) gen.setBlockState(checkPos, getBlock(Type.COBBLE, rand, wet ? 1 : 0));
 						else if (y == 0) gen.setBlockState(checkPos, MistBlocks.STONE.getDefaultState());
 						else if (y == 2) placeUrn(gen, checkPos, biomeType, loc, rand, true, 8);
-						else gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, wet ? 1 : 0));
+						else gen.setBlockState(checkPos, getStairs(Type.BRICK, EnumFacing.SOUTH, true, rand, wet ? 1 : 0));
 					}
 				}
 			}
+			gen.setBlockState(center.add(-1, 2, 0), getBlock(Type.MASONRY, rand, wet ? 1 : 0));
+			gen.setBlockState(center.add(-1, 3, 0), getBlock(Type.MASONRY, rand, wet ? 1 : 0));
+			gen.setBlockState(center.add(1, 2, 0), getBlock(Type.MASONRY, rand, wet ? 1 : 0));
+			gen.setBlockState(center.add(1, 3, 0), getBlock(Type.MASONRY, rand, wet ? 1 : 0));
 		}
 
 		private static void generateGrave(GenUtil gen, BlockPos center, Rotation rotation, Random rand, boolean wet, boolean mirror) {
 			GenUtil genRot = gen.add(center, rotation, Mirror.NONE);
 			center = genRot.set.center;
+			Type type = rand.nextBoolean() ? Type.BRICK : Type.COBBLE;
 			IBlockState state;
-			if (rand.nextInt(8) == 0) state = getSlab(false, rand, wet ? 1 : 0);
-			else state = getStairs(EnumFacing.SOUTH, false, rand, wet ? 1 : 0);
+			if (rand.nextInt(8) == 0) state = getSlab(type, false, rand, wet ? 1 : 0);
+			else state = getStairs(type, EnumFacing.SOUTH, false, rand, wet ? 1 : 0);
 			genRot.setBlockState(center, state);
 			int i = rand.nextInt(12);
 			if (i == 0) state = Blocks.AIR.getDefaultState();
-			else if (i == 1) state = getStep(EnumFacing.SOUTH, false, rand, wet ? 1 : 0);
-			else if (i == 2) state = getStep(mirror ? EnumFacing.EAST : EnumFacing.WEST, false, rand, wet ? 1 : 0);
-			else state = getSlab(false, rand, wet ? 1 : 0);
+			else if (i == 1) state = getStep(type, EnumFacing.SOUTH, false, rand, wet ? 1 : 0);
+			else if (i == 2) state = getStep(type, mirror ? EnumFacing.EAST : EnumFacing.WEST, false, rand, wet ? 1 : 0);
+			else state = getSlab(type, false, rand, wet ? 1 : 0);
 			genRot.setBlockState(center.north(), state);
 			int size = rand.nextInt(3) + 4;
 			genRot.setBlockState(center.down(), MistBlocks.REMAINS.getDefaultState().withProperty(Remains.LAYERS, size).withProperty(Remains.OLD, true));
@@ -400,6 +432,7 @@ public class TombGen extends TombGenBase {
 		private static void generateSnowEntrance(GenUtil gen, BiomeMist biome, Random rand, boolean wet) {
 			BlockPos center = gen.set.center;
 			BlockPos checkPos;
+			Type type = Type.BRICK;
 			for (int x = -3; x <= 3; ++x) {
 				for (int z = -3; z <= 3; ++z) {
 					for (int y = -1; y >= -6; --y) {
@@ -415,19 +448,19 @@ public class TombGen extends TombGenBase {
 								int i = -1;
 								if (z == 1) i = x == -1 ? -4 : -3;
 								else if (x == 1) i = -2;
-								if (y < i) gen.setBlockState(checkPos, getCobble(rand, wet ? 1 : 0));
+								if (y < i) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 1 : 0));
 								else if (y > i) gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 								else if (gen.world.canBlockSeeSky(gen.getPos(checkPos.up()))) gen.setBlockState(checkPos, Blocks.SNOW_LAYER.getDefaultState());
 							}
 						} else {
 							if (y == -1) {
 								if (x >= -2 && x <= 2 && z >= -2 && z <= 2) {
-									if (Math.abs(x * z) == 4) gen.setBlockState(checkPos, getCobble(rand, wet ? 1 : 0));
-									else if (x == -2) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, wet ? 1 : 0));
-									else if (x == 2) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, wet ? 1 : 0));
-									else if (z == -2) gen.setBlockState(checkPos, getStairs(EnumFacing.NORTH, true, rand, wet ? 1 : 0));
-									else if (z == 2) gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, wet ? 1 : 0));
-								} else gen.setBlockState(checkPos, getCobble(rand, wet ? 1 : 0));
+									if (Math.abs(x * z) == 4) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 1 : 0));
+									else if (x == -2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, true, rand, wet ? 1 : 0));
+									else if (x == 2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, true, rand, wet ? 1 : 0));
+									else if (z == -2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.NORTH, true, rand, wet ? 1 : 0));
+									else if (z == 2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, true, rand, wet ? 1 : 0));
+								} else gen.setBlockState(checkPos, getBlock(type, rand, wet ? 1 : 0));
 								if (gen.world.canBlockSeeSky(gen.getPos(checkPos.up()))) gen.setBlockState(checkPos.up(), Blocks.SNOW_LAYER.getDefaultState());
 							} else if (x == -3 || x == 3 || z == -3 || z == 3) {
 								if (Math.abs(x * z) != 9) {
@@ -435,14 +468,14 @@ public class TombGen extends TombGenBase {
 										if (y == -6) gen.setBlockState(checkPos, MistBlocks.GRAVEL.getDefaultState());
 										else if (y <= -4) gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 										else if (y == -3) {
-											if (x == -3) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, wet ? 1 : 0));
-											else if (x == 3) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, wet ? 1 : 0));
-											else if (z == -3) gen.setBlockState(checkPos, getStairs(EnumFacing.NORTH, true, rand, wet ? 1 : 0));
-											else if (z == 3) gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, wet ? 1 : 0));
-										} else gen.setBlockState(checkPos, getCobble(rand, wet ? 1 : 0));
-									} else gen.setBlockState(checkPos, getCobble(rand, wet ? 1 : 0));
+											if (x == -3) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, true, rand, wet ? 1 : 0));
+											else if (x == 3) gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, true, rand, wet ? 1 : 0));
+											else if (z == -3) gen.setBlockState(checkPos, getStairs(type, EnumFacing.NORTH, true, rand, wet ? 1 : 0));
+											else if (z == 3) gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, true, rand, wet ? 1 : 0));
+										} else gen.setBlockState(checkPos, getBlock(type, rand, wet ? 1 : 0));
+									} else gen.setBlockState(checkPos, getBlock(type, rand, wet ? 1 : 0));
 								}
-							} else if (Math.abs(x * z) == 4) gen.setBlockState(checkPos, getCobble(rand, wet ? 1 : 0));
+							} else if (Math.abs(x * z) == 4) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 1 : 0));
 							else if (y == -6) gen.setBlockState(checkPos, MistBlocks.GRAVEL.getDefaultState());
 							else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 						}
@@ -456,6 +489,7 @@ public class TombGen extends TombGenBase {
 		}
 
 		private static void generateRoom(GenUtil gen, BiomeMist biome, Random rand, boolean wet) {
+			Type type = Type.BRICK;
 			if (rand.nextInt(3) == 0 && roomCheck(gen, -3, 3, 0, 5, 0, 6, false)) generateRoomPart(gen, biome, rand, wet);
 			else if (rand.nextInt(3) != 0 && roomCheck(gen, -2, 2, 0, 5, 0, 4, false)) generateMiniRoomPart(gen, biome, rand, false, wet);
 			else {
@@ -465,12 +499,13 @@ public class TombGen extends TombGenBase {
 					for (int z = 0; z <= 2; ++z) {
 						for (int y = 0; y <= 3; ++y) {
 							checkPos = center.add(x, y, z);
-							gen.setBlockState(checkPos, getCobble(rand, wet ? 1 : 0));
+							if (x == 0 && z == 0 && (y == 1 || y == 2)) gen.setBlockState(checkPos, getBlock(Type.COBBLE, rand, wet ? 1 : 0));
+							else gen.setBlockState(checkPos, getBlock(type, rand, wet ? 1 : 0));
 						}
 					}
 				}
 				placeUrn(gen, center.add(0, 2, 1), biomeType, loc, rand, false, 1);
-				gen.setBlockState(center.add(0, 1, 1), getStairs(EnumFacing.SOUTH, true, rand, wet ? 1 : 0));
+				gen.setBlockState(center.add(0, 1, 1), getStairs(type, EnumFacing.SOUTH, true, rand, wet ? 1 : 0));
 				gen.setBlockState(center.add(0, 0, 1), MistBlocks.GRAVEL.getDefaultState());
 				gen.setBlockState(center.add(0, 0, 0), MistBlocks.GRAVEL.getDefaultState());
 			}
@@ -479,30 +514,33 @@ public class TombGen extends TombGenBase {
 		private static void generateRoomPart(GenUtil gen, BiomeMist biome, Random rand, boolean wet) {
 			BlockPos center = gen.set.center;
 			BlockPos checkPos;
+			Type type = Type.BRICK;
 			for (int x = -3; x <= 3; ++x) {
 				for (int z = 0; z <= 6; ++z) {
 					for (int y = 0; y <= 4; ++y) {
 						checkPos = center.add(x, y, z);
 						if (y == 4) {
-							if (x <= -2 || x >= 2 || z <= 1 || z >= 5) gen.setBlockState(checkPos, getCobble(rand, wet ? 1 : 0));
-							else if (x == -1) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, wet ? 1 : 0));
-							else if (x == 1) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, wet ? 1 : 0));
-							else if (z == 2) gen.setBlockState(checkPos, getStairs(EnumFacing.NORTH, true, rand, wet ? 1 : 0));
-							else if (z == 4) gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, wet ? 1 : 0));
-						} else if (x == -3 || x == 3 || z == 0 || z == 6) gen.setBlockState(checkPos, getCobble(rand, wet ? 1 : 0));
-						else if (y == 0) gen.setBlockState(checkPos, MistBlocks.GRAVEL.getDefaultState());
+							if (x <= -2 || x >= 2 || z <= 1 || z >= 5) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 1 : 0));
+							else if (x == -1) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, true, rand, wet ? 1 : 0));
+							else if (x == 1) gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, true, rand, wet ? 1 : 0));
+							else if (z == 2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.NORTH, true, rand, wet ? 1 : 0));
+							else if (z == 4) gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, true, rand, wet ? 1 : 0));
+						} else if (x == -3 || x == 3 || z == 0 || z == 6) {
+							if (z == 0 && x == 0 && (y == 1 || y == 2)) gen.setBlockState(checkPos, getBlock(Type.COBBLE, rand, wet ? 1 : 0));
+							else gen.setBlockState(checkPos, getBlock(type, rand, wet ? 1 : 0));
+						} else if (y == 0) gen.setBlockState(checkPos, MistBlocks.GRAVEL.getDefaultState());
 						else if (y == 3) {
-							if (x == -2) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, wet ? 1 : 0));
-							else if (x == 2) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, wet ? 1 : 0));
-							else if (z == 1) gen.setBlockState(checkPos, getStairs(EnumFacing.NORTH, true, rand, wet ? 1 : 0));
-							else if (z == 5) gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, wet ? 1 : 0));
+							if (x == -2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, true, rand, wet ? 1 : 0));
+							else if (x == 2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, true, rand, wet ? 1 : 0));
+							else if (z == 1) gen.setBlockState(checkPos, getStairs(type, EnumFacing.NORTH, true, rand, wet ? 1 : 0));
+							else if (z == 5) gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, true, rand, wet ? 1 : 0));
 							else if (x == 0 || z == 3) gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 							else placeWeb(gen, checkPos, rand, true);
 						} else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 					}
 				}
 			}
-			gen.setBlockState(center.add(0, 4, 3), getSlab(true, rand, wet ? 1 : 0));
+			gen.setBlockState(center.add(0, 4, 3), getSlab(type, true, rand, wet ? 1 : 0));
 			gen.setBlockState(center.add(0, 0, 0), MistBlocks.GRAVEL.getDefaultState());
 
 			generateGrave(gen, center.add(-1, 1, 6), Rotation.NONE, rand, wet);
@@ -529,6 +567,8 @@ public class TombGen extends TombGenBase {
 		private static void generateMiniRoomPart(GenUtil gen, BiomeMist biome, Random rand, boolean separate, boolean wet) {
 			BlockPos center = gen.set.center;
 			BlockPos checkPos;
+			Type cobble = Type.COBBLE;
+			Type brick = Type.BRICK;
 			for (int x = -2; x <= 2; ++x) {
 				for (int z = 0; z <= 4; ++z) {
 					for (int y = 0; y <= 5; ++y) {
@@ -537,28 +577,33 @@ public class TombGen extends TombGenBase {
 							if (separate) {
 								if (x >= -1 && x <= 1 && z >= 1 && z <= 3) {
 									if (x == 0 && z == 2) {
-										gen.setBlockState(checkPos, getCobble(rand, wet ? 1 : 0));
+										gen.setBlockState(checkPos, getBlock(cobble, rand, wet ? 1 : 0));
 										if (gen.world.canBlockSeeSky(gen.getPos(checkPos.up()))) gen.setBlockState(checkPos.up(), Blocks.SNOW_LAYER.getDefaultState());
-									} else if (x == -1) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, false, rand, wet ? 1 : 0));
-									else if (x == 1) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, false, rand, wet ? 1 : 0));
-									else if (z == 1) gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, false, rand, wet ? 1 : 0));
-									else if (z == 3) gen.setBlockState(checkPos, getStairs(EnumFacing.NORTH, false, rand, wet ? 1 : 0));
+									} else if (x == -1) gen.setBlockState(checkPos, getStairs(z == 1 || z == 3 ? brick : cobble, EnumFacing.EAST, false, rand, wet ? 1 : 0));
+									else if (x == 1) gen.setBlockState(checkPos, getStairs(z == 1 || z == 3 ? brick : cobble, EnumFacing.WEST, false, rand, wet ? 1 : 0));
+									else if (z == 1) gen.setBlockState(checkPos, getStairs(cobble, EnumFacing.SOUTH, false, rand, wet ? 1 : 0));
+									else if (z == 3) gen.setBlockState(checkPos, getStairs(cobble, EnumFacing.NORTH, false, rand, wet ? 1 : 0));
 								}
 							}
 						} else if (x == -2 || x == 2 || z == 0 || z == 4 || y == 4) {
 							if (separate && y == 4) {
-								if (x == -2) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, false, rand, wet ? 1 : 0));
-								else if (x == 2) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, false, rand, wet ? 1 : 0));
-								else if (z == 0) gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, false, rand, wet ? 1 : 0));
-								else if (z == 4) gen.setBlockState(checkPos, getStairs(EnumFacing.NORTH, false, rand, wet ? 1 : 0));
-								else gen.setBlockState(checkPos, getCobble(rand, wet ? 1 : 0));
-							} else gen.setBlockState(checkPos, getCobble(rand, wet ? 1 : 0));
+								if (x == -2) gen.setBlockState(checkPos, getStairs(z == 0 || z == 4 ? brick : cobble, EnumFacing.EAST, false, rand, wet ? 1 : 0));
+								else if (x == 2) gen.setBlockState(checkPos, getStairs(z == 0 || z == 4 ? brick : cobble, EnumFacing.WEST, false, rand, wet ? 1 : 0));
+								else if (z == 0) gen.setBlockState(checkPos, getStairs(cobble, EnumFacing.SOUTH, false, rand, wet ? 1 : 0));
+								else if (z == 4) gen.setBlockState(checkPos, getStairs(cobble, EnumFacing.NORTH, false, rand, wet ? 1 : 0));
+								else gen.setBlockState(checkPos, getBlock(brick, rand, wet ? 1 : 0));
+							} else if ((y == 1 || y == 2) && ((x > -2 && x < 2) || (z > 0 && z < 4))) {
+								gen.setBlockState(checkPos, getBlock(Type.MASONRY, rand, wet ? 1 : 0));
+							} else if (separate && y == 3 && ((x == -2 || x == 2) && (z == 0 || z == 4))) {
+								gen.setBlockState(checkPos, getBlock(Type.MASONRY, rand, wet ? 1 : 0));
+							} else if (y == 0) gen.setBlockState(checkPos, getBlock(brick, rand, wet ? 1 : 0));
+							else gen.setBlockState(checkPos, getBlock(y == 4 ? brick : cobble, rand, wet ? 1 : 0));
 						} else if (y == 0) gen.setBlockState(checkPos, MistBlocks.GRAVEL.getDefaultState());
 						else if (y == 3) {
-							if (x == -1) gen.setBlockState(checkPos, getStep(EnumFacing.WEST, true, rand, wet ? 1 : 0));
-							else if (x == 1) gen.setBlockState(checkPos, getStep(EnumFacing.EAST, true, rand, wet ? 1 : 0));
-							else if (z == 1) gen.setBlockState(checkPos, getStep(EnumFacing.NORTH, true, rand, wet ? 1 : 0));
-							else if (z == 3) gen.setBlockState(checkPos, getStep(EnumFacing.SOUTH, true, rand, wet ? 1 : 0));
+							if (x == -1) gen.setBlockState(checkPos, getStep(brick, EnumFacing.WEST, true, rand, wet ? 1 : 0));
+							else if (x == 1) gen.setBlockState(checkPos, getStep(brick, EnumFacing.EAST, true, rand, wet ? 1 : 0));
+							else if (z == 1) gen.setBlockState(checkPos, getStep(brick, EnumFacing.NORTH, true, rand, wet ? 1 : 0));
+							else if (z == 3) gen.setBlockState(checkPos, getStep(brick, EnumFacing.SOUTH, true, rand, wet ? 1 : 0));
 							else placeWeb(gen, checkPos, rand, true);
 						} else if (y == 2) {
 							if (x == 0 || z == 2) gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
@@ -567,7 +612,10 @@ public class TombGen extends TombGenBase {
 					}
 				}
 			}
-			gen.setBlockState(center.add(0, 4, 2), getSlab(true, rand, wet ? 1 : 0));
+			gen.setBlockState(center.add(0, 4, 2), getSlab(brick, true, rand, wet ? 1 : 0));
+			gen.setBlockState(center.add(0, 3, 0), getBlock(Type.BRICK, rand, wet ? 1 : 0));
+			gen.setBlockState(center.add(1, 3, 0), getBlock(Type.MASONRY, rand, wet ? 1 : 0));
+			gen.setBlockState(center.add(-1, 3, 0), getBlock(Type.MASONRY, rand, wet ? 1 : 0));
 			gen.setBlockState(center.add(0, 0, 0), MistBlocks.GRAVEL.getDefaultState());
 
 			generateGrave(gen, center.add(0, 1, 4), Rotation.NONE, rand, wet);
@@ -585,13 +633,13 @@ public class TombGen extends TombGenBase {
 						for (int y = 0; y <= 2; ++y) {
 							checkPos = center.add(x, y, z);
 							if (x == -1 || x == 1) {
-								gen.setBlockState(checkPos, getCobble(rand, wet ? 1 : 0));
+								gen.setBlockState(checkPos, getBlock(cobble, rand, wet ? 1 : 0));
 								if (y == 2 && gen.world.canBlockSeeSky(gen.getPos(checkPos.up()))) gen.setBlockState(checkPos.up(), Blocks.SNOW_LAYER.getDefaultState());
 							} else if (z <= -2) {
 								if (y == -z - 1) {
-									gen.setBlockState(checkPos, getStairs(EnumFacing.NORTH, false, rand, wet ? 1 : 0));
+									gen.setBlockState(checkPos, getStairs(brick, EnumFacing.NORTH, false, rand, wet ? 1 : 0));
 									if (y == 2) gen.setBlockState(checkPos.up(), Blocks.AIR.getDefaultState());
-								} else if (y < -z - 1) gen.setBlockState(checkPos, getCobble(rand, wet ? 1 : 0));
+								} else if (y < -z - 1) gen.setBlockState(checkPos, getBlock(cobble, rand, wet ? 1 : 0));
 							} else if (y == 0) gen.setBlockState(checkPos, MistBlocks.GRAVEL.getDefaultState());
 							else if (y == 1) gen.setBlockState(checkPos, biome.fillerBlock);
 							else if (y == 2) {
@@ -609,15 +657,16 @@ public class TombGen extends TombGenBase {
 		private static void generateGrave(GenUtil gen, BlockPos center, Rotation rotation, Random rand, boolean wet) {
 			GenUtil genRot = gen.add(center, rotation, Mirror.NONE);
 			center = genRot.set.center;
-			genRot.setBlockState(center, getStairs(EnumFacing.SOUTH, false, rand, wet ? 1 : 0));
-			genRot.setBlockState(center.up(), getStairs(EnumFacing.SOUTH, true, rand, wet ? 1 : 0));
+			genRot.setBlockState(center, getStairs(Type.COBBLE, EnumFacing.SOUTH, false, rand, wet ? 1 : 0));
+			genRot.setBlockState(center.up(), getStairs(Type.BRICK, EnumFacing.SOUTH, true, rand, wet ? 1 : 0));
+			genRot.setBlockState(center.down(), getBlock(Type.COBBLE, rand, wet ? 1 : 0));
 			int i = rand.nextInt(16);
 			IBlockState state;
 			if (i == 0) state = Blocks.AIR.getDefaultState();
-			else if (i == 1) state = getStep(EnumFacing.EAST, false, rand, wet ? 1 : 0);
-			else if (i == 2) state = getStep(EnumFacing.WEST, false, rand, wet ? 1 : 0);
-			else if (i < 6) state = getStep(EnumFacing.SOUTH, false, rand, wet ? 1 : 0);
-			else state = getSlab(false, rand, wet ? 1 : 0);
+			else if (i == 1) state = getStep(Type.COBBLE, EnumFacing.EAST, false, rand, wet ? 1 : 0);
+			else if (i == 2) state = getStep(Type.COBBLE, EnumFacing.WEST, false, rand, wet ? 1 : 0);
+			else if (i < 6) state = getStep(Type.COBBLE, EnumFacing.SOUTH, false, rand, wet ? 1 : 0);
+			else state = getSlab(Type.COBBLE, false, rand, wet ? 1 : 0);
 			genRot.setBlockState(center.north(), state);
 			genRot.setBlockState(center.north().down(), MistBlocks.REMAINS.getDefaultState().withProperty(Remains.LAYERS, rand.nextInt(3) + 4).withProperty(Remains.OLD, true));
 			((TileEntityRemains)genRot.getTileEntity(center.north().down())).setLootTable(LootTables.REMAINS_LOOT, rand.nextLong());
@@ -695,24 +744,25 @@ public class TombGen extends TombGenBase {
 		private static void generateCrossWall(GenUtil gen, BiomeMist biome, Random rand, boolean medium, boolean wet) {
 			BlockPos center = gen.set.center;
 			BlockPos checkPos;
+			Type type = Type.COBBLE;
 			if (medium || rand.nextBoolean()) {
 				if (!medium) {
 					for (int x = -1; x <= 2; ++x) {
 						for (int y = 0; y <= 4; ++y) {
 							checkPos = center.add(x, y, 0);
-							gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+							gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 						}
 					}
 				}
 				for (int x = -1; x <= 2; ++x) {
 					for (int y = 0; y <= 4; ++y) {
 						checkPos = center.add(x, y, -1);
-						if (x == -1 || x == 2 || y == 4) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+						if (x == -1 || x == 2 || y == 4) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 						else if (y == 0) gen.setBlockState(checkPos, sand);
 						else if (y == 1) gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 						else if (y == 2) placeWeb(gen, checkPos, rand, true);
-						else if (x == 0) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, wet ? 0 : d));
-						else gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, wet ? 0 : d));
+						else if (x == 0) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, true, rand, wet ? 0 : d));
+						else gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, true, rand, wet ? 0 : d));
 					}
 				}
 			} else {
@@ -721,13 +771,13 @@ public class TombGen extends TombGenBase {
 						for (int y = 0; y <= 4; ++y) {
 							checkPos = center.add(x, y, z);
 							if (z == -1) {
-								if (x == -1 || x == 2 || y == 4) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+								if (x == -1 || x == 2 || y == 4) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 								else if (y == 0) gen.setBlockState(checkPos, sand);
-								else if (y == 1) gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, wet ? 0 : d));
+								else if (y == 1) gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, true, rand, wet ? 0 : d));
 								else if (y == 2) placeUrn(gen, checkPos, biomeType, loc, rand, true, 2);
-								else if (x == 0) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, wet ? 0 : d));
-								else gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, wet ? 0 : d));
-							} else gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+								else if (x == 0) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, true, rand, wet ? 0 : d));
+								else gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, true, rand, wet ? 0 : d));
+							} else gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 						}
 					}
 				}
@@ -741,7 +791,7 @@ public class TombGen extends TombGenBase {
 				for (int z = 0; z <= 1; ++z) {
 					for (int y = 0; y <= 4; ++y) {
 						checkPos = center.add(x, y, z);
-						if (y == 4) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+						if (y == 4) gen.setBlockState(checkPos, getBlock(Type.COBBLE, rand, wet ? 0 : d));
 						else if (y == 0) gen.setBlockState(checkPos, sand);
 						else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 					}
@@ -752,6 +802,7 @@ public class TombGen extends TombGenBase {
 		private static void generateSavannaEntrance(GenUtil gen, BiomeMist biome, Random rand, boolean wet) {
 			BlockPos center = gen.set.center;
 			BlockPos checkPos;
+			Type type = Type.COBBLE;
 			int grass = rand.nextInt(3);
 			boolean mirror = rand.nextBoolean();
 			for (int x = -1; x <= 2; ++x) {
@@ -760,70 +811,71 @@ public class TombGen extends TombGenBase {
 						checkPos = center.add(x, y, z);
 						if (y == -1) {
 							if (z <= 0) {
-								if (x == -1) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, false, rand, wet ? 1 : -1));
-								else if (x == 2) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, false, rand, wet ? 1 : -1));
-								else if (z == 0) gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, false, rand, wet ? 1 : -1));
-								else if (z == -3) gen.setBlockState(checkPos, getStairs(EnumFacing.NORTH, false, rand, wet ? 1 : -1));
+								if (x == -1) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, false, rand, wet ? 1 : -1));
+								else if (x == 2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, false, rand, wet ? 1 : -1));
+								else if (z == 0) gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, false, rand, wet ? 1 : -1));
+								else if (z == -3) gen.setBlockState(checkPos, getStairs(type, EnumFacing.NORTH, false, rand, wet ? 1 : -1));
 								else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 							}
 						} else {
-							if (x == -1 || x == 2 || z == -3 || (y == -2 && z > 0)) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+							if (x == -1 || x == 2 || z == -3 || (y == -2 && z > 0)) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 							else if (z < 0) {
 								if ((x == 0 && ((z == -2 && y <= (mirror ? -2 : -3)) || (z == -1 && y <= (mirror ? -5 : -4)))) ||
-									(x == 1 && ((z == -2 && y <= (mirror ? -3 : -2)) || (z == -1 && y <= (mirror ? -4 : -5))))) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+									(x == 1 && ((z == -2 && y <= (mirror ? -3 : -2)) || (z == -1 && y <= (mirror ? -4 : -5))))) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 								else if (y == -2) {
 									if (grass == 0) gen.setBlockState(checkPos, biome.topBlock);
 									else if (grass == 1) gen.setBlockState(checkPos, biome.topBlock.withProperty(MistDirt.HUMUS, 0));
 									else gen.setBlockState(checkPos, sand);
 								} else gen.setBlockState(checkPos, sand);
 							} else if (y == -6) gen.setBlockState(checkPos, sand);
-							else if (y == -2) gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, wet ? 0 : d));
+							else if (y == -2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, true, rand, wet ? 0 : d));
 							else if (y < -2 - z) gen.setBlockState(checkPos, sand);
 							else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 						}
 					}
 				}
 			}
-			gen.setBlockState(center.add(0, -3, 4), getStairs(EnumFacing.WEST, true, rand, wet ? 0 : d));
-			gen.setBlockState(center.add(1, -3, 4), getStairs(EnumFacing.EAST, true, rand, wet ? 0 : d));
-			gen.setBlockState(center.add(0, -3, 1), getSlab(true, rand, wet ? 0 : d));
-			gen.setBlockState(center.add(1, -3, 1), getSlab(true, rand, wet ? 0 : d));
+			gen.setBlockState(center.add(0, -3, 4), getStairs(type, EnumFacing.WEST, true, rand, wet ? 0 : d));
+			gen.setBlockState(center.add(1, -3, 4), getStairs(type, EnumFacing.EAST, true, rand, wet ? 0 : d));
+			gen.setBlockState(center.add(0, -3, 1), getSlab(type, true, rand, wet ? 0 : d));
+			gen.setBlockState(center.add(1, -3, 1), getSlab(type, true, rand, wet ? 0 : d));
 		}
 
 		private static void generateRoomPart(GenUtil gen, BiomeMist biome, Random rand, boolean end, boolean wet, int count) {
 			BlockPos center = gen.set.center;
 			BlockPos checkPos;
+			Type type = Type.COBBLE;
 			for (int x = -2; x <= 3; ++x) {
 				for (int z = 0; z <= 2; ++z) {
 					for (int y = 0; y <= 4; ++y) {
 						checkPos = center.add(x, y, z);
 						 if (z == 1) {
-							if (x == -2 || x == 3) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+							if (x == -2 || x == 3) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 							else if (y == 4) {
-								if (x == 0) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, wet ? 0 : d));
-								else if (x == 1) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, wet ? 0 : d));
-								else gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+								if (x == 0) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, true, rand, wet ? 0 : d));
+								else if (x == 1) gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, true, rand, wet ? 0 : d));
+								else gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 							} else if (y == 0) gen.setBlockState(checkPos, sand);
 							else if (x == -1) {
-								if (y == 2) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, wet ? 0 : d));
+								if (y == 2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, true, rand, wet ? 0 : d));
 								else placeUrn(gen, checkPos, biomeType, loc, rand, true);
 							} else if (x == 2) {
-								if (y == 2) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, wet ? 0 : d));
+								if (y == 2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, true, rand, wet ? 0 : d));
 								else placeUrn(gen, checkPos, biomeType, loc, rand, true);
 							} else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 						} else if (end || z == 0) {
-							if (x == -2 || x == 3) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+							if (x == -2 || x == 3) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 							else if (y == 4) {
-								if (x == 0) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, wet ? 0 : d));
-								else if (x == 1) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, wet ? 0 : d));
-								else gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+								if (x == 0) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, true, rand, wet ? 0 : d));
+								else if (x == 1) gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, true, rand, wet ? 0 : d));
+								else gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 							} else if (y == 0) gen.setBlockState(checkPos, sand);
 							else if (x == -1) {
 								if (y == 2) placeUrn(gen, checkPos, biomeType, loc, rand, true);
-								else gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, wet ? 0 : d));
+								else gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, true, rand, wet ? 0 : d));
 							} else if (x == 2) {
 								if (y == 2) placeUrn(gen, checkPos, biomeType, loc, rand, true);
-								else gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, wet ? 0 : d));
+								else gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, true, rand, wet ? 0 : d));
 							} else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 						}
 					}
@@ -837,13 +889,13 @@ public class TombGen extends TombGenBase {
 							for (int y = 0; y <= 4; ++y) {
 								checkPos = center.add(x, y, z);
 								if (z == 3) {
-									if (x < 0 || x > 1 || y == 4) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+									if (x < 0 || x > 1 || y == 4) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 									else if (y == 0) gen.setBlockState(checkPos, sand);
-									else if (y == 1) gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, wet ? 0 : d));
+									else if (y == 1) gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, true, rand, wet ? 0 : d));
 									else if (y == 2) placeUrn(gen, checkPos, biomeType, loc, rand, true, 2);
-									else if (x == 0) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, wet ? 0 : d));
-									else gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, wet ? 0 : d));
-								} else if (x != -2 && x != 3) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+									else if (x == 0) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, true, rand, wet ? 0 : d));
+									else gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, true, rand, wet ? 0 : d));
+								} else if (x != -2 && x != 3) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 							}
 						}
 					}
@@ -871,7 +923,7 @@ public class TombGen extends TombGenBase {
 				if (mini) check = roomCheck(gen, -3, 3, -6 - offset, -1 + offset, 1, 5 + offset, false);
 				if (check) {
 					int f = mini ? 3 : 4;
-					generateEntrance(gen, biome, rand, offset, true);
+					generateEntrance(gen, biome, rand, offset, true, Type.BRICK);
 					int j = (mini ? 1 : 2) - rand.nextInt(rand.nextInt(mini ? 2 : 3) + 1);
 					for (int i = 0; i < j; ++i) {
 						if (!roomCheck(gen, -f, f, -6 - offset, -1 - offset, 6 + offset + i * 2, 7 + offset + i * 2, false)) {
@@ -893,6 +945,7 @@ public class TombGen extends TombGenBase {
 		private static void generateRoomPart(GenUtil gen, BiomeMist biome, Random rand, boolean start, boolean end, boolean wet) {
 			BlockPos center = gen.set.center;
 			BlockPos checkPos;
+			Type type = Type.BRICK;
 			for (int x = -4; x <= 4; ++x) {
 				for (int z = 0; z <= 2; ++z) {
 					for (int y = 0; y <= 4; ++y) {
@@ -900,41 +953,41 @@ public class TombGen extends TombGenBase {
 						if (z == 1) {
 							if (x == -4 || x == 4 || y == 4) {
 								if (y == 4) {
-									if (x >= -1 && x <= 1) gen.setBlockState(checkPos, getSlab(true, rand, wet ? 0 : d));
-									else gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
-								} else gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+									if (x >= -1 && x <= 1) gen.setBlockState(checkPos, getSlab(type, true, rand, wet ? 0 : d));
+									else gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
+								} else gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 							} else if (y == 3) {
-								if (x == -3) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, wet ? 0 : d));
-								else if (x == 3) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, wet ? 0 : d));
+								if (x == -3) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, true, rand, wet ? 0 : d));
+								else if (x == 3) gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, true, rand, wet ? 0 : d));
 								else if (x == -2 || x == 2) placeWeb(gen, checkPos, rand, true);
 								else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 							} else if (y == 2) {
 								if (x == -3 || x == 3) placeWeb(gen, checkPos, rand, true);
 								else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 							} else if (y == 0) {
-								if (x == -3 || x == 3) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+								if (x == -3 || x == 3) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 								else gen.setBlockState(checkPos, MistBlocks.GRAVEL.getDefaultState());
 							} else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 						} else if (end || z == 0) {
-							if (x == -4 || x == 4 || y == 4) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+							if (x == -4 || x == 4 || y == 4) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 							else if (y == 3) {
-								if (x == 3 || x == -3) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
-								else if (x == -2) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, wet ? 0 : d));
-								else if (x == -1) gen.setBlockState(checkPos, getStep(EnumFacing.WEST, true, rand, wet ? 0 : d));
-								else if (x == 2) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, wet ? 0 : d));
-								else if (x == 1) gen.setBlockState(checkPos, getStep(EnumFacing.EAST, true, rand, wet ? 0 : d));
+								if (x == 3 || x == -3) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
+								else if (x == -2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, true, rand, wet ? 0 : d));
+								else if (x == -1) gen.setBlockState(checkPos, getStep(type, EnumFacing.WEST, true, rand, wet ? 0 : d));
+								else if (x == 2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, true, rand, wet ? 0 : d));
+								else if (x == 1) gen.setBlockState(checkPos, getStep(type, EnumFacing.EAST, true, rand, wet ? 0 : d));
 								else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 							} else if (y == 2) {
-								if (x == -3) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, wet ? 0 : d));
-								else if (x == 3) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, wet ? 0 : d));
+								if (x == -3) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, true, rand, wet ? 0 : d));
+								else if (x == 3) gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, true, rand, wet ? 0 : d));
 								else if (x == -2 || x == 2) placeWeb(gen, checkPos, rand, true);
 								else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 							} else if (y == 1) {
-								if (x == -3) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, false, rand, wet ? 0 : d));
-								else if (x == 3) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, false, rand, wet ? 0 : d));
+								if (x == -3) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, false, rand, wet ? 0 : d));
+								else if (x == 3) gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, false, rand, wet ? 0 : d));
 								else if (x == -2 || x == 2) placeWeb(gen, checkPos, rand, true);
 								else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
-							} else if (x == -3 || x == 3) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+							} else if (x == -3 || x == 3) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 							else gen.setBlockState(checkPos, MistBlocks.GRAVEL.getDefaultState());
 						} 
 					}
@@ -965,7 +1018,7 @@ public class TombGen extends TombGenBase {
 				for (int x = -4; x <= 4; ++x) {
 					for (int y = 0; y <= 4; ++y) {
 						checkPos = center.add(x, y, -1);
-						if (x < -1 || x > 1) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+						if (x < -1 || x > 1) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 					}
 				}
 			}
@@ -975,12 +1028,13 @@ public class TombGen extends TombGenBase {
 					for (int x = -4; x <= 4; ++x) {
 						for (int y = 0; y <= 4; ++y) {
 							checkPos = center.add(x, y, 3);
-							if (x < -1 || x > 1 || y != 2) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+							if (y == 3 && x >= -1 && x <= 1) gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, false, rand, wet ? 0 : d));
+							else if (x < -1 || x > 1 || y != 2) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 						}
 					}
-					gen.setBlockState(center.add(-1, 2, 4), getCobble(rand, wet ? 0 : d));
-					gen.setBlockState(center.add(0, 2, 4), getCobble(rand, wet ? 0 : d));
-					gen.setBlockState(center.add(1, 2, 4), getCobble(rand, wet ? 0 : d));
+					gen.setBlockState(center.add(-1, 2, 4), getBlock(type, rand, wet ? 0 : d));
+					gen.setBlockState(center.add(0, 2, 4), getBlock(type, rand, wet ? 0 : d));
+					gen.setBlockState(center.add(1, 2, 4), getBlock(type, rand, wet ? 0 : d));
 					placeUrn(gen, center.add(-1, 2, 3), biomeType, loc, rand, true, 3);
 					placeUrn(gen, center.add(0, 2, 3), biomeType, loc, rand, true, 3);
 					placeUrn(gen, center.add(1, 2, 3), biomeType, loc, rand, true, 3);
@@ -989,42 +1043,42 @@ public class TombGen extends TombGenBase {
 						for (int z = 3; z <= 5; ++z) {
 							for (int y = 0; y <= 4; ++y) {
 								checkPos = center.add(x, y, z);
-								if (x == -4 || x == 4 || y == 4 || z == 5) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+								if (x == -4 || x == 4 || y == 4 || z == 5) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 								else if (y == 0) {
-									if (x == -3 || x == 3 || z == 4) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+									if (x == -3 || x == 3 || z == 4) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 									else gen.setBlockState(checkPos, MistBlocks.GRAVEL.getDefaultState());
 								} else if (z == 3) {
 									if (y == 3) {
-										if (x == -3 || x == 3) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
-										else if (x == -1 || x == 1) gen.setBlockState(checkPos, getSlab(true, rand, wet ? 0 : d));
-										else gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, wet ? 0 : d));
+										if (x == -3 || x == 3) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
+										else if (x == -1 || x == 1) gen.setBlockState(checkPos, getSlab(type, true, rand, wet ? 0 : d));
+										else gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, true, rand, wet ? 0 : d));
 									} else if (y == 2) {
-										if (x == -3) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, wet ? 0 : d));
-										else if (x == 3) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, wet ? 0 : d));
+										if (x == -3) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, true, rand, wet ? 0 : d));
+										else if (x == 3) gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, true, rand, wet ? 0 : d));
 										else if (x == -2 || x == 2) placeWeb(gen, checkPos, rand, true);
 										else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 									} else if (y == 1) {
-										if (x == -3) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, false, rand, wet ? 0 : d));
-										else if (x == 3) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, false, rand, wet ? 0 : d));
+										if (x == -3) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, false, rand, wet ? 0 : d));
+										else if (x == 3) gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, false, rand, wet ? 0 : d));
 										else if (x != -1 && x != 1) placeUrn(gen, checkPos, biomeType, loc, rand, true);
 									}
 								} else {
 									if (y == 3) {
-										if (x != -1 && x != 1) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
-										else gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, wet ? 0 : d));
+										if (x != -1 && x != 1) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
+										else gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, true, rand, wet ? 0 : d));
 									} else if (y == 2) {
-										if (x == -3 || x == 3) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
-										else if (x != -1 && x != 1) gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, wet ? 0 : d));
+										if (x == -3 || x == 3) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
+										else if (x != -1 && x != 1) gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, true, rand, wet ? 0 : d));
 										else placeWeb(gen, checkPos, rand, true);
 									} else if (y == 1) {
-										if (x == -3 || x == 3) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
-										else if (x != -1 && x != 1) gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, false, rand, wet ? 0 : d));
+										if (x == -3 || x == 3) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
+										else if (x != -1 && x != 1) gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, false, rand, wet ? 0 : d));
 									}
 								}
 							}
 						}
 					}
-					gen.setBlockState(center.add(0, 3, 2), getStep(EnumFacing.SOUTH, true, rand, wet ? 0 : d));
+					gen.setBlockState(center.add(0, 3, 2), getStep(type, EnumFacing.SOUTH, true, rand, wet ? 0 : d));
 					generateGrave(gen, center.add(-1, 1, 4), Rotation.NONE, rand, wet);
 					generateGrave(gen, center.add(1, 1, 4), Rotation.NONE, rand, wet);
 				} else {
@@ -1033,23 +1087,23 @@ public class TombGen extends TombGenBase {
 							for (int y = 0; y <= 4; ++y) {
 								checkPos = center.add(x, y, z);
 								if (x <= -2 || x >= 2 || y == 4 || z == 5) {
-									if (z == 3 || (x >= -2 && x <= 2)) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+									if (z == 3 || (x >= -2 && x <= 2)) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 								} else if (x == 0) {
 									if (y > 1) {
 										if (z == 3) gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 										else if (y == 2) placeWeb(gen, checkPos, rand, true);
-										else gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, wet ? 0 : d));
+										else gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, true, rand, wet ? 0 : d));
 									}
 								} else {
 									if (z == 3) {
 										if (y == 0) gen.setBlockState(checkPos, MistBlocks.GRAVEL.getDefaultState());
 										else if (y == 1) placeUrn(gen, checkPos, biomeType, loc, rand, true);
 										else if (y == 2) placeWeb(gen, checkPos, rand, true);
-										else gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, wet ? 0 : d));
+										else gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, true, rand, wet ? 0 : d));
 									} else {
-										if (y == 1) gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, false, rand, wet ? 0 : d));
-										else if (y == 2) gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, wet ? 0 : d));
-										else gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+										if (y == 1) gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, false, rand, wet ? 0 : d));
+										else if (y == 2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, true, rand, wet ? 0 : d));
+										else gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 									}
 								}
 							}
@@ -1083,13 +1137,14 @@ public class TombGen extends TombGenBase {
 		private static void generateMiniRoomPart(GenUtil gen, BiomeMist biome, EnumBiomeType biomeType, UrnLocation loc, Random rand, boolean close, boolean start, boolean end, boolean wet) {
 			BlockPos center = gen.set.center;
 			BlockPos checkPos;
+			Type type = Type.BRICK;
 			for (int x = -3; x <= 3; ++x) {
 				for (int z = 0; z <= 2; ++z) {
 					for (int y = 0; y <= 4; ++y) {
 						checkPos = center.add(x, y, z);
 						if (z == 1) {
 							if (x == -3 || x == 3 || y == 4) {
-								if (!close || y > 0) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+								if (!close || y > 0) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 							} else if (y == 0) {
 								if (!close && x == 0) gen.setBlockState(checkPos, MistBlocks.GRAVEL.getDefaultState());
 							} else if (y == 1) {
@@ -1098,34 +1153,34 @@ public class TombGen extends TombGenBase {
 								if (x == -2 || x == 2) placeWeb(gen, checkPos, rand, true);
 								else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 							} else {
-								if (x == -2) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, wet ? 0 : d));
-								else if (x == 2) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, wet ? 0 : d));
+								if (x == -2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, true, rand, wet ? 0 : d));
+								else if (x == 2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, true, rand, wet ? 0 : d));
 								else if (x == 0) gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 								else placeWeb(gen, checkPos, rand, true);
 							}
 						} else if (end || z == 0) {
 							if (x == -3 || x == 3 || y == 4) {
-								if (!close || y > 0) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+								if (!close || y > 0) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 							} else if (y == 0) {
 								if (!close) {
-									if (x == -2 || x == 2) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+									if (x == -2 || x == 2) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 									else gen.setBlockState(checkPos, MistBlocks.GRAVEL.getDefaultState());
 								}
 							} else if (y == 1) {
-								if (x == -2) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, false, rand, wet ? 0 : d));
-								else if (x == 2) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, false, rand, wet ? 0 : d));
+								if (x == -2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, false, rand, wet ? 0 : d));
+								else if (x == 2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, false, rand, wet ? 0 : d));
 								else if (x == 0) gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 								else placeWeb(gen, checkPos, rand, true);
 							} else if (y == 2) {
-								if (x == -2) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, wet ? 0 : d));
-								else if (x == 2) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, wet ? 0 : d));
+								if (x == -2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, true, rand, wet ? 0 : d));
+								else if (x == 2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, true, rand, wet ? 0 : d));
 								else if (x == 0) gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 								else placeWeb(gen, checkPos, rand, true);
 							} else {
 								if (x == 0) placeWeb(gen, checkPos, rand, true);
-								else if (x == -1) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, wet ? 0 : d));
-								else if (x == 1) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, wet ? 0 : d));
-								else gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+								else if (x == -1) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, true, rand, wet ? 0 : d));
+								else if (x == 1) gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, true, rand, wet ? 0 : d));
+								else gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 							}
 						}
 					}
@@ -1137,7 +1192,7 @@ public class TombGen extends TombGenBase {
 				for (int x = -3; x <= 3; ++x) {
 					for (int y = 0; y <= 4; ++y) {
 						checkPos = center.add(x, y, -1);
-						if (x < -1 || x > 1) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+						if (x < -1 || x > 1) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 					}
 				}
 			}
@@ -1147,10 +1202,11 @@ public class TombGen extends TombGenBase {
 					for (int x = -3; x <= 3; ++x) {
 						for (int y = 0; y <= 4; ++y) {
 							checkPos = center.add(x, y, 3);
-							if (x != 0 || y != 2) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+							if (y == 3 && x == 0) gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, false, rand, wet ? 0 : d));
+							else if (x != 0 || y != 2) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 						}
 					}
-					gen.setBlockState(center.add(0, 2, 4), getCobble(rand, wet ? 0 : d));
+					gen.setBlockState(center.add(0, 2, 4), getBlock(type, rand, wet ? 0 : d));
 					placeUrn(gen, center.add(0, 2, 3), biomeType, loc, rand, true, 2);
 				} else {
 					for (int x = -3; x <= 3; ++x) {
@@ -1158,41 +1214,41 @@ public class TombGen extends TombGenBase {
 							for (int y = 0; y <= 4; ++y) {
 								checkPos = center.add(x, y, z);
 								if (x <= -3 || x >= 3 || y == 4 || z == 5) {
-									if (z != 5 || (x != -3 && x != 3)) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+									if (z != 5 || (x != -3 && x != 3)) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 								}
 								else if (z == 3) {
 									if (y == 0) {
 										if (!close) {
-											if (x == -2 || x == 2) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+											if (x == -2 || x == 2) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 											else if (x != 0) gen.setBlockState(checkPos, MistBlocks.GRAVEL.getDefaultState());
 										}
 									} else if (y == 1) {
-										if (x == -2) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, false, rand, wet ? 0 : d));
-										else if (x == 2) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, false, rand, wet ? 0 : d));
+										if (x == -2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, false, rand, wet ? 0 : d));
+										else if (x == 2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, false, rand, wet ? 0 : d));
 										else if (x != 0) placeUrn(gen, checkPos, biomeType, loc, rand, true);
 									} else if (y == 2) {
-										if (x == -2) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, wet ? 0 : d));
-										else if (x == 2) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, wet ? 0 : d));
+										if (x == -2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, true, rand, wet ? 0 : d));
+										else if (x == 2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, true, rand, wet ? 0 : d));
 										else if (x == 0) gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 										else placeWeb(gen, checkPos, rand, true);
 									} else {
-										if (x == -2 || x == 2) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+										if (x == -2 || x == 2) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 										else if (x == 0) placeWeb(gen, checkPos, rand, true);
-										else gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, wet ? 0 : d));
+										else gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, true, rand, wet ? 0 : d));
 									}
 								} else {
 									if (y == 0) {
-										if (x != 0) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+										if (x != 0) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 									} else if (y == 1) {
-										if (x == -2 || x == 2) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
-										else if (x != 0) gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, false, rand, wet ? 0 : d));
+										if (x == -2 || x == 2) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
+										else if (x != 0) gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, false, rand, wet ? 0 : d));
 									} else if (y == 2) {
-										if (x == -2 || x == 2) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+										if (x == -2 || x == 2) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 										else if (x == 0) placeWeb(gen, checkPos, rand, true);
-										else gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, wet ? 0 : d));
+										else gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, true, rand, wet ? 0 : d));
 									} else {
-										if (x == 0) gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, wet ? 0 : d));
-										else gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+										if (x == 0) gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, true, rand, wet ? 0 : d));
+										else gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 									}
 								}
 							}
@@ -1206,14 +1262,15 @@ public class TombGen extends TombGenBase {
 		private static void generateGrave(GenUtil gen, BlockPos center, Rotation rotation, Random rand, boolean wet) {
 			GenUtil genRot = gen.add(center, rotation, Mirror.NONE);
 			center = genRot.set.center;
-			genRot.setBlockState(center, getSlab(false, rand, wet ? 0 : d));
+			Type type = rand.nextInt(3) == 0 ? Type.COBBLE : Type.BRICK;
+			genRot.setBlockState(center, getSlab(type, false, rand, wet ? 0 : d));
 			int i = rand.nextInt(16);
 			IBlockState state;
 			if (i == 0) state = Blocks.AIR.getDefaultState();
-			else if (i == 1) state = getStep(EnumFacing.EAST, false, rand, wet ? 0 : d);
-			else if (i == 2) state = getStep(EnumFacing.WEST, false, rand, wet ? 0 : d);
-			else if (i < 6) state = getStep(EnumFacing.SOUTH, false, rand, wet ? 0 : d);
-			else state = getSlab(false, rand, wet ? 0 : d);
+			else if (i == 1) state = getStep(type, EnumFacing.EAST, false, rand, wet ? 0 : d);
+			else if (i == 2) state = getStep(type, EnumFacing.WEST, false, rand, wet ? 0 : d);
+			else if (i < 6) state = getStep(type, EnumFacing.SOUTH, false, rand, wet ? 0 : d);
+			else state = getSlab(type, false, rand, wet ? 0 : d);
 			genRot.setBlockState(center.north(), state);
 			int size = rand.nextInt(3) + 4;
 			genRot.setBlockState(center.down(), MistBlocks.REMAINS.getDefaultState().withProperty(Remains.LAYERS, size).withProperty(Remains.OLD, true));
@@ -1229,13 +1286,14 @@ public class TombGen extends TombGenBase {
 		
 		public static boolean generate(World world, BlockPos center, BiomeMist biome, Random rand) {
 			GenUtil gen = new GenUtil(world, new GenSet(center, Rotation.CLOCKWISE_90, Mirror.NONE));
+			Type type = Type.COBBLE;
 			if (roomCheck(gen, -1, 1, -6, -1, -5, 1, true)) { // entrance
 				int i = rand.nextInt(3);
 				boolean wet = !(biome instanceof BiomeMistUpSavanna);
 				/** Room */
 				if (i < 2 && roomCheck(gen, -4, 4, -7, -1, 1, 7, false)) { // room
 					if (i == 0 && roomCheck(gen, -4, 4, -7, -1, -9, -3, false)) {
-						generateEntrance(gen, biome, rand, 0, wet);
+						generateEntrance(gen, biome, rand, 0, wet, type);
 						generateRoom(gen, biome, rand, true, false, wet);
 						if (rand.nextInt(3) == 0 && roomCheck(gen, -4, 4, -9, -8, -9, -3, false)) {
 							generateRoom(gen.add(center.north(2).down(2), Rotation.CLOCKWISE_180, Mirror.NONE), biome, rand, true, true, wet);
@@ -1247,12 +1305,12 @@ public class TombGen extends TombGenBase {
 							generateCorridor(gen.add(center, Rotation.NONE, Mirror.FRONT_BACK), biome, rand, wet);
 						}
 					} else {
-						generateEntrance(gen, biome, rand, 0, wet);
+						generateEntrance(gen, biome, rand, 0, wet, type);
 						generateRoom(gen, biome, rand, false, false, wet);
 					}
 					return true;
 				} else if (roomCheck(gen, -2, 2, -7, -1, 1, 6, false)) { // mini room
-					generateEntrance(gen, biome, rand, 0, wet);
+					generateEntrance(gen, biome, rand, 0, wet, type);
 					generateMiniRoom(gen, biome, biomeType, loc, rand, false, wet);
 					return true;
 				}
@@ -1267,21 +1325,22 @@ public class TombGen extends TombGenBase {
 		private static void generateRoom(GenUtil gen, BiomeMist biome, Random rand, boolean mini, boolean back, boolean backUrn, boolean wet) {
 			BlockPos center = gen.set.center;
 			BlockPos checkPos;
+			Type type = Type.COBBLE;
 			for (int x = -4; x <= 4; ++x) {
 				for (int z = 1; z <= 7; ++z) {
 					for (int y = -6; y <= -2; ++y) {
 						checkPos = center.add(x, y, z);
 						if (x == -4 || x == 4 || y == -2 || z == 1 || z == 7) {
-							if (x < -1 || x > 1 || (back ? (x != 0 || y < -3 || z > 2 || (z == 2 && gen.getBlockState(checkPos).isFullCube())) : z != 1)) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+							if (x < -1 || x > 1 || (back ? (x != 0 || y < -3 || z > 2 || (z == 2 && gen.getBlockState(checkPos).isFullCube())) : z != 1)) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 						} else if (y == -6) {
 							gen.setBlockState(checkPos, MistBlocks.GRAVEL.getDefaultState());
 						} else if (y == -3) {
-							if (z == 2) gen.setBlockState(checkPos, getStairs(EnumFacing.NORTH, true, rand, wet ? 0 : d));
-							else if (z == 6) gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, wet ? 0 : d));
-							else if (x == -3) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, wet ? 0 : d));
-							else if (x == 3) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, wet ? 0 : d));
+							if (z == 2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.NORTH, true, rand, wet ? 0 : d));
+							else if (z == 6) gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, true, rand, wet ? 0 : d));
+							else if (x == -3) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, true, rand, wet ? 0 : d));
+							else if (x == 3) gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, true, rand, wet ? 0 : d));
 							else {
-								if (x == -1 || x == 1) gen.setBlockState(checkPos, getSlab(true, rand, wet ? 0 : d));
+								if (x == -1 || x == 1) gen.setBlockState(checkPos, getSlab(type, true, rand, wet ? 0 : d));
 								else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 							}
 						} else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
@@ -1293,10 +1352,10 @@ public class TombGen extends TombGenBase {
 				generateGrave(gen, center.add(-2, -5, 7), Rotation.NONE, rand, wet);
 				generateGrave(gen, center.add(2, -5, 7), Rotation.NONE, rand, wet);
 
-				gen.setBlockState(center.add(-5, -4, 5), getCobble(rand, wet ? 0 : d));
-				gen.setBlockState(center.add(5, -4, 5), getCobble(rand, wet ? 0 : d));
-				gen.setBlockState(center.add(-5, -4, 3), getCobble(rand, wet ? 0 : d));
-				gen.setBlockState(center.add(5, -4, 3), getCobble(rand, wet ? 0 : d));
+				gen.setBlockState(center.add(-5, -4, 5), getBlock(type, rand, wet ? 0 : d));
+				gen.setBlockState(center.add(5, -4, 5), getBlock(type, rand, wet ? 0 : d));
+				gen.setBlockState(center.add(-5, -4, 3), getBlock(type, rand, wet ? 0 : d));
+				gen.setBlockState(center.add(5, -4, 3), getBlock(type, rand, wet ? 0 : d));
 				// Urns
 				placeUrn(gen, center.add(-4, -4, 5), biomeType, loc, rand, true);
 				placeUrn(gen, center.add(4, -4, 5), biomeType, loc, rand, true);
@@ -1314,8 +1373,8 @@ public class TombGen extends TombGenBase {
 				generateGrave(gen, center.add(4, -5, 3), Rotation.COUNTERCLOCKWISE_90, rand, wet);
 				generateGrave(gen, center.add(4, -5, 5), Rotation.COUNTERCLOCKWISE_90, rand, wet);
 
-				gen.setBlockState(center.add(-2, -4, 8), getCobble(rand, wet ? 0 : d));
-				gen.setBlockState(center.add(2, -4, 8), getCobble(rand, wet ? 0 : d));
+				gen.setBlockState(center.add(-2, -4, 8), getBlock(type, rand, wet ? 0 : d));
+				gen.setBlockState(center.add(2, -4, 8), getBlock(type, rand, wet ? 0 : d));
 				// Urns
 				placeUrn(gen, center.add(-2, -4, 7), biomeType, loc, rand, true);
 				placeUrn(gen, center.add(2, -4, 7), biomeType, loc, rand, true);
@@ -1325,8 +1384,8 @@ public class TombGen extends TombGenBase {
 				placeUrn(gen, center.add(3, -5, 4), biomeType, loc, rand, false);
 
 				if (backUrn) {
-					gen.setBlockState(center.add(-2, -4, 0), getCobble(rand, wet ? 0 : d));
-					gen.setBlockState(center.add(2, -4, 0), getCobble(rand, wet ? 0 : d));
+					gen.setBlockState(center.add(-2, -4, 0), getBlock(type, rand, wet ? 0 : d));
+					gen.setBlockState(center.add(2, -4, 0), getBlock(type, rand, wet ? 0 : d));
 					placeUrn(gen, center.add(-2, -4, 1), biomeType, loc, rand, true);
 					placeUrn(gen, center.add(2, -4, 1), biomeType, loc, rand, true);
 				}
@@ -1347,19 +1406,20 @@ public class TombGen extends TombGenBase {
 		public static void generateMiniRoom(GenUtil gen, BiomeMist biome, EnumBiomeType biomeType, UrnLocation loc, Random rand, boolean close, boolean wet) {
 			BlockPos center = gen.set.center;
 			BlockPos checkPos;
+			Type type = Type.COBBLE;
 			for (int x = -2; x <= 2; ++x) {
 				for (int z = 1; z <= 6; ++z) {
 					for (int y = -6; y <= -2; ++y) {
 						checkPos = center.add(x, y, z);
 						if (x == -2 || x == 2 || y == -2 || z == 1 || z == 6) {
-							if (close ? y != -6 : z != 1) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+							if (close ? y != -6 : z != 1) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 						} else if (y == -6) {
 							if (!close) gen.setBlockState(checkPos, MistBlocks.GRAVEL.getDefaultState());
 						} else if (y == -3) {
-							if (x == -1) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, wet ? 0 : d));
-							else if (x == 1) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, wet ? 0 : d));
-							else if (z == 2) gen.setBlockState(checkPos, getStairs(EnumFacing.NORTH, true, rand, wet ? 0 : d));
-							else if (z == 5) gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, wet ? 0 : d));
+							if (x == -1) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, true, rand, wet ? 0 : d));
+							else if (x == 1) gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, true, rand, wet ? 0 : d));
+							else if (z == 2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.NORTH, true, rand, wet ? 0 : d));
+							else if (z == 5) gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, true, rand, wet ? 0 : d));
 							else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 						} else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 					}
@@ -1376,8 +1436,8 @@ public class TombGen extends TombGenBase {
 				generateGrave(gen, center.add(1, -5, 6), Rotation.NONE, rand, wet);
 				placeUrn(gen, center.add(0, -5, 5), biomeType, loc, rand, false);
 			}
-			gen.setBlockState(center.add(-3, -4, 3), getCobble(rand, wet ? 0 : d));
-			gen.setBlockState(center.add(3, -4, 3), getCobble(rand, wet ? 0 : d));
+			gen.setBlockState(center.add(-3, -4, 3), getBlock(type, rand, wet ? 0 : d));
+			gen.setBlockState(center.add(3, -4, 3), getBlock(type, rand, wet ? 0 : d));
 			placeUrn(gen, center.add(-2, -4, 3), biomeType, loc, rand, true);
 			placeUrn(gen, center.add(2, -4, 3), biomeType, loc, rand, true);
 			placeWeb(gen, center.add(-1, -5, 2), rand, false);
@@ -1389,6 +1449,7 @@ public class TombGen extends TombGenBase {
 		private static void generateCorridor(GenUtil gen, BiomeMist biome, Random rand, boolean wet) {
 			BlockPos center = gen.set.center;
 			BlockPos checkPos;
+			Type type = Type.COBBLE;
 			boolean miniRoom = rand.nextBoolean();
 			boolean room = rand.nextInt(4) == 0;
 			GenUtil gen90 = null;
@@ -1402,24 +1463,24 @@ public class TombGen extends TombGenBase {
 					for (int y = -6; y <= -2; ++y) {
 						checkPos = center.add(x, y, z);
 						if (x == -5 || y == -2 || z == -3 || z == 1) {
-							if (x == -5 || y == -2) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+							if (x == -5 || y == -2) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 						} else if (y == -6) {
 							gen.setBlockState(checkPos, MistBlocks.GRAVEL.getDefaultState());
 						} else if (y == -3) {
-							if (x == -4) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, true, rand, wet ? 0 : d));
-							else if (x == -2) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, true, rand, wet ? 0 : d));
-							else if (z == -2) gen.setBlockState(checkPos, getStairs(EnumFacing.NORTH, true, rand, wet ? 0 : d));
-							else if (z == 0) gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, true, rand, wet ? 0 : d));
+							if (x == -4) gen.setBlockState(checkPos, getStairs(type, EnumFacing.WEST, true, rand, wet ? 0 : d));
+							else if (x == -2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.EAST, true, rand, wet ? 0 : d));
+							else if (z == -2) gen.setBlockState(checkPos, getStairs(type, EnumFacing.NORTH, true, rand, wet ? 0 : d));
+							else if (z == 0) gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, true, rand, wet ? 0 : d));
 							else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 						} else if (y == -5 && x != -3 && (!miniRoom || x != -4)) {
 							if (z == -2) {
-								gen.setBlockState(checkPos, getStairs(EnumFacing.NORTH, false, rand, wet ? 0 : d));
-								gen.setBlockState(checkPos.down(), getCobble(rand, wet ? 0 : d));
+								gen.setBlockState(checkPos, getStairs(type, EnumFacing.NORTH, false, rand, wet ? 0 : d));
+								gen.setBlockState(checkPos.down(), getBlock(type, rand, wet ? 0 : d));
 							} else if (z == 0) {
-								gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, false, rand, wet ? 0 : d));
-								gen.setBlockState(checkPos.down(), getCobble(rand, wet ? 0 : d));
+								gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, false, rand, wet ? 0 : d));
+								gen.setBlockState(checkPos.down(), getBlock(type, rand, wet ? 0 : d));
 							} else {
-								gen.setBlockState(checkPos, getSlab(false, rand, wet ? 0 : d));
+								gen.setBlockState(checkPos, getSlab(type, false, rand, wet ? 0 : d));
 								gen.setBlockState(checkPos.down(), MistBlocks.FLOATING_MAT.getDefaultState());
 								gen.setBlockState(checkPos.down(), MistBlocks.REMAINS.getDefaultState().withProperty(Remains.LAYERS, rand.nextInt(3) + 4).withProperty(Remains.OLD, true));
 								((TileEntityRemains)gen.getTileEntity(checkPos.down())).setLootTable(LootTables.REMAINS_LOOT, rand.nextLong());
@@ -1446,7 +1507,7 @@ public class TombGen extends TombGenBase {
 				placeWeb(gen, center.add(-5, -5, -1), rand, true);
 				gen.setBlockState(center.add(-5, -6, -1), MistBlocks.GRAVEL.getDefaultState());
 			} else {
-				gen.setBlockState(center.add(-6, -4, -1), getCobble(rand, wet ? 0 : d));
+				gen.setBlockState(center.add(-6, -4, -1), getBlock(type, rand, wet ? 0 : d));
 				placeUrn(gen, center.add(-5, -4, -1), biomeType, loc, rand, true);
 			}
 		}
@@ -1454,6 +1515,7 @@ public class TombGen extends TombGenBase {
 		private static void generateStairs(GenUtil gen, BiomeMist biome, Random rand, boolean wet) {
 			BlockPos center = gen.set.center;
 			BlockPos checkPos;
+			Type type = Type.COBBLE;
 			boolean miniRoom = rand.nextBoolean();
 			boolean room = rand.nextInt(4) == 0;
 			GenUtil gen90 = null;
@@ -1467,18 +1529,18 @@ public class TombGen extends TombGenBase {
 					for (int y = -8; y <= -3; ++y) {
 						checkPos = center.add(x, y, z);
 						if (x == -4 || x == -2 || y == -3 || z == -3 || z == 1) {
-							gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+							gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 						} else if (z >= -1) {
-							if (y == z - 6) gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, false, rand, wet ? 0 : d));
-							else if (y < z - 6) gen.setBlockState(checkPos, getCobble(rand, wet ? 0 : d));
+							if (y == z - 6) gen.setBlockState(checkPos, getStairs(type, EnumFacing.SOUTH, false, rand, wet ? 0 : d));
+							else if (y < z - 6) gen.setBlockState(checkPos, getBlock(type, rand, wet ? 0 : d));
 							else placeWeb(gen, checkPos, rand, true);
 						} else if (y == -8) gen.setBlockState(checkPos, MistBlocks.GRAVEL.getDefaultState());
 						else placeWeb(gen, checkPos, rand, true);
 					}
 				}
 			}
-			gen.setBlockState(center.add(-3, -5, -3), getStairs(EnumFacing.NORTH, true, rand, wet ? 0 : d));
-			gen.setBlockState(center.add(-3, -4, -2), getStairs(EnumFacing.NORTH, true, rand, wet ? 0 : d));
+			gen.setBlockState(center.add(-3, -5, -3), getStairs(type, EnumFacing.NORTH, true, rand, wet ? 0 : d));
+			gen.setBlockState(center.add(-3, -4, -2), getStairs(type, EnumFacing.NORTH, true, rand, wet ? 0 : d));
 			placeWeb(gen, center.add(-3, -6, -3), rand, true);
 			placeWeb(gen, center.add(-3, -7, -3), rand, true);
 			gen.setBlockState(center.add(-3, -8, -3), MistBlocks.GRAVEL.getDefaultState());
@@ -1497,29 +1559,30 @@ public class TombGen extends TombGenBase {
 		private static void generateGrave(GenUtil gen, BlockPos center, Rotation rotation, Random rand, boolean wet) {
 			GenUtil genRot = gen.add(center, rotation, Mirror.NONE);
 			center = genRot.set.center;
-			genRot.setBlockState(center, getStairs(EnumFacing.SOUTH, false, rand, wet ? 0 : d));
-			genRot.setBlockState(center.up(), getStairs(EnumFacing.SOUTH, true, rand, wet ? 0 : d));
+			Type type = Type.COBBLE;
+			genRot.setBlockState(center, getStairs(type, EnumFacing.SOUTH, false, rand, wet ? 0 : d));
+			genRot.setBlockState(center.up(), getStairs(type, EnumFacing.SOUTH, true, rand, wet ? 0 : d));
 			int i = rand.nextInt(32);
 			IBlockState state;
 			boolean close = false;
 			if (i == 0) state = Blocks.AIR.getDefaultState();
-			else if (i == 1) state = getStep(EnumFacing.SOUTH, false, rand, wet ? 0 : d);
-			else if (i == 2) state = getStep(EnumFacing.EAST, false, rand, wet ? 0 : d);
-			else if (i == 3) state = getStep(EnumFacing.WEST, false, rand, wet ? 0 : d);
-			else { state = getSlab(false, rand, wet ? 0 : d); close = true; }
+			else if (i == 1) state = getStep(type, EnumFacing.SOUTH, false, rand, wet ? 0 : d);
+			else if (i == 2) state = getStep(type, EnumFacing.EAST, false, rand, wet ? 0 : d);
+			else if (i == 3) state = getStep(type, EnumFacing.WEST, false, rand, wet ? 0 : d);
+			else { state = getSlab(type, false, rand, wet ? 0 : d); close = true; }
 			genRot.setBlockState(center.north(), state);
 			if (i > 3) {
 				i = rand.nextInt(16);
 				if (i == 0) state = Blocks.AIR.getDefaultState();
-				else if (i == 1) state = getStep(EnumFacing.SOUTH, false, rand, wet ? 0 : d);
-				else if (i == 2) state = getStep(EnumFacing.EAST, false, rand, wet ? 0 : d);
-				else if (i == 3) state = getStep(EnumFacing.WEST, false, rand, wet ? 0 : d);
-				else state = getSlab(false, rand,  wet ? 0 : d);
+				else if (i == 1) state = getStep(type, EnumFacing.SOUTH, false, rand, wet ? 0 : d);
+				else if (i == 2) state = getStep(type, EnumFacing.EAST, false, rand, wet ? 0 : d);
+				else if (i == 3) state = getStep(type, EnumFacing.WEST, false, rand, wet ? 0 : d);
+				else state = getSlab(type, false, rand,  wet ? 0 : d);
 			} else state = Blocks.AIR.getDefaultState();
 			genRot.setBlockState(center.north(2), state);
 			if (close && i == 0 && rand.nextInt(4) == 0) {
-				if (rand.nextBoolean()) genRot.setBlockState(center.north(2).east(), getStep(EnumFacing.WEST, false, rand, wet ? 0 : d));
-				else genRot.setBlockState(center.north(2).west(), getStep(EnumFacing.EAST, false, rand, wet ? 0 : d));
+				if (rand.nextBoolean()) genRot.setBlockState(center.north(2).east(), getStep(type, EnumFacing.WEST, false, rand, wet ? 0 : d));
+				else genRot.setBlockState(center.north(2).west(), getStep(type, EnumFacing.EAST, false, rand, wet ? 0 : d));
 			}
 			int size = rand.nextInt(3) + 4;
 			genRot.setBlockState(center.north().down(), MistBlocks.REMAINS.getDefaultState().withProperty(Remains.LAYERS, size).withProperty(Remains.OLD, true));

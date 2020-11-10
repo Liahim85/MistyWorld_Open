@@ -11,6 +11,7 @@ import ru.liahim.mist.world.MistWorld;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
@@ -20,11 +21,13 @@ import net.minecraft.world.World;
 public class MistBlockStairs extends BlockStairs implements IDividable {
 
 	private final Block full_Block;
+	private final boolean tick;
 
 	public MistBlockStairs(IBlockState modelState, boolean tick) {
 		super(modelState);
 		this.useNeighborBrightness = true;
 		this.full_Block = modelState.getBlock();
+		this.tick = tick;
 		this.setTickRandomly(tick);
 	}
 
@@ -44,12 +47,12 @@ public class MistBlockStairs extends BlockStairs implements IDividable {
 
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
-		if (!world.isRemote) {
-			if (this == MistBlocks.COBBLESTONE_MOSS_STAIRS) {
+		if (this.tick && !world.isRemote) {
+			if (this.isMossBlock()) {
 				if (rand.nextInt(4) == 0 && MistWorld.isPosInFog(world, pos.getY())) {
 					world.setBlockState(pos, this.getDefaultState());
 				}
-			} else if (this == MistBlocks.COBBLESTONE_STAIRS && rand.nextInt(500) == 0 &&
+			} else if (this.isNormalBlock() && rand.nextInt(500) == 0 &&
 				!MistWorld.isPosInFog(world, pos.getY()) && world.getBiome(pos).getRainfall() >= 0.3F) {
 				for (EnumFacing side : FacingHelper.NOTDOWN) {
 					if (world.getBlockState(pos.offset(side)).getBlock() == MistBlocks.ACID_BLOCK) {
@@ -73,17 +76,17 @@ public class MistBlockStairs extends BlockStairs implements IDividable {
 						}
 					}
 				}
-				if (check) world.setBlockState(pos, MistBlocks.COBBLESTONE_MOSS_STAIRS.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(HALF, state.getValue(HALF)).withProperty(SHAPE, state.getValue(SHAPE)));
+				if (check) world.setBlockState(pos, this.getMossBlock().getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(HALF, state.getValue(HALF)).withProperty(SHAPE, state.getValue(SHAPE)));
 			}
 		}
 	}
 
 	@Override
 	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
-		if (!world.isRemote && this == MistBlocks.COBBLESTONE_MOSS_STAIRS) {
+		if (this.tick && !world.isRemote && this.isMossBlock()) {
 			for (EnumFacing side : FacingHelper.NOTDOWN) {
 				if (world.getBlockState(pos.offset(side)).getBlock() == MistBlocks.ACID_BLOCK) {
-					world.setBlockState(pos, MistBlocks.COBBLESTONE_STAIRS.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(HALF, state.getValue(HALF)).withProperty(SHAPE, state.getValue(SHAPE)));
+					world.setBlockState(pos, this.getNormalBlock().getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(HALF, state.getValue(HALF)).withProperty(SHAPE, state.getValue(SHAPE)));
 					break;
 				}
 			}
@@ -92,14 +95,34 @@ public class MistBlockStairs extends BlockStairs implements IDividable {
 
 	@Override
 	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {
-		if (!world.isRemote && this == MistBlocks.COBBLESTONE_MOSS_STAIRS) {
+		if (this.tick && !world.isRemote && this.isMossBlock()) {
 			for (EnumFacing side : FacingHelper.NOTDOWN) {
 				if (world.getBlockState(pos.offset(side)).getBlock() == MistBlocks.ACID_BLOCK) {
-					world.setBlockState(pos, MistBlocks.COBBLESTONE_STAIRS.getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(HALF, state.getValue(HALF)).withProperty(SHAPE, state.getValue(SHAPE)));
+					world.setBlockState(pos, this.getNormalBlock().getDefaultState().withProperty(FACING, state.getValue(FACING)).withProperty(HALF, state.getValue(HALF)).withProperty(SHAPE, state.getValue(SHAPE)));
 					break;
 				}
 			}
 		}
+	}
+
+	protected Block getNormalBlock() {
+		if (this == MistBlocks.COBBLESTONE_MOSS_STAIRS) return MistBlocks.COBBLESTONE_STAIRS;
+		else if (this == MistBlocks.STONE_BRICK_MOSS_STAIRS) return MistBlocks.STONE_BRICK_STAIRS;
+		else return this;
+	}
+
+	protected Block getMossBlock() {
+		if (this == MistBlocks.COBBLESTONE_STAIRS) return MistBlocks.COBBLESTONE_MOSS_STAIRS;
+		else if (this == MistBlocks.STONE_BRICK_STAIRS) return MistBlocks.STONE_BRICK_MOSS_STAIRS;
+		else return this;
+	}
+
+	protected boolean isNormalBlock() {
+		return this == MistBlocks.COBBLESTONE_STAIRS || this == MistBlocks.STONE_BRICK_STAIRS;
+	}
+
+	protected boolean isMossBlock() {
+		return this == MistBlocks.COBBLESTONE_MOSS_STAIRS || this == MistBlocks.STONE_BRICK_MOSS_STAIRS;
 	}
 
 	@Override
@@ -111,6 +134,11 @@ public class MistBlockStairs extends BlockStairs implements IDividable {
 	@Nullable
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 		return this.getStepBlock(state).getItemDropped(state, rand, fortune);
+	}
+
+	@Override
+	public boolean canSilkHarvest(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
+		return true;
 	}
 
 	@Override

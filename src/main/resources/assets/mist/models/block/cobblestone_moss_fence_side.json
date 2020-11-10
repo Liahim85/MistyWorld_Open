@@ -1,0 +1,32 @@
+{
+    "parent": "block/block",
+    "textures": {
+        "particle": "mist:blocks/cobblestone",
+        "wall": "mist:blocks/cobblestone",
+        "moss": "mist:blocks/cobblestone_moss"
+    },
+    "elements": [
+        {   "from": [ 5, 0, 0 ],
+            "to": [ 11, 14, 8 ],
+            "faces": {
+                "down":  { "texture": "#wall", "cullface": "down" },
+                "up":    { "texture": "#wall" },
+                "north": { "texture": "#wall", "cullface": "north" },
+                "west":  { "texture": "#wall" },
+                "east":  { "texture": "#wall" }
+            },
+            "__comment": "wall"
+        },
+        {   "from": [ 5, 0, 0 ],
+            "to": [ 11, 14, 8 ],
+            "faces": {
+                "down":  { "texture": "#moss", "tintindex": 1, "cullface": "down" },
+                "up":    { "texture": "#moss", "tintindex": 1 },
+                "north": { "texture": "#moss", "tintindex": 1, "cullface": "north" },
+                "west":  { "texture": "#moss", "tintindex": 1 },
+                "east":  { "texture": "#moss", "tintindex": 1 }
+            },
+            "__comment": "moss"
+        }
+    ]
+}

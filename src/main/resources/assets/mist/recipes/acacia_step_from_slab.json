@@ -2,9 +2,14 @@
     "type": "minecraft:crafting_shapeless",
     "group": "wood_step",
     "ingredients": [
-        {
-            "item": "mist:acacia_slab"
-        }
+        [
+            {
+                "item": "mist:acacia_slab"
+            },
+            {
+                "item": "mist:acacia_wall"
+            }
+        ]
     ],
     "result": {
         "item": "mist:acacia_step",

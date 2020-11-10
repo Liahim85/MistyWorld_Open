@@ -1,5 +1,11 @@
 package ru.liahim.mist.world;
 
+import javax.annotation.Nullable;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.audio.MusicTicker;
+import net.minecraft.client.audio.MusicTicker.MusicType;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.math.BlockPos;
@@ -14,6 +20,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import ru.liahim.mist.common.ClientProxy;
 import ru.liahim.mist.common.Mist;
+import ru.liahim.mist.handlers.ClientEventHandler;
 import ru.liahim.mist.handlers.FogRenderer;
 import ru.liahim.mist.init.ModConfig;
 
@@ -90,6 +97,64 @@ public class WorldProviderMist extends WorldProvider {
     public IRenderHandler getWeatherRenderer() {
         return ClientProxy.WeatherRendererMist;
     }
+
+	private static MusicType currentMusic;
+	private static MistMusicType mistMusic;
+	private static float volume = 1;
+
+	@Nullable
+	@SideOnly(Side.CLIENT)
+	@Override
+	public MusicTicker.MusicType getMusicType() {
+		EntityPlayerSP player = Minecraft.getMinecraft().player;
+		if (!player.capabilities.isCreativeMode || !player.capabilities.allowFlying) {
+			boolean play = ClientEventHandler.currentSound != null && Minecraft.getMinecraft().getSoundHandler().isSoundPlaying(ClientEventHandler.currentSound);
+			if (!play) {
+				ClientEventHandler.currentSound = null;
+				/*if (volume < 0) {
+					volume = 0;
+					Minecraft.getMinecraft().getSoundHandler().setSoundLevel(SoundCategory.MUSIC, Minecraft.getMinecraft().gameSettings.getSoundLevel(SoundCategory.MUSIC));
+				}*/
+				if (player.posY < MistWorld.getFogMinHight()) {
+					if (mistMusic != MistMusicType.DOWN) {
+						mistMusic = MistMusicType.DOWN;
+						if (player.getRNG().nextInt(3) == 0)
+							currentMusic = ClientProxy.MIST_DOWN_MUSIC;
+						else currentMusic = null;
+					}
+				} else {
+					if (mistMusic != MistMusicType.UP) {
+						mistMusic = MistMusicType.UP;
+						if (player.getRNG().nextInt(5) == 0)
+							currentMusic = ClientProxy.MIST_UP_MUSIC;
+						else currentMusic = null;
+					}
+				}
+			}/* else if (volume == 0 && getMistMusicType(player) != mistMusic) {
+				volume = Minecraft.getMinecraft().gameSettings.getSoundLevel(SoundCategory.MUSIC);
+			}
+			if (volume > 0) {
+				volume *= 0.99F;
+				if (volume < 0.001F) volume = -1;
+				if (ClientEventHandler.currentSound != null) Minecraft.getMinecraft().getSoundHandler().sndManager.sndSystem.setVolume(ClientEventHandler.currentSound.getSoundLocation().toString(), volume);//.setSoundLevel(SoundCategory.MUSIC, volume);
+			}*/
+			//System.out.println(currentMusic + "_" + volume);
+			return currentMusic;
+		} else {
+			/*if (volume != 0) {
+				volume = 0;
+				Minecraft.getMinecraft().getSoundHandler().setSoundLevel(SoundCategory.MUSIC, Minecraft.getMinecraft().gameSettings.getSoundLevel(SoundCategory.MUSIC));
+			}*/
+			return null;
+		}
+	}
+
+	/*private MistMusicType getMistMusicType(EntityPlayerSP player) {
+		if (player.posY < MistWorld.getFogMinHight()) return MistMusicType.DOWN;
+		else return MistMusicType.UP;
+	}*/
+
+	private enum MistMusicType { UP, DOWN }
 
 	@SideOnly(Side.CLIENT)
 	public Vec3d getSkyColorBody(World world, Entity entity, float partialTicks) {

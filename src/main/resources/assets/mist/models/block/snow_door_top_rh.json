@@ -1,0 +1,7 @@
+{
+    "parent": "block/door_top_rh",
+    "textures": {
+        "bottom": "mist:blocks/snow_door_lower",
+        "top": "mist:blocks/snow_door_upper"
+    }
+}

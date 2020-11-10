@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "wood_fence_8_d",
+    "pattern": [
+        "SXS"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:snow_branch",
+            "data": 9
+        },
+        "S": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "mist:snow_fence",
+        "data": 3
+    }
+}

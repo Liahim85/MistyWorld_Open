@@ -1,0 +1,7 @@
+{
+    "parent": "mist:block/door_top",
+    "textures": {
+        "bottom": "mist:blocks/aspen_door_lower",
+        "top": "mist:blocks/aspen_door_upper"
+    }
+}

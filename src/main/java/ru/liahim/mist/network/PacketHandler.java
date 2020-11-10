@@ -24,5 +24,7 @@ public class PacketHandler {
 		INSTANCE.registerMessage(PacketToxicSync.Handler.class, PacketToxicSync.class, id++, Side.CLIENT);
 		INSTANCE.registerMessage(PacketSkillSync.Handler.class, PacketSkillSync.class, id++, Side.CLIENT);
 		INSTANCE.registerMessage(PacketFurnaceClose.Handler.class, PacketFurnaceClose.class, id++, Side.SERVER);
+		INSTANCE.registerMessage(PacketSkySound.Handler.class, PacketSkySound.class, id++, Side.CLIENT);
+		INSTANCE.registerMessage(PacketSpawnParticle.Handler.class, PacketSpawnParticle.class, id++, Side.CLIENT);
 	}
 }

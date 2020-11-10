@@ -1,14 +1,6 @@
 {
-    "forge_marker": 1,
-    "defaults": {
-        "model": "cube_all",
-        "textures": {
-            "all":  "mist:blocks/cobblestone",
-            "moss": "mist:blocks/cobblestone_moss"
-        }
-    },
     "variants": {
-        "variant=normal": { "model": "cube_all" },
-        "variant=moss":   { "model": "mist:cube_all_moss" }
+        "variant=normal": { "model": "mist:cobblestone" },
+        "variant=moss":   { "model": "mist:cobblestone_moss" }
     }
 }

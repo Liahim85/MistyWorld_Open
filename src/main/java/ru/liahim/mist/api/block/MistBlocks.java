@@ -3,6 +3,7 @@ package ru.liahim.mist.api.block;
 import ru.liahim.mist.block.MistAcidDirt;
 import ru.liahim.mist.block.MistAcidGrass;
 import ru.liahim.mist.block.MistAcidSand;
+import ru.liahim.mist.block.MistBlockDoor;
 import ru.liahim.mist.block.MistClay;
 import ru.liahim.mist.block.MistDirt;
 import ru.liahim.mist.block.MistFarmland;
@@ -26,7 +27,10 @@ public class MistBlocks {
 	public static Block STONE;
 	public static Block STONE_POROUS;
 	public static Block STONE_BASIC;
+	public static Block STONE_MINED;
 	public static Block LOOSE_ROCK;
+	public static Block STONE_BRICK;
+	public static Block MASONRY;
 	public static Block COBBLESTONE;
 	public static Block GRAVEL;
 	public static MistSand SAND;
@@ -125,6 +129,8 @@ public class MistBlocks {
 	//Stairs
 	public static Block COBBLESTONE_STAIRS;
 	public static Block COBBLESTONE_MOSS_STAIRS;
+	public static Block STONE_BRICK_STAIRS;
+	public static Block STONE_BRICK_MOSS_STAIRS;
 	public static Block ACACIA_STAIRS;
 	public static Block ASPEN_STAIRS;
 	public static Block A_TREE_STAIRS;
@@ -140,6 +146,7 @@ public class MistBlocks {
 	public static Block R_TREE_STAIRS;
 	//Slab
 	public static Block COBBLESTONE_SLAB;
+	public static Block STONE_BRICK_SLAB;
 	public static Block ACACIA_SLAB;
 	public static Block ASPEN_SLAB;
 	public static Block A_TREE_SLAB;
@@ -153,9 +160,29 @@ public class MistBlocks {
 	public static Block T_TREE_SLAB;
 	public static Block WILLOW_SLAB;
 	public static Block R_TREE_SLAB;
+	//Walls
+	public static Block COBBLESTONE_WALL;
+	public static Block COBBLESTONE_MOSS_WALL;
+	public static Block STONE_BRICK_WALL;
+	public static Block STONE_BRICK_MOSS_WALL;
+	public static Block ACACIA_WALL;
+	public static Block ASPEN_WALL;
+	public static Block A_TREE_WALL;
+	public static Block BIRCH_WALL;
+	public static Block OAK_WALL;
+	public static Block PINE_WALL;
+	public static Block POPLAR_WALL;
+	public static Block SNOW_WALL;
+	public static Block SPRUCE_WALL;
+	public static Block S_TREE_WALL;
+	public static Block T_TREE_WALL;
+	public static Block WILLOW_WALL;
+	public static Block R_TREE_WALL;
 	//Step
 	public static Block COBBLESTONE_STEP;
 	public static Block COBBLESTONE_MOSS_STEP;
+	public static Block STONE_BRICK_STEP;
+	public static Block STONE_BRICK_MOSS_STEP;
 	public static Block ACACIA_STEP;
 	public static Block ASPEN_STEP;
 	public static Block A_TREE_STEP;
@@ -183,6 +210,66 @@ public class MistBlocks {
 	public static Block T_TREE_BRANCH;
 	public static Block WILLOW_BRANCH;
 	public static Block R_TREE_BRANCH;
+	//Fence
+	public static Block COBBLESTONE_FENCE;
+	public static Block STONE_BRICK_FENCE;
+	public static Block ACACIA_FENCE;
+	public static Block ASPEN_FENCE;
+	public static Block A_TREE_FENCE;
+	public static Block BIRCH_FENCE;
+	public static Block OAK_FENCE;
+	public static Block PINE_FENCE;
+	public static Block POPLAR_FENCE;
+	public static Block SNOW_FENCE;
+	public static Block SPRUCE_FENCE;
+	public static Block S_TREE_FENCE;
+	public static Block T_TREE_FENCE;
+	public static Block WILLOW_FENCE;
+	public static Block R_TREE_FENCE;
+	//Fence Gate
+	public static Block ACACIA_FENCE_GATE;
+	public static Block ASPEN_FENCE_GATE;
+	public static Block A_TREE_FENCE_GATE;
+	public static Block BIRCH_FENCE_GATE;
+	public static Block OAK_FENCE_GATE;
+	public static Block PINE_FENCE_GATE;
+	public static Block POPLAR_FENCE_GATE;
+	public static Block SNOW_FENCE_GATE;
+	public static Block SPRUCE_FENCE_GATE;
+	public static Block S_TREE_FENCE_GATE;
+	public static Block T_TREE_FENCE_GATE;
+	public static Block WILLOW_FENCE_GATE;
+	public static Block R_TREE_FENCE_GATE;
+	//Door
+	public static MistBlockDoor ACACIA_DOOR;
+	public static MistBlockDoor ASPEN_DOOR;
+	public static MistBlockDoor A_TREE_DOOR;
+	public static MistBlockDoor BIRCH_DOOR;
+	public static MistBlockDoor OAK_DOOR;
+	public static MistBlockDoor PINE_DOOR;
+	public static MistBlockDoor POPLAR_DOOR;
+	public static MistBlockDoor SNOW_DOOR;
+	public static MistBlockDoor SPRUCE_DOOR;
+	public static MistBlockDoor S_TREE_DOOR;
+	public static MistBlockDoor T_TREE_DOOR;
+	public static MistBlockDoor WILLOW_DOOR;
+	public static MistBlockDoor R_TREE_DOOR;
+	public static MistBlockDoor NIOBIUM_DOOR;
+	//Trapdoor
+	public static Block ACACIA_TRAPDOOR;
+	public static Block ASPEN_TRAPDOOR;
+	public static Block A_TREE_TRAPDOOR;
+	public static Block BIRCH_TRAPDOOR;
+	public static Block OAK_TRAPDOOR;
+	public static Block PINE_TRAPDOOR;
+	public static Block POPLAR_TRAPDOOR;
+	public static Block SNOW_TRAPDOOR;
+	public static Block SPRUCE_TRAPDOOR;
+	public static Block S_TREE_TRAPDOOR;
+	public static Block T_TREE_TRAPDOOR;
+	public static Block WILLOW_TRAPDOOR;
+	public static Block R_TREE_TRAPDOOR;
+	public static Block NIOBIUM_TRAPDOOR;
 	//Upper Plants
 	public static MistMushroom MUSHROOMS_0;
 	public static MistMushroom MUSHROOMS_1;

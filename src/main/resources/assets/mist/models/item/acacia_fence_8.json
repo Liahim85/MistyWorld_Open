@@ -1,0 +1,8 @@
+{
+    "parent": "mist:block/fence_8_inv",
+    "textures": {
+        "end": "mist:blocks/acacia_top_2",
+        "side": "mist:blocks/acacia_trunk",
+        "plank": "mist:blocks/acacia_planks"
+    }
+}

@@ -13,10 +13,15 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import ru.liahim.mist.api.block.MistBlocks;
+import ru.liahim.mist.common.Mist;
 import ru.liahim.mist.init.ModParticle;
+import ru.liahim.mist.network.PacketHandler;
+import ru.liahim.mist.network.PacketSpawnParticle;
+import ru.liahim.mist.network.PacketSpawnParticle.ParticleType;
 import ru.liahim.mist.util.FacingHelper;
 import ru.liahim.mist.world.MistWorld;
 
@@ -32,16 +37,12 @@ public class MistSoapBlock extends MistBlock {
 		return world instanceof World && MistWorld.isPosInFog((World)world, pos.getY() + 2) ? 0.7F : 0.99F;
 	}
 
-	/*@Override
+	@Override
 	public void onEntityWalk(World world, BlockPos pos, Entity entity) {
 		if (!world.isRemote && entity.isSprinting() && world.rand.nextBoolean() && !MistWorld.isPosInFog(world, pos.getY() + 2)) {
-			float size = entity.width;
-			double x = world.rand.nextDouble() * size - size/2;
-			double y = world.rand.nextDouble() * 0.2 + 0.1;
-			double z = world.rand.nextDouble() * size - size/2;
-			((WorldServer)world).spawnParticle(ModParticle.MIST_BUBBLE, entity.posX, entity.posY, entity.posZ, 1, x, y, z, 0.1, new int[0]);
+			PacketHandler.INSTANCE.sendToAllAround(new PacketSpawnParticle(ParticleType.SOAP, entity.posX, entity.posY, entity.posZ), new TargetPoint(Mist.getID(), pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, 32));
 		}
-	}*/
+	}
 
 	@Override
 	@SideOnly(Side.CLIENT)

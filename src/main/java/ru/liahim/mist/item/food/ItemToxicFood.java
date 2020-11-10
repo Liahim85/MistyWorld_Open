@@ -9,6 +9,7 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
@@ -17,6 +18,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import ru.liahim.mist.api.item.IMistFood;
+import ru.liahim.mist.api.item.MistItems;
 import ru.liahim.mist.capability.handler.IFoodHandler;
 import ru.liahim.mist.capability.handler.IMistCapaHandler;
 import ru.liahim.mist.init.ModAdvancements;
@@ -83,5 +85,10 @@ public class ItemToxicFood extends ItemFood implements IMistFood {
 	@Override
 	public float getProbability(ItemStack stack) {
 		return 0;
+	}
+
+	@Override
+	public EnumRarity getRarity(ItemStack stack) {
+		return this == MistItems.PILLS_BITTER ? EnumRarity.UNCOMMON : EnumRarity.COMMON;
 	}
 }

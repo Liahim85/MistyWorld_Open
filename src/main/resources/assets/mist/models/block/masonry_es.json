@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "particle": "mist:blocks/cobblestone",
+        "down":     "mist:blocks/stone_brick_1",
+        "up":       "mist:blocks/masonry_wn",
+        "south":    "mist:blocks/cobblestone",
+        "west":     "mist:blocks/masonry_l",
+        "north":    "mist:blocks/masonry_r",
+        "east":     "mist:blocks/cobblestone"
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "wood_fence_8",
+    "pattern": [
+        "SXS"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:s_tree_branch",
+            "data": 6
+        },
+        "S": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "mist:s_tree_fence",
+        "data": 2
+    }
+}

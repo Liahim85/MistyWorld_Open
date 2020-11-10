@@ -67,7 +67,7 @@ public class CliffTombGen extends TombGenBase {
 						if (findFace != null && world.getBlockState(center.offset(findFace).down(2)).isFullCube() &&
 								world.getBlockState(center.offset(findFace, 2).up()).isFullCube()) {
 							center = center.offset(findFace, 2);
-							world.setBlockState(center.down(), getCobble(rand, wet));
+							world.setBlockState(center.down(), getBlock(Type.COBBLE, rand, wet));
 							if (rand.nextInt(3) != 0) {
 								world.setBlockState(center, MistBlocks.URN.getDefaultState());
 								UrnLootType.initializeType(world.getTileEntity(center), biomeType, UrnLocation.CLIFF, rand);
@@ -91,9 +91,10 @@ public class CliffTombGen extends TombGenBase {
 						for (int z = 1; z >= -5; --z) {
 							for (int y = 1; y <= 3; ++y) {
 								checkPos = center.add(x, y, z);
-								if (x == -1 || x == 1 || y == 3 || z == 1) {
-									if ((z == 1 || y != 3 || x == 0) && gen.getBlockState(checkPos).isFullCube()) gen.setBlockState(checkPos, getCobble(rand, 0));
-								} else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
+								if (x == -1 || x == 1 || y == 3) {
+									if ((y != 3 || x == 0) && gen.getBlockState(checkPos).isFullCube()) gen.setBlockState(checkPos, getBlock(Type.BRICK, rand, 0));
+								} else if (z == 1 && gen.getBlockState(checkPos).isFullCube()) gen.setBlockState(checkPos, getBlock(Type.COBBLE, rand, 0));
+								else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 							}
 						}
 					}
@@ -111,7 +112,7 @@ public class CliffTombGen extends TombGenBase {
 							for (int y = 1; y <= 3; ++y) {
 								checkPos = center.add(x, y, z);
 								if (x == -1 || x == 1 || y == 3) {
-									if ((y != 3 || x == 0) && gen.getBlockState(checkPos).isFullCube()) gen.setBlockState(checkPos, getCobble(rand, 0));
+									if ((y != 3 || x == 0) && gen.getBlockState(checkPos).isFullCube()) gen.setBlockState(checkPos, getBlock(Type.COBBLE, rand, 0));
 								} else gen.setBlockState(checkPos, Blocks.AIR.getDefaultState());
 							}
 						}

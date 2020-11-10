@@ -1,0 +1,8 @@
+{
+    "parent": "mist:block/fence_8_inv",
+    "textures": {
+        "end": "mist:blocks/aspen_top_d",
+        "side": "mist:blocks/aspen_trunk_d",
+        "plank": "mist:blocks/aspen_planks"
+    }
+}

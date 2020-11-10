@@ -1,7 +1,6 @@
 package ru.liahim.mist.handlers;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.audio.ISound;
 import net.minecraft.client.gui.FontRenderer;
@@ -26,7 +25,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.World;
 import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
@@ -52,13 +50,13 @@ import ru.liahim.mist.api.item.IFilter;
 import ru.liahim.mist.api.item.IMask;
 import ru.liahim.mist.api.item.ISuit;
 import ru.liahim.mist.api.item.MistItems;
-import ru.liahim.mist.api.sound.MistSounds;
 import ru.liahim.mist.capability.handler.IMistCapaHandler;
 import ru.liahim.mist.client.model.MistModelLoader;
 import ru.liahim.mist.client.model.animation.SimpleIK;
 import ru.liahim.mist.common.ClientProxy;
 import ru.liahim.mist.common.Mist;
 import ru.liahim.mist.common.MistTime;
+import ru.liahim.mist.entity.AbstractMistMount;
 import ru.liahim.mist.entity.EntityGender;
 import ru.liahim.mist.init.ItemColoring;
 import ru.liahim.mist.init.ModConfig;
@@ -72,7 +70,6 @@ import ru.liahim.mist.network.PacketOpenMaskInventory;
 import ru.liahim.mist.network.PacketOpenNormalInventory;
 import ru.liahim.mist.tileentity.TileEntityCampfire;
 import ru.liahim.mist.util.ItemStackMapKey;
-import ru.liahim.mist.world.MistWorld;
 
 public class ClientEventHandler {
 
@@ -82,6 +79,7 @@ public class ClientEventHandler {
 	private int prevSleepTimer;
 	private int filterTimer;
 	private int xPos = mc.gameSettings.mainHand == EnumHandSide.RIGHT ? 189 : -29;
+	public static ISound currentSound;
 
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
@@ -168,6 +166,15 @@ public class ClientEventHandler {
 					if (ModConfig.player.showEffectsPercent) mc.fontRenderer.drawStringWithShadow(String.format("%.2f", mistCapa.getPollution()/100F) + "%", percentX, shift, 0xFFFFFF);
 				}
 			}
+		}
+	}
+
+	@SideOnly(Side.CLIENT)
+	@SubscribeEvent
+	public void renderGameOverlay(RenderGameOverlayEvent.Pre event) {
+		if (event.getType() == ElementType.JUMPBAR && mc.player.isRiding() && mc.player.getRidingEntity() instanceof AbstractMistMount) {
+			if (!mc.player.isCreative()) mc.ingameGUI.renderExpBar(event.getResolution(), event.getResolution().getScaledWidth() / 2 - 91);
+			event.setCanceled(true);
 		}
 	}
 
@@ -407,7 +414,7 @@ public class ClientEventHandler {
 		ModelLoaderRegistry.registerLoader(new MistModelLoader());
 	}
 	
-	private static final PositionedSoundRecord psrUp = new PositionedSoundRecord(MistSounds.UP_MUSIC.getSoundName(), SoundCategory.MUSIC, 1, 1, false, 0, ISound.AttenuationType.NONE, 0, 0, 0);
+	/*private static final PositionedSoundRecord psrUp = new PositionedSoundRecord(MistSounds.UP_MUSIC.getSoundName(), SoundCategory.MUSIC, 1, 1, false, 0, ISound.AttenuationType.NONE, 0, 0, 0);
 	private static final PositionedSoundRecord psrDown = new PositionedSoundRecord(MistSounds.DOWN_MUSIC.getSoundName(), SoundCategory.MUSIC, 1, 1, false, 0, ISound.AttenuationType.NONE, 0, 0, 0);
 	
 	@SideOnly(Side.CLIENT)
@@ -430,6 +437,14 @@ public class ClientEventHandler {
 				}
 			}
 		}
+	}*/
+
+	@SideOnly(Side.CLIENT)
+	@SubscribeEvent
+	public void onSoundPlayed(PlaySoundEvent event) {
+		if (event.getSound().getCategory() == SoundCategory.MUSIC) {
+			currentSound = event.getSound();
+		}
 	}
 
 	/*@SideOnly(Side.CLIENT)
@@ -448,15 +463,6 @@ public class ClientEventHandler {
 			mc.getSoundHandler().stop("", SoundCategory.MUSIC);
 			mc.getSoundHandler().playSound(psr);
 		}
-	}*/
-
-	/*@SideOnly(Side.CLIENT)
-	@SubscribeEvent
-	public void modelBakeEvent(ModelBakeEvent event) {
-		ModelResourceLocation res = new ModelResourceLocation("mist:sapropel");
-		if (event.getModelRegistry().getKeys().contains(res)) event.getModelRegistry().getKeys().remove(res);
-		event.getModelManager().getBlockModelShapes().registerBlockWithStateMapper(MistBlocks.SAPROPEL, (new StateMap.Builder()).withName(IWettable.WET).withSuffix("_wet_sapropel").build());
-		event.getModelLoader().setupModelRegistry();
 	}*/
 
 	/*@SubscribeEvent

@@ -89,7 +89,7 @@ public class AnnotationHooks {
 		for (IRecipe irecipe : CraftingManager.REGISTRY) {
             if (irecipe.matches(craftMatrix, world)) {
             	Item result = irecipe.getCraftingResult(craftMatrix).getItem();
-            	if (result == Items.STICK || Block.getBlockFromItem(result) == Blocks.CRAFTING_TABLE ||
+            	if (result == Items.STICK || Block.getBlockFromItem(result) == Blocks.CRAFTING_TABLE || Block.getBlockFromItem(result) == Blocks.TRAPDOOR ||
             			(Block.getBlockFromItem(result) == Blocks.WOODEN_PRESSURE_PLATE && !irecipe.getRegistryName().getResourceDomain().equals(Mist.MODID))) {
         			boolean check = false;
             		for (int i = 0; i < craftMatrix.getSizeInventory(); ++i) {

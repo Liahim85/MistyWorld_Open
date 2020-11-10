@@ -1,0 +1,22 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:niobium_chisel"
+        },
+        "title": {
+            "translate": "advancements.mist.mason"
+        },
+        "description": {
+            "translate": "advancements.mist.mason.desc"
+        }
+    },
+    "parent": "mist:story/rockbreaker",
+    "criteria": {
+        "coal": {
+            "trigger": "mist:stone_mined",
+            "conditions": {
+                "item": "mist:niobium_chisel"
+            }
+        }
+    }
+}

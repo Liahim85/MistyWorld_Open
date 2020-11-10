@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_bottom_top",
+    "textures": {
+        "bottom": "mist:blocks/stone_mined_3",
+        "top": "mist:blocks/stone_mined",
+        "side": "mist:blocks/stone_mined_1"
+    }
+}

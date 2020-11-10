@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "trapdoor",
+    "pattern": [
+        "XXX",
+        "XXX"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:a_tree_step"
+        }
+    },
+    "result": {
+        "item": "mist:a_tree_trapdoor"
+    }
+}

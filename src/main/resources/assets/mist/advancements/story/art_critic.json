@@ -148,6 +148,28 @@
                     }
                 ]
             }
+        },
+        "_12": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:painting",
+                        "data": 12
+                    }
+                ]
+            }
+        },
+        "_13": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:painting",
+                        "data": 13
+                    }
+                ]
+            }
         }
     }
 }

@@ -61,7 +61,7 @@ public class MistNightberry extends MistBlock implements IColoredBlock, ISeasona
 	public MistNightberry() {
 		super(Material.PLANTS);
         this.setSoundType(SoundType.PLANT);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, EnumAge.POTENTIAL));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(AGE, EnumAge.EMPTY));
         this.setHardness(0.2F);
         this.setTickRandomly(true);
 	}
@@ -93,7 +93,7 @@ public class MistNightberry extends MistBlock implements IColoredBlock, ISeasona
 			if (rand.nextInt(10) == 0 && !(world.getBlockState(pos.down(2)).getBlock() instanceof BlockLiquid)) world.setBlockToAir(pos);
 			else {
 				IBlockState newState = getSeasonState(world, pos, state, MistTime.getTickOfMonth(world));
-				world.setBlockState(pos, newState);
+				if (newState != null) world.setBlockState(pos, newState);
 			}
 		}
 	}
@@ -101,27 +101,18 @@ public class MistNightberry extends MistBlock implements IColoredBlock, ISeasona
 	@Override
 	public IBlockState getSeasonState(World world, BlockPos pos, IBlockState state, long monthTick) {
 		EnumAge age = state.getValue(AGE);
-		int currentDay = MistTime.getDay();
-		// Each Nightberry bush will fruit on a specific day of the month as a pseudo-random function
-		// of its position and the world seed.
-		int fruitingDay = (int)MistWorld.getPosRandom(world, pos, MistTime.getDayInMonth());
+		if (isFruitingNight(world, pos))
+			return age == EnumAge.POTENTIAL ? state.withProperty(AGE, EnumAge.FRUIT) : null;
+		return age != EnumAge.POTENTIAL ? state.withProperty(AGE, EnumAge.POTENTIAL) : null;
+	}
 
-		if (currentDay == fruitingDay) {
-			if (MistTime.isNightTime(world) && age == EnumAge.POTENTIAL) {
-				return state.withProperty(AGE, EnumAge.FRUIT);
-			}
-			else if (age == EnumAge.EMPTY) {
-				// Do not repopulate picked fruit until the next fruitingDay
-				return state.withProperty(AGE, EnumAge.EMPTY);
-			}
-			else {
-				// Go back to Potential and despawn berries during daytime of fruitingDay
-				return state.withProperty(AGE, EnumAge.POTENTIAL);
-			}
-		}
-		else {
-			return state.withProperty(AGE, EnumAge.POTENTIAL);
-		}
+	private boolean isFruitingNight(World world, BlockPos pos) {
+		int currentDay = MistTime.getDay();
+		int fruitingDay = (int)MistWorld.getPosRandom(world, pos, MistTime.getDayInMonth());
+		long tick = (world.getWorldTime() + 6000) % 24000;
+		if (currentDay == fruitingDay && tick >= 20000) return true;
+		else if ((currentDay + 1) % MistTime.getDayInMonth() == fruitingDay && tick < 4000) return true;
+		else return false;	
 	}
 
 	@Override

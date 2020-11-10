@@ -3,8 +3,11 @@
     "rewards": {
         "recipes": [
             "mist:birch_slab",
+            "mist:birch_wall",
             "mist:birch_stairs",
-            "mist:birch_planks_from_step"
+            "mist:birch_planks_from_step",
+            "mist:birch_door",
+            "mist:birch_trapdoor"
         ]
     },
     "criteria": {
@@ -13,8 +16,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "mist:birch_step",
-                        "data": 0
+                        "item": "mist:birch_step"
                     }
                 ]
             }
@@ -28,13 +30,31 @@
         "has_the_recipes_2": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-                "recipe": "mist:birch_stairs"
+                "recipe": "mist:birch_wall"
             }
         },
         "has_the_recipes_3": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
+                "recipe": "mist:birch_stairs"
+            }
+        },
+        "has_the_recipes_4": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
                 "recipe": "mist:birch_planks_from_step"
+            }
+        },
+        "has_the_recipes_5": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:birch_door"
+            }
+        },
+        "has_the_recipes_6": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:birch_trapdoor"
             }
         }
     },
@@ -43,7 +63,10 @@
             "has_item",
             "has_the_recipes_1",
             "has_the_recipes_2",
-            "has_the_recipes_3"
+            "has_the_recipes_3",
+            "has_the_recipes_4",
+            "has_the_recipes_5",
+            "has_the_recipes_6"
         ]
     ]
 }

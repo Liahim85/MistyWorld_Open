@@ -97,13 +97,13 @@
                "functions": [
                   {
                      "function": "mist:set_array_data",
-                     "data": [2, 3, 5, 9, 10, 11]
+                     "data": [2, 3, 5, 9, 10, 11, 13]
                   }
                ]
             },
             {
                 "type": "empty",
-                "weight": 3
+                "weight": 2
             }
          ]
       },

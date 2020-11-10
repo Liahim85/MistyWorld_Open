@@ -32,7 +32,8 @@ public class ModItems {
 	public static void registerItems() {
 		Mist.logger.info("Start to initialize Items");
 		ACHIEV_ITEM = registerItem(new AchievItem(), "achiev_item", null);
-		ROCKS = registerItem(new ItemMistRocks(), "rocks", tab);
+		ROCKS = registerItem(new ItemMistRocks(MistBlocks.COBBLESTONE_STEP, MistBlocks.COBBLESTONE_MOSS_STEP), "rocks", tab);
+		BRICK = registerItem(new ItemMistRocks(MistBlocks.STONE_BRICK_STEP, MistBlocks.STONE_BRICK_MOSS_STEP), "brick", tab);
 		CLAY_BALL = registerItem(new ItemMistClayBall(), "clay_ball", tab);
 		FILTER_COAL = registerItem(new ItemMistFilter(1000, 85), "filter_coal", tab);
 		BIO_SHALE = registerItem(new ItemMist(), "bio_shale", tab);
@@ -55,6 +56,7 @@ public class ModItems {
 		RUBBER = registerItem(new ItemMistRubber(), "rubber", tab);
 		WING = registerItem(new ItemMist(), "wing", tab);
 		SWIM_BLADDER = (ItemFood) registerItem(new ItemToxicFood(2, 0.6F, false, -300), "swim_bladder", tab);
+		PILLS_BITTER = (ItemFood) registerItem(new ItemToxicFood(1, 0.6F, false, -1000), "pills_bitter", tab);
 		NIOBIUM_INGOT = registerItem(new ItemMist(), "niobium_ingot", tab);
 		NIOBIUM_NUGGET = registerItem(new ItemMist(), "niobium_nugget", tab);
 		//Tools
@@ -63,6 +65,7 @@ public class ModItems {
 		NIOBIUM_PICKAXE = registerItem(new ItemMistPickaxe(NIOBIUM_TOOLS), "niobium_pickaxe", tab);
 		NIOBIUM_SHOVEL = registerItem(new ItemMistShovel(NIOBIUM_TOOLS), "niobium_shovel", tab);
 		NIOBIUM_SWORD = registerItem(new ItemMistSword(NIOBIUM_TOOLS), "niobium_sword", tab);
+		NIOBIUM_CHISEL = registerItem(new ItemMistChisel(NIOBIUM_TOOLS), "niobium_chisel", tab);
 		//Armor
 		NIOBIUM_HELMET = registerItem(new ItemMistArmor(NIOBIUM_ARMOR, 2, EntityEquipmentSlot.HEAD), "niobium_helmet", tab);
 		NIOBIUM_CHESTPLATE = registerItem(new ItemMistArmor(NIOBIUM_ARMOR, 2, EntityEquipmentSlot.CHEST), "niobium_chestplate", tab);

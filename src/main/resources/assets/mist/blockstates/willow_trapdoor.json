@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "facing=north,half=bottom,open=false": { "model": "mist:willow_trapdoor_bottom", "y": 180 },
+        "facing=south,half=bottom,open=false": { "model": "mist:willow_trapdoor_bottom" },
+        "facing=east,half=bottom,open=false": { "model": "mist:willow_trapdoor_bottom", "y": 270 },
+        "facing=west,half=bottom,open=false": { "model": "mist:willow_trapdoor_bottom", "y": 90 },
+        "facing=north,half=top,open=false": { "model": "mist:willow_trapdoor_top", "y": 180 },
+        "facing=south,half=top,open=false": { "model": "mist:willow_trapdoor_top" },
+        "facing=east,half=top,open=false": { "model": "mist:willow_trapdoor_top", "y": 270 },
+        "facing=west,half=top,open=false": { "model": "mist:willow_trapdoor_top", "y": 90 },
+        "facing=north,half=bottom,open=true": { "model": "mist:willow_trapdoor_top", "x": 90, "y": 180 },
+        "facing=south,half=bottom,open=true": { "model": "mist:willow_trapdoor_top", "x": 90 },
+        "facing=east,half=bottom,open=true": { "model": "mist:willow_trapdoor_top", "x": 90, "y": 270 },
+        "facing=west,half=bottom,open=true": { "model": "mist:willow_trapdoor_top", "x": 90, "y": 90 },
+        "facing=north,half=top,open=true": { "model": "mist:willow_trapdoor_bottom", "x": 270, "y": 180 },
+        "facing=south,half=top,open=true": { "model": "mist:willow_trapdoor_bottom", "x": 270 },
+        "facing=east,half=top,open=true": { "model": "mist:willow_trapdoor_bottom", "x": 270, "y": 270 },
+        "facing=west,half=top,open=true": { "model": "mist:willow_trapdoor_bottom", "x": 270, "y": 90 }
+    }
+}

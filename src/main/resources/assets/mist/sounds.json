@@ -17,6 +17,18 @@
             { "name": "mist:entity/urn/urn_close" }
         ]
     },
+    "mist_urn_break": {
+        "category": "block",
+        "sounds": [
+            { "name": "mist:entity/urn/urn_break" }
+        ]
+    },
+    "mist_stone_break": {
+        "category": "block",
+        "sounds": [
+            { "name": "mist:stone/stone_break" }
+        ]
+    },
     "mist_wood_creak": {
         "category": "block",
         "sounds": [
@@ -528,6 +540,25 @@
             { "name": "mist:mobs/desert_fish/desert_fish_s_1" },
             { "name": "mist:mobs/desert_fish/desert_fish_s_2" },
             { "name": "mist:mobs/desert_fish/desert_fish_s_3" }
+        ]
+    },
+    "mist_sky_boom": {
+        "category": "ambient",
+        "sounds": [
+            { "name": "mist:sky/sky_boom_1", "volume": 3, "stream": true },
+            { "name": "mist:sky/sky_boom_2", "volume": 3, "stream": true },
+            { "name": "mist:sky/sky_boom_3", "volume": 3, "stream": true },
+            { "name": "mist:sky/sky_boom_4", "volume": 3, "stream": true }
+        ]
+    },
+    "mist_sky_sound": {
+        "category": "ambient",
+        "sounds": [
+            {
+                "name": "mist:sky/sky_sound",
+                "volume": 2,
+                "stream": true
+            }
         ]
     },
     "mist_up_music": {

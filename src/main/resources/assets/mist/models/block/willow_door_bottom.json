@@ -1,0 +1,7 @@
+{
+    "parent": "block/door_bottom",
+    "textures": {
+        "bottom": "mist:blocks/willow_door_lower",
+        "top": "mist:blocks/willow_door_upper"
+    }
+}

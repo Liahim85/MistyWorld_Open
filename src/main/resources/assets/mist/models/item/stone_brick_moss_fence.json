@@ -1,0 +1,11 @@
+{
+    "parent": "mist:block/fence_moss_inv",
+    "textures": {
+        "wall": "mist:blocks/stone_brick_1",
+        "moss": "mist:blocks/stone_brick_moss_1",
+        "post": "mist:blocks/stone_brick_double",
+        "mosspost": "mist:blocks/stone_brick_moss_double",
+        "top": "mist:blocks/cobblestone_post_top",
+        "mosstop": "mist:blocks/cobblestone_moss_post_top"
+    }
+}

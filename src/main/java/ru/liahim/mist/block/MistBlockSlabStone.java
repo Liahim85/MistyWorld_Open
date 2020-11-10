@@ -100,11 +100,11 @@ public class MistBlockSlabStone extends MistBlockSlab implements IDividable, ICo
 
 	@Override
 	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
-		if (!world.isRemote && this == MistBlocks.COBBLESTONE_MOSS_STEP) {
+		if (!world.isRemote) {
 			EnumFacing[] faces = state.getValue(HALF) == EnumBlockHalf.TOP ? FacingHelper.NOTDOWN : EnumFacing.HORIZONTALS;
 			for (EnumFacing side : faces) {
 				if (world.getBlockState(pos.offset(side)).getBlock() == MistBlocks.ACID_BLOCK) {
-					world.setBlockState(pos, MistBlocks.COBBLESTONE_STEP.getDefaultState().withProperty(VARIANT, EnumType.NORMAL).withProperty(HALF, state.getValue(HALF)));
+					world.setBlockState(pos, this.getDefaultState().withProperty(VARIANT, EnumType.NORMAL).withProperty(HALF, state.getValue(HALF)));
 					break;
 				}
 			}
@@ -113,11 +113,11 @@ public class MistBlockSlabStone extends MistBlockSlab implements IDividable, ICo
 
 	@Override
 	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {
-		if (!world.isRemote && this == MistBlocks.COBBLESTONE_MOSS_STEP) {
+		if (!world.isRemote) {
 			EnumFacing[] faces = state.getValue(HALF) == EnumBlockHalf.TOP ? FacingHelper.NOTDOWN : EnumFacing.HORIZONTALS;
 			for (EnumFacing side : faces) {
 				if (world.getBlockState(pos.offset(side)).getBlock() == MistBlocks.ACID_BLOCK) {
-					world.setBlockState(pos, MistBlocks.COBBLESTONE_STEP.getDefaultState().withProperty(VARIANT, EnumType.NORMAL).withProperty(HALF, state.getValue(HALF)));
+					world.setBlockState(pos, this.getDefaultState().withProperty(VARIANT, EnumType.NORMAL).withProperty(HALF, state.getValue(HALF)));
 					break;
 				}
 			}

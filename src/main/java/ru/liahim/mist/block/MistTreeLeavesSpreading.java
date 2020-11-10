@@ -154,13 +154,13 @@ public class MistTreeLeavesSpreading extends MistTreeLeaves {
 							if (r < monthTick) return state.withProperty(AGE, EnumAge.POTENTIAL);
 						}
 					} else return state.withProperty(AGE, EnumAge.POTENTIAL);
-				} else if (state.getValue(AGE) == EnumAge.POTENTIAL) {
+				} else if (state.getValue(AGE) == EnumAge.POTENTIAL || state.getValue(AGE) == EnumAge.BLOOMY) {
 					if (MistTime.getMonth() == this.spoilMonth) {
 						long r = MistWorld.getPosRandom(world, pos, 0) % (MistTime.getTickInMonth() * 3);
 						if (r < MistTime.getTickInMonth()) {
 							if (r >= monthTick) return state.withProperty(AGE, EnumAge.FRUIT);
 						}
-					}
+					} else return state.withProperty(AGE, EnumAge.POTENTIAL);
 				}
 			}
 		}

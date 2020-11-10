@@ -8,6 +8,7 @@ public class MistItems {
 	public static Item ACHIEV_ITEM;
 	//Main
 	public static Item ROCKS;
+	public static Item BRICK;
 	public static Item CLAY_BALL;
 	public static Item HUMUS;
 	public static Item SAPROPEL_BALL;
@@ -30,6 +31,7 @@ public class MistItems {
 	public static Item TALLOW;
 	public static Item SOAP;
 	public static Item WING;
+	//public static Item CHITIN;
 	//Plants
 	public static Item TREE_SEEDS;
 	public static Item DESERT_COTTON_SEED;
@@ -44,12 +46,14 @@ public class MistItems {
 	public static ItemFood MEAT_COOK;
 	public static ItemFood NIGHTBERRY;
 	public static ItemFood TINDER_FUNGUS;
+	public static ItemFood PILLS_BITTER;
 	//Tools
 	public static Item NIOBIUM_AXE;
 	public static Item NIOBIUM_HOE;
 	public static Item NIOBIUM_PICKAXE;
 	public static Item NIOBIUM_SHOVEL;
 	public static Item NIOBIUM_SWORD;
+	public static Item NIOBIUM_CHISEL;
 	public static Item FLINT_AND_STONE;
 	//Armor
 	public static Item NIOBIUM_HELMET;

@@ -1,0 +1,34 @@
+{
+    "multipart": [
+        {   "when": { "up": "true", "variant": "cobblestone" },
+            "apply": { "model": "mist:stone_brick_fence_post" }
+        },
+        {   "when": { "north": "true", "variant": "cobblestone" },
+            "apply": { "model": "mist:stone_brick_fence_side", "uvlock": true }
+        },
+        {   "when": { "east": "true", "variant": "cobblestone" },
+            "apply": { "model": "mist:stone_brick_fence_side", "y": 90, "uvlock": true }
+        },
+        {   "when": { "south": "true", "variant": "cobblestone" },
+            "apply": { "model": "mist:stone_brick_fence_side", "y": 180, "uvlock": true }
+        },
+        {   "when": { "west": "true", "variant": "cobblestone" },
+            "apply": { "model": "mist:stone_brick_fence_side", "y": 270, "uvlock": true }
+        },
+        {   "when": { "up": "true", "variant": "mossy_cobblestone" },
+            "apply": { "model": "mist:stone_brick_moss_fence_post" }
+        },
+        {   "when": { "north": "true", "variant": "mossy_cobblestone" },
+            "apply": { "model": "mist:stone_brick_moss_fence_side", "uvlock": true }
+        },
+        {   "when": { "east": "true", "variant": "mossy_cobblestone" },
+            "apply": { "model": "mist:stone_brick_moss_fence_side", "y": 90, "uvlock": true }
+        },
+        {   "when": { "south": "true", "variant": "mossy_cobblestone" },
+            "apply": { "model": "mist:stone_brick_moss_fence_side", "y": 180, "uvlock": true }
+        },
+        {   "when": { "west": "true", "variant": "mossy_cobblestone" },
+            "apply": { "model": "mist:stone_brick_moss_fence_side", "y": 270, "uvlock": true }
+        }
+    ]
+}

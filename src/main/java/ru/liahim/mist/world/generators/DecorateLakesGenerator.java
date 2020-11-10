@@ -185,7 +185,7 @@ public class DecorateLakesGenerator implements IWorldGenerator {
 				return world.setBlockState(pos, fern, Mist.FLAG);
 			} else if (i == 5 && world.isAirBlock(pos.up())) {
 				return world.setBlockState(pos, grassDown, 2) && world.setBlockState(pos.up(), grassUp, 2);
-			} else if (rand.nextInt(32) == 0 && isWater(world, pos.down(2))) {
+			} else if (rand.nextInt(48) == 0 && isWater(world, pos.down(2))) {
 				return world.setBlockState(pos, nightberry, 2);
 			}
 		}

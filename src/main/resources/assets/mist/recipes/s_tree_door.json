@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "door",
+    "pattern": [
+        "XX",
+        "XX",
+        "XX"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:s_tree_step"
+        }
+    },
+    "result": {
+        "item": "mist:s_tree_door"
+    }
+}

@@ -8,6 +8,7 @@ import ru.liahim.mist.api.block.IDividable;
 import ru.liahim.mist.api.item.MistItems;
 import ru.liahim.mist.handlers.ServerEventHandler;
 import ru.liahim.mist.init.ModAdvancements;
+import ru.liahim.mist.item.ItemMistChisel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.SoundType;
@@ -26,6 +27,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumFacing.Axis;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.NonNullList;
@@ -44,6 +46,7 @@ public class MistWoodBlock extends MistBlock implements IDividable {
 	private final int fireSpeed;
 	private Block stepBlock;
 	private Block slabBlock;
+	private Block wallBlock;
 	private Block stairsBlock;
 
 	public MistWoodBlock(float hardness, float resistance, int flammability, int fireSpeed, MapColor color) {
@@ -108,18 +111,24 @@ public class MistWoodBlock extends MistBlock implements IDividable {
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 		EnumType type = state.getValue(TYPE);
 		ItemStack heldItem = player.getHeldItem(hand);
-		if (type != EnumType.PLANK && type != EnumType.DEBARKING && heldItem != null &&	heldItem.getItem() instanceof ItemAxe) {
+		boolean axe = heldItem.getItem() instanceof ItemAxe;
+		boolean chisel = heldItem.getItem() instanceof ItemMistChisel;
+		if (type != EnumType.PLANK && type != EnumType.DEBARKING && heldItem != null &&	(axe || (chisel && type != EnumType.CHISELED))) {
 			EnumAxis axis = state.getValue(AXIS);
 			if (axis == EnumAxis.NONE || EnumAxis.fromFacingAxis(side.getAxis()) != axis) {
 				if (!world.isRemote) {
 					if (!ServerEventHandler.isMulchDelay(player.getUniqueID())) {
 						if (player instanceof EntityPlayerMP) ModAdvancements.CARVING.trigger((EntityPlayerMP) player, world, pos, true);
-						if (type == EnumType.LOG) {
-							if (axis == EnumAxis.NONE) world.setBlockState(pos, state.withProperty(AXIS, EnumAxis.Y));
-							else world.setBlockState(pos, state.withProperty(TYPE, EnumType.CHISELED));
-						} else if (type == EnumType.CHISELED) {
-							world.setBlockState(pos, state.withProperty(TYPE, EnumType.DEBARKING));
-						}
+						if (axe) {
+							if (type == EnumType.LOG) {
+								if (axis == EnumAxis.NONE) world.setBlockState(pos, state.withProperty(AXIS, EnumAxis.Y));
+								else world.setBlockState(pos, state.withProperty(TYPE, EnumType.CHISELED));
+							} else if (type == EnumType.CHISELED) {
+								world.setBlockState(pos, state.withProperty(TYPE, EnumType.DEBARKING));
+							}
+						} else if (type == EnumType.LOG && axis != EnumAxis.NONE) {
+							world.setBlockState(pos, state.withProperty(TYPE, EnumType.CHISELED));
+						} 
 						ServerEventHandler.setMulchDelay(player.getUniqueID(), 5);
 						heldItem.damageItem(1, player);
 						ItemStack stack = new ItemStack(MistItems.MULCH);
@@ -256,7 +265,16 @@ public class MistWoodBlock extends MistBlock implements IDividable {
 
 	@Override
 	public IBlockState getSlabBlock(IBlockState state) {
+		if (this.slabBlock instanceof MistBlockSlabWood) {
+			boolean isRot = state.getBlock() instanceof BlockStairs && state.getValue(BlockStairs.FACING).getAxis() == Axis.X;
+			return this.slabBlock.getDefaultState().withProperty(MistBlockSlabWood.ISROT, isRot);
+		}
 		return this.slabBlock.getDefaultState();
+	}
+
+	@Override
+	public Block getWallBlock(IBlockState state) {
+		return this.wallBlock;
 	}
 
 	@Override
@@ -276,6 +294,10 @@ public class MistWoodBlock extends MistBlock implements IDividable {
 
 	public void setStepBlock(Block stepBlock) {
 		this.stepBlock = stepBlock;
+	}
+
+	public void setWallBlock(Block wallBlock) {
+		this.wallBlock = wallBlock;
 	}
 
 	public void setSlabBlock(Block slabBlock) {

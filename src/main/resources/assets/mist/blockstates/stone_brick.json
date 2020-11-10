@@ -1,0 +1,18 @@
+{
+    "variants": {
+        "variant=normal": [
+            { "model": "mist:stone_brick_1", "weight": 3 },
+            { "model": "mist:stone_brick_2", "weight": 3 },
+            { "model": "mist:stone_brick_3", "weight": 3 },
+            { "model": "mist:stone_brick_4", "weight": 2 },
+            { "model": "mist:stone_brick_5", "weight": 1 }
+        ],
+        "variant=moss":   [
+            { "model": "mist:stone_brick_moss_1", "weight": 3 },
+            { "model": "mist:stone_brick_moss_2", "weight": 3 },
+            { "model": "mist:stone_brick_moss_3", "weight": 3 },
+            { "model": "mist:stone_brick_moss_4", "weight": 2 },
+            { "model": "mist:stone_brick_moss_5", "weight": 1 }
+        ]
+    }
+}

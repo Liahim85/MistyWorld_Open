@@ -15,6 +15,8 @@ public class ModSounds {
 
 		BLOCK_URN_OPEN = registerSoundEvent("mist_urn_open");
 		BLOCK_URN_CLOSE = registerSoundEvent("mist_urn_close");
+		BLOCK_URN_BREAK = registerSoundEvent("mist_urn_break");
+		BLOCK_STONE_BREAK = registerSoundEvent("mist_stone_break");
 		BLOCK_WOOD_CREAK = registerSoundEvent("mist_wood_creak");
 
 		ENTITY_CARAVAN_AMBIENT = registerSoundEvent("mist_caravan_ambient");
@@ -110,12 +112,15 @@ public class ModSounds {
 		ENTITY_DESERT_FISH_HURT = registerSoundEvent("mist_desert_fish_hurt");
 		ENTITY_DESERT_FISH_DEATH = registerSoundEvent("mist_desert_fish_death");
 		ENTITY_DESERT_FISH_STEP = registerSoundEvent("mist_desert_fish_step");
+	
+		SKY_SOUND = registerSoundEvent("mist_sky_sound");
+		SKY_BOOM = registerSoundEvent("mist_sky_boom");
 
-		UP_MUSIC = registerSoundEvent("mist_up_music");
-		DOWN_MUSIC = registerSoundEvent("mist_down_music");
+		//UP_MUSIC = registerSoundEvent("mist_up_music");
+		//DOWN_MUSIC = registerSoundEvent("mist_down_music");
 	}
 
-	private static SoundEvent registerSoundEvent(String name) {
+	public static SoundEvent registerSoundEvent(String name) {
 		ResourceLocation RL = new ResourceLocation(Mist.MODID, name);
 		ForgeRegistries.SOUND_EVENTS.register(new SoundEvent(RL).setRegistryName(RL));
 		return ForgeRegistries.SOUND_EVENTS.getValue(RL);

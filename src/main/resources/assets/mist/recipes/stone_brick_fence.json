@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "stone_brick_fence",
+    "pattern": [
+        "XXX",
+        "XXX"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:brick"
+        }
+    },
+    "result": {
+        "item": "mist:stone_brick_fence",
+        "data": 0
+    }
+}

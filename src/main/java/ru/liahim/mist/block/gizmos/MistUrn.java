@@ -35,6 +35,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import ru.liahim.mist.api.block.IColoredBlock;
 import ru.liahim.mist.api.block.IShiftPlaceable;
 import ru.liahim.mist.api.block.MistBlocks;
+import ru.liahim.mist.api.sound.MistSounds;
 import ru.liahim.mist.common.Mist;
 import ru.liahim.mist.entity.EntityGraveBug;
 import ru.liahim.mist.tileentity.TileEntityUrn;
@@ -80,6 +81,7 @@ public class MistUrn extends MistBlockContainer implements IColoredBlock, IShift
 	}
 
 	protected static final AxisAlignedBB URN_AABB = new AxisAlignedBB(0.3125D, 0.0D, 0.3125D, 0.6875D, 0.5625D, 0.6875D);
+	private static final int breakChance = 2;
 
 	public MistUrn() {
 		super(Material.CLAY);
@@ -119,10 +121,19 @@ public class MistUrn extends MistBlockContainer implements IColoredBlock, IShift
 
 	@Override
 	public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te, ItemStack stack) {
-		if (te instanceof TileEntityUrn && ((TileEntityUrn)te).isBug() && this.spawnBug(world, pos)) {
-			world.destroyBlock(pos, false);
-			dropInventory(world, pos, player, te);
-		} else spawnAsEntity(world, pos, this.getUrnItem(te));
+		if (te instanceof TileEntityUrn) {
+			TileEntityUrn urn = (TileEntityUrn)te;
+			if ((urn.isBug() && this.spawnBug(world, pos)) ||
+					(urn.getUrnType().isRare() && urn.getLootTable() != null && world.rand.nextInt(breakChance) == 0)) {
+				this.destroy(world, player, pos, te);
+			} else spawnAsEntity(world, pos, this.getUrnItem(te));
+		}
+	}
+
+	private void destroy(World world, EntityPlayer player, BlockPos pos, TileEntity te) {
+		world.playSound(null, pos, MistSounds.BLOCK_URN_BREAK, SoundCategory.BLOCKS, 0.8F, world.rand.nextFloat() * 0.4F + 0.8F);
+		world.destroyBlock(pos, false);
+		dropInventory(world, pos, player, te);
 	}
 
 	@Override
@@ -178,9 +189,9 @@ public class MistUrn extends MistBlockContainer implements IColoredBlock, IShift
 		else {
 			TileEntityUrn te = (TileEntityUrn)this.getLockableContainer(world, pos);
 			if (te != null) {
-				if (te.isBug() && spawnBug(world, pos)) {
-					world.destroyBlock(pos, false);
-					dropInventory(world, pos, player, te);
+				if ((te.isBug() && spawnBug(world, pos)) ||
+						(!te.getUrnType().isRare() && te.getLootTable() != null && world.rand.nextInt(breakChance) == 0)) {
+					this.destroy(world, player, pos, te);
 				} else {
 					if ((te).lidAngle == 0)	(te).openSide = player.getHorizontalFacing();
 					player.openGui(Mist.MODID, 5, world, pos.getX(), pos.getY(), pos.getZ());
@@ -194,10 +205,13 @@ public class MistUrn extends MistBlockContainer implements IColoredBlock, IShift
 	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {
 		if (!canStay(world.getBlockState(pos.down()).getBlockFaceShape(world, pos.down(), EnumFacing.UP))) {
 			TileEntity te = world.getTileEntity(pos);
-			if (te instanceof TileEntityUrn && ((TileEntityUrn)te).isBug() && this.spawnBug(world, pos)) {
-				world.destroyBlock(pos, false);
-				dropInventory(world, pos, null, te);
-			} else world.destroyBlock(pos, true);
+			if (te instanceof TileEntityUrn) {
+				TileEntityUrn urn = (TileEntityUrn)te;
+				if ((urn.isBug() && this.spawnBug(world, pos)) ||
+						(!urn.getUrnType().isRare() || urn.getLootTable() != null && world.rand.nextInt(breakChance) == 0)) {
+					this.destroy(world, null, pos, te);
+				} else world.destroyBlock(pos, true);
+			}
 		}
     }
 

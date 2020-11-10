@@ -14,6 +14,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.management.PlayerList;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -73,18 +75,29 @@ public class MistPortal extends BlockBreakable {
 	@Override
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
 		if (!entity.isRiding() && !entity.isBeingRidden() && entity.isNonBoss()) {
-			if (entity instanceof EntityPlayerMP) {
-				EntityPlayerMP playerMP = (EntityPlayerMP)entity;
-				if (pos.getX() == MathHelper.floor(entity.posX) && pos.getZ() == MathHelper.floor(entity.posZ)) {
-					if (playerMP.dimension != Mist.getID()) {
-						playerMP.getServer().getPlayerList().transferPlayerToDimension(playerMP, Mist.getID(), new MistTeleporter(playerMP.getServer().getWorld(Mist.getID()), pos.toImmutable()));
-					} else {
-						int dimId = PortalCoordData.get(world).getDim(Mist.getID(), pos.toImmutable());
-						playerMP.getServer().getPlayerList().transferPlayerToDimension(playerMP, dimId, new MistTeleporter(playerMP.getServer().getWorld(dimId), pos.toImmutable()));
-					}
-				}
-			}
-		}
+            if (entity instanceof EntityPlayerMP) {
+                EntityPlayerMP playerMP = (EntityPlayerMP) entity;
+                if (pos.getX() == MathHelper.floor(entity.posX) && pos.getZ() == MathHelper.floor(entity.posZ)) {
+                    BlockPos immutablePos = pos.toImmutable();
+                    MinecraftServer server = playerMP.getServer();
+                    PlayerList playerList = server.getPlayerList();
+                    if (playerMP.dimension != Mist.getID()) {
+                        playerList.transferPlayerToDimension(
+                            playerMP,
+                            Mist.getID(),
+                            new MistTeleporter(server.getWorld(Mist.getID()), immutablePos)
+                        );
+                    } else {
+                        int dimId = PortalCoordData.get(world).getDim(Mist.getID(), immutablePos);
+                        playerList.transferPlayerToDimension(
+                            playerMP,
+                            dimId,
+                            new MistTeleporter(server.getWorld(dimId), immutablePos)
+                        );
+                    }
+                }
+            }
+        }
 	}
 
 	@Override
@@ -97,13 +110,13 @@ public class MistPortal extends BlockBreakable {
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
 		if (!world.isRemote) {
-			if (world.getBlockState(pos.up()) != MistBlocks.PORTAL_WORK.getDefaultState().withProperty(MistPortalStone.ISNEW, Boolean.valueOf(true)).withProperty(MistPortalStone.ISUP, Boolean.valueOf(true)) ||
-					world.getBlockState(pos.up()) != MistBlocks.PORTAL_WORK.getDefaultState().withProperty(MistPortalStone.ISNEW, Boolean.valueOf(false)).withProperty(MistPortalStone.ISUP, Boolean.valueOf(true)) ||
-					world.getBlockState(pos.down()) != MistBlocks.PORTAL_WORK.getDefaultState().withProperty(MistPortalStone.ISNEW, Boolean.valueOf(true)).withProperty(MistPortalStone.ISUP, Boolean.valueOf(false)) ||
-					world.getBlockState(pos.down()) != MistBlocks.PORTAL_WORK.getDefaultState().withProperty(MistPortalStone.ISNEW, Boolean.valueOf(false)).withProperty(MistPortalStone.ISUP, Boolean.valueOf(false))) {
-				world.setBlockToAir(pos);
-			}
-		}
+            IBlockState up = world.getBlockState(pos.up());
+            IBlockState down = world.getBlockState(pos.down());
+            if (!(up.getBlock() == MistBlocks.PORTAL_WORK && up.getValue(MistPortalStone.ISUP)) ||
+                !(down.getBlock() == MistBlocks.PORTAL_WORK && !down.getValue(MistPortalStone.ISUP))) {
+                world.setBlockToAir(pos);
+            }
+        }
 	}
 
 	@Override
@@ -120,7 +133,7 @@ public class MistPortal extends BlockBreakable {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
-		return (side == EnumFacing.UP && side == EnumFacing.DOWN) ? false : true;
+		return !(side == EnumFacing.UP || side == EnumFacing.DOWN);
 	}
 
 	@Override

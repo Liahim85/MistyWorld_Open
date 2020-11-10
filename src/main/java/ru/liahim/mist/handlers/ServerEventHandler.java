@@ -6,7 +6,11 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
+import org.apache.commons.lang3.tuple.Pair;
+
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
@@ -33,9 +37,11 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemBucket;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemFlintAndSteel;
 import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemSplashPotion;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.SPacketSpawnPosition;
@@ -54,7 +60,6 @@ import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.item.ItemExpireEvent;
-import net.minecraftforge.event.entity.living.AnimalTameEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
@@ -131,7 +136,6 @@ import ru.liahim.mist.capability.handler.ISkillCapaHandler.Skill;
 import ru.liahim.mist.capability.handler.FoodHandler;
 import ru.liahim.mist.common.Mist;
 import ru.liahim.mist.common.MistTime;
-import ru.liahim.mist.entity.EntityAnimalMist;
 import ru.liahim.mist.entity.ai.EntityAIEatMistGrass;
 import ru.liahim.mist.init.ModAdvancements;
 import ru.liahim.mist.init.ModConfig;
@@ -144,6 +148,8 @@ import ru.liahim.mist.network.PacketMaskSync;
 import ru.liahim.mist.network.PacketMushroomSync;
 import ru.liahim.mist.network.PacketSeedSync;
 import ru.liahim.mist.network.PacketSkillSync;
+import ru.liahim.mist.network.PacketSkySound;
+import ru.liahim.mist.network.PacketSkySound.SkySoundType;
 import ru.liahim.mist.network.PacketTimeSync;
 import ru.liahim.mist.network.PacketToxicFoodSync;
 import ru.liahim.mist.network.PacketToxicSync;
@@ -156,10 +162,12 @@ import ru.liahim.mist.world.MistWorld;
 
 public class ServerEventHandler {
 
-	private static final HashMap<UUID,ItemStack> maskSync = new HashMap<UUID,ItemStack>();
-	private static final HashMap<UUID,Integer> mulchDelay = new HashMap<UUID,Integer>();
-	private static final HashMap<UUID,Integer> portDelay = new HashMap<UUID,Integer>();
-	private static final HashSet<UUID> milkCheck = new HashSet<UUID>();
+	private static final HashMap<UUID,ItemStack> maskSync = Maps.newHashMap();
+	private static final HashMap<UUID,Integer> mulchDelay = Maps.newHashMap();
+	private static final HashMap<UUID,Integer> portDelay = Maps.newHashMap();
+	private static final HashSet<UUID> milkCheck = Sets.newHashSet();
+	public static Pair<BlockPos, EntityPlayer> breakPlayer = null;
+	public static Pair<BlockPos, EntityPlayer> waterPlayer = null;
 
 	@SubscribeEvent
 	public void onPlayerTick(PlayerTickEvent event) {
@@ -247,7 +255,7 @@ public class ServerEventHandler {
 	public void onPlayerTrySleep(PlayerSleepInBedEvent event) {
 		if (event.getEntityPlayer().world.provider.getDimension() == Mist.getID() &&
 				event.getPos().getY() < MistWorld.getFogMaxHight() + 4) {
-			event.getEntityPlayer().sendMessage(new TextComponentTranslation("tile.bed.in_fog", new Object[0]));
+			event.getEntityPlayer().sendMessage(new TextComponentTranslation("tile.mist.bed.in_fog"));
 			event.setResult(SleepResult.NOT_POSSIBLE_HERE);
 		}
 	}
@@ -276,7 +284,10 @@ public class ServerEventHandler {
 	public void breakSpeed(BreakSpeed event) {
 		if (event.getState().getBlock() instanceof IMistStone) {
 			ItemStack stack = event.getEntityPlayer().getHeldItemMainhand();
-			event.setNewSpeed(MistRegistry.getBreakingSpeed(stack, event.getState(), event.getOriginalSpeed()));
+			float speed = MistRegistry.getBreakingSpeed(stack, event.getState(), event.getOriginalSpeed());
+			int skill = Skill.getLevel(event.getEntityPlayer(), Skill.MASON);
+			speed *= 1 + Math.max(skill - 1, 0);
+			event.setNewSpeed(speed);
 		} else if (event.getState().getBlock() instanceof MistTreeTrunk) {
 			int size = event.getState().getValue(MistTreeTrunk.SIZE);
 			event.setNewSpeed((event.getOriginalSpeed() + 4 - size) / 2);
@@ -331,14 +342,14 @@ public class ServerEventHandler {
 
 	@SubscribeEvent
 	public void itemCrafting(ItemCraftedEvent event) {
-		if (event.player != null && event.player instanceof EntityPlayerMP) {
+		if (event.player instanceof EntityPlayerMP) {
 			ModAdvancements.ITEM_CRAFTED.trigger((EntityPlayerMP) event.player, event.crafting);
 		}
 	}
 
 	@SubscribeEvent
 	public void itemSmelting(ItemSmeltedEvent event) {
-		if (event.player != null && event.player instanceof EntityPlayerMP) {
+		if (event.player instanceof EntityPlayerMP) {
 			ModAdvancements.ITEM_SMELTED.trigger((EntityPlayerMP) event.player, event.smelting);
 		}
 	}
@@ -347,38 +358,30 @@ public class ServerEventHandler {
 	public void placeBlock(PlaceEvent event) {
 		World world = event.getWorld();
 		//Get create portal achievement
-		if (!world.isRemote && !Dimension.loadedDimBlackList.contains(world.provider.getDimension())) {
+		if (!world.isRemote) {
 			Block block = event.getState().getBlock();
-			if (block == Blocks.GOLD_BLOCK || block == MistBlocks.PORTAL_BASE) {
+			if (!Dimension.loadedDimBlackList.contains(world.provider.getDimension()) && 
+					(block == Blocks.GOLD_BLOCK || block == MistBlocks.PORTAL_BASE)) {
 				boolean check = false;
 				BlockPos pos = event.getPos();
 				BlockPos portalPos = BlockPos.ORIGIN;
 				if (block == Blocks.GOLD_BLOCK) {
 					IBlockState up = world.getBlockState(pos.up());
 					IBlockState down = world.getBlockState(pos.down());
-					if (up.getBlock() == MistBlocks.PORTAL_BASE && up.getValue(MistPortalStone.ISUP) == true &&
-							down.getBlock() == MistBlocks.PORTAL_BASE && down.getValue(MistPortalStone.ISUP) == false) {
+					if (up.getBlock() == MistBlocks.PORTAL_BASE && up.getValue(MistPortalStone.ISUP) &&
+							down.getBlock() == MistBlocks.PORTAL_BASE && !down.getValue(MistPortalStone.ISUP)) {
 						check = true;
 						portalPos = pos;
 					}
 				} else {
-					if (event.getState().getValue(MistPortalStone.ISUP)) {
-						IBlockState center = world.getBlockState(pos.down());
-						IBlockState down = world.getBlockState(pos.down(2));
-						if (center.getBlock() == Blocks.GOLD_BLOCK &&
-								down.getBlock() == MistBlocks.PORTAL_BASE && down.getValue(MistPortalStone.ISUP) == false) {
-							check = true;
-							portalPos = pos.down();
-						}
-					} else {
-						IBlockState up = world.getBlockState(pos.up(2));
-						IBlockState center = world.getBlockState(pos.up());
-						if (up.getBlock() == MistBlocks.PORTAL_BASE && up.getValue(MistPortalStone.ISUP) == true &&
-								center.getBlock() == Blocks.GOLD_BLOCK) {
-							check = true;
-							portalPos = pos.up();
-						}
-					}
+					boolean isUp = event.getState().getValue(MistPortalStone.ISUP);
+					portalPos = isUp ? pos.down() : pos.up();
+					BlockPos anotherBasePos = isUp ? pos.down(2) : pos.up(2);
+					IBlockState portalState = world.getBlockState(portalPos);
+					IBlockState checkState = world.getBlockState(anotherBasePos);
+					if (portalState.getBlock() == Blocks.GOLD_BLOCK &&
+					    checkState.getBlock() == MistBlocks.PORTAL_BASE &&
+					    checkState.getValue(MistPortalStone.ISUP) == !isUp) check = true;
 				}
 				if (check) {
 					if (event.getPlayer() != null && event.getPlayer() instanceof EntityPlayerMP) {
@@ -386,6 +389,9 @@ public class ServerEventHandler {
 						ModAdvancements.OPEN_PORTAL.trigger(playerMP, world, portalPos, PortalType.DIMENSION);
 					}
 				}
+			}
+			if (block == Blocks.SNOW || block == Blocks.ICE) {
+				waterPlayer = Pair.of(event.getPos(), event.getPlayer());
 			}
 		}
 	}
@@ -408,7 +414,7 @@ public class ServerEventHandler {
 					if (soil.getBlock() instanceof IWettable) {
 						Random rand = event.getWorld().rand;
 						boolean norm = IMistHarvest.isSoilSuitable(event.getState().getBlock(), soil);
-						Item crop = ((BlockCrops)block).getItemDropped(event.getState(), rand, 0);
+						Item crop = block.getItemDropped(event.getState(), rand, 0);
 						ItemStack stack = ItemStack.EMPTY;
 						int count = 0;
 						for (int j = 0; j < event.getDrops().size(); ++j) {
@@ -450,6 +456,7 @@ public class ServerEventHandler {
 					event.setCanceled(((MistTreeTrunk)event.getState().getBlock()).dropSapling(event.getWorld(), event.getPos()));
 				}
 			}
+			breakPlayer = Pair.of(event.getPos(), event.getPlayer());
 		}
 	}
 
@@ -480,7 +487,7 @@ public class ServerEventHandler {
 					event.setCanceled(true);
 				}
 			}
-		} else if (item != MistItems.GLASS_CONTAINER && (item.getItemUseAction(stack) == EnumAction.EAT || item.getItemUseAction(stack) == EnumAction.DRINK)) {
+		} else if (item != MistItems.GLASS_CONTAINER && !(item instanceof ItemSplashPotion) && (item.getItemUseAction(stack) == EnumAction.EAT || item.getItemUseAction(stack) == EnumAction.DRINK)) {
 			EntityPlayer player = event.getEntityPlayer();
 			ItemStack mask = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
 			if (!IMask.isMask(mask)) {
@@ -488,7 +495,7 @@ public class ServerEventHandler {
 				if (capa != null) mask = capa.getMask();
 			}
 			if (!IMask.canEat(mask)) {
-				player.sendMessage(new TextComponentTranslation("item.mist.respirator_close.tooltip", new Object[0]));
+				player.sendMessage(new TextComponentTranslation("item.mist.respirator_close.tooltip"));
 				event.setCancellationResult(EnumActionResult.SUCCESS);
 				event.setCanceled(true);
 			}
@@ -539,6 +546,13 @@ public class ServerEventHandler {
 					if (stack.getItem() instanceof ItemFlintAndSteel || stack.getItem() instanceof ItemFood) {
 						event.setUseItem(Result.DENY);
 					}
+				}
+			}
+			if (stack.getItem() instanceof ItemBucket) {
+				if (!event.getEntityPlayer().world.isRemote) {
+					BlockPos pos1 = event.getPos();
+					if (!event.getWorld().getBlockState(pos1).getMaterial().isReplaceable()) pos1 = pos1.offset(event.getFace());
+					waterPlayer = Pair.of(pos1, event.getEntityPlayer());
 				}
 			}
 		}
@@ -786,6 +800,7 @@ public class ServerEventHandler {
 		int i = ModConfig.player.effectsReduction * 100;
 		if (capa.getToxic() > i) capa.setToxic(i);
 		if (capa.getPollution() > i) capa.setPollution(i);
+		//TODO проверять высоту игрока при возрождении
 	}
 
 	@SubscribeEvent
@@ -809,11 +824,75 @@ public class ServerEventHandler {
 		}
 	}
 
+	private static long last_sky_sounds_time;
+	private static long last_sky_boom_time;
+	private static long sky_sounds_interval = -1;
+	private static long sky_boom_interval = -1;
+	private static int boom_count;
+	private static int panic_Time;
+	private static final int range1 = 64000;
+	private static final int range2 = 6000;
+
+	public static void setSoundsTime(long sky_last, long sky_interval, long boom_last, long boom_interval) {
+		last_sky_sounds_time = sky_last;
+		sky_sounds_interval = sky_interval;
+		last_sky_boom_time = boom_last;
+		sky_boom_interval = boom_interval;
+	}
+
 	@SubscribeEvent
 	public void onServerWorldTick(ServerTickEvent event) {
 		//Update time
 		if(event.phase == Phase.START) {
-			MistTime.updateTime(DimensionManager.getWorld(0));
+			WorldServer world = DimensionManager.getWorld(0);
+			MistTime.updateTime(world);
+			if (waterPlayer != null) waterPlayer = null;
+			if (breakPlayer != null) breakPlayer = null;
+
+			if (sky_sounds_interval < 0) {
+				TimeData data = TimeData.get(world);
+				data.getSoundsTime();
+				if (sky_sounds_interval == 0) {
+					sky_sounds_interval = range1 + world.rand.nextInt(range1);
+					last_sky_sounds_time = world.getTotalWorldTime();
+				}
+				if (sky_boom_interval == 0) {
+					sky_boom_interval = range2 + world.rand.nextInt(range2 * 3);
+					last_sky_boom_time = world.getTotalWorldTime();
+				}
+				data.setSoundsTime(last_sky_sounds_time, sky_sounds_interval, last_sky_boom_time, sky_boom_interval);
+			}
+
+			if (world.getTotalWorldTime() - last_sky_sounds_time >= sky_sounds_interval) {
+				PacketHandler.INSTANCE.sendToDimension(new PacketSkySound(SkySoundType.AMBIENT, 4), Mist.getID());
+				sky_sounds_interval = range1 + world.rand.nextInt(range1);
+				last_sky_sounds_time = world.getTotalWorldTime();
+				panic_Time = 600;
+				TimeData.get(world).setSoundsTime(last_sky_sounds_time, sky_sounds_interval, last_sky_boom_time, sky_boom_interval);
+			}
+
+			if (world.getTotalWorldTime() - last_sky_boom_time >= sky_boom_interval) {
+				PacketHandler.INSTANCE.sendToDimension(new PacketSkySound(SkySoundType.BOOM, 3 + world.rand.nextFloat() * 3), Mist.getID());
+				if (boom_count > 0 || world.rand.nextBoolean()) {
+					if (boom_count > 0) --boom_count;
+					else boom_count = world.rand.nextInt(world.rand.nextInt(7) + 1);
+					sky_boom_interval = 20 + world.rand.nextInt(world.rand.nextInt(200) + 1);
+				} else sky_boom_interval = range2 + world.rand.nextInt(range2 * 3);
+				last_sky_boom_time = world.getTotalWorldTime();
+				TimeData.get(world).setSoundsTime(last_sky_sounds_time, sky_sounds_interval, last_sky_boom_time, sky_boom_interval);
+			}
+
+			if (panic_Time > 0) { 
+				--panic_Time;
+				if (panic_Time % 100 == 99) {
+					WorldServer mist = DimensionManager.getWorld(Mist.getID());
+					if (mist != null) {
+						for (Entity entity : mist.loadedEntityList) {
+				            if (entity instanceof EntityLivingBase) ((EntityLivingBase)entity).setRevengeTarget((EntityLivingBase)entity);
+				        }
+					}
+				}
+			}
 		}
 	}
 
@@ -832,6 +911,7 @@ public class ServerEventHandler {
 				}
 			}
 		}
+		//TODO проверять высоту игрока при возрождении
 	}
 
 	@SubscribeEvent
@@ -841,11 +921,11 @@ public class ServerEventHandler {
 			ItemStack mask = maskHandler.getMask();
 			if (!mask.isEmpty() && mask.isItemDamaged() && EnchantmentHelper.getEnchantmentLevel(Enchantments.MENDING, mask) > 0) {
 				event.getEntityPlayer().xpCooldown = 2;
-				event.getOrb().world.playSound((EntityPlayer)null, event.getEntityPlayer().posX, event.getEntityPlayer().posY, event.getEntityPlayer().posZ,
+				event.getOrb().world.playSound(null, event.getEntityPlayer().posX, event.getEntityPlayer().posY, event.getEntityPlayer().posZ,
 						SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 0.1F, 0.5F * ((event.getEntityPlayer().getRNG().nextFloat() - event.getEntityPlayer().getRNG().nextFloat()) * 0.7F + 1.8F));
                 event.getEntityPlayer().onItemPickup(event.getOrb(), 1);
 				Iterable<ItemStack> iterable = Enchantments.MENDING.getEntityEquipment(event.getEntityPlayer());
-				List<ItemStack> list = Lists.<ItemStack>newArrayList();
+				List<ItemStack> list = Lists.newArrayList();
 				if (iterable != null) {
 					for (ItemStack itemstack : iterable) {
 						if (!itemstack.isEmpty() && EnchantmentHelper.getEnchantmentLevel(Enchantments.MENDING, itemstack) > 0) {
@@ -1025,12 +1105,12 @@ public class ServerEventHandler {
 		}
 	}
 
-	@SubscribeEvent
+	/*@SubscribeEvent
 	public void animalTameEvent(AnimalTameEvent event) {
 		if (event.getEntityLiving() instanceof EntityAnimalMist) {
-			//ISkillCapaHandler.getHandler(event.getTamer()).addSkill(Skill.TAMING, ((EntityAnimalMist)event.getEntityLiving()).getTameLevel());
+			ISkillCapaHandler.getHandler(event.getTamer()).addSkill(Skill.TAMING, ((EntityAnimalMist)event.getEntityLiving()).getTameLevel());
 		}
-	}
+	}*/
 
 	@SubscribeEvent
 	public void harvestCheck(HarvestCheck event) {

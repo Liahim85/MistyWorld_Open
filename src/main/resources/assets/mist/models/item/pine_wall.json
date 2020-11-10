@@ -1,0 +1,8 @@
+{
+    "parent": "mist:block/wall",
+    "textures": {
+        "bottom": "mist:blocks/pine_planks",
+        "top": "mist:blocks/pine_planks",
+        "side": "mist:blocks/pine_planks"
+    }
+}

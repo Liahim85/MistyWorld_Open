@@ -8,6 +8,8 @@ public class MistSounds {
 
 	public static SoundEvent BLOCK_URN_OPEN;
 	public static SoundEvent BLOCK_URN_CLOSE;
+	public static SoundEvent BLOCK_URN_BREAK;
+	public static SoundEvent BLOCK_STONE_BREAK;
 	public static SoundEvent BLOCK_WOOD_CREAK;
 
 	public static SoundEvent ENTITY_CARAVAN_AMBIENT;
@@ -103,6 +105,9 @@ public class MistSounds {
 	public static SoundEvent ENTITY_DESERT_FISH_HURT;
 	public static SoundEvent ENTITY_DESERT_FISH_DEATH;
 	public static SoundEvent ENTITY_DESERT_FISH_STEP;
+
+	public static SoundEvent SKY_SOUND;
+	public static SoundEvent SKY_BOOM;
 
 	public static SoundEvent UP_MUSIC;
 	public static SoundEvent DOWN_MUSIC;

@@ -1,0 +1,24 @@
+{
+    "variants": {
+        "connect=common,variant=normal": { "model": "mist:cobblestone" },
+        "connect=s,variant=normal": { "model": "mist:masonry_s" },
+        "connect=w,variant=normal": { "model": "mist:masonry_w" },
+        "connect=n,variant=normal": { "model": "mist:masonry_n" },
+        "connect=e,variant=normal": { "model": "mist:masonry_e" },
+        "connect=sw,variant=normal": { "model": "mist:masonry_sw" },
+        "connect=wn,variant=normal": { "model": "mist:masonry_wn" },
+        "connect=ne,variant=normal": { "model": "mist:masonry_ne" },
+        "connect=es,variant=normal": { "model": "mist:masonry_es" },
+        "connect=single,variant=normal": { "model": "mist:stone_brick_1" },
+        "connect=common,variant=moss": { "model": "mist:cobblestone_moss" },
+        "connect=s,variant=moss": { "model": "mist:masonry_moss_s" },
+        "connect=w,variant=moss": { "model": "mist:masonry_moss_w" },
+        "connect=n,variant=moss": { "model": "mist:masonry_moss_n" },
+        "connect=e,variant=moss": { "model": "mist:masonry_moss_e" },
+        "connect=sw,variant=moss": { "model": "mist:masonry_moss_sw" },
+        "connect=wn,variant=moss": { "model": "mist:masonry_moss_wn" },
+        "connect=ne,variant=moss": { "model": "mist:masonry_moss_ne" },
+        "connect=es,variant=moss": { "model": "mist:masonry_moss_es" },
+        "connect=single,variant=moss": { "model": "mist:stone_brick_moss_1" }
+    }
+}

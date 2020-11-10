@@ -1,0 +1,7 @@
+{
+    "parent": "block/door_top_rh",
+    "textures": {
+        "bottom": "mist:blocks/a_tree_door_lower",
+        "top": "mist:blocks/a_tree_door_upper"
+    }
+}

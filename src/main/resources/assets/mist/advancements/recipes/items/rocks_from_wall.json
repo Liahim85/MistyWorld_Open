@@ -1,0 +1,53 @@
+{
+    "parent": "mist:recipes/root",
+    "rewards": {
+        "recipes": [
+            "mist:rocks_from_wall",
+            "mist:rocks_from_wall_moss"
+        ]
+    },
+    "criteria": {
+        "has_item_0": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:cobblestone_wall",
+                        "data": 0
+                    }
+                ]
+            }
+        },
+        "has_item_1": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:cobblestone_moss_wall",
+                        "data": 0
+                    }
+                ]
+            }
+        },
+        "has_the_recipes_0": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:rocks_from_wall"
+            }
+        },
+        "has_the_recipes_1": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:rocks_from_wall_moss"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_item_0",
+            "has_item_1",
+            "has_the_recipes_0",
+            "has_the_recipes_1"
+        ]
+    ]
+}

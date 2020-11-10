@@ -1,0 +1,32 @@
+{
+    "parent": "mist:recipes/root",
+    "rewards": {
+        "recipes": [
+            "mist:acacia_fence_gate"
+        ]
+    },
+    "criteria": {
+        "has_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "mist:acacia_wall"
+                    }
+                ]
+            }
+        },
+        "has_the_recipes": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:acacia_fence_gate"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "has_item",
+            "has_the_recipes"
+        ]
+    ]
+}

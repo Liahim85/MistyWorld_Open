@@ -1,0 +1,44 @@
+{
+    "variants": {
+        "stage=normal,type=mined": { "model": "mist:stone_mined" },
+        "stage=hot_1,type=mined":  { "model": "mist:stone_mined_1" },
+        "stage=hot_2,type=mined":  { "model": "mist:stone_mined_2" },
+        "stage=hot_3,type=mined":  { "model": "mist:stone_mined_3" },
+        "stage=moss,type=mined":   { "model": "mist:stone_mined_moss" },
+        "stage=normal,type=chiseled": { "model": "mist:stone_chiseled" },
+        "stage=hot_1,type=chiseled":  { "model": "mist:stone_chiseled_1" },
+        "stage=hot_2,type=chiseled":  { "model": "mist:stone_chiseled_2" },
+        "stage=hot_3,type=chiseled":  { "model": "mist:stone_chiseled_3" },
+        "stage=moss,type=chiseled":   { "model": "mist:stone_chiseled_moss" },
+        "stage=normal,type=nature": [
+            { "model": "mist:stone" },            
+            { "model": "mist:stone_mirrored" },
+            { "model": "mist:stone", "y": 180 },
+            { "model": "mist:stone_mirrored", "y": 180 }
+        ],
+        "stage=hot_1,type=nature": [
+            { "model": "mist:stone_1" },            
+            { "model": "mist:stone_mirrored_1" },
+            { "model": "mist:stone_1", "y": 180 },
+            { "model": "mist:stone_mirrored_1", "y": 180 }
+        ],
+        "stage=hot_2,type=nature": [
+            { "model": "mist:stone_2" },            
+            { "model": "mist:stone_mirrored_2" },
+            { "model": "mist:stone_2", "y": 180 },
+            { "model": "mist:stone_mirrored_2", "y": 180 }
+        ],
+        "stage=hot_3,type=nature": [
+            { "model": "mist:stone_3" },            
+            { "model": "mist:stone_mirrored_3" },
+            { "model": "mist:stone_3", "y": 180 },
+            { "model": "mist:stone_mirrored_3", "y": 180 }
+        ],
+        "stage=moss,type=nature": [
+            { "model": "mist:stone" },            
+            { "model": "mist:stone_mirrored" },
+            { "model": "mist:stone", "y": 180 },
+            { "model": "mist:stone_mirrored", "y": 180 }
+        ]
+    }
+}

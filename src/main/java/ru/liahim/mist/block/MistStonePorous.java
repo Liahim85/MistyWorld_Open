@@ -6,15 +6,19 @@ import javax.annotation.Nullable;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import ru.liahim.mist.api.block.IMistStone;
 import ru.liahim.mist.api.item.MistItems;
+import ru.liahim.mist.capability.handler.ISkillCapaHandler;
+import ru.liahim.mist.capability.handler.ISkillCapaHandler.Skill;
 
 public class MistStonePorous extends MistBlock implements IMistStone {
 
@@ -50,5 +54,11 @@ public class MistStonePorous extends MistBlock implements IMistStone {
 	@Override
 	public int quantityDropped(Random random) {
 		return 1 + random.nextInt(3);
+	}
+
+	@Override
+	public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te, ItemStack stack) {
+		ISkillCapaHandler.getHandler(player).addSkill(Skill.MASON, 1);
+		super.harvestBlock(world, player, pos, state, te, stack);
 	}
 }

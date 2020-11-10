@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "wood_wall",
+    "pattern": [
+        "X",
+        "X"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:spruce_step"
+        }
+    },
+    "result": {
+        "item": "mist:spruce_wall"
+    }
+}

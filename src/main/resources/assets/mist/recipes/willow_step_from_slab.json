@@ -2,9 +2,14 @@
     "type": "minecraft:crafting_shapeless",
     "group": "wood_step",
     "ingredients": [
-        {
-            "item": "mist:willow_slab"
-        }
+        [
+            {
+                "item": "mist:willow_slab"
+            },
+            {
+                "item": "mist:willow_wall"
+            }
+        ]
     ],
     "result": {
         "item": "mist:willow_step",

@@ -5,16 +5,21 @@ import java.util.List;
 import org.lwjgl.input.Keyboard;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.audio.MusicTicker.MusicType;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.item.Item;
+import net.minecraft.util.SoundEvent;
 import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -34,6 +39,7 @@ import ru.liahim.mist.init.ItemColoring;
 import ru.liahim.mist.init.ModClientRegistry;
 import ru.liahim.mist.init.ModConfig;
 import ru.liahim.mist.init.ModParticle;
+import ru.liahim.mist.init.ModSounds;
 import ru.liahim.mist.shader.ShaderProgram;
 import ru.liahim.mist.util.FogTexture;
 import ru.liahim.mist.world.MistWorld;
@@ -45,6 +51,8 @@ public class ClientProxy extends CommonProxy {
 	public static final IRenderHandler SkyRendererMist = new SkyRendererMist();
 	public static final IRenderHandler WeatherRendererMist = new WeatherRendererMist();
 	public static final IRenderHandler RainParticleRenderer = new RainParticleRenderer();
+	public static final MusicType MIST_UP_MUSIC = EnumHelper.addEnum(MusicType.class, "mist_up", new Class[] {SoundEvent.class, int.class, int.class}, ModSounds.registerSoundEvent("mist_up_music"), 12000, 24000);
+	public static final MusicType MIST_DOWN_MUSIC = EnumHelper.addEnum(MusicType.class, "mist_down", new Class[] {SoundEvent.class, int.class, int.class}, ModSounds.registerSoundEvent("mist_down_music"), 3000, 6000);
 	//public static ModelResourceLocation acidBucket = new ModelResourceLocation("mist:acid_bucket", "inventory");
 	public static KeyBinding maskKey = new KeyBinding(I18n.format("keybind.mist.mask_inventory"), Keyboard.KEY_M, "key.categories.inventory");
 	public static KeyBinding skillKey = new KeyBinding(I18n.format("keybind.mist.skill_inventory"), Keyboard.KEY_I, "key.categories.inventory");
@@ -130,6 +138,16 @@ public class ClientProxy extends CommonProxy {
 				return fluidLocation;
 			}
 		});
+	}
+
+	@Override
+	public void registerStateWithIgnoring(Block block, IProperty prop) {
+		ModelLoader.setCustomStateMapper(block, (new StateMap.Builder()).ignore(prop).build());
+	}
+
+	@Override
+	public void registerStateWithName(Block block, IProperty prop, String suffix) {
+		ModelLoader.setCustomStateMapper(block, (new StateMap.Builder()).withName(prop).withSuffix(suffix).build());
 	}
 
 	@Override

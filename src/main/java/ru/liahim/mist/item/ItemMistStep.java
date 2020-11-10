@@ -4,6 +4,7 @@ import ru.liahim.mist.api.block.IDividable;
 import ru.liahim.mist.block.MistBlockSlab;
 import ru.liahim.mist.block.MistBlockSlabWood;
 import ru.liahim.mist.block.MistBlockStairs;
+import ru.liahim.mist.block.MistBlockWall;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
@@ -51,7 +52,24 @@ public class ItemMistStep extends ItemBlock {
 			//Step
 			if (state.getBlock() == this.block) {
 				EnumFacing side = state.getValue(BlockStairs.FACING);
-				if (facing == side.getOpposite()) {
+				if (facing.getAxis() == Axis.Y) {
+					if (hitY == 0.5) {
+						IBlockState stairsState = ((IDividable)this.fullBlock).getWallBlock(itemState).getDefaultState();
+						if (stairsState.getBlock() instanceof BlockStairs) {
+							stairsState = stairsState.withProperty(BlockStairs.FACING, side).withProperty(BlockStairs.HALF, state.getValue(BlockStairs.HALF));
+							AxisAlignedBB aabb = stairsState.getCollisionBoundingBox(world, pos);
+							if (aabb != Block.NULL_AABB && world.checkNoEntityCollision(aabb.offset(pos)) && world.setBlockState(pos, stairsState)) {
+								SoundType soundtype = this.fullBlock.getSoundType(stairsState, world, pos, player);
+								world.playSound(player, pos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
+								stack.shrink(1);
+							}
+							if (player instanceof EntityPlayerMP) {
+								CriteriaTriggers.PLACED_BLOCK.trigger((EntityPlayerMP)player, pos, stack);
+							}
+							return EnumActionResult.SUCCESS;
+						}
+					}
+				} else if (facing == side.getOpposite()) {
 					IBlockState slabState = ((IDividable)this.fullBlock).getSlabBlock(itemState);
 					if (slabState.getBlock() instanceof MistBlockSlab) {
 						boolean top = state.getValue(BlockStairs.HALF) == EnumHalf.BOTTOM;
@@ -73,7 +91,7 @@ public class ItemMistStep extends ItemBlock {
 				}
 			}
 			//Slab
-			else if (state.getBlock() instanceof MistBlockSlab && MistBlockSlab.getClearSlabState(state) == ((IDividable)this.fullBlock).getSlabBlock(itemState).withProperty(BlockSlab.HALF, EnumBlockHalf.BOTTOM)) {
+			else if (state.getBlock() instanceof MistBlockSlab && MistBlockSlab.getClearSlabState(state) == MistBlockSlab.getClearSlabState(((IDividable)this.fullBlock).getSlabBlock(itemState))) {
 				boolean top = state.getValue(BlockSlab.HALF) == EnumBlockHalf.TOP;
 				if (top ? facing == EnumFacing.DOWN : facing == EnumFacing.UP) {
 					IBlockState stairsState = ((IDividable)this.fullBlock).getStairsBlock(itemState).getDefaultState();
@@ -86,6 +104,26 @@ public class ItemMistStep extends ItemBlock {
 							face = hitX < hitZ ? (hitX < i ? EnumFacing.WEST : EnumFacing.SOUTH) : (hitX < i ? EnumFacing.NORTH : EnumFacing.EAST);
 						}
 						stairsState = stairsState.withProperty(BlockStairs.FACING, face).withProperty(BlockStairs.HALF, top ? EnumHalf.TOP : EnumHalf.BOTTOM);
+						AxisAlignedBB aabb = stairsState.getCollisionBoundingBox(world, pos);
+						if (aabb != Block.NULL_AABB && world.checkNoEntityCollision(aabb.offset(pos)) && world.setBlockState(pos, stairsState)) {
+							SoundType soundtype = stairsState.getBlock().getSoundType(stairsState, world, pos, player);
+							world.playSound(player, pos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
+							stack.shrink(1);
+						}
+						if (player instanceof EntityPlayerMP) {
+							CriteriaTriggers.PLACED_BLOCK.trigger((EntityPlayerMP)player, pos, stack);
+						}
+						return EnumActionResult.SUCCESS;
+					}
+				}
+			}
+			//Wall
+			else if (state.getBlock() == ((IDividable)this.fullBlock).getWallBlock(itemState) && state.getBlock() instanceof MistBlockWall) {
+				EnumFacing side = state.getValue(BlockStairs.FACING);
+				if (facing == side.getOpposite()) {
+					IBlockState stairsState = ((IDividable)this.fullBlock).getStairsBlock(itemState).getDefaultState();
+					if (stairsState.getBlock() instanceof BlockStairs) {
+						stairsState = stairsState.withProperty(BlockStairs.FACING, side).withProperty(BlockStairs.HALF, hitY > 0.5F ? EnumHalf.TOP : EnumHalf.BOTTOM);
 						AxisAlignedBB aabb = stairsState.getCollisionBoundingBox(world, pos);
 						if (aabb != Block.NULL_AABB && world.checkNoEntityCollision(aabb.offset(pos)) && world.setBlockState(pos, stairsState)) {
 							SoundType soundtype = stairsState.getBlock().getSoundType(stairsState, world, pos, player);
@@ -117,9 +155,7 @@ public class ItemMistStep extends ItemBlock {
 			}
 			return this.tryPlace(player, stack, world, pos.offset(facing), facing, hitX, hitY, hitZ) ? EnumActionResult.SUCCESS
 					: super.onItemUse(player, world, pos, hand, facing, hitX, hitY, hitZ);
-		} else {
-			return EnumActionResult.FAIL;
-		}
+		} else return EnumActionResult.FAIL;
 	}
 
 	@Override
@@ -130,10 +166,18 @@ public class ItemMistStep extends ItemBlock {
 		IBlockState itemState = this.block.getStateFromMeta(stack.getMetadata());
 		if (state.getBlock() == this.block) {
 			if (state.getValue(BlockStairs.FACING) == facing.getOpposite()) return true;
+			else {
+				boolean top = state.getValue(BlockStairs.HALF) == EnumHalf.BOTTOM;
+				if (top ? facing == EnumFacing.DOWN : facing == EnumFacing.UP) return true;
+			}
 		} else if (this.fullBlock != null) {
-			if (state.getBlock() instanceof MistBlockSlab && MistBlockSlab.getClearSlabState(state) == ((IDividable)this.fullBlock).getSlabBlock(itemState).withProperty(BlockSlab.HALF, EnumBlockHalf.BOTTOM)) {
+			if (state.getBlock() instanceof MistBlockSlab && MistBlockSlab.getClearSlabState(state) == MistBlockSlab.getClearSlabState(((IDividable)this.fullBlock).getSlabBlock(itemState))) {
 				boolean top = state.getValue(BlockSlab.HALF) == EnumBlockHalf.TOP;
 				if (top ? facing == EnumFacing.DOWN : facing == EnumFacing.UP) return true;
+			} else if (state.getBlock() instanceof MistBlockWall &&
+					state.getBlock() == ((IDividable)this.fullBlock).getWallBlock(itemState) &&
+					state.getValue(BlockStairs.FACING) == facing.getOpposite()) {
+				return true;
 			} else if (state.getBlock() instanceof MistBlockStairs &&
 					state.getBlock() == ((IDividable)this.fullBlock).getStairsBlock(itemState)) {
 				return true;
@@ -142,8 +186,8 @@ public class ItemMistStep extends ItemBlock {
 		pos = pos.offset(facing);
 		state = world.getBlockState(pos);
 		return state.getBlock() == this.block || (this.fullBlock != null && ((state.getBlock() instanceof MistBlockSlab &&
-				MistBlockSlab.getClearSlabState(state) == ((IDividable)this.fullBlock).getSlabBlock(itemState).withProperty(BlockSlab.HALF, EnumBlockHalf.BOTTOM)) ||
-				state.getBlock() == ((IDividable)this.fullBlock).getStairsBlock(itemState))) ? true :
+				MistBlockSlab.getClearSlabState(state) == MistBlockSlab.getClearSlabState(((IDividable)this.fullBlock).getSlabBlock(itemState))) ||
+				state.getBlock() == ((IDividable)this.fullBlock).getWallBlock(itemState) || state.getBlock() == ((IDividable)this.fullBlock).getStairsBlock(itemState))) ? true :
 			super.canPlaceBlockOnSide(world, blockpos, facing, player, stack);
 	}
 
@@ -152,17 +196,14 @@ public class ItemMistStep extends ItemBlock {
 			IBlockState state = world.getBlockState(pos);
 			IBlockState itemState = this.block.getStateFromMeta(stack.getMetadata());
 			if (state.getBlock() == this.block) {
-				boolean top = state.getValue(BlockStairs.HALF) == EnumHalf.BOTTOM;
-				if (top ? (facing == EnumFacing.DOWN || hitY > 0.5F) : (facing == EnumFacing.UP || hitY < 0.5F)) {
-					IBlockState slabState = ((IDividable)this.fullBlock).getSlabBlock(itemState);
-					if (slabState.getBlock() instanceof MistBlockSlab) {
-						slabState = slabState.withProperty(BlockSlab.HALF, top ? EnumBlockHalf.TOP : EnumBlockHalf.BOTTOM);
-						if (slabState.getBlock() instanceof MistBlockSlabWood) {
-							slabState = slabState.withProperty(MistBlockSlabWood.ISROT, state.getValue(BlockStairs.FACING).getAxis() == Axis.X);
-						}
-						AxisAlignedBB aabb = slabState.getCollisionBoundingBox(world, pos);
-						if (aabb != Block.NULL_AABB && world.checkNoEntityCollision(aabb.offset(pos)) && world.setBlockState(pos, slabState)) {
-							SoundType soundtype = this.fullBlock.getSoundType(slabState, world, pos, player);
+				EnumFacing side = state.getValue(BlockStairs.FACING);
+				if (facing == side.getOpposite() || (facing != side && (hitX > 0.5F ? side == EnumFacing.EAST : side == EnumFacing.WEST) || (hitZ > 0.5F ? side == EnumFacing.SOUTH : side == EnumFacing.NORTH))) {
+					IBlockState stairsState = ((IDividable)this.fullBlock).getWallBlock(itemState).getDefaultState();
+					if (stairsState.getBlock() instanceof BlockStairs) {
+						stairsState = stairsState.withProperty(BlockStairs.FACING, side).withProperty(BlockStairs.HALF, state.getValue(BlockStairs.HALF));
+						AxisAlignedBB aabb = stairsState.getCollisionBoundingBox(world, pos);
+						if (aabb != Block.NULL_AABB && world.checkNoEntityCollision(aabb.offset(pos)) && world.setBlockState(pos, stairsState)) {
+							SoundType soundtype = this.fullBlock.getSoundType(stairsState, world, pos, player);
 							world.playSound(player, pos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
 							stack.shrink(1);
 						}
@@ -171,8 +212,29 @@ public class ItemMistStep extends ItemBlock {
 						}
 						return true;
 					}
+				} else {
+					boolean top = state.getValue(BlockStairs.HALF) == EnumHalf.BOTTOM;
+					if (top ? (hitY > 0.5F || facing == EnumFacing.DOWN) : (hitY < 0.5F || facing == EnumFacing.UP)) {
+						IBlockState slabState = ((IDividable)this.fullBlock).getSlabBlock(itemState);
+						if (slabState.getBlock() instanceof MistBlockSlab) {
+							slabState = slabState.withProperty(BlockSlab.HALF, top ? EnumBlockHalf.TOP : EnumBlockHalf.BOTTOM);
+							if (slabState.getBlock() instanceof MistBlockSlabWood) {
+								slabState = slabState.withProperty(MistBlockSlabWood.ISROT, state.getValue(BlockStairs.FACING).getAxis() == Axis.X);
+							}
+							AxisAlignedBB aabb = slabState.getCollisionBoundingBox(world, pos);
+							if (aabb != Block.NULL_AABB && world.checkNoEntityCollision(aabb.offset(pos)) && world.setBlockState(pos, slabState)) {
+								SoundType soundtype = this.fullBlock.getSoundType(slabState, world, pos, player);
+								world.playSound(player, pos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
+								stack.shrink(1);
+							}
+							if (player instanceof EntityPlayerMP) {
+								CriteriaTriggers.PLACED_BLOCK.trigger((EntityPlayerMP)player, pos, stack);
+							}
+							return true;
+						}
+					}
 				}
-			} else if (state.getBlock() instanceof MistBlockSlab && MistBlockSlab.getClearSlabState(state) == ((IDividable)this.fullBlock).getSlabBlock(itemState).withProperty(BlockSlab.HALF, EnumBlockHalf.BOTTOM)) {
+			} else if (state.getBlock() instanceof MistBlockSlab && MistBlockSlab.getClearSlabState(state) == MistBlockSlab.getClearSlabState(((IDividable)this.fullBlock).getSlabBlock(itemState))) {
 				boolean top = state.getValue(BlockSlab.HALF) == EnumBlockHalf.TOP;
 				if (top ? (facing == EnumFacing.UP || hitY < 0.5F) : (facing == EnumFacing.DOWN || hitY > 0.5F)) {
 					IBlockState stairsState = ((IDividable)this.fullBlock).getStairsBlock(itemState).getDefaultState();
@@ -191,6 +253,24 @@ public class ItemMistStep extends ItemBlock {
 						AxisAlignedBB aabb = stairsState.getCollisionBoundingBox(world, pos);
 						if (aabb != Block.NULL_AABB && world.checkNoEntityCollision(aabb.offset(pos)) && world.setBlockState(pos, stairsState)) {
 							SoundType soundtype = stairsState.getBlock().getSoundType(stairsState, world, pos, player);
+							world.playSound(player, pos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
+							stack.shrink(1);
+						}
+						if (player instanceof EntityPlayerMP) {
+							CriteriaTriggers.PLACED_BLOCK.trigger((EntityPlayerMP)player, pos, stack);
+						}
+						return true;
+					}
+				}
+			} else if (state.getBlock() == ((IDividable)this.fullBlock).getWallBlock(itemState) && state.getBlock() instanceof MistBlockWall) {
+				EnumFacing side = state.getValue(BlockStairs.FACING);
+				if (facing == side || (hitX < 0.5F ? side == EnumFacing.EAST : side == EnumFacing.WEST) || (hitZ < 0.5F ? side == EnumFacing.SOUTH : side == EnumFacing.NORTH)) {
+					IBlockState stairsState = ((IDividable)this.fullBlock).getStairsBlock(itemState).getDefaultState();
+					if (stairsState.getBlock() instanceof MistBlockStairs) {
+						stairsState = stairsState.withProperty(BlockStairs.HALF, facing == EnumFacing.UP ? EnumHalf.BOTTOM : facing == EnumFacing.DOWN ? EnumHalf.TOP : hitY > 0.5F ? EnumHalf.TOP : EnumHalf.BOTTOM).withProperty(BlockStairs.FACING, side);
+						AxisAlignedBB aabb = stairsState.getCollisionBoundingBox(world, pos);
+						if (aabb != Block.NULL_AABB && world.checkNoEntityCollision(aabb.offset(pos)) && world.setBlockState(pos, stairsState)) {
+							SoundType soundtype = this.fullBlock.getSoundType(stairsState, world, pos, player);
 							world.playSound(player, pos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
 							stack.shrink(1);
 						}

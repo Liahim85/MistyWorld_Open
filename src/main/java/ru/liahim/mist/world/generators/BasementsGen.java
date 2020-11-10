@@ -57,6 +57,7 @@ public class BasementsGen extends TombGenBase {
 		boolean columnar = false;
 
 		EnumBiomeType type = ((BiomeMist)biome).getBiomeType();
+		Type[] bType = new Type[] { Type.COBBLE };
 		if (type == EnumBiomeType.Jungle) {
 			l = b;
 			corner = false;
@@ -64,7 +65,13 @@ public class BasementsGen extends TombGenBase {
 		} else if (type == EnumBiomeType.Desert) {
 			corner = false;
 			columnar = rand.nextInt(5) > 1;
-		} else columnar = rand.nextInt(4) == 0;
+		} else {
+			columnar = rand.nextInt(4) == 0;
+			if (type == EnumBiomeType.Cold) {
+				if (rand.nextBoolean()) bType = new Type[] { Type.BRICK };
+				else if (rand.nextInt(4) > 0) bType = new Type[] { Type.BRICK, Type.COBBLE, Type.COBBLE };
+			} else if (type == EnumBiomeType.Forest && rand.nextBoolean()) bType = new Type[] { Type.BRICK, Type.COBBLE, Type.COBBLE };
+		}
 
 		if (columnar) {
 			boolean big = rand.nextBoolean();
@@ -75,10 +82,10 @@ public class BasementsGen extends TombGenBase {
 		for(int i = 0; i < 5; ++ i) {
 			GenUtil gen = new GenUtil(world, new GenSet(center.add(-b/2, 0, -l/2), Rotation.values()[rand.nextInt(4)], Mirror.values()[rand.nextInt(2)]));
 			if (roomCheck(gen, 0, b, deep, -1, 0, l, true)) {
-				if (columnar) generateColumnar(gen, (BiomeMist)biome, 0, b, 0, l, rand, 1);
+				if (columnar) generateColumnar(gen, (BiomeMist)biome, 0, b, 0, l, rand, 1, (type == EnumBiomeType.Forest || type == EnumBiomeType.Cold) && rand.nextInt(3) > 0 ? Type.BRICK : Type.COBBLE);
 				else {
-					generateRoom(gen, (BiomeMist)biome, 0, b, deep, h, 0, l, rand, 1, false);
-					if (corner && roomCheck(gen, -3, -1, deep, -1, 0, 4, true)) generateRoom(gen, (BiomeMist)biome, -3, 0, deep, h, 0, 4, rand, 1, true);
+					generateRoom(gen, (BiomeMist)biome, 0, b, deep, h, 0, l, rand, 1, false, bType);
+					if (corner && roomCheck(gen, -3, -1, deep, -1, 0, 4, true)) generateRoom(gen, (BiomeMist)biome, -3, 0, deep, h, 0, 4, rand, 1, true, bType);
 					BiomeMist.looseRockGen.generate(world, rand, gen.set.center);
 					return true;
 				}
@@ -88,7 +95,7 @@ public class BasementsGen extends TombGenBase {
 		return false;
 	}
 
-	private void generateRoom(GenUtil gen, BiomeMist biome, int minX, int maxX, int minY, int maxY, int minZ, int maxZ, Random rand, int wet, boolean neighbor) {
+	private void generateRoom(GenUtil gen, BiomeMist biome, int minX, int maxX, int minY, int maxY, int minZ, int maxZ, Random rand, int wet, boolean neighbor, Type... type) {
 		BlockPos center = gen.set.center;
 		BlockPos checkPos;
 		EnumBiomeType biomeType = biome.getBiomeType();
@@ -116,32 +123,32 @@ public class BasementsGen extends TombGenBase {
 							if (y == minY + 1 && x == maxX && z == (maxZ + minZ) / 2 && rand.nextBoolean()) {
 								gen.setBlockState(checkPos, MistBlocks.FURNACE.getDefaultState().withProperty(BlockHorizontal.FACING, EnumFacing.WEST));
 								TileEntityMistFurnace.initializeLoot(gen.getTileEntity(checkPos), rand);
-							} else gen.setBlockState(checkPos, getCobble(rand, -1));
+							} else gen.setBlockState(checkPos, getBlock(type[rand.nextInt(type.length)], rand, -1));
 						} else if (y == -1) {
-							if (rand.nextInt(3) != 0) gen.setBlockState(checkPos, getCobble(rand, wet));
+							if (rand.nextInt(3) != 0) gen.setBlockState(checkPos, getBlock(type[rand.nextInt(type.length)], rand, wet));
 							else {
 								if (rand.nextInt(3) > 0 || ((x == minX || x == maxX) && (z == minZ || z == maxZ ))) {
-									gen.setBlockState(checkPos, getCobble(rand, wet));
+									gen.setBlockState(checkPos, getBlock(type[rand.nextInt(type.length)], rand, wet));
 									if (snow && gen.world.canSeeSky(gen.getPos(checkPos.up()))) gen.setBlockState(checkPos.up(), Blocks.SNOW_LAYER.getDefaultState());
 								} else {
-									if (x == minX) gen.setBlockState(checkPos, getStairs(EnumFacing.WEST, false, rand, wet));
-									else if (x == maxX) gen.setBlockState(checkPos, getStairs(EnumFacing.EAST, false, rand, wet));
-									else if (z == minZ) gen.setBlockState(checkPos, getStairs(EnumFacing.NORTH, false, rand, wet));
-									else if (z == maxZ) gen.setBlockState(checkPos, getStairs(EnumFacing.SOUTH, false, rand, wet));
+									if (x == minX) gen.setBlockState(checkPos, getStairs(type[rand.nextInt(type.length)], EnumFacing.WEST, false, rand, wet));
+									else if (x == maxX) gen.setBlockState(checkPos, getStairs(type[rand.nextInt(type.length)], EnumFacing.EAST, false, rand, wet));
+									else if (z == minZ) gen.setBlockState(checkPos, getStairs(type[rand.nextInt(type.length)], EnumFacing.NORTH, false, rand, wet));
+									else if (z == maxZ) gen.setBlockState(checkPos, getStairs(type[rand.nextInt(type.length)], EnumFacing.SOUTH, false, rand, wet));
 									gen.setBlockState(checkPos.up(), Blocks.AIR.getDefaultState());
 								}
 								break;
 							}
 						} else {
-							if (y != maxY && rand.nextInt(3) == 0) gen.setBlockState(checkPos, getCobble(rand, wet));
+							if (y != maxY && rand.nextInt(3) == 0) gen.setBlockState(checkPos, getBlock(type[rand.nextInt(type.length)], rand, wet));
 							else {
 								int i = rand.nextInt(7);
 								if (i < 2) {
-									gen.setBlockState(checkPos, getCobble(rand, wet));
+									gen.setBlockState(checkPos, getBlock(type[rand.nextInt(type.length)], rand, wet));
 									if (snow && gen.world.canSeeSky(gen.getPos(checkPos.up()))) gen.setBlockState(checkPos.up(), Blocks.SNOW_LAYER.getDefaultState());
-								} else if (i < 5) gen.setBlockState(checkPos, getSlab(false, rand, wet));
-								else if (i == 5) gen.setBlockState(checkPos, getStairs(EnumFacing.HORIZONTALS[rand.nextInt(4)], false, rand, wet));
-								else if (i == 6) gen.setBlockState(checkPos, getStep(EnumFacing.HORIZONTALS[rand.nextInt(4)], false, rand, wet));
+								} else if (i < 5) gen.setBlockState(checkPos, getSlab(type[rand.nextInt(type.length)], false, rand, wet));
+								else if (i == 5) gen.setBlockState(checkPos, getStairs(type[rand.nextInt(type.length)], EnumFacing.HORIZONTALS[rand.nextInt(4)], false, rand, wet));
+								else if (i == 6) gen.setBlockState(checkPos, getStep(type[rand.nextInt(type.length)], EnumFacing.HORIZONTALS[rand.nextInt(4)], false, rand, wet));
 								if (i >= 2) gen.setBlockState(checkPos.up(), Blocks.AIR.getDefaultState());
 								break;
 							}
@@ -160,7 +167,7 @@ public class BasementsGen extends TombGenBase {
 							if (i == 0) gen.setBlockState(checkPos, Blocks.ANVIL.getDefaultState().withProperty(BlockAnvil.DAMAGE, 2).withProperty(BlockAnvil.FACING, (x == minX + 1 || x == maxX - 1) ? EnumFacing.NORTH : EnumFacing.EAST));
 							else if (i == 1) gen.setBlockState(checkPos, Blocks.CAULDRON.getDefaultState()); 
 							else {
-								if (rand.nextInt(3) > 0) placeUrn(gen, checkPos, biomeType, rand);
+								if (rand.nextInt(5) > 1) placeUrn(gen, checkPos, biomeType, rand);
 								else placeChest(gen, checkPos, x == minX + 1 ? EnumFacing.EAST : x == maxX - 1 ? EnumFacing.WEST : z == minZ + 1 ? EnumFacing.SOUTH : EnumFacing.NORTH, biomeType, rand);
 							}
 						} else gen.setBlockState(checkPos, second);
@@ -173,7 +180,7 @@ public class BasementsGen extends TombGenBase {
 		}
 	}
 
-	private void generateColumnar(GenUtil gen, BiomeMist biome, int minX, int maxX, int minZ, int maxZ, Random rand, int wet) {
+	private void generateColumnar(GenUtil gen, BiomeMist biome, int minX, int maxX, int minZ, int maxZ, Random rand, int wet, Type type) {
 		BlockPos center = gen.set.center;
 		BlockPos checkPos;
 		if (biome.getBiomeType() == EnumBiomeType.Desert) wet = -1;
@@ -182,14 +189,14 @@ public class BasementsGen extends TombGenBase {
 				if (x == minX || x == maxX || z == minZ || z == maxZ) {
 					if ((x - minX) % 2 == 0 && (z - minZ) % 2 == 0) {
 						checkPos = center.add(x, -1, z);
-						gen.setBlockState(checkPos.down(), getCobble(rand, -1));
-						AltarsGen.generateColumn(gen.world, gen.getPos(checkPos), rand, 1, wet);
+						gen.setBlockState(checkPos.down(), getBlock(type, rand, -1));
+						AltarsGen.generateColumn(gen.world, gen.getPos(checkPos), rand, 1, wet, type);
 					}
 				} else if (x == minX + 1 || x == maxX - 1 || z == minZ + 1 || z == maxZ - 1) {
 					if (rand.nextInt((maxX - minX + maxZ - minZ) * 2) == 0) {
 						checkPos = center.add(x, -2, z);
 						if (gen.getBlockState(checkPos).getBlock() instanceof IWettable) {
-							if (rand.nextInt(3) > 0) placeUrn(gen, checkPos, biome.getBiomeType(), rand);
+							if (rand.nextInt(5) > 1) placeUrn(gen, checkPos, biome.getBiomeType(), rand);
 							else placeChest(gen, checkPos, x == minX + 1 ? EnumFacing.EAST : x == maxX - 1 ? EnumFacing.WEST : z == minZ + 1 ? EnumFacing.SOUTH : EnumFacing.NORTH, biome.getBiomeType(), rand);
 						}
 					}

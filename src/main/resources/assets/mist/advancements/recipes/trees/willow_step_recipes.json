@@ -3,8 +3,11 @@
     "rewards": {
         "recipes": [
             "mist:willow_slab",
+            "mist:willow_wall",
             "mist:willow_stairs",
-            "mist:willow_planks_from_step"
+            "mist:willow_planks_from_step",
+            "mist:willow_door",
+            "mist:willow_trapdoor"
         ]
     },
     "criteria": {
@@ -13,8 +16,7 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "mist:willow_step",
-                        "data": 0
+                        "item": "mist:willow_step"
                     }
                 ]
             }
@@ -28,13 +30,31 @@
         "has_the_recipes_2": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-                "recipe": "mist:willow_stairs"
+                "recipe": "mist:willow_wall"
             }
         },
         "has_the_recipes_3": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
+                "recipe": "mist:willow_stairs"
+            }
+        },
+        "has_the_recipes_4": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
                 "recipe": "mist:willow_planks_from_step"
+            }
+        },
+        "has_the_recipes_5": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:willow_door"
+            }
+        },
+        "has_the_recipes_6": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "mist:willow_trapdoor"
             }
         }
     },
@@ -43,7 +63,10 @@
             "has_item",
             "has_the_recipes_1",
             "has_the_recipes_2",
-            "has_the_recipes_3"
+            "has_the_recipes_3",
+            "has_the_recipes_4",
+            "has_the_recipes_5",
+            "has_the_recipes_6"
         ]
     ]
 }

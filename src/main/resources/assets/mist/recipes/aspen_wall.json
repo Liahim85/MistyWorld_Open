@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "wood_wall",
+    "pattern": [
+        "X",
+        "X"
+    ],
+    "key": {
+        "X": {
+            "item": "mist:aspen_step"
+        }
+    },
+    "result": {
+        "item": "mist:aspen_wall"
+    }
+}

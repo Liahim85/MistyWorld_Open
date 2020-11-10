@@ -407,6 +407,22 @@ public class MistCampfire extends MistBlockContainer implements IColoredBlock, I
 		if (!world.isRemote) {
 			if ((fromPos.equals(pos.down()) && !world.isSideSolid(fromPos, EnumFacing.UP)) ||
 					world.getBlockState(fromPos).getMaterial().isLiquid()) world.destroyBlock(pos, true);
+			else {
+				TileEntity te = world.getTileEntity(pos);
+				if (te != null && te instanceof TileEntityCampfire) {
+					((TileEntityCampfire)te).setMinedStone(world.getBlockState(pos.up()).getBlock() == MistBlocks.STONE_MINED);
+				}
+			}
+		}
+	}
+
+	@Override
+	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
+		if (!world.isRemote) {
+			TileEntity te = world.getTileEntity(pos);
+			if (te != null && te instanceof TileEntityCampfire) {
+				((TileEntityCampfire)te).setMinedStone(world.getBlockState(pos.up()).getBlock() == MistBlocks.STONE_MINED);
+			}
 		}
 	}
 

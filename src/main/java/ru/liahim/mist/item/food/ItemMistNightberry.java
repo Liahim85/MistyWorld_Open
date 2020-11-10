@@ -17,7 +17,7 @@ import ru.liahim.mist.api.block.MistBlocks;
 public class ItemMistNightberry extends ItemToxicFood {
 
 	public ItemMistNightberry() {
-		super(1, 0.3F, false, -150);
+		super(1, 0.3F, false, -100);
 	}
 
 	@Override

@@ -2,9 +2,14 @@
     "type": "minecraft:crafting_shapeless",
     "group": "wood_step",
     "ingredients": [
-        {
-            "item": "mist:spruce_slab"
-        }
+        [
+            {
+                "item": "mist:spruce_slab"
+            },
+            {
+                "item": "mist:spruce_wall"
+            }
+        ]
     ],
     "result": {
         "item": "mist:spruce_step",

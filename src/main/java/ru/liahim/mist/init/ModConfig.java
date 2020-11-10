@@ -117,9 +117,9 @@ public class ModConfig {
 		public boolean soapWashingArmor = true;
 
 		@LangKey("config.mist.player.skill_factor")
-		@Comment("Skill factor in order: Taming, Cutting. The lower the value, the faster the skills upgrade")
+		@Comment("Skill factor in order: Taming, Cutting, Mason. The lower the value, the faster the skills upgrade")
 		@RangeDouble(min = 0.02, max = 10)
-		public double[] skillFactor = new double[] { 1, 1 };
+		public double[] skillFactor = new double[] { 1, 1, 1 };
 
 		@LangKey("config.mist.player.mobs_for_skill")
 		@Comment("A list of creatures (not monsters) whose killing will increase the cutting skill (modId:mobName:points or modId:*:points for all mobs in the mod). For example: mist:mossling:1, mist:monk:2, mist:brachiodon:3")

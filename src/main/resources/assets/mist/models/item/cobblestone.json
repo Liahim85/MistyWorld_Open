@@ -1,6 +1,3 @@
 {
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "mist:blocks/cobblestone"
-    }
+    "parent": "mist:block/cobblestone"
 }
