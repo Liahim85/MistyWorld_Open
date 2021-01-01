@@ -1,0 +1,21 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:cobblestone",
+            "data": 1
+        },
+        "title": {
+            "translate": "advancements.mist.stone_life"
+        },
+        "description": {
+            "translate": "advancements.mist.stone_life.desc"
+        }
+    },
+    "parent": "mist:story/fertile",
+    "criteria": {
+        "fertile": {
+            "trigger": "mist:mossy",
+            "conditions": {}
+        }
+    }
+}

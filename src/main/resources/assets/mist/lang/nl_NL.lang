@@ -715,6 +715,8 @@ item.mist.painting.tooltip.edge=Op De Rand
 item.mist.painting.tooltip.swamp=Moeras
 item.mist.painting.tooltip.meadow=Weide
 item.mist.painting.tooltip.fall=Vallen
+item.mist.painting.tooltip.poplars=Populieren
+item.mist.painting.tooltip.wanderer=Wanderer
 
 ### Fluids
 fluid.mist.acid=Zuur
@@ -769,6 +771,24 @@ gui.mist.effects.pollution=Chemische vervuiling
 keybind.mist.mask_inventory=Maskerinventaris
 keybind.mist.skill_inventory=Open vaardigheidmenu
 
+# Commands
+commands.setmisteffects.usage=/setmisteffects <player> <effect> [amount] or /setmisteffects <player> clear
+commands.setmisteffects.notfound=There is no such mist effect with ID %s
+commands.setmisteffects.failure.badcapability=Capability error with player %1$s
+commands.setmisteffects.failure.notactive.all=Player %1$s has no mist effects
+commands.setmisteffects.failure.notactive.pollution=Player %1$s has no chemical pollution
+commands.setmisteffects.failure.notactive.toxic=Player %1$s has no intoxication
+commands.setmisteffects.success.removed.all=Took all mist effects from %1$s
+commands.setmisteffects.success.removed.pollution=Took chemical pollution from %1$s
+commands.setmisteffects.success.pollution=Chemical pollution of %1$s has been changed to %2$s%%
+commands.setmisteffects.success.removed.toxic=Took intoxication from %1$s
+commands.setmisteffects.success.toxic=Intoxication of %1$s has been changed to %2$s%%
+
+commands.setmistskills.usage=/setmistskills <player> <skill> [amount]
+commands.setmistskills.notfound=There is no such skill with ID %s
+commands.setmistskills.failure.badcapability=Capability error with player %1$s
+commands.setmistskills.success=Skill level %2$s of %1$s has been changed to %3$s
+
 # Advancements
 advancements.mist.misty_world=Mistlanden
 advancements.mist.misty_world.desc=Het verhaal begint!
@@ -808,6 +828,8 @@ advancements.mist.compost=Recycelen
 advancements.mist.compost.desc=Maak een composthoop door rechts te klikken met shift bovenop een bodem, met biomateriaal in je handen
 advancements.mist.fertile=Voedingsrijker
 advancements.mist.fertile.desc=Maak je landbouwgrond voedingsrijker met humus
+advancements.mist.stone_life=Life of Stone
+advancements.mist.stone_life.desc=Fertilize the cobblestone with humus
 advancements.mist.mushroomer=Zwemmen in de zwammen
 advancements.mist.mushroomer.desc=Proef alle paddenstoelen uit de Mistlanden in gekookte en rauwe vorm
 advancements.mist.gourmet=Gourmet
@@ -822,6 +844,8 @@ advancements.mist.remains=Ben jij het, Lara?
 advancements.mist.remains.desc=Maak een graf
 advancements.mist.tame_animal=Met elkaar, voor altijd!
 advancements.mist.tame_animal.desc=Tem een dier in de Mistlanden
+advancements.mist.mycelium=A big nose
+advancements.mist.mycelium.desc=Find mycelium with a Sniff
 advancements.mist.riding=Hikkie Horrendous
 advancements.mist.riding.desc=Berijd een grote jager
 advancements.mist.rain=Eerste aanraking
@@ -864,6 +888,10 @@ config.mist.dimension.trees=Schakel vanilla boomgroei uit
 config.mist.dimension.trees.tooltip=Kiemplanten van buiten de Mistlanden zullen niet groeien in de Mistlanden
 config.mist.dimension.mycelium=Mycelium harvesting
 config.mist.dimension.mycelium.tooltip=Can mycelium be harvested without a silk touch
+config.mist.dimension.saplings=Saplings drop chance
+config.mist.dimension.saplings.tooltip=The final chance will be multiplied by the number of leaves attached to the cut branch
+config.mist.dimension.bonemeal=Enable the use Bone Meal
+config.mist.dimension.bonemeal.tooltip=Enable the use Bone Meal to accelerate tree growth
 config.mist.dimension.blacklist=Dimensie blacklist
 config.mist.dimension.blacklist.tooltip=Blacklist met dimensies waar je geen portaal naar de Mistlanden kunt bouwen
 config.mist.dimension.breakers=Sloopsnelheid Vaag Steen

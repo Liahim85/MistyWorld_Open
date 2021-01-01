@@ -48,7 +48,7 @@ public class ItemMistGasAnalyzer extends ItemMist {
 							if (y < MistWorld.getFogMinHight()) depth = 4;
 							else depth = Math.min(4, MistWorld.getFogHight(world, 0) + 4 - y);
 							if (depth > 0) {
-								float concentration = FogDamage.getConcentration(world, pos);
+								float concentration = FogDamage.getConcentration(world, pos, true);
 								toxic = FogDamage.getFogToxic(concentration);
 								if (FogDamage.isAdsorbentNear(world, pos)) toxic *= (1 - FogDamage.getFinalEfficiency(60, concentration));
 								toxic = toxic*depth/4;

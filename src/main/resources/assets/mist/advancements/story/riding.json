@@ -11,7 +11,7 @@
         },
         "frame": "challenge"
     },
-    "parent": "mist:story/tame_animal_mist",
+    "parent": "mist:story/mycelium",
     "rewards": {
         "experience": 100
     },

@@ -1,0 +1,20 @@
+{
+    "display": {
+        "icon": {
+            "item": "mist:mycelium"
+        },
+        "title": {
+            "translate": "advancements.mist.mycelium"
+        },
+        "description": {
+            "translate": "advancements.mist.mycelium.desc"
+        },
+        "frame": "goal"
+    },
+    "parent": "mist:story/tame_animal_mist",
+    "criteria": {
+        "mycelium": {
+            "trigger": "mist:mycelium"
+        }
+    }
+}

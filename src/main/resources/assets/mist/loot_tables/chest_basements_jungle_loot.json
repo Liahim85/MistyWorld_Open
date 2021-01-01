@@ -99,7 +99,7 @@
                "functions": [
                   {
                      "function": "mist:set_array_data",
-                     "data": [0, 2, 3, 4, 9, 11, 12]
+                     "data": [0, 2, 3, 4, 9, 11, 12, 15]
                   }
                ]
             },

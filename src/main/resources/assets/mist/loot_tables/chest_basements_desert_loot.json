@@ -68,7 +68,7 @@
                "functions": [
                   {
                      "function": "mist:set_array_data",
-                     "data": [0, 1, 4, 6, 7, 8, 12]
+                     "data": [0, 1, 4, 6, 7, 8, 12, 15]
                   }
                ]
             },

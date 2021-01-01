@@ -33,6 +33,8 @@ public class ModAdvancements {
 	public static final AnimalTrigger RIDING_ANIMAL = registerCriteriaTrigger(new AnimalTrigger(new ResourceLocation(Mist.MODID, "riding")));
 	public static final ItemStackTrigger STONE_MINED = registerCriteriaTrigger(new ItemStackTrigger(new ResourceLocation(Mist.MODID, "stone_mined")));
 	public static final ItemStackTrigger BRICK = registerCriteriaTrigger(new ItemStackTrigger(new ResourceLocation(Mist.MODID, "brick")));
+	public static final IBlockStateTrigger MOSSY = registerCriteriaTrigger(new IBlockStateTrigger(new ResourceLocation(Mist.MODID, "mossy")));
+	public static final IBlockStateTrigger MYCELIUM = registerCriteriaTrigger(new IBlockStateTrigger(new ResourceLocation(Mist.MODID, "mycelium")));
 
 	public static void load() {}
 

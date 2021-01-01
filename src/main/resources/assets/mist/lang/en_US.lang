@@ -706,6 +706,8 @@ item.mist.painting.tooltip.edge=On The Edge
 item.mist.painting.tooltip.swamp=Swamp
 item.mist.painting.tooltip.meadow=Meadow
 item.mist.painting.tooltip.fall=Fall
+item.mist.painting.tooltip.poplars=Poplars
+item.mist.painting.tooltip.wanderer=Wanderer
 
 ### Fluids
 fluid.mist.acid=Acid
@@ -760,6 +762,24 @@ gui.mist.effects.pollution=Chemical pollution
 keybind.mist.mask_inventory=Mask Inventory
 keybind.mist.skill_inventory=Open Skills Menu
 
+# Commands
+commands.setmisteffects.usage=/setmisteffects <player> <effect> [amount] or /setmisteffects <player> clear
+commands.setmisteffects.notfound=There is no such mist effect with ID %s
+commands.setmisteffects.failure.badcapability=Capability error with player %1$s
+commands.setmisteffects.failure.notactive.all=Player %1$s has no mist effects
+commands.setmisteffects.failure.notactive.pollution=Player %1$s has no chemical pollution
+commands.setmisteffects.failure.notactive.toxic=Player %1$s has no intoxication
+commands.setmisteffects.success.removed.all=Took all mist effects from %1$s
+commands.setmisteffects.success.removed.pollution=Took chemical pollution from %1$s
+commands.setmisteffects.success.pollution=Chemical pollution of %1$s has been changed to %2$s%%
+commands.setmisteffects.success.removed.toxic=Took intoxication from %1$s
+commands.setmisteffects.success.toxic=Intoxication of %1$s has been changed to %2$s%%
+
+commands.setmistskills.usage=/setmistskills <player> <skill> [amount]
+commands.setmistskills.notfound=There is no such skill with ID %s
+commands.setmistskills.failure.badcapability=Capability error with player %1$s
+commands.setmistskills.success=Skill level %2$s of %1$s has been changed to %3$s
+
 # Advancements
 advancements.mist.misty_world=Misty World
 advancements.mist.misty_world.desc=Story begins!
@@ -799,6 +819,8 @@ advancements.mist.compost=Recycling
 advancements.mist.compost.desc=Create a compost heap by clicking Shift + RMB on the top of soil with any biomaterial in hand
 advancements.mist.fertile=Increase Fertility
 advancements.mist.fertile.desc=Fertilize the farmland with humus
+advancements.mist.stone_life=Life of Stone
+advancements.mist.stone_life.desc=Fertilize the cobblestone with humus
 advancements.mist.mushroomer=Mushroomer
 advancements.mist.mushroomer.desc=Taste all kinds of mushrooms in the Misty World in raw and cooked form
 advancements.mist.gourmet=Gourmet
@@ -813,6 +835,8 @@ advancements.mist.remains=Is it you, Lara?
 advancements.mist.remains.desc=Dig a grave
 advancements.mist.tame_animal=We Be One Blood
 advancements.mist.tame_animal.desc=Tame an animal from the Misty World
+advancements.mist.mycelium=A big nose
+advancements.mist.mycelium.desc=Find mycelium with a Sniff
 advancements.mist.riding=Hiccup Horrendous
 advancements.mist.riding.desc=Ride a large predator
 advancements.mist.rain=First Touch
@@ -855,6 +879,10 @@ config.mist.dimension.trees=Disable vanilla tree growth
 config.mist.dimension.trees.tooltip=Tree sapings from other worlds will not grow in the Misty World
 config.mist.dimension.mycelium=Mycelium harvesting
 config.mist.dimension.mycelium.tooltip=Can mycelium be harvested without a silk touch
+config.mist.dimension.saplings=Saplings drop chance
+config.mist.dimension.saplings.tooltip=The final chance will be multiplied by the number of leaves attached to the cut branch
+config.mist.dimension.bonemeal=Enable the use Bone Meal
+config.mist.dimension.bonemeal.tooltip=Enable the use Bone Meal to accelerate tree growth
 config.mist.dimension.blacklist=Dimension black list
 config.mist.dimension.blacklist.tooltip=Black list of dimensions in which it is impossible to build a portal into a Misty World
 config.mist.dimension.breakers=Foggy stone mining speed
