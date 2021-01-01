@@ -9,7 +9,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import ru.liahim.mist.entity.EntityGalaga;
 
 @SideOnly(Side.CLIENT)
-public class ModelSalamSaddle extends ModelBase {
+public class ModelGalagaSaddle extends ModelBase {
 
 	public ModelRenderer body;
 	public ModelRenderer tail1;
@@ -17,7 +17,7 @@ public class ModelSalamSaddle extends ModelBase {
 	public ModelRenderer chestL;
 	public ModelRenderer chestR;
 
-	public ModelSalamSaddle(float scale) {
+	public ModelGalagaSaddle(float scale) {
 		this.textureWidth = 96;
 		this.textureHeight = 96;
 		this.body = new ModelRenderer(this, 0, 33);
@@ -48,7 +48,7 @@ public class ModelSalamSaddle extends ModelBase {
 		this.tail1.addChild(this.chestR);
 	}
 
-	public ModelSalamSaddle() {
+	public ModelGalagaSaddle() {
 		this(0);
 	}
 

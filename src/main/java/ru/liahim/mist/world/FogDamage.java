@@ -47,11 +47,13 @@ public class FogDamage {
 	private static final int pollutiomDamageBorder = (10000 - 2000)/100;
 
 	public static void calculateFogDamage(EntityLivingBase entity) {
-		if (!entity.world.isRemote && !entity.isDead && entity.world.provider.getDimension() == Mist.getID()) {
+		if (!entity.world.isRemote && !entity.isDead) {
+			boolean mist = entity.world.provider.getDimension() == Mist.getID();
 			if (!isDamageTick(entity.ticksExisted) || entity.ticksExisted == 0) return;
 			boolean isPlayer = entity instanceof EntityPlayer;
 			EntityPlayer player = isPlayer ? (EntityPlayer)entity : null;
 			if (!isPlayer) {
+				if (!mist) return;
 				if (entity instanceof EntityZombie) return;
 				if (entity instanceof EntitySkeleton) return;
 				if (entity instanceof EntitySkeletonHorse) return;
@@ -69,7 +71,7 @@ public class FogDamage {
 				if (entity.posY + eyeHeight < MistWorld.getFogMinHight()) depth = 4;
 				else depth = (float)Math.min(4, MistWorld.getFogHight(entity.world, 0) + 4.0F - entity.posY - eyeHeight);
 			}
-			if (depth > 0) {
+			if (mist && depth > 0) {
 				float concentration = getConcentration(entity.world, pos);
 				boolean rain = depth >= 4 && isRainTick(entity.ticksExisted) && entity.world.isRaining() && entity.world.canBlockSeeSky(pos);
 				boolean adsorbent = isAdsorbentNear(entity.world, pos);
@@ -246,8 +248,19 @@ public class FogDamage {
 
 	/** Returns the relative fog concentration in the "centers" (0 - far from center, 0.5 - normal center, 1 - main center). */
 	public static float getConcentration(World world, BlockPos pos) {
-		double dist = pos.distanceSq(MistWorld.getCenterPos(world, pos, false)); boolean main = false;
-		if (dist > 160000) { dist = pos.distanceSq(MistWorld.getCenterPos(world, pos, true)); main = true; }
+		return getConcentration(world, pos, false);
+	}
+
+	/** Returns the relative fog concentration in the "centers" (0 - far from center, 0.5 - normal center, 1 - main center). */
+	public static float getConcentration(World world, BlockPos pos, boolean client) {
+		double dist = client ? pos.distanceSq(MistWorld.getCenterPos(pos, false))
+							 : pos.distanceSq(MistWorld.getCenterPos(world, pos, false));
+		boolean main = false;
+		if (dist > 160000) {
+			dist = client ? pos.distanceSq(MistWorld.getCenterPos(pos, true))
+						: pos.distanceSq(MistWorld.getCenterPos(world, pos, true));
+			main = true;
+		}
 		if (dist > 640000) dist = -1;
 		if (dist > 0) dist = Math.sqrt(dist);				
 		return dist < 0 ? 0 : main ? (float)Math.min(400, 800 - dist)/400 : (float)Math.min(200, 400 - dist)/400;

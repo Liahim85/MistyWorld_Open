@@ -110,6 +110,7 @@ public abstract class AbstractMistMount extends EntityAlbino implements IInvento
 	public void travel(float strafe, float vertical, float forward) {
 		if (this.isBeingRidden() && this.canBeSteered() && this.isSaddled()) {
 			EntityLivingBase passenger = (EntityLivingBase) this.getControllingPassenger();
+			// strafe = 0;
 			forward = passenger.moveForward * getSpeedMultipler();
 			this.prevRotationYaw -= passenger.moveStrafing * 3;
 			this.rotationYaw = this.prevRotationYaw;

@@ -48,7 +48,7 @@ public class ItemMistCentrometer extends ItemMist {
 					double d1 = flag ? (double)entity.rotationYaw : this.getFrameRotation((EntityItemFrame)entity);
 					d1 = d1 % 360.0D;
 					double d2 = Math.atan2(centralPos.getZ() - pos.getZ(), centralPos.getX() - pos.getX());
-					d0 = (90.0D - d1 + d2 / 0.01745329238474369D) * 0.08888888888888889D;
+					d0 = (90.0D - d1 + d2 / 0.01745329238474369D) * 0.09D;
 					return MathHelper.positiveModulo((float)d0, 32) + 1 + (main ? 33 : 0);
 				}
 			}

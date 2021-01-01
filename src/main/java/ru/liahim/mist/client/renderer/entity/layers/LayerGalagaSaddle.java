@@ -4,7 +4,7 @@ import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import ru.liahim.mist.client.model.entity.ModelSalamSaddle;
+import ru.liahim.mist.client.model.entity.ModelGalagaSaddle;
 import ru.liahim.mist.client.renderer.entity.RenderGalaga;
 import ru.liahim.mist.common.Mist;
 import ru.liahim.mist.entity.EntityGalaga;
@@ -14,7 +14,7 @@ public class LayerGalagaSaddle implements LayerRenderer<EntityGalaga> {
 	
 	private static final ResourceLocation TEXTURE = new ResourceLocation(Mist.MODID, "textures/entity/galaga/galaga_saddle.png");
 	private final RenderGalaga renderer;
-	private final ModelSalamSaddle model = new ModelSalamSaddle();
+	private final ModelGalagaSaddle model = new ModelGalagaSaddle();
 
 	public LayerGalagaSaddle(RenderGalaga renderer) {
 		this.renderer = renderer;
