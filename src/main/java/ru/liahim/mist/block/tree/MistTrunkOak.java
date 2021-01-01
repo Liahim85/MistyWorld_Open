@@ -9,10 +9,14 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
+import ru.liahim.mist.api.biome.EnumBiomeType;
 import ru.liahim.mist.api.block.IWettable;
 import ru.liahim.mist.api.block.MistBlocks;
+import ru.liahim.mist.api.sound.MistSounds;
 import ru.liahim.mist.block.MistBlockBranch;
 import ru.liahim.mist.block.MistSoil;
 import ru.liahim.mist.block.MistTreeLeaves;
@@ -22,6 +26,7 @@ import ru.liahim.mist.common.Mist;
 import ru.liahim.mist.util.FacingHelper;
 import ru.liahim.mist.util.SoilHelper;
 import ru.liahim.mist.world.MistWorld;
+import ru.liahim.mist.world.biome.BiomeMist;
 
 public class MistTrunkOak extends MistTreeTrunk {
 
@@ -37,6 +42,20 @@ public class MistTrunkOak extends MistTreeTrunk {
 	@Override
 	protected int getMaxTreeHeight(World world, BlockPos rootPos, int minTrunckLength, long posRand, int soilDepth) {		
 		return minTrunckLength + 8 + (int)(posRand % 7) % 4;
+	}
+
+	@Override
+	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
+		if (!world.isRemote && MistWorld.canPlayAmbiendSounds(world, pos)) {
+			Biome biome = world.getBiome(pos);
+			if (biome instanceof BiomeMist && ((BiomeMist)biome).getBiomeType() == EnumBiomeType.Forest) {
+				long tick = world.getWorldTime() % 24000;
+				if (tick > 12000 && rand.nextInt(2 + (int) Math.abs(tick - 18000)/250) == 0 && state.getActualState(world, pos).getValue(SIZE) == 4) {
+					world.playSound(null, pos, MistSounds.BLOCK_FOREST_CRICKET, SoundCategory.AMBIENT, 0.5F, world.rand.nextFloat() * 0.3F + 0.7F);
+				}
+			}
+		}
+		super.updateTick(world, pos, state, rand);
 	}
 
 	@Override

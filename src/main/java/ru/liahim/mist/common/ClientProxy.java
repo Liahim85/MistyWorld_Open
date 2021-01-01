@@ -51,8 +51,11 @@ public class ClientProxy extends CommonProxy {
 	public static final IRenderHandler SkyRendererMist = new SkyRendererMist();
 	public static final IRenderHandler WeatherRendererMist = new WeatherRendererMist();
 	public static final IRenderHandler RainParticleRenderer = new RainParticleRenderer();
-	public static final MusicType MIST_UP_MUSIC = EnumHelper.addEnum(MusicType.class, "mist_up", new Class[] {SoundEvent.class, int.class, int.class}, ModSounds.registerSoundEvent("mist_up_music"), 12000, 24000);
+	public static final MusicType MIST_UP_DAY_MUSIC = EnumHelper.addEnum(MusicType.class, "mist_up_day", new Class[] {SoundEvent.class, int.class, int.class}, ModSounds.registerSoundEvent("mist_up_day_music"), 12000, 24000);
+	public static final MusicType MIST_UP_NIGHT_MUSIC = EnumHelper.addEnum(MusicType.class, "mist_night_day", new Class[] {SoundEvent.class, int.class, int.class}, ModSounds.registerSoundEvent("mist_up_night_music"), 12000, 24000);
 	public static final MusicType MIST_DOWN_MUSIC = EnumHelper.addEnum(MusicType.class, "mist_down", new Class[] {SoundEvent.class, int.class, int.class}, ModSounds.registerSoundEvent("mist_down_music"), 3000, 6000);
+	public static final MusicType MIST_SUNSET_UP_MUSIC = EnumHelper.addEnum(MusicType.class, "mist_sunset_up", new Class[] {SoundEvent.class, int.class, int.class}, ModSounds.registerSoundEvent("mist_sunset_up_music"), 0, 0);
+	public static final MusicType MIST_SUNSET_DOWN_MUSIC = EnumHelper.addEnum(MusicType.class, "mist_sunset_down", new Class[] {SoundEvent.class, int.class, int.class}, ModSounds.registerSoundEvent("mist_sunset_down_music"), 0, 0);
 	//public static ModelResourceLocation acidBucket = new ModelResourceLocation("mist:acid_bucket", "inventory");
 	public static KeyBinding maskKey = new KeyBinding(I18n.format("keybind.mist.mask_inventory"), Keyboard.KEY_M, "key.categories.inventory");
 	public static KeyBinding skillKey = new KeyBinding(I18n.format("keybind.mist.skill_inventory"), Keyboard.KEY_I, "key.categories.inventory");

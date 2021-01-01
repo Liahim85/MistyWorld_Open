@@ -37,6 +37,63 @@
             { "name": "mist:tree/wood_creak_3" }
         ]
     },
+    "mist_forest_cricket": {
+        "category": "ambient",
+        "sounds": [
+            { "name": "mist:ambient/cricket_1" },
+            { "name": "mist:ambient/cricket_2" },
+            { "name": "mist:ambient/cricket_3" }
+        ]
+    },
+    "mist_desert_cricket": {
+        "category": "ambient",
+        "sounds": [
+            { "name": "mist:ambient/desert_cricket_1" },
+            { "name": "mist:ambient/desert_cricket_2" },
+            { "name": "mist:ambient/desert_cricket_3" },
+            { "name": "mist:ambient/desert_cricket_4" }
+        ]
+    },
+    "mist_forest_hopper": {
+        "category": "ambient",
+        "sounds": [
+            { "name": "mist:ambient/gh_1" },
+            { "name": "mist:ambient/gh_2" },
+            { "name": "mist:ambient/gh_3" },
+            { "name": "mist:ambient/gh_4" }
+        ]
+    },
+    "mist_swamp_frog": {
+        "category": "ambient",
+        "sounds": [
+            { "name": "mist:ambient/frog_1", "weight": 3 },
+            { "name": "mist:ambient/frog_2" },
+            { "name": "mist:ambient/frog_3" },
+            { "name": "mist:ambient/frog_4" }
+        ]
+    },
+    "mist_swamp_bird": {
+        "category": "ambient",
+        "sounds": [
+            { "name": "mist:ambient/swamp_bird_1", "weight": 8 },
+            { "name": "mist:ambient/swamp_bird_2" }
+        ]
+    },
+    "mist_tropic_cicada": {
+        "category": "ambient",
+        "sounds": [
+            { "name": "mist:ambient/cicada_1" },
+            { "name": "mist:ambient/cicada_2" },
+            { "name": "mist:ambient/cicada_3" }
+        ]
+    },
+    "mist_tropic_hopper": {
+        "category": "ambient",
+        "sounds": [
+            { "name": "mist:ambient/tropic_gh_1" },
+            { "name": "mist:ambient/tropic_gh_2" }
+        ]
+    },
     "mist_caravan_ambient": {
         "category": "neutral",
         "sounds": [
@@ -561,12 +618,68 @@
             }
         ]
     },
-    "mist_up_music": {
+    "mist_up_day_music": {
         "category": "music",
         "sounds": [
             {
                 "name": "mist:music/deceived",
-                "stream": true
+                "stream": true,
+                "weight": 2
+            },
+            {
+                "name": "mist:music/forest_deciever",
+                "stream": true,
+                "volume": 0.55,
+                "weight": 3
+            },
+            {
+                "name": "mist:music/pogonip_hoarfrost_mix",
+                "stream": true,
+                "volume": 0.85,
+                "weight": 3
+            },
+            {
+                "name": "mist:music/snowfields",
+                "stream": true,
+                "volume": 0.6
+            }
+        ]
+    },
+    "mist_up_night_music": {
+        "category": "music",
+        "sounds": [
+            {
+                "name": "mist:music/deceived",
+                "stream": true,
+                "weight": 2
+            },
+            {
+                "name": "mist:music/pogonip_hoarfrost_mix",
+                "stream": true,
+                "volume": 0.85
+            },
+            {
+                "name": "mist:music/snowfields",
+                "stream": true,
+                "volume": 0.6,
+                "weight": 2
+            }
+        ]
+    },
+    "mist_sunset_up_music": {
+        "category": "music",
+        "sounds": [
+            {
+                "name": "mist:music/miasma_veil_piercer",
+                "stream": true,
+                "volume": 0.8,
+                "weight": 3
+            },
+            {
+                "name": "mist:music/frontier",
+                "stream": true,
+                "volume": 0.4,
+                "weight": 2
             }
         ]
     },
@@ -576,6 +689,34 @@
             {
                 "name": "mist:music/echolocation",
                 "stream": true
+            },
+            {
+                "name": "mist:music/coalescent_fog",
+                "stream": true,
+                "volume": 0.7,
+                "weight": 2
+            },
+            {
+                "name": "mist:music/graveyard",
+                "stream": true,
+                "volume": 0.4,
+                "weight": 2
+            },
+            {
+                "name": "mist:music/surge_of_mutations",
+                "stream": true,
+                "volume": 0.45,
+                "weight": 2
+            }
+        ]
+    },
+    "mist_sunset_down_music": {
+        "category": "music",
+        "sounds": [
+            {
+                "name": "mist:music/strange_lifeforms",
+                "stream": true,
+                "volume": 0.65
             }
         ]
     }

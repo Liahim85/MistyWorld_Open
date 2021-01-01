@@ -21,16 +21,22 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import ru.liahim.mist.api.biome.EnumBiomeType;
+import ru.liahim.mist.api.biome.MistBiomes;
 import ru.liahim.mist.api.block.IColoredBlock;
 import ru.liahim.mist.api.block.IFarmland;
+import ru.liahim.mist.api.sound.MistSounds;
 import ru.liahim.mist.init.BlockColoring;
 import ru.liahim.mist.util.SoilHelper;
 import ru.liahim.mist.world.MistWorld;
+import ru.liahim.mist.world.biome.BiomeMist;
 
 /**@author Liahim*/
 public class MistGrass extends MistDirt implements IColoredBlock, IGrowable {
@@ -64,6 +70,28 @@ public class MistGrass extends MistDirt implements IColoredBlock, IGrowable {
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
 		if (!world.isRemote) {
+			if (MistWorld.canPlayAmbiendSounds(world, pos)) {
+				Biome biome = world.getBiome(pos);
+				//if (!world.isRaining() || !biome.canRain()) {
+					long time = world.getWorldTime();
+					if (biome == MistBiomes.upMeadow) {
+						long tick = (time + 23000) % 24000;
+						if (tick < 10000 && rand.nextInt(5 + (int) Math.abs(tick - 5000)/50) == 0) {
+							world.playSound(null, pos, MistSounds.BLOCK_FOREST_HOPPER, SoundCategory.AMBIENT, 0.75F, world.rand.nextFloat() * 0.2F + 0.9F);
+						}
+					} else if (biome == MistBiomes.upSavanna) {
+						long tick = time % 24000;
+						if (tick > 12000 && rand.nextInt(5 + (int) Math.abs(tick - 18000)/50) == 0) {
+							world.playSound(null, pos, MistSounds.BLOCK_DESERT_CRICKET, SoundCategory.AMBIENT, world.rand.nextFloat() * 0.2F + 0.6F, world.rand.nextFloat() * 0.1F + 0.9F);
+						}
+					} else if (biome instanceof BiomeMist && ((BiomeMist)biome).getBiomeType() == EnumBiomeType.Jungle) {
+						long tick = time % 24000;
+						if ((tick > 12000 && rand.nextInt(10 + (int) Math.abs(tick - 18000)/20) == 0) || rand.nextInt(50) == 0) {
+							world.playSound(null, pos, MistSounds.BLOCK_TROPIC_HOPPER, SoundCategory.AMBIENT, world.rand.nextFloat() * 1.0F, world.rand.nextFloat() * 0.2F + 0.9F);
+						}
+					}
+				//}
+			}
 			boolean change = false;
 			IBlockState stateUp = world.getBlockState(pos.up());
 			if (world.getLightFromNeighbors(pos.up()) < 4 && stateUp.getLightOpacity(world, pos.up()) > 2) {

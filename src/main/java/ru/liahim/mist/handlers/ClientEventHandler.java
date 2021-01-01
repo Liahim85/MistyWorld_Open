@@ -1,8 +1,8 @@
 package ru.liahim.mist.handlers;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.audio.ISound;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
@@ -28,12 +28,12 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
-import net.minecraftforge.client.event.TextureStitchEvent;
-import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.client.event.RenderSpecificHandEvent;
+import net.minecraftforge.client.event.TextureStitchEvent;
+import net.minecraftforge.client.event.sound.PlaySoundEvent;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fluids.FluidStack;
@@ -68,8 +68,10 @@ import ru.liahim.mist.item.ItemMistMap;
 import ru.liahim.mist.network.PacketHandler;
 import ru.liahim.mist.network.PacketOpenMaskInventory;
 import ru.liahim.mist.network.PacketOpenNormalInventory;
+import ru.liahim.mist.sound.MistMusic;
 import ru.liahim.mist.tileentity.TileEntityCampfire;
 import ru.liahim.mist.util.ItemStackMapKey;
+import ru.liahim.mist.world.WorldProviderMist;
 
 public class ClientEventHandler {
 
@@ -80,6 +82,7 @@ public class ClientEventHandler {
 	private int filterTimer;
 	private int xPos = mc.gameSettings.mainHand == EnumHandSide.RIGHT ? 189 : -29;
 	public static ISound currentSound;
+	public static int fadeOut = 0;
 
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
@@ -414,38 +417,38 @@ public class ClientEventHandler {
 		ModelLoaderRegistry.registerLoader(new MistModelLoader());
 	}
 	
-	/*private static final PositionedSoundRecord psrUp = new PositionedSoundRecord(MistSounds.UP_MUSIC.getSoundName(), SoundCategory.MUSIC, 1, 1, false, 0, ISound.AttenuationType.NONE, 0, 0, 0);
-	private static final PositionedSoundRecord psrDown = new PositionedSoundRecord(MistSounds.DOWN_MUSIC.getSoundName(), SoundCategory.MUSIC, 1, 1, false, 0, ISound.AttenuationType.NONE, 0, 0, 0);
-	
 	@SideOnly(Side.CLIENT)
 	@SubscribeEvent
 	public void onSoundPlayed(PlaySoundEvent event) {
-		if (event.getSound().getCategory() == SoundCategory.MUSIC) {
-			Entity entity = mc.getRenderViewEntity();
-			if (entity != null && entity instanceof EntityPlayer) {
-				if (!((EntityPlayer)entity).isCreative() && !((EntityPlayer)entity).isSpectator()) {
-					World world = entity.world;
-					if (world.provider.getDimension() == Mist.getID()) {
-						if (entity.posY < MistWorld.getFogMinHight()) {
-							if (mc.getSoundHandler().isSoundPlaying(psrDown)) event.setResultSound(null);
-							else if (entity.world.rand.nextInt(3) == 0) event.setResultSound(psrDown);
-						} else {
-							if (mc.getSoundHandler().isSoundPlaying(psrUp)) event.setResultSound(null);
-							else if (entity.world.rand.nextInt(5) == 0) event.setResultSound(psrUp);
-						}
-					}
-				}
-			}
-		}
-	}*/
-
-	@SideOnly(Side.CLIENT)
-	@SubscribeEvent
-	public void onSoundPlayed(PlaySoundEvent event) {
-		if (event.getSound().getCategory() == SoundCategory.MUSIC) {
-			currentSound = event.getSound();
+		if (event.getSound().getCategory() == SoundCategory.MUSIC && WorldProviderMist.canPlayMusic(mc.player)) {
+			if (currentSound == null) {
+				ISound sound = event.getSound();
+				MistMusic s = new MistMusic(sound.getSoundLocation(), sound.getCategory());
+				currentSound = s;
+				event.setResultSound(s);
+			} else event.setResultSound(null);
 		}
 	}
+
+	/*private static final MistWind wind = new MistWind(MistSounds.BLOCK_WIND, SoundCategory.AMBIENT);
+
+	@SubscribeEvent
+	public void onClientWorldTick(ClientTickEvent event) {
+		if (event.phase == Phase.START && mc.inGameHasFocus && mc.player != null && mc.player.world.provider.getDimension() == Mist.getID()) {
+			checkSoundPlace();
+			if (!mc.getSoundHandler().isSoundPlaying(wind)) mc.getSoundHandler().playSound(wind);
+		}
+	}
+
+	public static float lightVolume;
+	public static boolean isUpBiome;
+
+	private void checkSoundPlace() {
+		EntityPlayerSP player = mc.player;
+		BlockPos pos = new BlockPos(Math.floor(player.posX), Math.floor(player.posY) + 1, Math.floor(player.posZ));
+		isUpBiome = player.world.getBiome(pos) instanceof BiomeMistUp;
+		lightVolume = ((float)player.world.getLightFor(EnumSkyBlock.SKY, pos))/16F;
+	}*/
 
 	/*@SideOnly(Side.CLIENT)
 	@SubscribeEvent
@@ -462,14 +465,6 @@ public class ClientEventHandler {
 		if (!mc.getSoundHandler().isSoundPlaying(psr)) {
 			mc.getSoundHandler().stop("", SoundCategory.MUSIC);
 			mc.getSoundHandler().playSound(psr);
-		}
-	}*/
-
-	/*@SubscribeEvent
-	public void onClientWorldTick(ClientTickEvent event) {
-		if(event.phase == Phase.START) {
-			if (mc.getRenderViewEntity() != null)
-				MistTime.updateTime(mc.getRenderViewEntity().worldObj);
 		}
 	}*/
 }

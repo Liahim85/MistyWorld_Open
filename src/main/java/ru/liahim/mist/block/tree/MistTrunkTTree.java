@@ -7,8 +7,10 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import ru.liahim.mist.api.biome.EnumBiomeType;
 import ru.liahim.mist.api.block.IWettable;
 import ru.liahim.mist.api.block.MistBlocks;
+import ru.liahim.mist.api.sound.MistSounds;
 import ru.liahim.mist.block.MistBlockBranch;
 import ru.liahim.mist.block.MistSoil;
 import ru.liahim.mist.block.MistTreeLeaves;
@@ -18,13 +20,16 @@ import ru.liahim.mist.common.Mist;
 import ru.liahim.mist.util.FacingHelper;
 import ru.liahim.mist.util.SoilHelper;
 import ru.liahim.mist.world.MistWorld;
+import ru.liahim.mist.world.biome.BiomeMist;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 
 public class MistTrunkTTree extends MistTreeTrunk {
 
@@ -54,6 +59,22 @@ public class MistTrunkTTree extends MistTreeTrunk {
 	@Override
 	protected int getGrowingThickness(EnumFacing face, Random rand) {
 		return rand.nextInt(2);
+	}
+
+	@Override
+	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
+		if (!world.isRemote && MistWorld.canPlayAmbiendSounds(world, pos)) {
+			if (state.getActualState(world, pos).getValue(SIZE) == 4) {
+				Biome biome = world.getBiome(pos);
+				if (biome instanceof BiomeMist && ((BiomeMist)biome).getBiomeType() == EnumBiomeType.Jungle) {
+					long tick = (world.getWorldTime() + 23000) % 24000;
+					if (tick < 10000 && rand.nextInt(1 + (int) Math.abs(tick - 5000)/1000) == 0) {
+						world.playSound(null, pos, MistSounds.BLOCK_TROPIC_CICADA, SoundCategory.AMBIENT, world.rand.nextFloat() * 0.4F + 0.8F, world.rand.nextFloat() * 0.2F + 0.9F);
+					}
+				}
+			}
+		}
+		super.updateTick(world, pos, state, rand);
 	}
 
 	@Override

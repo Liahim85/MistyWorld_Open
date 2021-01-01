@@ -51,6 +51,7 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -58,6 +59,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.RegistryEvent.MissingMappings;
+import net.minecraftforge.event.RegistryEvent.MissingMappings.Mapping;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.item.ItemExpireEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
@@ -99,6 +102,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent.Phase;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.ServerTickEvent;
 import net.minecraftforge.fml.common.network.FMLNetworkEvent.ClientConnectedToServerEvent;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import ru.liahim.mist.api.MistTags;
 import ru.liahim.mist.api.advancement.PortalType;
@@ -832,6 +836,7 @@ public class ServerEventHandler {
 	private static int panic_Time;
 	private static final int range1 = 64000;
 	private static final int range2 = 6000;
+	public static int ambientSoundsTimer = 0;
 
 	public static void setSoundsTime(long sky_last, long sky_interval, long boom_last, long boom_interval) {
 		last_sky_sounds_time = sky_last;
@@ -885,6 +890,7 @@ public class ServerEventHandler {
 			if (panic_Time > 0) { 
 				--panic_Time;
 				if (panic_Time % 100 == 99) {
+					ambientSoundsTimer = 500;
 					WorldServer mist = DimensionManager.getWorld(Mist.getID());
 					if (mist != null) {
 						for (Entity entity : mist.loadedEntityList) {
@@ -893,6 +899,8 @@ public class ServerEventHandler {
 					}
 				}
 			}
+			if (world.isRaining() && ambientSoundsTimer < 200) ambientSoundsTimer = 300;
+			if (ambientSoundsTimer > 0) --ambientSoundsTimer;
 		}
 	}
 
@@ -1145,6 +1153,17 @@ public class ServerEventHandler {
 	public void onChunkLoad(ChunkEvent.Load event) {
 		if (event.getWorld().provider.getDimension() == Mist.getID()) {
 			MistWorld.seasonalTest(event.getChunk());
+		}
+	}
+
+	@SubscribeEvent
+	public void onMissingSoundsMapping(MissingMappings<SoundEvent> event) {
+		for (Mapping<SoundEvent> mapping : event.getAllMappings()) {
+			switch (mapping.key.toString()) {
+			case "mist:mist_up_music":
+				mapping.remap(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation(Mist.MODID, "mist_up_day_music")));
+				break;
+			}
 		}
 	}
 }

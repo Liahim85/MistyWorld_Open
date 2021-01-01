@@ -12,6 +12,8 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
+import ru.liahim.mist.api.biome.EnumBiomeType;
 import ru.liahim.mist.api.block.IWettable;
 import ru.liahim.mist.api.block.MistBlocks;
 import ru.liahim.mist.api.sound.MistSounds;
@@ -24,6 +26,7 @@ import ru.liahim.mist.common.Mist;
 import ru.liahim.mist.util.FacingHelper;
 import ru.liahim.mist.util.SoilHelper;
 import ru.liahim.mist.world.MistWorld;
+import ru.liahim.mist.world.biome.BiomeMist;
 
 public class MistTrunkPoplar extends MistTreeTrunk {
 
@@ -62,8 +65,22 @@ public class MistTrunkPoplar extends MistTreeTrunk {
 
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
-		if (!world.isRemote && rand.nextInt(200) == 0 && state.getActualState(world, pos).getValue(SIZE) == 4) {
-			world.playSound(null, pos, MistSounds.BLOCK_WOOD_CREAK, SoundCategory.BLOCKS, 0.5F, world.rand.nextFloat() * 0.4F + 0.8F);
+		if (!world.isRemote) {
+			if (state.getActualState(world, pos).getValue(SIZE) == 4) {
+				if (rand.nextInt(200) == 0) {
+					world.playSound(null, pos, MistSounds.BLOCK_WOOD_CREAK, SoundCategory.BLOCKS, 0.5F, world.rand.nextFloat() * 0.4F + 0.8F);
+				}
+			} else if (pos.getY() > 130 && MistWorld.canPlayAmbiendSounds(world, pos)) {
+				Biome biome = world.getBiome(pos);
+				if (biome instanceof BiomeMist && ((BiomeMist)biome).getBiomeType() == EnumBiomeType.Swamp) {
+					long tick = world.getWorldTime() % 24000;
+					if (tick > 12000 && rand.nextInt(20 + (int) Math.abs(tick - 18000)/200) == 0) {
+						world.playSound(null, pos, MistSounds.BLOCK_SWAMP_BIRD, SoundCategory.AMBIENT, 1.5F, world.rand.nextFloat() * 0.2F + 0.9F);
+					} else if (rand.nextInt(500) == 0) {
+						world.playSound(null, pos, MistSounds.BLOCK_SWAMP_BIRD, SoundCategory.AMBIENT, 1.5F, world.rand.nextFloat() * 0.2F + 0.9F);
+					}
+				}
+			}
 		}
 		super.updateTick(world, pos, state, rand);
 	}

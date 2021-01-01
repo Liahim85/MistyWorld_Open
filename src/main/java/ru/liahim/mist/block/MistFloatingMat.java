@@ -11,6 +11,7 @@ import ru.liahim.mist.api.block.IColoredBlock;
 import ru.liahim.mist.api.block.MistBlocks;
 import ru.liahim.mist.api.entity.IMatWalkable;
 import ru.liahim.mist.api.item.MistItems;
+import ru.liahim.mist.api.sound.MistSounds;
 import ru.liahim.mist.block.gizmos.MistCompostHeap;
 import ru.liahim.mist.init.BlockColoring;
 import ru.liahim.mist.util.FacingHelper;
@@ -40,6 +41,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
@@ -76,6 +78,17 @@ public class MistFloatingMat extends MistBlockWettable implements IColoredBlock 
 		this.setDefaultState(this.blockState.getBaseState().withProperty(WET, true).withProperty(GROWTH, true));
 		this.setHardness(0.7F);
 		this.setHarvestLevel("shovel", 0);
+	}
+
+	@Override
+	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
+		if (!world.isRemote) {
+			long tick = world.getWorldTime() % 24000;
+			if (tick > 12000 && rand.nextInt(2 + (int) Math.abs(tick - 18000)/250) == 0) {
+				world.playSound(null, pos, MistSounds.BLOCK_SWAMP_FROG, SoundCategory.AMBIENT, 0.5F, world.rand.nextFloat() * 0.3F + 0.7F);
+			}
+		}
+		super.updateTick(world, pos, state, rand);
 	}
 
 	@Override

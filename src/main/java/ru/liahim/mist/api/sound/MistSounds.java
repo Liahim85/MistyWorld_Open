@@ -10,7 +10,15 @@ public class MistSounds {
 	public static SoundEvent BLOCK_URN_CLOSE;
 	public static SoundEvent BLOCK_URN_BREAK;
 	public static SoundEvent BLOCK_STONE_BREAK;
+
 	public static SoundEvent BLOCK_WOOD_CREAK;
+	public static SoundEvent BLOCK_FOREST_CRICKET;
+	public static SoundEvent BLOCK_DESERT_CRICKET;
+	public static SoundEvent BLOCK_FOREST_HOPPER;
+	public static SoundEvent BLOCK_SWAMP_FROG;
+	public static SoundEvent BLOCK_SWAMP_BIRD;
+	public static SoundEvent BLOCK_TROPIC_HOPPER;
+	public static SoundEvent BLOCK_TROPIC_CICADA;
 
 	public static SoundEvent ENTITY_CARAVAN_AMBIENT;
 	public static SoundEvent ENTITY_CARAVAN_HURT;

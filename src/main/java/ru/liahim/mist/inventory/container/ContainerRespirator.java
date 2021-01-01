@@ -9,6 +9,7 @@ import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import ru.liahim.mist.api.MistTags;
 
 public class ContainerRespirator extends Container {
 
@@ -65,9 +66,11 @@ public class ContainerRespirator extends Container {
 				NBTTagCompound tag = filter.serializeNBT();
 				if(!stack.hasTagCompound())
 					stack.setTagCompound(new NBTTagCompound());
-				stack.getTagCompound().setTag("MistFilter", tag);
-			} else if (stack.hasTagCompound() && stack.getTagCompound().hasKey("MistFilter")) {
-				stack.getTagCompound().removeTag("MistFilter");
+				stack.getTagCompound().setTag(MistTags.nbtFilterTag, tag);
+				stack.getTagCompound().setInteger(MistTags.nbtFilterDurabilityTag, filter.getItemDamage());
+			} else if (stack.hasTagCompound() && stack.getTagCompound().hasKey(MistTags.nbtFilterTag)) {
+				stack.getTagCompound().removeTag(MistTags.nbtFilterTag);
+				stack.getTagCompound().setInteger(MistTags.nbtFilterDurabilityTag, 0);
 			}
 		}
 	}

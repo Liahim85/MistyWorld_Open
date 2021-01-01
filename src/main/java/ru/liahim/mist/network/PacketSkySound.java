@@ -2,6 +2,8 @@ package ru.liahim.mist.network;
 
 import io.netty.buffer.ByteBuf;
 import ru.liahim.mist.api.sound.MistSounds;
+import ru.liahim.mist.handlers.ClientEventHandler;
+import ru.liahim.mist.world.WorldProviderMist;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
@@ -42,6 +44,7 @@ public class PacketSkySound implements IMessage {
 				@Override
 				public void run() {
 					Minecraft.getMinecraft().player.playSound(message.type.event, message.volume, 1);
+					if (message.type == SkySoundType.AMBIENT && WorldProviderMist.canPlayMusic(Minecraft.getMinecraft().player)) ClientEventHandler.fadeOut = 1000;
 			}});
 			return null;
 		}

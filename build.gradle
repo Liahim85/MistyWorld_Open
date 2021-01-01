@@ -2,19 +2,27 @@ buildscript {
     repositories {
         jcenter()
         maven { url = "http://files.minecraftforge.net/maven" }
+	//maven {
+        //    name = "sonatype"
+        //    url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        //}
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+	//classpath 'tech.justagod:cutter:2.0.1'
     }
 }
+
+//apply plugin: 'cutter'
 apply plugin: 'net.minecraftforge.gradle.forge'
+
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 ext.priv = parseConfig(file('private.properties'))
 
 
-version = "1.0"
-group = "com.yourname.modid" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "modid"
+version = "1.2.5.3"
+group = "ru.liahim.mist" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "mist"
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 compileJava {
@@ -64,6 +72,7 @@ task signJar(type: SignJar, dependsOn: reobfJar) {
 }
 
 build.dependsOn signJar
+//cutter.initializeDefault(true, false)
 
 dependencies {
     // you may put jars on which you depend on in ./libs

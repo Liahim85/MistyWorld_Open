@@ -18,6 +18,7 @@ import ru.liahim.mist.api.block.MistBlocks;
 import ru.liahim.mist.common.Mist;
 import ru.liahim.mist.common.MistTime;
 import ru.liahim.mist.handlers.FogRenderer;
+import ru.liahim.mist.handlers.ServerEventHandler;
 
 public class MistWorld {
 
@@ -190,5 +191,9 @@ public class MistWorld {
 			}
 			h += 16;
 		}
+	}
+
+	public static boolean canPlayAmbiendSounds(World world, BlockPos pos) {
+		return ServerEventHandler.ambientSoundsTimer <= 0 && !world.isRaining() && pos.getY() > MistWorld.getFogMaxHight();
 	}
 }

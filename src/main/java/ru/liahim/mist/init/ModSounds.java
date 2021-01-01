@@ -17,7 +17,15 @@ public class ModSounds {
 		BLOCK_URN_CLOSE = registerSoundEvent("mist_urn_close");
 		BLOCK_URN_BREAK = registerSoundEvent("mist_urn_break");
 		BLOCK_STONE_BREAK = registerSoundEvent("mist_stone_break");
+
 		BLOCK_WOOD_CREAK = registerSoundEvent("mist_wood_creak");
+		BLOCK_FOREST_CRICKET = registerSoundEvent("mist_forest_cricket");
+		BLOCK_DESERT_CRICKET = registerSoundEvent("mist_desert_cricket");
+		BLOCK_FOREST_HOPPER = registerSoundEvent("mist_forest_hopper");
+		BLOCK_SWAMP_FROG = registerSoundEvent("mist_swamp_frog");
+		BLOCK_SWAMP_BIRD = registerSoundEvent("mist_swamp_bird");
+		BLOCK_TROPIC_CICADA = registerSoundEvent("mist_tropic_cicada");
+		BLOCK_TROPIC_HOPPER = registerSoundEvent("mist_tropic_hopper");
 
 		ENTITY_CARAVAN_AMBIENT = registerSoundEvent("mist_caravan_ambient");
 		ENTITY_CARAVAN_HURT = registerSoundEvent("mist_caravan_hurt");
