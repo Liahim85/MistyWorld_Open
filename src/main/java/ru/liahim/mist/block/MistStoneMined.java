@@ -41,6 +41,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import ru.liahim.mist.api.block.IColoredBlock;
 import ru.liahim.mist.api.block.IMistStoneUpper;
+import ru.liahim.mist.api.block.IMossable;
 import ru.liahim.mist.api.block.MistBlocks;
 import ru.liahim.mist.api.item.MistItems;
 import ru.liahim.mist.api.sound.MistSounds;
@@ -58,7 +59,7 @@ import ru.liahim.mist.tileentity.TileEntityCampfire;
 import ru.liahim.mist.util.FacingHelper;
 import ru.liahim.mist.world.MistWorld;
 
-public class MistStoneMined extends MistBlock implements IMistStoneUpper, IColoredBlock {
+public class MistStoneMined extends MistBlock implements IMistStoneUpper, IColoredBlock, IMossable {
 
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -339,6 +340,17 @@ public class MistStoneMined extends MistBlock implements IMistStoneUpper, IColor
 	@Override
 	public boolean isUpperStone(IBlockState state) {
 		return state.getValue(TYPE).isNature();
+	}
+
+	@Override
+	public boolean canSilkHarvest(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
+		return false;
+	}
+
+	@Override
+	public boolean setMossy(IBlockState state, World world, BlockPos pos) {
+		if (!(state.getBlock() instanceof IMossable) || state.getValue(TYPE).isNature || state.getValue(STAGE) != EnumStoneStage.NORMAL) return false;
+		return world.setBlockState(pos, state.withProperty(STAGE, EnumStoneStage.MOSS));
 	}
 
 	public static enum EnumStoneType implements IStringSerializable {

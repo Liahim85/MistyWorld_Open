@@ -22,12 +22,13 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import ru.liahim.mist.api.block.IColoredBlock;
+import ru.liahim.mist.api.block.IMossable;
 import ru.liahim.mist.api.block.MistBlocks;
 import ru.liahim.mist.init.BlockColoring;
 import ru.liahim.mist.util.FacingHelper;
 import ru.liahim.mist.world.MistWorld;
 
-public class MistBlockMossy extends MistBlock implements IColoredBlock {
+public class MistBlockMossy extends MistBlock implements IColoredBlock, IMossable {
 
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -136,6 +137,12 @@ public class MistBlockMossy extends MistBlock implements IColoredBlock {
 	@Override
 	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
 		return new ItemStack(this, 1, state.getValue(VARIANT).getMetadata());
+	}
+
+	@Override
+	public boolean setMossy(IBlockState state, World world, BlockPos pos) {
+		if (!(state.getBlock() instanceof IMossable) || state.getValue(VARIANT) == EnumType.MOSSY) return false;
+		return world.setBlockState(pos, state.withProperty(VARIANT, EnumType.MOSSY));
 	}
 
 	public static enum EnumType implements IStringSerializable {

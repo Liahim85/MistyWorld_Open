@@ -1,5 +1,7 @@
 package ru.liahim.mist.item;
 
+import ru.liahim.mist.api.block.IMossable;
+import ru.liahim.mist.api.item.MistItems;
 import ru.liahim.mist.block.MistDirt;
 import ru.liahim.mist.block.MistTreeTrunk;
 import ru.liahim.mist.init.ModAdvancements;
@@ -33,7 +35,7 @@ public class ItemMistFertilizer extends ItemMist {
 								world.getBlockState(pos.up()).getValue(MistTreeTrunk.DIR) != EnumFacing.UP : true) : true))) {		
 					int hum = state.getValue(MistDirt.HUMUS);
 					if (hum < 3) {
-						if (!player.isCreative()) stack.setCount(stack.getCount() - 1);
+						if (!player.isCreative()) stack.shrink(1);
 						world.playSound(player, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 0.8F, 1.0F);
 						if (!world.isRemote) {
 							world.setBlockState(pos, state.withProperty(MistDirt.HUMUS, hum + 1));
@@ -48,7 +50,7 @@ public class ItemMistFertilizer extends ItemMist {
 				if (state.getBlock() instanceof MistDirt && ((MistDirt)state.getBlock()).canFertile(state)) {
 					int hum = state.getValue(MistDirt.HUMUS);
 					if (hum < 3) {
-						if (!player.isCreative()) stack.setCount(stack.getCount() - 1);
+						if (!player.isCreative()) stack.shrink(1);
 						world.playSound(player, pos.down(), SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 0.8F, 1.0F);
 						if (!world.isRemote) {
 							world.setBlockState(pos.down(), state.withProperty(MistDirt.HUMUS, hum + 1));
@@ -57,6 +59,11 @@ public class ItemMistFertilizer extends ItemMist {
 						return EnumActionResult.SUCCESS;
 					}
 				}
+			} else if (stack.getItem() == MistItems.HUMUS && state.getBlock() instanceof IMossable && ((IMossable)state.getBlock()).setMossy(state, world, pos)) {
+				if (!player.isCreative()) stack.shrink(1);
+				world.playSound(player, pos.down(), SoundEvents.ITEM_HOE_TILL, SoundCategory.BLOCKS, 0.8F, 1.0F);
+				if (!world.isRemote && player instanceof EntityPlayerMP) ModAdvancements.MOSSY.trigger((EntityPlayerMP) player, world, pos, state);
+				return EnumActionResult.SUCCESS;
 			}
 		}
 		return EnumActionResult.FAIL;

@@ -2,6 +2,7 @@ package ru.liahim.mist.block;
 
 import ru.liahim.mist.api.block.IColoredBlock;
 import ru.liahim.mist.api.block.IDividable;
+import ru.liahim.mist.api.block.IMossable;
 import ru.liahim.mist.api.block.MistBlocks;
 import ru.liahim.mist.init.BlockColoring;
 import ru.liahim.mist.util.FacingHelper;
@@ -33,7 +34,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**@author Liahim*/
-public class MistBlockSlabStone extends MistBlockSlab implements IDividable, IColoredBlock {
+public class MistBlockSlabStone extends MistBlockSlab implements IDividable, IColoredBlock, IMossable {
 
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -154,6 +155,12 @@ public class MistBlockSlabStone extends MistBlockSlab implements IDividable, ICo
 	@Override
 	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
 		return new ItemStack(state.getBlock(), 1, state.getValue(VARIANT).getMetadata());
+	}
+
+	@Override
+	public boolean setMossy(IBlockState state, World world, BlockPos pos) {
+		if (!(state.getBlock() instanceof IMossable) || state.getValue(VARIANT) == EnumType.MOSSY) return false;
+		return world.setBlockState(pos, state.withProperty(VARIANT, EnumType.MOSSY));
 	}
 
 	public static enum EnumType implements IStringSerializable {

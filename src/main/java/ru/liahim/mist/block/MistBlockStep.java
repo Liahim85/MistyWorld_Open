@@ -6,6 +6,7 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import ru.liahim.mist.api.block.IDividable;
+import ru.liahim.mist.api.block.IMossable;
 import ru.liahim.mist.api.block.MistBlocks;
 import ru.liahim.mist.api.item.MistItems;
 import ru.liahim.mist.util.FacingHelper;
@@ -32,7 +33,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**@author Liahim*/
-public class MistBlockStep extends BlockStairs implements IDividable {
+public class MistBlockStep extends BlockStairs implements IDividable, IMossable {
 
 	private final Block fullBlock;
 	protected final boolean tick;
@@ -268,6 +269,13 @@ public class MistBlockStep extends BlockStairs implements IDividable {
 
 	protected boolean isMossBlock() {
 		return this == MistBlocks.COBBLESTONE_MOSS_STEP || this == MistBlocks.STONE_BRICK_MOSS_STEP;
+	}
+
+	@Override
+	public boolean setMossy(IBlockState state, World world, BlockPos pos) {
+		if (state.getBlock() == MistBlocks.COBBLESTONE_STEP) return world.setBlockState(pos, MistBlocks.COBBLESTONE_MOSS_STEP.getDefaultState().withProperty(HALF, state.getValue(HALF)).withProperty(FACING, state.getValue(FACING)));
+		else if (state.getBlock() == MistBlocks.STONE_BRICK_STEP) return world.setBlockState(pos, MistBlocks.STONE_BRICK_MOSS_STEP.getDefaultState().withProperty(HALF, state.getValue(HALF)).withProperty(FACING, state.getValue(FACING)));
+		return false;
 	}
 
 	@Override

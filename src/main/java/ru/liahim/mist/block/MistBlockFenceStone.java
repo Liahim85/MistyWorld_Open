@@ -21,13 +21,14 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import ru.liahim.mist.api.block.IColoredBlock;
+import ru.liahim.mist.api.block.IMossable;
 import ru.liahim.mist.api.block.MistBlocks;
 import ru.liahim.mist.api.item.MistItems;
 import ru.liahim.mist.init.BlockColoring;
 import ru.liahim.mist.util.FacingHelper;
 import ru.liahim.mist.world.MistWorld;
 
-public class MistBlockFenceStone extends BlockWall implements IColoredBlock {
+public class MistBlockFenceStone extends BlockWall implements IColoredBlock, IMossable {
 
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -108,5 +109,11 @@ public class MistBlockFenceStone extends BlockWall implements IColoredBlock {
 	@Override
 	public boolean canPlaceTorchOnTop(IBlockState state, IBlockAccess world, BlockPos pos) {
 		return true;
+	}
+
+	@Override
+	public boolean setMossy(IBlockState state, World world, BlockPos pos) {
+		if (!(state.getBlock() instanceof IMossable) || state.getValue(VARIANT) == EnumType.MOSSY) return false;
+		return world.setBlockState(pos, state.withProperty(VARIANT, EnumType.MOSSY));
 	}
 }

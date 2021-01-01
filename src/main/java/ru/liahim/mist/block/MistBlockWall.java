@@ -273,6 +273,13 @@ public class MistBlockWall extends MistBlockStep {
 	}
 
 	@Override
+	public boolean setMossy(IBlockState state, World world, BlockPos pos) {
+		if (state.getBlock() == MistBlocks.COBBLESTONE_WALL) return world.setBlockState(pos, MistBlocks.COBBLESTONE_MOSS_WALL.getDefaultState().withProperty(HALF, state.getValue(HALF)).withProperty(FACING, state.getValue(FACING)));
+		else if (state.getBlock() == MistBlocks.STONE_BRICK_WALL) return world.setBlockState(pos, MistBlocks.STONE_BRICK_MOSS_WALL.getDefaultState().withProperty(HALF, state.getValue(HALF)).withProperty(FACING, state.getValue(FACING)));
+		return false;
+	}
+
+	@Override
 	public BlockFaceShape getBlockFaceShape(IBlockAccess world, IBlockState state, BlockPos pos, EnumFacing face) {
 		return face == state.getValue(FACING) ? BlockFaceShape.SOLID : BlockFaceShape.UNDEFINED;
 	}
