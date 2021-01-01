@@ -70,6 +70,15 @@ public class ModConfig {
 		@Comment("Can mycelium be harvested without a silk touch")
 		public boolean myceliumHarvesting = false;
 
+		@LangKey("config.mist.dimension.saplings")
+		@Comment("Saplings drop chance. The final chance will be multiplied by the number of leaves attached to the cut branch")
+		@RangeDouble(min = 0, max = 1)
+		public double saplingsDropChance = 0.1;
+
+		@LangKey("config.mist.dimension.bonemeal")
+		@Comment("Enable the use Bone Meal to accelerate tree growth")
+		public boolean enableUseBoneMeal = false;
+
 		@LangKey("config.mist.dimension.blacklist")
 		@Comment("Black list of dimensions in which it is impossible to build a portal into a Misty World")
 		public int[] dimBlackList = { 1 };

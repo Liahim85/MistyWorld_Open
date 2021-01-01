@@ -3,6 +3,11 @@ package ru.liahim.mist.capability.handler;
 import ru.liahim.mist.api.item.IMask;
 import ru.liahim.mist.network.PacketHandler;
 import ru.liahim.mist.network.PacketToxicSync;
+
+import java.util.Set;
+
+import com.google.common.collect.Sets;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
@@ -154,6 +159,7 @@ public class MistCapaHandler extends ItemStackHandler implements IMistCapaHandle
 		POLLUTION(1);
 
 		private final int id;
+		public static Set<String> commands = Sets.newHashSet();
 
 		private HurtType(int id) {
 			this.id = id;
@@ -161,6 +167,13 @@ public class MistCapaHandler extends ItemStackHandler implements IMistCapaHandle
 
 		public int getID() {
 			return this.id;
+		}
+
+		static {
+			for (HurtType type : HurtType.values()) {
+				commands.add(type.name().toLowerCase());
+			}
+			commands.add("clear");
 		}
 	}
 }

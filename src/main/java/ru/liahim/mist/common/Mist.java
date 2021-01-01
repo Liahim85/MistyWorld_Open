@@ -18,6 +18,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -28,6 +29,8 @@ import ru.liahim.mist.api.block.MistBlocks;
 import ru.liahim.mist.api.item.MistItems;
 import ru.liahim.mist.api.loottable.LootTables;
 import ru.liahim.mist.block.MistSaltpeterOre;
+import ru.liahim.mist.commands.SetMistEffects;
+import ru.liahim.mist.commands.SetMistSkills;
 import ru.liahim.mist.init.ModAdvancements;
 import ru.liahim.mist.init.ModBiomes;
 import ru.liahim.mist.init.ModBlocks;
@@ -45,7 +48,7 @@ public class Mist {
 
 	public static final String MODID = "mist";
 	public static final String NAME = "misty_world";
-	public static final String VERSION = "1.2.5.1";
+	public static final String VERSION = "1.2.5.3";
 	public static final Logger logger = LogManager.getLogger(NAME);
 	public static DimensionType dimensionType;
 	public static CreativeTabs mistTab = new MistTab("mist.tab");
@@ -92,6 +95,12 @@ public class Mist {
 	public void postInit(FMLPostInitializationEvent event) {
 		logger.info("Starting " + Mist.NAME + " PostInitialization");
 		proxy.postInit(event);
+	}
+
+	@EventHandler
+	public void serverStarting(FMLServerStartingEvent event) {
+		event.registerServerCommand(new SetMistEffects());
+		event.registerServerCommand(new SetMistSkills());
 	}
 
 	public static void initCompatibilityMod() {

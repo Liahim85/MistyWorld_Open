@@ -2,6 +2,9 @@ package ru.liahim.mist.capability.handler;
 
 import ru.liahim.mist.capability.SkillCapability;
 import ru.liahim.mist.init.ModConfig;
+
+import java.util.Map;
+import com.google.common.collect.Maps;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.util.INBTSerializable;
@@ -33,6 +36,7 @@ public interface ISkillCapaHandler extends INBTSerializable<NBTTagCompound> {
 		private final int[] levelSizesIn;
 		private int[] levelSizes;	// 1, 2, 3, -1
 		private int[] order;		// 0, 1, (1 + 2), (1 + 2 + 3)
+		public static Map<String,Skill> skills = Maps.newHashMap();
 
 		private Skill(String name, int[] levelSizes) {
 			this.name = name;
@@ -69,17 +73,34 @@ public interface ISkillCapaHandler extends INBTSerializable<NBTTagCompound> {
 			return this.levelSizes[getLevel(count) - 1];
 		}
 
+		public int getLevelsCount() {
+			return this.levelSizes.length;
+		}
+
 		public float getPosition(int count) {
 			int level = getLevel(count) - 1;
 			return (float)(count - this.order[level]) / this.levelSizes[level];
 		}
 
+		public int getSizeForLevel(int level) {
+			if (--level < 0) level = 0;
+			return this.order[level];
+		}
+
 		public int getTotalSize() {
-			return this.order[this.order.length - 1];
+			return this.getSizeForLevel(this.order.length);
 		}
 
 		public static int getLevel(EntityPlayer player, Skill skill) {
 			return skill.getLevel(ISkillCapaHandler.getHandler(player).getSkill(skill));
+		}
+
+		public static Skill fromName(String name) {
+			return skills.get(name);
+		}
+
+		static {
+			for (Skill skill : Skill.values()) skills.put(skill.getName(), skill);
 		}
 	}
 }
