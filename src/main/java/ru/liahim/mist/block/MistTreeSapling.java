@@ -6,8 +6,10 @@ import java.util.Random;
 
 import ru.liahim.mist.api.block.IWettable;
 import ru.liahim.mist.api.block.MistBlocks;
+import ru.liahim.mist.init.ModConfig;
 import ru.liahim.mist.world.MistWorld;
 import net.minecraft.block.BlockBush;
+import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -24,7 +26,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class MistTreeSapling extends BlockBush {
+public class MistTreeSapling extends BlockBush implements IGrowable {
 
 	public static final PropertyEnum<EnumType> TYPE = PropertyEnum.<EnumType>create("type", EnumType.class);
 	protected static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 0.8D, 0.9D);
@@ -44,6 +46,21 @@ public class MistTreeSapling extends BlockBush {
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		return SAPLING_AABB;
+	}
+
+	@Override
+	public boolean canGrow(World world, BlockPos pos, IBlockState state, boolean isClient) {
+		return ModConfig.dimension.enableUseBoneMeal && !MistWorld.isPosInFog(world, pos.getY());
+	}
+
+	@Override
+	public boolean canUseBonemeal(World world, Random rand, BlockPos pos, IBlockState state) {
+		return true;
+	}
+
+	@Override
+	public void grow(World world, Random rand, BlockPos pos, IBlockState state) {
+		this.updateTick(world, pos, state, rand);
 	}
 
 	@Override

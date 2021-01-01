@@ -8,6 +8,7 @@ import javax.annotation.Nullable;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
+import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.block.material.Material;
@@ -48,13 +49,15 @@ import ru.liahim.mist.api.block.IMistSoil;
 import ru.liahim.mist.api.block.IWettable;
 import ru.liahim.mist.api.block.MistBlocks;
 import ru.liahim.mist.common.Mist;
+import ru.liahim.mist.init.ModConfig;
+import ru.liahim.mist.util.FacingHelper;
 import ru.liahim.mist.util.SoilHelper;
 import ru.liahim.mist.world.MistWorld;
-
 import com.google.common.base.Predicate;
+import com.google.common.collect.Lists;
 
 /**@author Liahim*/
-public abstract class MistTreeTrunk extends MistBlock implements IPlantable {
+public abstract class MistTreeTrunk extends MistBlock implements IPlantable, IGrowable {
 	
 	public static final PropertyInteger SIZE = PropertyInteger.create("size", 0, 4);
 	public static final PropertyBool NODE = PropertyBool.create("node");
@@ -161,7 +164,7 @@ public abstract class MistTreeTrunk extends MistBlock implements IPlantable {
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 		ItemStack heldItem = player.getHeldItem(hand);
-		if (player.isCreative() && heldItem != null && heldItem.getItem() instanceof ItemAxe) {
+		if (player.isCreative() && heldItem.getItem() instanceof ItemAxe) {
 			if (!world.isRemote) {
 				EnumFacing face = getDir(state);
 				if (world.getBlockState(pos.offset(face.getOpposite())).getBlock() == this) {
@@ -178,6 +181,61 @@ public abstract class MistTreeTrunk extends MistBlock implements IPlantable {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public boolean canGrow(World world, BlockPos pos, IBlockState state, boolean isClient) {
+		return ModConfig.dimension.enableUseBoneMeal && !MistWorld.isPosInFog(world, pos.getY());
+	}
+
+    @Override
+	public boolean canUseBonemeal(World world, Random rand, BlockPos pos, IBlockState state) {
+		return true;
+    }
+
+    @Override
+	public void grow(World world, Random rand, BlockPos pos, IBlockState state) {
+		BlockPos checkPos = pos;
+		IBlockState checkState;
+		EnumFacing dir = this.getDir(state);
+		List<EnumFacing> list = Lists.newArrayList();
+		while(true) {
+			checkState = world.getBlockState(checkPos.offset(dir));
+			if (rand.nextInt(4) > 0 && checkState.getBlock() == this && this.getDir(checkState) == dir) {
+				list.add(dir);
+			} else {
+				for(EnumFacing face : FacingHelper.NOTDOWN) {
+					if (face != dir.getOpposite()) {
+						checkState = world.getBlockState(checkPos.offset(face));
+						if (checkState.getBlock() == this && this.getDir(checkState) == face) list.add(face);
+					}
+				}
+			}
+			if (!list.isEmpty()) {
+				checkPos = checkPos.offset(list.get(rand.nextInt(list.size())));
+				checkState = world.getBlockState(checkPos);
+				dir = this.getDir(checkState);
+				list.clear();
+				if (rand.nextInt(3) == 0) this.growLeaves(world, checkPos, checkState, rand);
+			} else {
+				this.growLeaves(world, checkPos, world.getBlockState(checkPos), rand);
+				break;
+			}
+		}
+	}
+
+	private void growLeaves(World world, BlockPos pos, IBlockState state, Random rand) {
+		BlockPos checkPos;
+		IBlockState checkState;
+		for(EnumFacing face : FacingHelper.NOTDOWN) {
+			checkPos = pos.offset(face);
+			checkState = world.getBlockState(checkPos);
+			if (checkState.getBlock() == this.leaves && checkState.getValue(LDIR) == face) {
+				checkState.getBlock().updateTick(world, checkPos, checkState, rand);
+			}
+		}
+		this.updateTick(world, pos, state, rand);
+		
 	}
 
 	@Override
@@ -458,7 +516,7 @@ public abstract class MistTreeTrunk extends MistBlock implements IPlantable {
 						if (upState.getBlock() == this.leaves && upState.getValue(LDIR) == face) ++count;
 					}
 				}
-				sapling = world.rand.nextInt((5 - count) + 2) == 0;
+				sapling = world.rand.nextFloat() < count * ModConfig.dimension.saplingsDropChance;
 			}
 		}
 		if (sapling) {
