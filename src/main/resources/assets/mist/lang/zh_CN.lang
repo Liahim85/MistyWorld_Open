@@ -556,7 +556,7 @@ item.mist.niobium_nugget.name=铌粒
 item.mist.mulch.name=护根物
 item.mist.remains.name=残骸
 item.mist.ash.name=灰烬
-item.mist.tallow.name=脂肪
+item.mist.tallow.name=动物脂肪
 item.mist.soap.name=肥皂
 item.mist.latex.name=乳胶
 item.mist.rubber.name=橡胶
@@ -609,7 +609,7 @@ item.mist.food_antitoxic.tooltip=可排毒的
 
 ### Plant
 item.mist.desert_cotton_f.name=沙漠棉花
-item.mist.desert_cotton_s.name=沙漠棉棉桃
+item.mist.desert_cotton_s.name=沙漠棉种子
 item.mist.acacia_seed.name=雨伞树树荚
 item.mist.aspen_seed.name=颤动树絮
 item.mist.a_tree_seed.name=南洋杉木球果
@@ -672,7 +672,7 @@ item.mist.urn_rare=罕见瓮
 item.mist.urn_raw=粘土瓮
 ##### Tooltip -------------------
 item.mist.urn.tooltip.altar=在祭坛中被找到
-item.mist.urn.tooltip.basement=在旧地基中被找到
+item.mist.urn.tooltip.basement=在废弃地基中被找到
 item.mist.urn.tooltip.burial=在墓室中被找到
 item.mist.urn.tooltip.well=在井里被找到
 item.mist.urn.location.forest=混合森林
