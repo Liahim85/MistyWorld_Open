@@ -761,6 +761,24 @@ gui.mist.effects.pollution=化学污染
 keybind.mist.mask_inventory=面具背包
 keybind.mist.skill_inventory=技术菜单
 
+# Commands
+ commands.setmisteffects.usage=/setmisteffects <player> <effect> [amount] or /setmisteffects <player> clear
+ commands.setmisteffects.notfound=There is no such mist effect with ID %s
+ commands.setmisteffects.failure.badcapability=Capability error with player %1$s
+ commands.setmisteffects.failure.notactive.all=Player %1$s has no mist effects
+ commands.setmisteffects.failure.notactive.pollution=Player %1$s has no chemical pollution
+ commands.setmisteffects.failure.notactive.toxic=Player %1$s has no intoxication
+ commands.setmisteffects.success.removed.all=Took all mist effects from %1$s
+ commands.setmisteffects.success.removed.pollution=Took chemical pollution from %1$s
+ commands.setmisteffects.success.pollution=Chemical pollution of %1$s has been changed to %2$s%%
+ commands.setmisteffects.success.removed.toxic=Took intoxication from %1$s
+ commands.setmisteffects.success.toxic=Intoxication of %1$s has been changed to %2$s%%
+
+ commands.setmistskills.usage=/setmistskills <player> <skill> [amount]
+ commands.setmistskills.notfound=There is no such skill with ID %s
+ commands.setmistskills.failure.badcapability=Capability error with player %1$s
+ commands.setmistskills.success=Skill level %2$s of %1$s has been changed to %3$s
+
 # Advancements
 advancements.mist.misty_world=朦胧的世界
 advancements.mist.misty_world.desc=故事开始了!
