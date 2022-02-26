@@ -554,7 +554,7 @@ item.mist.saltpeter.name=硝石
 item.mist.niobium_ingot.name=铌锭
 item.mist.niobium_nugget.name=铌粒
 item.mist.mulch.name=护根物
-item.mist.remains.name=残骸
+item.mist.remains.name=遗骸
 item.mist.ash.name=灰烬
 item.mist.tallow.name=脂肪
 item.mist.soap.name=肥皂
@@ -637,11 +637,11 @@ item.mist.niobium_helmet.name=铌头盔
 item.mist.niobium_chestplate.name=铌胸甲
 item.mist.niobium_leggings.name=铌护腿
 item.mist.niobium_boots.name=铌靴子
-item.mist.rubber_helmet.name=防护服兜帽
-item.mist.rubber_chestplate.name=防护服外套
-item.mist.rubber_leggings.name=防护服长裤
-item.mist.rubber_boots.name=防护服靴子
-item.mist.suit_protection.tooltip=防护能力
+item.mist.rubber_helmet.name=防化服兜帽
+item.mist.rubber_chestplate.name=防化服外套
+item.mist.rubber_leggings.name=防化服长裤
+item.mist.rubber_boots.name=防化服靴子
+item.mist.suit_protection.tooltip=防化能力
 item.mist.suit_inner.tooltip=内衬
 
 ### Gizmos
@@ -672,7 +672,7 @@ item.mist.urn_rare=罕见罐
 item.mist.urn_raw=粘土罐
 ##### Tooltip -------------------
 item.mist.urn.tooltip.altar=在祭坛中被找到
-item.mist.urn.tooltip.basement=在旧地基中被找到
+item.mist.urn.tooltip.basement=在废墟中被找到
 item.mist.urn.tooltip.burial=在墓室中被找到
 item.mist.urn.tooltip.well=在井里被找到
 item.mist.urn.location.forest=混合森林
@@ -713,7 +713,7 @@ fluid.mist.acid=酸液
 item.mist.acid_bucket.name=酸液桶
 
 ### Entities
-entity.mist.painting.name=painting
+entity.mist.painting.name=画
 entity.mist.mossling.name=Mossling
 entity.mist.forest_runner.name=Forset Runner
 entity.mist.momo.name=Momo
@@ -739,7 +739,7 @@ entity.mist.desert_fish.name=沙漠鱼
 
 # DamageSourse
 death.attack.mist.in_fog=%1$s 于雾气中窒息而亡
-death.attack.mist.dissolution=%1$s 被溶解在了酸液中
+death.attack.mist.dissolution=%1$s 在酸液中溶解了
 
 # GUI
 gui.mist.bad_sleep=你无法正常睡眠
@@ -758,8 +758,8 @@ gui.mist.effects.toxic=毒素积累
 gui.mist.effects.pollution=化学污染
 
 # Keybind
-keybind.mist.mask_inventory=面具背包
-keybind.mist.skill_inventory=技术菜单
+keybind.mist.mask_inventory=口罩栏
+keybind.mist.skill_inventory=技能菜单
 
 # Commands
  commands.setmisteffects.usage=/setmisteffects <player> <effect> [amount] or /setmisteffects <player> clear
@@ -847,7 +847,7 @@ advancements.mist.detoxic.desc=食用可解毒的食物
 advancements.mist.pollution=PO2Lu3TiO2N
 advancements.mist.pollution.desc=化学污染积累达到10%%
 advancements.mist.soap=制皂人
-advancements.mist.soap.desc=用动物脂肪，灰烬和硝石制作肥皂
+advancements.mist.soap.desc=用脂肪，灰烬和硝石制作肥皂
 advancements.mist.clean_up=走向健康的关键
 advancements.mist.clean_up.desc=用肥皂洗去化学污染
 advancements.mist.rubber_tree=橡胶树！
@@ -857,7 +857,7 @@ advancements.mist.latex.desc=从橡胶树上收集乳胶
 advancements.mist.rubber=弹性身躯
 advancements.mist.rubber.desc=用乳胶和硫磺制作橡胶
 advancements.mist.suit=二次接触
-advancements.mist.suit.desc=尽情享受防护服所带来的一切好处
+advancements.mist.suit.desc=尽情享受防化服所带来的一切好处
 advancements.mist.glass_container=太空食物
 advancements.mist.glass_container.desc=在戴着口罩时用玻璃胶管进食
 advancements.mist.isolation=隔离
