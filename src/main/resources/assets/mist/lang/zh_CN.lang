@@ -641,7 +641,7 @@ item.mist.rubber_helmet.name=防化服兜帽
 item.mist.rubber_chestplate.name=防化服外套
 item.mist.rubber_leggings.name=防化服长裤
 item.mist.rubber_boots.name=防化服靴子
-item.mist.suit_protection.tooltip=防化能力
+item.mist.suit_protection.tooltip=防护能力
 item.mist.suit_inner.tooltip=内衬
 
 ### Gizmos
