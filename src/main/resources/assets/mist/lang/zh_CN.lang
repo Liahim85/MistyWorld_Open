@@ -671,10 +671,10 @@ item.mist.urn=陶罐
 item.mist.urn_rare=罕见罐
 item.mist.urn_raw=粘土罐
 ##### Tooltip -------------------
-item.mist.urn.tooltip.altar=在祭坛中被找到
-item.mist.urn.tooltip.basement=在废墟中被找到
-item.mist.urn.tooltip.burial=在墓室中被找到
-item.mist.urn.tooltip.well=在井里被找到
+item.mist.urn.tooltip.altar=在祭坛中找到
+item.mist.urn.tooltip.basement=在废墟中找到
+item.mist.urn.tooltip.burial=在墓室中找到
+item.mist.urn.tooltip.well=在井里找到
 item.mist.urn.location.forest=混合森林
 item.mist.urn.location.swamp=沼泽
 item.mist.urn.location.taiga=针叶林
@@ -688,7 +688,7 @@ item.mist.map_up.tooltip=高地
 item.mist.map_down.tooltip=低地
 
 ### Painting
-item.mist.painting.name=旧画
+item.mist.painting.name=古画
 item.mist.painting.tooltip.name=标题
 item.mist.painting.tooltip.format=规格
 item.mist.painting.tooltip.cliff=峭壁
@@ -857,7 +857,7 @@ advancements.mist.latex.desc=从橡胶树上收集乳胶
 advancements.mist.rubber=弹性身躯
 advancements.mist.rubber.desc=用乳胶和硫磺制作橡胶
 advancements.mist.suit=二次接触
-advancements.mist.suit.desc=尽情享受防化服所带来的一切好处
+advancements.mist.suit.desc=好好体会防化服所带来的好处
 advancements.mist.glass_container=太空食物
 advancements.mist.glass_container.desc=在戴着口罩时用玻璃胶管进食
 advancements.mist.isolation=隔离
