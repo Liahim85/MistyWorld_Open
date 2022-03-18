@@ -637,10 +637,10 @@ item.mist.niobium_helmet.name=铌头盔
 item.mist.niobium_chestplate.name=铌胸甲
 item.mist.niobium_leggings.name=铌护腿
 item.mist.niobium_boots.name=铌靴子
-item.mist.rubber_helmet.name=防护服兜帽
-item.mist.rubber_chestplate.name=防护服外套
-item.mist.rubber_leggings.name=防护服长裤
-item.mist.rubber_boots.name=防护服靴子
+item.mist.rubber_helmet.name=防化服兜帽
+item.mist.rubber_chestplate.name=防化服外套
+item.mist.rubber_leggings.name=防化服长裤
+item.mist.rubber_boots.name=防化服靴子
 item.mist.suit_protection.tooltip=防护能力
 item.mist.suit_inner.tooltip=内衬
 
@@ -671,10 +671,10 @@ item.mist.urn=陶罐
 item.mist.urn_rare=罕见罐
 item.mist.urn_raw=粘土罐
 ##### Tooltip -------------------
-item.mist.urn.tooltip.altar=在祭坛中被找到
-item.mist.urn.tooltip.basement=在旧地基中被找到
-item.mist.urn.tooltip.burial=在墓室中被找到
-item.mist.urn.tooltip.well=在井里被找到
+item.mist.urn.tooltip.altar=在祭坛中找到
+item.mist.urn.tooltip.basement=在废墟中找到
+item.mist.urn.tooltip.burial=在墓室中找到
+item.mist.urn.tooltip.well=在井里找到
 item.mist.urn.location.forest=混合森林
 item.mist.urn.location.swamp=沼泽
 item.mist.urn.location.taiga=针叶林
@@ -688,7 +688,7 @@ item.mist.map_up.tooltip=高地
 item.mist.map_down.tooltip=低地
 
 ### Painting
-item.mist.painting.name=旧画
+item.mist.painting.name=古画
 item.mist.painting.tooltip.name=标题
 item.mist.painting.tooltip.format=规格
 item.mist.painting.tooltip.cliff=峭壁
@@ -857,7 +857,7 @@ advancements.mist.latex.desc=从橡胶树上收集乳胶
 advancements.mist.rubber=弹性身躯
 advancements.mist.rubber.desc=用乳胶和硫磺制作橡胶
 advancements.mist.suit=二次接触
-advancements.mist.suit.desc=尽情享受防护服所带来的一切好处
+advancements.mist.suit.desc=好好体会防化服所带来的好处
 advancements.mist.glass_container=太空食物
 advancements.mist.glass_container.desc=在戴着口罩时用玻璃胶管进食
 advancements.mist.isolation=隔离
