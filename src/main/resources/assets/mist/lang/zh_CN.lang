@@ -18,12 +18,12 @@ tile.mist.stone_mined.name=平滑雾石
 tile.mist.stone_mined_moss.name=苔平滑雾石
 tile.mist.stone_chiseled.name=錾制雾石
 tile.mist.stone_chiseled_moss.name=苔錾制雾石
-tile.mist.stone_brick.name=石砖
-tile.mist.stone_brick_moss.name=苔石砖
-tile.mist.masonry.name=砌砖
-tile.mist.masonry_moss.name=苔砌砖
-tile.mist.cobblestone.name=圆石
-tile.mist.cobblestone_moss.name=苔石
+tile.mist.stone_brick.name=雾石砖
+tile.mist.stone_brick_moss.name=苔雾石砖
+tile.mist.masonry.name=雾朦砖石
+tile.mist.masonry_moss.name=苔雾朦砖石
+tile.mist.cobblestone.name=雾朦圆石
+tile.mist.cobblestone_moss.name=雾朦苔石
 tile.mist.gravel.name=沙砾
 tile.mist.sand.name=沙子
 tile.mist.red_sand.name=红沙
@@ -234,10 +234,10 @@ tile.mist.r_tree_log_nd.name=去皮橡胶树树结
 tile.mist.r_tree_planks.name=橡胶树木板
 
 ### Step
-tile.mist.cobblestone_step.name=圆石梁
-tile.mist.cobblestone_moss_step.name=苔石梁
-tile.mist.stone_brick_step.name=石砖梁
-tile.mist.stone_brick_moss_step.name=苔石砖梁
+tile.mist.cobblestone_step.name=雾朦圆石梁
+tile.mist.cobblestone_moss_step.name=雾朦苔石梁
+tile.mist.stone_brick_step.name=雾石砖梁
+tile.mist.stone_brick_moss_step.name=苔雾石砖梁
 tile.mist.acacia_step.name=雨伞木梁
 tile.mist.aspen_step.name=颤动木梁
 tile.mist.a_tree_step.name=南洋杉木梁
@@ -253,10 +253,10 @@ tile.mist.willow_step.name=垂枝木梁
 tile.mist.r_tree_step.name=橡胶木梁
 
 ### Slab
-tile.mist.cobblestone_slab.name=圆石台阶
-tile.mist.cobblestone_moss_slab.name=苔石梁
-tile.mist.stone_brick_slab.name=石砖梁
-tile.mist.stone_brick_moss_slab.name=苔石砖梁
+tile.mist.cobblestone_slab.name=雾朦圆石台阶
+tile.mist.cobblestone_moss_slab.name=雾朦苔石台阶
+tile.mist.stone_brick_slab.name=雾石砖台阶
+tile.mist.stone_brick_moss_slab.name=苔雾石砖台阶
 tile.mist.acacia_slab.name=雨伞木台阶
 tile.mist.aspen_slab.name=颤动木台阶
 tile.mist.a_tree_slab.name=南洋杉木台阶
@@ -272,10 +272,10 @@ tile.mist.willow_slab.name=垂枝木台阶
 tile.mist.r_tree_slab.name=橡胶木台阶
 
 ### Wall
-tile.mist.cobblestone_wall.name=圆石墙
-tile.mist.cobblestone_moss_wall.name=苔石墙
-tile.mist.stone_brick_wall.name=石砖墙
-tile.mist.stone_brick_moss_wall.name=苔石砖墙
+tile.mist.cobblestone_wall.name=雾朦圆石墙
+tile.mist.cobblestone_moss_wall.name=雾朦苔石墙
+tile.mist.stone_brick_wall.name=雾石砖墙
+tile.mist.stone_brick_moss_wall.name=苔雾石砖墙
 tile.mist.acacia_wall.name=雨伞树木墙
 tile.mist.aspen_wall.name=颤动树木墙
 tile.mist.a_tree_wall.name=南洋杉木墙
@@ -291,10 +291,10 @@ tile.mist.willow_wall.name=垂枝树木墙
 tile.mist.r_tree_wall.name=橡胶树木墙
 
 ### Stairs
-tile.mist.cobblestone_stairs.name=圆石楼梯
-tile.mist.cobblestone_moss_stairs.name=苔石楼梯
-tile.mist.stone_brick_stairs.name=石砖楼梯
-tile.mist.stone_brick_moss_stairs.name=苔石砖楼梯
+tile.mist.cobblestone_stairs.name=雾朦圆石楼梯
+tile.mist.cobblestone_moss_stairs.name=雾朦苔石楼梯
+tile.mist.stone_brick_stairs.name=雾石砖楼梯
+tile.mist.stone_brick_moss_stairs.name=苔雾石砖楼梯
 tile.mist.acacia_stairs.name=雨伞树楼梯
 tile.mist.aspen_stairs.name=颤动树楼梯
 tile.mist.a_tree_stairs.name=南洋杉楼梯
@@ -364,10 +364,10 @@ tile.mist.r_tree_branch_8.name=橡胶树树干
 tile.mist.r_tree_branch_8_d.name=去皮橡胶树树干
 
 ### Fence
-tile.mist.cobblestone_fence.name=圆石栅栏
-tile.mist.cobblestone_fence_moss.name=苔石栅栏
-tile.mist.stone_brick_fence.name=石砖栅栏
-tile.mist.stone_brick_fence_moss.name=苔石砖栅栏
+tile.mist.cobblestone_fence.name=雾朦圆石栅栏
+tile.mist.cobblestone_fence_moss.name=雾朦苔石栅栏
+tile.mist.stone_brick_fence.name=雾石砖栅栏
+tile.mist.stone_brick_fence_moss.name=苔雾石砖栅栏
 tile.mist.acacia_fence_4.name=雨伞木栅栏
 tile.mist.acacia_fence_4_d.name=去皮雨伞木栅栏
 tile.mist.acacia_fence_8.name=粗雨伞栅栏
@@ -537,7 +537,7 @@ tile.mist.bed.in_fog=你不能在雾区睡觉
 item.mist.more_info.tooltip=按住"shift"来查看更多信息
 ### Other
 item.mist.rocks.name=碎石
-item.mist.brick.name=石砖砖块
+item.mist.brick.name=砖块
 item.mist.clay_ball_gray.name=灰粘土
 item.mist.clay_ball_red.name=红粘土
 item.mist.humus.name=腐殖质
@@ -554,7 +554,7 @@ item.mist.saltpeter.name=硝石
 item.mist.niobium_ingot.name=铌锭
 item.mist.niobium_nugget.name=铌粒
 item.mist.mulch.name=护根物
-item.mist.remains.name=残骸
+item.mist.remains.name=遗骸
 item.mist.ash.name=灰烬
 item.mist.tallow.name=脂肪
 item.mist.soap.name=肥皂
@@ -594,12 +594,12 @@ item.mist.meat_brachiodon.name=Brachiodon Meat
 item.mist.meat_brachiodon_c.name=Cooked Brachiodon Meat
 
 item.mist.sponge_meat.name=雾朦海绵肉
-item.mist.nightberry.name=越橘
+item.mist.nightberry.name=夜光莓
 item.mist.tinder_fungus.name=木蹄层孔菌
 item.mist.pills_bitter.name=药丸
 item.mist.soup.name=汤
 item.mist.soup_toxic.name=毒性
-item.mist.glass_container.name=玻璃胶管
+item.mist.glass_container.name=汤羹储罐
 item.mist.food_salt.tooltip=加盐的
 item.mist.food_inedible.tooltip=有毒的
 item.mist.food_unknown.tooltip=可食用吗?
@@ -637,10 +637,10 @@ item.mist.niobium_helmet.name=铌头盔
 item.mist.niobium_chestplate.name=铌胸甲
 item.mist.niobium_leggings.name=铌护腿
 item.mist.niobium_boots.name=铌靴子
-item.mist.rubber_helmet.name=防护服兜帽
-item.mist.rubber_chestplate.name=防护服外套
-item.mist.rubber_leggings.name=防护服长裤
-item.mist.rubber_boots.name=防护服靴子
+item.mist.rubber_helmet.name=防化服兜帽
+item.mist.rubber_chestplate.name=防化服外套
+item.mist.rubber_leggings.name=防化服长裤
+item.mist.rubber_boots.name=防化服靴子
 item.mist.suit_protection.tooltip=防护能力
 item.mist.suit_inner.tooltip=内衬
 
@@ -671,10 +671,10 @@ item.mist.urn=陶罐
 item.mist.urn_rare=罕见罐
 item.mist.urn_raw=粘土罐
 ##### Tooltip -------------------
-item.mist.urn.tooltip.altar=在祭坛中被找到
-item.mist.urn.tooltip.basement=在旧地基中被找到
-item.mist.urn.tooltip.burial=在墓室中被找到
-item.mist.urn.tooltip.well=在井里被找到
+item.mist.urn.tooltip.altar=在祭坛中找到
+item.mist.urn.tooltip.basement=在废墟中找到
+item.mist.urn.tooltip.burial=在墓室中找到
+item.mist.urn.tooltip.well=在井里找到
 item.mist.urn.location.forest=混合森林
 item.mist.urn.location.swamp=沼泽
 item.mist.urn.location.taiga=针叶林
@@ -688,7 +688,7 @@ item.mist.map_up.tooltip=高地
 item.mist.map_down.tooltip=低地
 
 ### Painting
-item.mist.painting.name=旧画
+item.mist.painting.name=古画
 item.mist.painting.tooltip.name=标题
 item.mist.painting.tooltip.format=规格
 item.mist.painting.tooltip.cliff=峭壁
@@ -731,7 +731,7 @@ entity.mist.brachiodon.name=Brachiodon
 
 entity.mist.grave_bug.name=墓虫
 entity.mist.forest_spider.name=林地蜘蛛
-entity.mist.swamp_crab.name=沼泽蟹
+entity.mist.swamp_crab.name=沼蟹
 entity.mist.snow_flea.name=雪地跳虫
 entity.mist.woodlouse.name=热带潮虫
 entity.mist.cyclops.name=独眼虫
@@ -750,7 +750,7 @@ gui.mist.pot_info=锅
 gui.mist.pot_impurity=杂质
 gui.mist.pot_saturation=饥饿值/份
 gui.mist.skills=技术
-gui.mist.skills.taming=驯服
+gui.mist.skills.taming=驯兽
 gui.mist.skills.cutting=屠宰
 gui.mist.skills.mason=石料加工
 gui.mist.effects=效果
@@ -759,7 +759,7 @@ gui.mist.effects.pollution=化学污染
 
 # Keybind
 keybind.mist.mask_inventory=面具背包
-keybind.mist.skill_inventory=技术菜单
+keybind.mist.skill_inventory=技能菜单
 
 # Commands
  commands.setmisteffects.usage=/setmisteffects <player> <effect> [amount] or /setmisteffects <player> clear
@@ -835,7 +835,7 @@ advancements.mist.remains.desc=挖开一座坟墓
 advancements.mist.tame_animal=我们血脉同源
 advancements.mist.tame_animal.desc=驯服一只朦胧世界中的动物
 advancements.mist.mycelium=敏锐巨鼻
-advancements.mist.mycelium.desc=在sniff的帮助下找到菌丝体
+advancements.mist.mycelium.desc=在Sniff的帮助下找到菌丝体
 advancements.mist.riding=驯兽高手
 advancements.mist.riding.desc=骑上一只大型肉食性动物
 advancements.mist.rain=首次接触
@@ -857,13 +857,13 @@ advancements.mist.latex.desc=从橡胶树上收集乳胶
 advancements.mist.rubber=弹性身躯
 advancements.mist.rubber.desc=用乳胶和硫磺制作橡胶
 advancements.mist.suit=二次接触
-advancements.mist.suit.desc=尽情享受防护服所带来的一切好处
+advancements.mist.suit.desc=尽情享受防化服所带来的一切好处
 advancements.mist.glass_container=太空食物
-advancements.mist.glass_container.desc=在戴着口罩时用玻璃胶管进食
+advancements.mist.glass_container.desc=在戴着口罩时用汤羹储罐进食
 advancements.mist.isolation=隔离
 advancements.mist.isolation.desc=通过将一块雾石与其他雾石隔开来获得它
-advancements.mist.rockbreaker=碎石者
-advancements.mist.rockbreaker.desc=将錾制雾石或平滑雾石放在篝火上方加热，然后用水冷却它
+advancements.mist.rockbreaker=碎岩
+advancements.mist.rockbreaker.desc=将錾制雾石或平滑雾石放在篝火上方加热，然后倒上一桶水...
 advancements.mist.mason=石匠
 advancements.mist.mason.desc=将石料处理技术提升到II级，然后试着雕刻平滑雾石
 
