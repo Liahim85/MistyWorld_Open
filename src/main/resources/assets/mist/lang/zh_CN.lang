@@ -18,12 +18,12 @@ tile.mist.stone_mined.name=平滑雾石
 tile.mist.stone_mined_moss.name=苔平滑雾石
 tile.mist.stone_chiseled.name=錾制雾石
 tile.mist.stone_chiseled_moss.name=苔錾制雾石
-tile.mist.stone_brick.name=石砖
-tile.mist.stone_brick_moss.name=苔石砖
-tile.mist.masonry.name=砌砖
-tile.mist.masonry_moss.name=苔砌砖
-tile.mist.cobblestone.name=圆石
-tile.mist.cobblestone_moss.name=苔石
+tile.mist.stone_brick.name=雾石砖
+tile.mist.stone_brick_moss.name=苔雾石砖
+tile.mist.masonry.name=雾朦砖石
+tile.mist.masonry_moss.name=苔雾朦砖石
+tile.mist.cobblestone.name=雾朦圆石
+tile.mist.cobblestone_moss.name=雾朦苔石
 tile.mist.gravel.name=沙砾
 tile.mist.sand.name=沙子
 tile.mist.red_sand.name=红沙
@@ -234,10 +234,10 @@ tile.mist.r_tree_log_nd.name=去皮橡胶树树结
 tile.mist.r_tree_planks.name=橡胶树木板
 
 ### Step
-tile.mist.cobblestone_step.name=圆石梁
-tile.mist.cobblestone_moss_step.name=苔石梁
-tile.mist.stone_brick_step.name=石砖梁
-tile.mist.stone_brick_moss_step.name=苔石砖梁
+tile.mist.cobblestone_step.name=雾朦圆石梁
+tile.mist.cobblestone_moss_step.name=雾朦苔石梁
+tile.mist.stone_brick_step.name=雾石砖梁
+tile.mist.stone_brick_moss_step.name=苔雾石砖梁
 tile.mist.acacia_step.name=雨伞木梁
 tile.mist.aspen_step.name=颤动木梁
 tile.mist.a_tree_step.name=南洋杉木梁
@@ -253,10 +253,10 @@ tile.mist.willow_step.name=垂枝木梁
 tile.mist.r_tree_step.name=橡胶木梁
 
 ### Slab
-tile.mist.cobblestone_slab.name=圆石台阶
-tile.mist.cobblestone_moss_slab.name=苔石梁
-tile.mist.stone_brick_slab.name=石砖梁
-tile.mist.stone_brick_moss_slab.name=苔石砖梁
+tile.mist.cobblestone_slab.name=雾朦圆石台阶
+tile.mist.cobblestone_moss_slab.name=雾朦苔石台阶
+tile.mist.stone_brick_slab.name=雾石砖台阶
+tile.mist.stone_brick_moss_slab.name=苔雾石砖台阶
 tile.mist.acacia_slab.name=雨伞木台阶
 tile.mist.aspen_slab.name=颤动木台阶
 tile.mist.a_tree_slab.name=南洋杉木台阶
@@ -272,10 +272,10 @@ tile.mist.willow_slab.name=垂枝木台阶
 tile.mist.r_tree_slab.name=橡胶木台阶
 
 ### Wall
-tile.mist.cobblestone_wall.name=圆石墙
-tile.mist.cobblestone_moss_wall.name=苔石墙
-tile.mist.stone_brick_wall.name=石砖墙
-tile.mist.stone_brick_moss_wall.name=苔石砖墙
+tile.mist.cobblestone_wall.name=雾朦圆石墙
+tile.mist.cobblestone_moss_wall.name=雾朦苔石墙
+tile.mist.stone_brick_wall.name=雾石砖墙
+tile.mist.stone_brick_moss_wall.name=苔雾石砖墙
 tile.mist.acacia_wall.name=雨伞树木墙
 tile.mist.aspen_wall.name=颤动树木墙
 tile.mist.a_tree_wall.name=南洋杉木墙
@@ -291,10 +291,10 @@ tile.mist.willow_wall.name=垂枝树木墙
 tile.mist.r_tree_wall.name=橡胶树木墙
 
 ### Stairs
-tile.mist.cobblestone_stairs.name=圆石楼梯
-tile.mist.cobblestone_moss_stairs.name=苔石楼梯
-tile.mist.stone_brick_stairs.name=石砖楼梯
-tile.mist.stone_brick_moss_stairs.name=苔石砖楼梯
+tile.mist.cobblestone_stairs.name=雾朦圆石楼梯
+tile.mist.cobblestone_moss_stairs.name=雾朦苔石楼梯
+tile.mist.stone_brick_stairs.name=雾石砖楼梯
+tile.mist.stone_brick_moss_stairs.name=苔雾石砖楼梯
 tile.mist.acacia_stairs.name=雨伞树楼梯
 tile.mist.aspen_stairs.name=颤动树楼梯
 tile.mist.a_tree_stairs.name=南洋杉楼梯
@@ -364,10 +364,10 @@ tile.mist.r_tree_branch_8.name=橡胶树树干
 tile.mist.r_tree_branch_8_d.name=去皮橡胶树树干
 
 ### Fence
-tile.mist.cobblestone_fence.name=圆石栅栏
-tile.mist.cobblestone_fence_moss.name=苔石栅栏
-tile.mist.stone_brick_fence.name=石砖栅栏
-tile.mist.stone_brick_fence_moss.name=苔石砖栅栏
+tile.mist.cobblestone_fence.name=雾朦圆石栅栏
+tile.mist.cobblestone_fence_moss.name=雾朦苔石栅栏
+tile.mist.stone_brick_fence.name=雾石砖栅栏
+tile.mist.stone_brick_fence_moss.name=苔雾石砖栅栏
 tile.mist.acacia_fence_4.name=雨伞木栅栏
 tile.mist.acacia_fence_4_d.name=去皮雨伞木栅栏
 tile.mist.acacia_fence_8.name=粗雨伞栅栏
@@ -599,7 +599,7 @@ item.mist.tinder_fungus.name=木蹄层孔菌
 item.mist.pills_bitter.name=药丸
 item.mist.soup.name=汤
 item.mist.soup_toxic.name=毒性
-item.mist.glass_container.name=玻璃胶管
+item.mist.glass_container.name=汤羹储罐
 item.mist.food_salt.tooltip=加盐的
 item.mist.food_inedible.tooltip=有毒的
 item.mist.food_unknown.tooltip=可食用吗?
@@ -713,7 +713,7 @@ fluid.mist.acid=酸液
 item.mist.acid_bucket.name=酸液桶
 
 ### Entities
-entity.mist.painting.name=painting
+entity.mist.painting.name画
 entity.mist.mossling.name=Mossling
 entity.mist.forest_runner.name=Forset Runner
 entity.mist.momo.name=Momo
@@ -859,7 +859,7 @@ advancements.mist.rubber.desc=用乳胶和硫磺制作橡胶
 advancements.mist.suit=二次接触
 advancements.mist.suit.desc=尽情享受防护服所带来的一切好处
 advancements.mist.glass_container=太空食物
-advancements.mist.glass_container.desc=在戴着口罩时用玻璃胶管进食
+advancements.mist.glass_container.desc=在戴着口罩时用汤羹储罐进食
 advancements.mist.isolation=隔离
 advancements.mist.isolation.desc=通过将一块雾石与其他雾石隔开来获得它
 advancements.mist.rockbreaker=碎石者
