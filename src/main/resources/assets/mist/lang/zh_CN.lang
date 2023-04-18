@@ -1,4 +1,4 @@
-############################################################
+##############################
 # Misty World
 #
 # ZhongWen - CHINA (CN) (zh_CN) localization
@@ -836,7 +836,7 @@ advancements.mist.remains.desc=挖开一座坟墓
 advancements.mist.tame_animal=我们血脉同源
 advancements.mist.tame_animal.desc=驯服一只朦胧世界中的动物
 advancements.mist.mycelium=敏锐巨鼻
-advancements.mist.mycelium.desc=在Sniff的帮助下找到菌丝体
+advancements.mist.mycelium.desc=在嗅寻兽的帮助下找到菌丝体
 advancements.mist.riding=驯兽高手
 advancements.mist.riding.desc=骑上一只大型肉食性动物
 advancements.mist.rain=首次接触
